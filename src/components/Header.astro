@@ -1,15 +1,17 @@
 ---
+const base = import.meta.env.BASE_URL;
+const link = (path) => `${base}${path}`;
 const nav = [
-  { href: '/', label: '홈' },
-  { href: '/business-consulting/', label: '기업컨설팅' },
-  { href: '/career-planning/', label: '커리어플래닝서비스' },
-  { href: '/process/', label: '진행 절차' },
-  { href: '/approach/', label: 'K·JOBS 지원 방식' },
-  { href: '/contact/', label: '문의' },
+  { href: link(''), label: '홈' },
+  { href: link('business-consulting/'), label: '기업컨설팅' },
+  { href: link('career-planning/'), label: '커리어플래닝서비스' },
+  { href: link('process/'), label: '진행 절차' },
+  { href: link('approach/'), label: 'K·JOBS 지원 방식' },
+  { href: link('contact/'), label: '문의' },
 ];
 ---
 <header class="site-header">
-  <a class="brand" href="/" aria-label="재취업지원서비스 시행지원 홈">
+  <a class="brand" href={base} aria-label="재취업지원서비스 시행지원 홈">
     <span class="brand-kicker">재취업지원서비스 시행지원</span>
     <span class="brand-title">기업컨설팅 및 커리어플래닝서비스</span>
   </a>

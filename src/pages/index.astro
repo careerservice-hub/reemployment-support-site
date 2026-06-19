@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+const link = (path) => `${base}${path}`;
 ---
 <BaseLayout title="홈">
   <section class="hero section-xl">
@@ -7,8 +9,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h1>기업의 제도 운영과 중장년 근로자의 경력설계를 함께 지원합니다.</h1>
     <p class="hero-copy">케이잡스 K·JOBS는 재취업지원서비스 시행지원 수행기관으로서, 기업이 제도 기준에 맞는 운영체계를 갖추고 근로자가 자신의 다음 경력 방향을 준비할 수 있도록 전문 컨설팅과 상담을 제공합니다.</p>
     <div class="hero-actions">
-      <a class="btn primary" href="/business-consulting/">기업컨설팅 보기</a>
-      <a class="btn secondary" href="/career-planning/">커리어플래닝서비스 보기</a>
+      <a class="btn primary" href={link('business-consulting/')}>기업컨설팅 보기</a>
+      <a class="btn secondary" href={link('career-planning/')}>커리어플래닝서비스 보기</a>
     </div>
   </section>
 
@@ -17,13 +19,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <span class="tag">For Company</span>
       <h2>기업컨설팅</h2>
       <p>재취업지원서비스 제도 도입과 운영체계를 점검하고, 대상자 안내·운영 절차·프로그램 구성·성과관리 방향을 기업 여건에 맞게 정리합니다.</p>
-      <a href="/business-consulting/" class="text-link">기업 지원 내용 확인</a>
+      <a href={link('business-consulting/')} class="text-link">기업 지원 내용 확인</a>
     </article>
     <article>
       <span class="tag green">For Individual</span>
       <h2>커리어플래닝서비스</h2>
       <p>40세 이상 중장년 재직자가 자신의 경력과 강점을 진단하고, 앞으로의 역할 변화와 경력목표를 설계할 수 있도록 지원합니다.</p>
-      <a href="/career-planning/" class="text-link">개인 지원 내용 확인</a>
+      <a href={link('career-planning/')} class="text-link">개인 지원 내용 확인</a>
     </article>
   </section>
 
@@ -47,6 +49,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>참여 가능 여부와 진행 방식을 먼저 확인하세요.</h2>
       <p>기업컨설팅 또는 커리어플래닝서비스 참여를 검토 중이라면, 대상 여부·신청 방식·일정 조율이 먼저 필요합니다.</p>
     </div>
-    <a class="btn inverse" href="/contact/">문의하기</a>
+    <a class="btn inverse" href={link('contact/')}>문의하기</a>
   </section>
 </BaseLayout>
