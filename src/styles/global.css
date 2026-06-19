@@ -277,7 +277,9 @@ p { margin: 0; }
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 28px;
-  background: #d8eeee;
+  background:
+    linear-gradient(135deg, rgba(0, 140, 149, .08), rgba(199,222,90,.12)),
+    url('https://i.ytimg.com/vi/lytvNDvbWyo/hqdefault.jpg') center / cover no-repeat;
   border: 1px solid rgba(0,140,149,.18);
   box-shadow: 0 18px 48px rgba(0,109,118,.12);
 }
@@ -287,6 +289,22 @@ p { margin: 0; }
   width: 100%;
   height: 100%;
   border: 0;
+}
+.video-direct-link {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.92);
+  color: var(--teal-dark);
+  font-weight: 900;
+  font-size: .86rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
 }
 .grid-two { display: grid; grid-template-columns: .72fr 1fr; gap: 40px; align-items: start; }
 .list-panel { display: grid; gap: 10px; }
