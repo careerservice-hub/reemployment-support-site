@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap');
-
 :root {
   --bg: #050713;
   --bg-2: #090d1f;
@@ -23,7 +21,7 @@
 html { scroll-behavior: smooth; background: var(--bg); }
 body {
   margin: 0;
-  font-family: Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Malgun Gothic', '맑은 고딕', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--text);
   background:
     radial-gradient(circle at 50% 0%, rgba(124, 61, 255, 0.62), transparent 34rem),
@@ -117,7 +115,7 @@ a { color: inherit; text-decoration: none; }
 .eyebrow.light { background: rgba(255,255,255,.12); color: var(--soft); }
 
 h1, h2 {
-  font-family: Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Malgun Gothic', '맑은 고딕', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--text);
   line-height: 1.03;
   letter-spacing: -.07em;
