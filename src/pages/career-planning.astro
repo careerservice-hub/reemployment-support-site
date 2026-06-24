@@ -12,7 +12,7 @@ const flow = [
     <div class="ty-mark">커리어플래닝서비스</div>
     <p class="ty-comment">경험을 다음 경력 방향으로</p>
     <h1>경력을 다시 읽고, 다음을 씁니다.</h1>
-    <p class="ty-lead">참여 비용 전액 무료로 40세 이상 중장년 재직자의 직무경험과 강점, 역할 변화와 경력목표를 정리합니다.</p>
+    <p class="ty-lead">참여 비용 <span class="free-highlight">전액 무료</span>로 40세 이상 중장년 재직자의 직무경험과 강점, 역할 변화와 경력목표를 정리합니다.</p>
   </section>
 
   <section class="ty-section ty-video" aria-labelledby="career-video-title">
@@ -29,10 +29,10 @@ const flow = [
   <section class="ty-section">
     <div class="ty-section-head">
       <h2>명확한 경력 설계</h2>
-      <p>기초·심화 과정은 전액 무료이며, 경력진단에서 실행계획까지 상담 구조를 단순하게 정리합니다.</p>
+      <p>기초·심화 과정은 <span class="free-highlight">전액 무료</span>이며, 경력진단에서 실행계획까지 상담 구조를 단순하게 정리합니다.</p>
     </div>
     <div class="ty-feature-row four">
-      {flow.map(([title, body]) => <article><h3>{title}</h3><p>{body}</p></article>)}
+      {flow.map(([title, body]) => <article><h3>{title}</h3><p set:html={body}></p></article>)}
     </div>
   </section>
 
@@ -54,7 +54,7 @@ const flow = [
       <h2>기업 신청과 개인 신청 모두 가능합니다.</h2>
     </div>
     <div class="ty-checks">
-      <p><strong>참여 비용</strong><span>기초·심화 서비스는 전액 무료입니다.</span></p>
+      <p><strong>참여 비용</strong><span>기초·심화 서비스는 <span class="free-highlight">전액 무료</span>입니다.</span></p>
       <p><strong>지원 규모</strong><span>2026년 기준 950명 규모로 운영되며 예산 소진 시 조기 종료될 수 있습니다.</span></p>
       <p><strong>제공 방식</strong><span>일대일 맞춤형 컨설팅으로 대면 상담과 온라인 상담이 가능합니다.</span></p>
     </div>
