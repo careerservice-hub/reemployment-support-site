@@ -4,5 +4,6 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://www.careerservice.co.kr',
   base: '/',
+  devToolbar: { enabled: false },
   integrations: [sitemap()],
 });
