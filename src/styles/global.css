@@ -554,7 +554,6 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
   .service-strip { grid-template-columns: 1fr; }
 }
 
-/* Hermes apple-minimal home experiment */
 .site-header {
   top: 0;
   margin: 0 calc(50% - 50vw);
@@ -673,7 +672,6 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
 }
 
 
-/* Final K·JOBS homepage composition */
 .final-hero {
   min-height: calc(100vh - 48px);
   display: grid;
@@ -797,7 +795,6 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
 }
 
 
-/* Apple product stage visual */
 .apple-product-stage {
   position: relative;
   z-index: 2;
@@ -847,7 +844,6 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
   .stage-glow { inset: 8% 0; }
 }
 
-/* Typora-inspired minimal product site system */
 body {
   background: #fbfbfd;
   color: #1d1d1f;
