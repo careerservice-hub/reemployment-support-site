@@ -831,6 +831,13 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
 .final-process-list article:first-child { padding-top: 0; }
 .final-process-list span { color: #0066cc; font-weight: 800; letter-spacing: .08em; }
 .final-process-list p { margin-top: 8px; color: #6e6e73; }
+.final-ribbon {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(980px, 92vw);
+  height: clamp(160px, 22vh, 260px);
+  margin: clamp(-34px, -3vh, -16px) 0 0;
+}
 .final-cta { margin-bottom: 52px; }
 
 @media (max-width: 960px) {
