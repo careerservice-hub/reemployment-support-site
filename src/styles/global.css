@@ -1112,26 +1112,3 @@ body {
   .ty-feature-row article,
   .ty-process-list article { min-height: auto; padding: 24px; }
 }
-
-.k-line { display: block; }
-.ty-hero h1,
-.ty-hero.sub h1,
-.ty-section-head h2,
-.ty-note-panel h2,
-.ty-contact-card h2,
-.ty-cta h2,
-h1, h2, h3, p {
-  word-break: keep-all;
-  overflow-wrap: break-word;
-  line-break: strict;
-}
-.ty-hero h1,
-.ty-hero.sub h1,
-.ty-section-head h2,
-.ty-note-panel h2,
-.ty-contact-card h2,
-.ty-cta h2 {
-  text-wrap: normal;
-}
-.ty-editorial { max-width: 1120px; }
-.ty-feature-row { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
