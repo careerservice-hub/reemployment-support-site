@@ -641,90 +641,6 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
   letter-spacing: -.025em;
 }
 .apple-links a:hover { text-decoration: underline; }
-.glass-ribbon {
-  position: relative;
-  z-index: 1;
-  width: min(960px, 92vw);
-  height: clamp(118px, 18vh, 190px);
-  margin-top: clamp(28px, 5vh, 52px);
-  filter: drop-shadow(0 20px 48px rgba(140, 190, 210, .18));
-}
-.glass-ribbon::before,
-.glass-ribbon::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(-3deg);
-  border-radius: 999px;
-  pointer-events: none;
-}
-.glass-ribbon::before {
-  width: min(900px, 90vw);
-  height: 116px;
-  background:
-    radial-gradient(ellipse at 8% 54%, rgba(255,255,255,.96) 0 14%, rgba(255,255,255,.68) 25%, transparent 44%),
-    linear-gradient(90deg, rgba(218, 246, 255, .18) 0%, rgba(195, 235, 252, .62) 28%, rgba(204, 245, 238, .58) 64%, rgba(255,255,255,.78) 100%);
-  border: 1px solid rgba(170, 218, 232, .22);
-  box-shadow:
-    inset 0 0 26px rgba(255,255,255,.98),
-    inset 18px 0 34px rgba(255,255,255,.82),
-    0 0 0 12px rgba(220, 244, 248, .08),
-    0 0 36px rgba(178, 224, 235, .18);
-  opacity: .84;
-}
-.glass-ribbon::after {
-  width: min(940px, 94vw);
-  height: 138px;
-  border: 1px solid rgba(166, 216, 230, .16);
-  box-shadow:
-    0 0 0 10px rgba(214, 241, 247, .055),
-    0 0 0 20px rgba(214, 241, 247, .035);
-  opacity: .9;
-}
-.ribbon-core,
-.ribbon-line {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(-3deg);
-  border-radius: 999px;
-  pointer-events: none;
-}
-.ribbon-core {
-  width: min(760px, 78vw);
-  height: 56px;
-  background: linear-gradient(90deg, rgba(246,253,255,.12), rgba(180, 229, 249,.42), rgba(195, 242, 235,.44), rgba(255,255,255,.4));
-  border: 0;
-  box-shadow: inset 0 0 20px rgba(255,255,255,.78);
-  filter: blur(.2px);
-  opacity: .72;
-}
-.ribbon-line.one {
-  width: min(910px, 92vw);
-  height: 118px;
-  border: 1px solid rgba(164, 211, 226, .16);
-  background: transparent;
-  opacity: .82;
-}
-.ribbon-line.two {
-  width: min(690px, 74vw);
-  height: 42px;
-  background: rgba(255,255,255,.38);
-  box-shadow: 0 0 32px rgba(202, 238, 242, .28);
-  opacity: .62;
-}
-.ribbon-dot {
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: rgba(34, 111, 178, .56);
-  box-shadow: 0 0 12px rgba(34,111,178,.22);
-}
-.dot-a { left: 20%; top: 58%; }
-.dot-b { left: 51%; top: 21%; background: rgba(55, 148, 152, .52); }
-.dot-c { right: 22%; top: 59%; background: rgba(70, 160, 160, .42); }
 .apple-service-preview {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -905,4 +821,55 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
 .image-ribbon .ribbon-dot { display: none; }
 @media (max-width: 560px) {
   .image-ribbon { width: 112vw; margin-left: -6vw; }
+}
+
+
+/* Apple product stage visual */
+.apple-product-stage {
+  position: relative;
+  z-index: 2;
+  width: min(980px, 92vw);
+  min-height: clamp(260px, 34vh, 380px);
+  margin-top: clamp(42px, 7vh, 76px);
+  display: grid;
+  place-items: center;
+}
+.stage-glow {
+  position: absolute;
+  inset: 8% 4%;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(120, 182, 255, .34), transparent 36%),
+    radial-gradient(circle at 42% 70%, rgba(150, 230, 220, .28), transparent 38%),
+    linear-gradient(90deg, rgba(255,255,255,.1), rgba(210,235,255,.34), rgba(232,255,248,.32), rgba(255,255,255,.1));
+  filter: blur(18px) saturate(120%);
+  opacity: .92;
+}
+.stage-card {
+  position: absolute;
+  display: grid;
+  gap: 8px;
+  width: min(360px, 42vw);
+  min-height: 156px;
+  padding: 24px 26px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.74);
+  border: 1px solid rgba(255,255,255,.86);
+  box-shadow:
+    0 32px 80px rgba(30, 80, 120, .13),
+    inset 0 1px 0 rgba(255,255,255,.9);
+  backdrop-filter: blur(24px) saturate(160%);
+}
+.stage-card span { color: #86868b; font-size: .78rem; font-weight: 700; }
+.stage-card strong { color: #1d1d1f; font-size: clamp(1.28rem, 2.1vw, 1.85rem); line-height: 1.18; letter-spacing: -.055em; }
+.stage-card p { color: #6e6e73; line-height: 1.55; font-size: .96rem; }
+.stage-card.primary { left: 4%; top: 24%; transform: rotate(-4deg); }
+.stage-card.secondary { right: 2%; top: 8%; transform: rotate(3deg); }
+.stage-card.tertiary { left: 31%; bottom: 2%; transform: rotate(-1deg); width: min(330px, 40vw); }
+
+@media (max-width: 860px) {
+  .apple-product-stage { min-height: 560px; width: 100%; margin-top: 36px; }
+  .stage-card { position: relative; width: min(100%, 420px); left: auto; right: auto; top: auto; bottom: auto; transform: none !important; margin: 0 auto 14px; }
+  .apple-product-stage { display: block; }
+  .stage-glow { inset: 8% 0; }
 }
