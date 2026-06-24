@@ -12,8 +12,11 @@ const nav = [
 ---
 <header class="site-header">
   <a class="brand" href={base} aria-label="재취업지원서비스 시행지원 홈">
-    <span class="brand-kicker">재취업지원서비스 시행지원</span>
-    <span class="brand-title">기업컨설팅 및 커리어플래닝서비스</span>
+    <img class="brand-logo" src={`${base}assets/kjobs-logo.svg`} alt="" width="160" height="40" loading="eager" />
+    <span class="brand-text">
+      <span class="brand-kicker">재취업지원서비스 시행지원</span>
+      <span class="brand-title">기업컨설팅 및 커리어플래닝서비스</span>
+    </span>
   </a>
   <nav class="nav" aria-label="주요 메뉴">
     {nav.map((item) => <a href={item.href}>{item.label}</a>)}
