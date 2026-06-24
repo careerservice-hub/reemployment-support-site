@@ -6,89 +6,50 @@ const services = [
   {
     label: '01',
     title: '대상 확인',
-    body: '신청 대상 여부와 준비 범위를 먼저 확인합니다. 기업 상황에 맞춰 필요한 절차를 정리합니다.',
+    body: '신청 대상 여부와 준비 범위를 먼저 확인합니다.',
   },
   {
     label: '02',
     title: '기업 준비',
-    body: '담당자가 내부 안내와 일정 조율을 진행할 수 있도록 운영 기준을 정리합니다.',
+    body: '담당자가 실행할 수 있는 운영 흐름을 정리합니다.',
   },
   {
     label: '03',
-    title: '경력설계',
-    body: '참여자의 직무경험과 강점을 확인합니다. 다음 경력 방향과 실행 과제를 정리합니다.',
-  },
-  {
-    label: '04',
-    title: '결과 정리',
-    body: '운영 결과와 후속 안내가 가능하도록 상담 기록과 실행 과제를 정돈합니다.',
+    title: '커리어플래닝서비스',
+    body: '참여자의 경험과 다음 경력 방향을 함께 설계합니다.',
   },
 ];
 ---
 <BaseLayout title="홈">
-  <section class="hero section-xl hero-redesign">
-    <div class="hero-content hero-intro">
-      <div class="eyebrow">K·JOBS 시행지원</div>
-      <h1>재취업지원서비스, 준비부터 운영까지 함께 안내합니다.</h1>
-      <p class="hero-copy">신청 대상 여부부터 운영 준비까지 함께 확인합니다. 기업컨설팅과 커리어플래닝서비스를 한 흐름으로 정리합니다.</p>
-      <div class="support-points" aria-label="핵심 지원 항목">
-        <span>대상 확인</span>
-        <span>기업 부담 완화</span>
-        <span>경력설계</span>
-      </div>
-      <div class="hero-actions">
-        <a class="btn primary" href={link('business-consulting/')}>기업 지원 보기</a>
-        <a class="btn secondary" href={link('career-planning/')}>경력설계 보기</a>
+  <section class="apple-hero" aria-label="K·JOBS 재취업지원서비스 홈">
+    <div class="apple-hero-copy">
+      <p class="apple-kicker">K·JOBS</p>
+      <h1>재취업지원서비스,<br />준비부터 운영까지.</h1>
+      <p class="apple-subtitle">기업의 제도 준비와 참여자의 커리어플래닝서비스를 간결하게 지원합니다.</p>
+      <div class="apple-links" aria-label="주요 행동">
+        <a href={link('business-consulting/')}>기업 지원 확인하기 <span aria-hidden="true">〉</span></a>
+        <a href={link('contact/')}>문의하기 <span aria-hidden="true">〉</span></a>
       </div>
     </div>
-    <div class="hero-visual support-board" aria-label="케이잡스 재취업지원서비스 시행지원 흐름">
-      <div class="board-heading">
-        <span>기업 담당자 진행표</span>
-        <strong>확인 → 준비 → 설계 → 정리</strong>
-        <p>기업 상황과 희망 서비스에 맞춰 필요한 항목을 순서대로 안내합니다.</p>
-      </div>
-      <ol class="flow-steps" aria-label="지원 흐름">
-        <li>
-          <span>01</span>
-          <strong>대상 확인</strong>
-          <p>신청 대상과 준비 범위 확인</p>
-        </li>
-        <li>
-          <span>02</span>
-          <strong>기업 준비</strong>
-          <p>담당자 역할과 일정 정리</p>
-        </li>
-        <li>
-          <span>03</span>
-          <strong>경력설계</strong>
-          <p>참여자 경험과 목표 확인</p>
-        </li>
-        <li>
-          <span>04</span>
-          <strong>결과 정리</strong>
-          <p>운영 기록과 후속 안내 정돈</p>
-        </li>
-      </ol>
-      <div class="service-lanes" aria-label="서비스 구분">
-        <article>
-          <span>기업컨설팅</span>
-          <strong>기업 준비 축</strong>
-          <p>대상 검토, 내부 안내, 일정 조율을 지원합니다.</p>
-        </article>
-        <article>
-          <span>커리어플래닝서비스</span>
-          <strong>참여자 지원 축</strong>
-          <p>경험 정리, 경력 방향, 실행계획을 돕습니다.</p>
-        </article>
-      </div>
-      <div class="board-note">
-        <strong>확정 전 내용은 확인 중심으로 안내합니다.</strong>
-        <span>대상 여부, 일정, 운영 범위를 먼저 점검합니다.</span>
-      </div>
+
+    <div class="glass-ribbon" aria-hidden="true">
+      <span class="ribbon-line one"></span>
+      <span class="ribbon-line two"></span>
+      <span class="ribbon-core"></span>
+      <span class="ribbon-dot dot-a"></span>
+      <span class="ribbon-dot dot-b"></span>
+      <span class="ribbon-dot dot-c"></span>
+    </div>
+
+    <div class="apple-flow" aria-label="지원 흐름">
+      <span>확인</span>
+      <span>준비</span>
+      <span>설계</span>
+      <span>운영</span>
     </div>
   </section>
 
-  <section class="section service-strip" aria-label="주요 서비스">
+  <section class="apple-service-preview section" aria-label="주요 서비스">
     {services.map((service) => (
       <article>
         <span>{service.label}</span>
@@ -98,7 +59,7 @@ const services = [
     ))}
   </section>
 
-  <section class="split-feature section">
+  <section class="split-feature section apple-lower-content">
     <article>
       <span class="tag">기업 대상</span>
       <h2>기업컨설팅</h2>
@@ -109,30 +70,7 @@ const services = [
       <span class="tag green">참여자 대상</span>
       <h2>커리어플래닝서비스</h2>
       <p>중장년 재직자가 경험과 역량을 정리하도록 돕습니다. 앞으로의 역할 변화에 맞춰 경력 목표와 실행계획을 구체화합니다.</p>
-      <a href={link('career-planning/')} class="text-link">경력설계 보기</a>
+      <a href={link('career-planning/')} class="text-link">커리어플래닝서비스 보기</a>
     </article>
-  </section>
-
-  <section class="section">
-    <div class="section-heading">
-      <span class="eyebrow">K·JOBS 지원 원칙</span>
-      <h2>공식 기준은 정확하게, 현장 안내는 쉽게 정리합니다.</h2>
-      <p>케이잡스는 수행기관 관점에서 필요한 항목을 정돈합니다. 기업 담당자와 참여자가 준비할 일을 쉬운 순서로 안내합니다.</p>
-    </div>
-    <div class="cards four">
-      <article class="card"><strong>대상 확인</strong><p>기업과 참여자의 대상 여부, 신청 방식, 사전 준비사항을 먼저 확인합니다.</p></article>
-      <article class="card"><strong>운영 설계</strong><p>기업 여건에 맞춰 일정, 안내 방식, 프로그램 구성 기준을 정리합니다.</p></article>
-      <article class="card"><strong>경력 상담</strong><p>참여자의 직무경험, 강점, 필요 역량을 확인해 경력 방향을 잡습니다.</p></article>
-      <article class="card"><strong>결과 정리</strong><p>상담 결과와 실행 과제를 정리하고 후속 안내가 가능하도록 돕습니다.</p></article>
-    </div>
-  </section>
-
-  <section class="cta-panel section">
-    <div>
-      <span class="eyebrow light">다음 단계</span>
-      <h2>우리 기업에 맞는 참여 가능 여부를 확인하세요.</h2>
-      <p>기업 상황과 희망 서비스에 맞춰 대상 여부와 준비사항을 안내합니다.</p>
-    </div>
-    <a class="btn inverse" href={link('contact/')}>문의하기</a>
   </section>
 </BaseLayout>
