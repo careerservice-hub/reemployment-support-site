@@ -192,6 +192,8 @@ h1, h2 {
   letter-spacing: -.055em;
   margin: 0;
   font-weight: 900;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 h1 { font-size: clamp(2.7rem, 6vw, 5.05rem); max-width: 910px; }
 h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
@@ -200,6 +202,8 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
   margin-top: 24px;
   font-size: 1.12rem;
   color: #40506a;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 .support-points {
   display: flex;
@@ -429,13 +433,25 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
 }
 @media (max-width: 560px) {
   .page-shell { width: min(100% - 24px, 1180px); }
-  .brand { gap: 10px; }
+  .site-header { gap: 14px; padding: 12px; }
+  .brand { gap: 10px; width: 100%; }
   .brand-logo { height: 36px; max-width: 76px; }
-  h1 { font-size: clamp(2.15rem, 12vw, 3.2rem); }
+  .brand-text { min-width: 0; }
+  .brand-kicker { font-size: .72rem; line-height: 1.2; }
+  .brand-title { font-size: .86rem; line-height: 1.25; }
+  .nav { gap: 10px 14px; font-size: .82rem; }
+  h1 { font-size: clamp(1.95rem, 10vw, 2.72rem); line-height: 1.16; }
+  .hero-copy, .page-hero p { margin-top: 18px; font-size: 1rem; }
+  .eyebrow { margin-bottom: 16px; }
   .section { padding: 50px 0; }
-  .section-xl { padding: 52px 0 42px; }
+  .section-xl { padding: 44px 0 38px; }
+  .support-points { margin-top: 18px; gap: 8px; }
+  .support-points span { min-height: 34px; font-size: .82rem; }
+  .hero-actions { margin-top: 24px; gap: 10px; }
+  .btn { min-height: 48px; padding: 0 16px; }
   .hero-actions .btn { width: 100%; }
   .split-feature article, .card, .contact-card, .list-panel, .evidence-panel, .video-section { padding: 24px; }
+  .contact-status { padding: 16px; }
   .visual-card { left: 22px; right: 22px; top: 22px; padding: 22px; }
   .visual-card strong { font-size: 1.28rem; }
   .visual-steps, .visual-branches { left: 22px; right: 22px; bottom: 24px; grid-template-columns: 1fr; }
