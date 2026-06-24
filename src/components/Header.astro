@@ -1,0 +1,21 @@
+---
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const link = (path) => `${base}${path}`;
+const nav = [
+  { href: link(''), label: '홈' },
+  { href: link('business-consulting/'), label: '기업컨설팅' },
+  { href: link('career-planning/'), label: '커리어플래닝서비스' },
+  { href: link('process/'), label: '진행 절차' },
+  { href: link('approach/'), label: 'K·JOBS 지원 방식' },
+  { href: link('contact/'), label: '문의' },
+];
+---
+<header class="site-header">
+  <a class="brand" href={base} aria-label="재취업지원서비스 시행지원 홈">
+    <span class="brand-kicker">재취업지원서비스 시행지원</span>
+    <span class="brand-title">기업컨설팅 및 커리어플래닝서비스</span>
+  </a>
+  <nav class="nav" aria-label="주요 메뉴">
+    {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+</header>
