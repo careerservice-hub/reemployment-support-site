@@ -6,12 +6,12 @@ const services = [
   {
     label: '시행지원',
     title: '재취업지원서비스',
-    body: '기업이 제도 취지와 운영 기준을 이해하고, 대상자 안내부터 결과 정리까지 준비할 수 있도록 지원합니다.',
+    body: '신청 대상 여부와 준비사항을 먼저 확인하고, 기업 담당자가 실행할 수 있는 운영 흐름으로 정리합니다.',
   },
   {
     label: '기업 대상',
     title: '기업컨설팅',
-    body: '인력 구조와 운영 여건을 확인해 담당자 안내, 프로그램 구성, 후속 관리 기준을 함께 정리합니다.',
+    body: '기업 여건에 맞춰 제도 안내, 내부 준비, 일정 조율, 결과 관리 기준을 함께 확인합니다.',
   },
   {
     label: '개인 대상',
@@ -23,30 +23,30 @@ const services = [
 <BaseLayout title="홈">
   <section class="hero section-xl">
     <div class="hero-content">
-      <div class="eyebrow">K·JOBS Enterprise Support</div>
-      <h1>재취업지원서비스 시행을 기업 담당자가 준비하기 쉽게 안내합니다.</h1>
-      <p class="hero-copy">케이잡스는 대상 여부 확인, 기업컨설팅, 커리어플래닝서비스 운영을 한 흐름으로 정리합니다. 기업은 제도 준비 부담을 낮추고, 참여자는 자신의 경험을 바탕으로 다음 경력 방향을 설계할 수 있습니다.</p>
+      <div class="eyebrow">K·JOBS 시행지원</div>
+      <h1>재취업지원서비스, 기업 준비와 참여자 경력설계를 함께 안내합니다.</h1>
+      <p class="hero-copy">케이잡스는 신청 대상 여부 확인부터 기업컨설팅, 커리어플래닝서비스 운영까지 필요한 항목을 한 흐름으로 안내합니다. 기업의 준비 부담은 낮추고, 참여자는 자신의 경험을 바탕으로 다음 경력 방향을 설계할 수 있도록 지원합니다.</p>
       <div class="support-points" aria-label="핵심 지원 항목">
         <span>신청 대상 여부 확인</span>
-        <span>기업 담당자 실행 부담 완화</span>
+        <span>기업 부담 완화</span>
         <span>참여자 경력설계 지원</span>
       </div>
       <div class="hero-actions">
-        <a class="btn primary" href={link('business-consulting/')}>우리 기업 지원 범위 확인</a>
+        <a class="btn primary" href={link('business-consulting/')}>기업 지원 범위 확인</a>
         <a class="btn secondary" href={link('career-planning/')}>참여자 경력설계 보기</a>
       </div>
     </div>
     <div class="hero-visual" aria-label="케이잡스 재취업지원서비스 시행지원 흐름">
       <div class="visual-card">
-        <span class="visual-label">시행지원 흐름</span>
-        <strong>기업 준비와 참여자 상담을 분리하지 않고 연결합니다.</strong>
-        <p>대상 확인, 안내 자료, 일정 조율, 결과 정리를 담당자가 실행 가능한 단위로 정리합니다.</p>
+        <span class="visual-label">지원 흐름</span>
+        <strong>대상 확인에서 경력설계까지, 필요한 준비를 단계별로 안내합니다.</strong>
+        <p>확정되지 않은 내용은 단정하지 않고, 기업 상황과 희망 서비스에 맞춰 확인·안내·지원합니다.</p>
       </div>
       <div class="visual-branches">
         <article>
           <span>기업컨설팅</span>
           <strong>기업이 받는 지원</strong>
-          <p>대상 검토, 운영 방식 정리, 내부 안내와 후속 관리 기준 확인</p>
+          <p>신청 대상 검토, 담당자 준비 범위, 내부 안내와 후속 관리 기준 확인</p>
         </article>
         <article>
           <span>커리어플래닝서비스</span>
@@ -69,13 +69,13 @@ const services = [
 
   <section class="split-feature section">
     <article>
-      <span class="tag">For Company</span>
+      <span class="tag">기업 대상</span>
       <h2>기업컨설팅</h2>
       <p>제도 도입을 준비하거나 운영 방식을 점검해야 하는 기업을 위해 신청 대상 여부, 담당자 역할, 프로그램 구성, 안내 자료 준비 범위를 현장 상황에 맞게 정리합니다.</p>
       <a href={link('business-consulting/')} class="text-link">기업 지원 내용 확인</a>
     </article>
     <article>
-      <span class="tag green">For Individual</span>
+      <span class="tag green">참여자 대상</span>
       <h2>커리어플래닝서비스</h2>
       <p>중장년 재직자가 지금까지의 경험과 역량을 정리하고, 앞으로의 직무 변화에 대비해 경력 목표와 실행계획을 구체화하도록 개인별 상담 흐름을 제공합니다.</p>
       <a href={link('career-planning/')} class="text-link">개인 지원 내용 확인</a>
@@ -84,7 +84,7 @@ const services = [
 
   <section class="section">
     <div class="section-heading">
-      <span class="eyebrow">K·JOBS Approach</span>
+      <span class="eyebrow">K·JOBS 지원 원칙</span>
       <h2>공식 기준은 정확하게, 현장 안내는 이해하기 쉽게.</h2>
       <p>케이잡스는 고용노동부 위탁 사업의 공신력을 해치지 않으면서도, 기업 담당자와 참여자가 실제로 준비해야 할 항목을 쉬운 언어로 정리합니다.</p>
     </div>
@@ -98,7 +98,7 @@ const services = [
 
   <section class="cta-panel section">
     <div>
-      <span class="eyebrow light">Next Step</span>
+      <span class="eyebrow light">다음 단계</span>
       <h2>우리 기업에 맞는 참여 가능 여부를 먼저 확인하세요.</h2>
       <p>확정되지 않은 내용은 단정하지 않고, 기업 상황과 희망 서비스에 맞춰 신청 대상 여부와 준비사항을 확인해 안내합니다.</p>
     </div>
