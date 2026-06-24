@@ -1135,8 +1135,3 @@ h1, h2, h3, p {
 }
 .ty-editorial { max-width: 1120px; }
 .ty-feature-row { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-
-.free-highlight {
-  color: #9a4d4d;
-  font-weight: 760;
-}
