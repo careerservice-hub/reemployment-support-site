@@ -24,11 +24,11 @@ const process = [
 ];
 ---
 <BaseLayout title="홈" description="케이잡스 K·JOBS가 재취업지원서비스 기업컨설팅과 커리어플래닝서비스의 대상 확인, 준비, 운영, 결과 정리를 지원합니다.">
-  <section class="final-hero" aria-label="K·JOBS 재취업지원서비스 홈">
-    <div class="final-hero-copy">
+  <section class="apple-hero" aria-label="K·JOBS 재취업지원서비스 홈">
+    <div class="apple-hero-copy">
       <p class="apple-kicker">K·JOBS 재취업지원서비스 시행지원</p>
-      <h1>기업의 준비와<br />참여자의 다음 경력을<br />한 번에 정리합니다.</h1>
-      <p class="apple-subtitle">케이잡스는 기업컨설팅과 커리어플래닝서비스를 통해 대상 확인, 신청 준비, 일정 조율, 결과 정리까지 실행 가능한 흐름으로 안내합니다.</p>
+      <h1>재취업지원서비스,<br />준비부터 운영까지.</h1>
+      <p class="apple-subtitle">기업의 제도 준비와 참여자의 커리어플래닝서비스를 간결하게 지원합니다.</p>
       <div class="apple-links" aria-label="주요 행동">
         <a href={link('business-consulting/')}>기업컨설팅 보기 <span aria-hidden="true">〉</span></a>
         <a href={link('career-planning/')}>커리어플래닝서비스 보기 <span aria-hidden="true">〉</span></a>
@@ -36,29 +36,7 @@ const process = [
       </div>
     </div>
 
-    <div class="final-hero-panel" aria-label="지원 구조 요약">
-      <div class="panel-topline">
-        <span>2026 시행지원</span>
-        <strong>기업 · 참여자 동시 지원</strong>
-      </div>
-      <div class="panel-axis">
-        <article>
-          <span>For Company</span>
-          <strong>기업컨설팅</strong>
-          <p>제도 준비, 운영절차, 담당자 역할, 후속 과제를 정리합니다.</p>
-        </article>
-        <article>
-          <span>For Participant</span>
-          <strong>커리어플래닝서비스</strong>
-          <p>경력진단, 역량점검, 목표설정, 실행계획을 상담으로 구체화합니다.</p>
-        </article>
-      </div>
-      <div class="panel-flow">
-        {process.map(([no, title]) => <span><em>{no}</em>{title}</span>)}
-      </div>
-    </div>
-
-    <div class="glass-ribbon final-ribbon" aria-hidden="true">
+    <div class="glass-ribbon" aria-hidden="true">
       <span class="ribbon-line one"></span>
       <span class="ribbon-line two"></span>
       <span class="ribbon-core"></span>
@@ -66,24 +44,24 @@ const process = [
       <span class="ribbon-dot dot-b"></span>
       <span class="ribbon-dot dot-c"></span>
     </div>
+
+    <div class="apple-flow" aria-label="지원 흐름">
+      <span>대상 확인</span>
+      <span>준비 정리</span>
+      <span>운영 진행</span>
+      <span>결과 안내</span>
+    </div>
   </section>
 
-  <section class="section final-services" aria-label="주요 서비스">
-    <div class="section-heading">
-      <span class="eyebrow">지원 서비스</span>
-      <h2>필요한 서비스를 먼저 확인하세요.</h2>
-      <p>재취업지원서비스는 기업의 제도 운영과 중장년 근로자의 경력 준비가 함께 맞물릴 때 효과가 커집니다.</p>
-    </div>
-    <div class="final-service-grid">
-      {serviceCards.map((card) => (
-        <article>
-          <span class="tag">{card.label}</span>
-          <h3>{card.title}</h3>
-          <p>{card.body}</p>
-          <a href={card.href} class="text-link">자세히 보기</a>
-        </article>
-      ))}
-    </div>
+  <section class="apple-service-preview section" aria-label="주요 서비스">
+    {serviceCards.map((card) => (
+      <article>
+        <span>{card.label}</span>
+        <h2>{card.title}</h2>
+        <p>{card.body}</p>
+        <a href={card.href} class="text-link">자세히 보기</a>
+      </article>
+    ))}
   </section>
 
   <section class="section final-process" aria-label="진행 흐름">
