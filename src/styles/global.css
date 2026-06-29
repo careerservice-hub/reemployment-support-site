@@ -1185,7 +1185,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, 8px) scale(.98);
-  pointer-events: none;
+  pointer-events: auto;
   transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
 }
 .step-popover::after {
@@ -1214,6 +1214,18 @@ body {
   line-height: 1.62;
   letter-spacing: -.035em;
 }
+.popover-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 14px;
+  color: #0066cc;
+  font-size: .88rem;
+  font-weight: 720;
+  letter-spacing: -.03em;
+  text-decoration: none;
+}
+.popover-link:hover { text-decoration: underline; }
+.popover-link::after { content: ' ↗'; font-size: .82em; }
 .step-popover-card:hover .step-popover,
 .step-popover-card:focus .step-popover,
 .step-popover-card:focus-within .step-popover,
