@@ -567,9 +567,9 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
 .brand { min-width: auto; gap: 10px; }
 .brand-logo {
   display: block;
-  height: 30px;
+  height: 38px;
   width: auto;
-  max-width: 76px;
+  max-width: 98px;
   object-fit: contain;
   border-radius: 0;
   background: transparent;
