@@ -2,11 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const link = (path) => `${base}${path}`;
-const features = [
-  ['대상 확인', '기업 여건과 참여자 상황을 기준으로 지원 가능 범위를 먼저 확인합니다.'],
-  ['서비스 선택', '기업컨설팅과 커리어플래닝서비스 중 필요한 지원 흐름을 구분합니다.'],
-  ['운영 준비', '일정, 담당자 역할, 참여자 안내, 상담 진행에 필요한 사항을 정리합니다.'],
-  ['결과 정리', '컨설팅·상담 결과와 후속 과제를 다음 행동으로 연결합니다.'],
+const consultingFlow = [
+  ['01', '제도화 필요 확인', '기업 여건과 제도 도입·개선 필요성을 확인합니다.', '대상자 규모, 현재 운영 여건, 내부 담당체계, 기존 지원제도를 확인해 기업컨설팅이 필요한 범위를 정합니다.'],
+  ['02', '운영체계 설계', '기업이 자체 시행할 수 있는 운영 절차를 설계합니다.', '담당자 역할, 대상자 안내, 프로그램 구성, 기록·성과관리 기준을 기업 상황에 맞게 정리합니다.'],
+  ['03', '파일럿 운영', '설계한 운영안의 현장 적용 가능성을 확인합니다.', '파일럿은 대행 제공이 아니라 검증 단계입니다. 일부 대상자에게 시범 적용해 안내와 상담 흐름이 실제로 작동하는지 봅니다.'],
+  ['04', '개선안 정리', '파일럿 결과와 현장 의견을 바탕으로 보완합니다.', '운영 중 확인된 쟁점, 담당자 의견, 참여자 반응을 정리해 기업별 제도화 과제로 연결합니다.'],
+];
+const careerFlow = [
+  ['01', '참여자 확인', '상담 대상과 참여 가능 범위를 확인합니다.', '참여자의 연령, 재직 상황, 직무경험, 상담 필요를 확인해 커리어플래닝서비스 적용 범위를 정합니다.'],
+  ['02', '경력진단', '직무경험과 보유역량을 객관적으로 살펴봅니다.', '현재까지의 직무경험, 강점, 관심 분야, 변화 가능성을 확인해 상담의 출발점을 만듭니다.'],
+  ['03', '상담 진행', '역할 변화와 다음 경력 방향을 구체화합니다.', '진단 결과를 바탕으로 향후 역할, 직무전환, 역량 보완 방향을 상담 중심으로 정리합니다.'],
+  ['04', '실행계획 정리', '상담 이후 실천할 과제를 남깁니다.', '교육, 직무 준비, 경력목표, 후속 상담 필요사항을 정리해 참여자가 다음 행동을 확인할 수 있게 합니다.'],
 ];
 ---
 <BaseLayout title="홈" description="케이잡스 K·JOBS는 재취업지원서비스 시행지원 사업을 통해 기업컨설팅과 커리어플래닝서비스를 안내하고 운영합니다.">
@@ -43,13 +49,52 @@ const features = [
     </div>
   </section>
 
-  <section class="ty-section" aria-label="진행 흐름">
+  <section class="ty-section" aria-label="서비스별 진행 흐름">
     <div class="ty-section-head">
-      <h2>문의 이후 필요한 흐름을 정리합니다.</h2>
-      <p>처음 연락할 때부터 대상 여부, 필요한 서비스, 운영 준비, 결과 정리 방향을 구분하면 기업과 참여자 모두 부담을 줄일 수 있습니다.</p>
+      <h2>필요한 지원 흐름을 나눠 확인합니다.</h2>
+      <p>기업컨설팅은 기업의 제도화 흐름으로, 커리어플래닝서비스는 참여자의 경력설계 흐름으로 구분해 볼 수 있습니다.</p>
     </div>
-    <div class="ty-feature-row">
-      {features.map(([title, body]) => <article><h3>{title}</h3><p>{body}</p></article>)}
+    <div class="dual-flow-grid">
+      <section class="flow-lane consulting" aria-label="기업컨설팅 흐름">
+        <div class="flow-lane-head">
+          <span>기업 담당자</span>
+          <h3>기업컨설팅 흐름</h3>
+          <p>기업이 자체 시행할 수 있는 재취업지원서비스 운영체계를 만듭니다.</p>
+        </div>
+        <div class="flow-step-list">
+          {consultingFlow.map(([num, title, body, detail]) => (
+            <article class="step-popover-card compact" tabindex="0" aria-describedby={`home-consulting-${num}-detail`}>
+              <span>{num}</span>
+              <h4>{title}</h4>
+              <p>{body}</p>
+              <div class="step-popover" id={`home-consulting-${num}-detail`} role="tooltip">
+                <strong>{title}</strong>
+                <p>{detail}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section class="flow-lane career" aria-label="커리어플래닝서비스 흐름">
+        <div class="flow-lane-head">
+          <span>참여자</span>
+          <h3>커리어플래닝서비스 흐름</h3>
+          <p>중장년 재직자가 자신의 경력과 다음 방향을 정리합니다.</p>
+        </div>
+        <div class="flow-step-list">
+          {careerFlow.map(([num, title, body, detail]) => (
+            <article class="step-popover-card compact" tabindex="0" aria-describedby={`home-career-${num}-detail`}>
+              <span>{num}</span>
+              <h4>{title}</h4>
+              <p>{body}</p>
+              <div class="step-popover" id={`home-career-${num}-detail`} role="tooltip">
+                <strong>{title}</strong>
+                <p>{detail}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
   </section>
 
