@@ -3,50 +3,50 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const link = (path) => `${base}${path}`;
 const features = [
-  ['대상 확인', '기업명과 희망 서비스를 기준으로 가능 범위를 먼저 확인합니다.'],
-  ['준비 정리', '담당자 안내, 참여자 안내, 일정 조율에 필요한 항목을 정리합니다.'],
-  ['운영 진행', '기업컨설팅과 커리어플래닝서비스를 현장 여건에 맞춰 진행합니다.'],
-  ['결과 안내', '상담 결과와 후속 과제를 다음 행동으로 연결합니다.'],
+  ['현황 진단', '기업의 대상자 규모, 운영 여건, 내부 준비 수준을 먼저 확인합니다.'],
+  ['제도화 설계', '재취업지원서비스를 기업 안에서 시행할 수 있도록 운영체계와 절차를 정리합니다.'],
+  ['파일럿 운영', '설계한 체계가 실제로 작동하는지 일부 대상자에게 시범 적용해 확인합니다.'],
+  ['개선안 정리', '파일럿 결과와 현장 의견을 바탕으로 기업별 시행안을 보완합니다.'],
 ];
 ---
-<BaseLayout title="홈" description="케이잡스 K·JOBS가 재취업지원서비스 기업컨설팅과 커리어플래닝서비스의 대상 확인, 준비, 운영, 결과 정리를 지원합니다.">
-  <section class="ty-hero" aria-label="K·JOBS 재취업지원서비스 홈">
+<BaseLayout title="홈" description="케이잡스 K·JOBS는 기업이 재취업지원서비스를 자체 제도화하고 시행할 수 있도록 기업컨설팅과 파일럿 운영을 지원합니다.">
+  <section class="ty-hero" aria-label="K·JOBS 재취업지원서비스 기업컨설팅 홈">
     <div class="ty-mark">K·JOBS</div>
-    <p class="ty-comment">재취업지원서비스 시행지원을 더 단순하게</p>
-    <h1>준비부터 운영까지.</h1>
-    <p class="ty-lead">기업컨설팅과 커리어플래닝서비스를 한 흐름으로 정리합니다.</p>
+    <p class="ty-comment">재취업지원서비스 기업컨설팅</p>
+    <h1>기업이 스스로 운영할 수 있는<br />재취업지원서비스 체계를 만듭니다.</h1>
+    <p class="ty-lead">케이잡스는 기업이 재취업지원서비스를 자체 제도화하고 시행할 수 있도록 현황 진단, 운영체계 설계, 파일럿 운영, 개선안 정리를 지원합니다.</p>
     <div class="ty-actions" aria-label="주요 행동">
-      <a href={link('business-consulting/')}>기업컨설팅</a>
-      <a href={link('career-planning/')}>커리어플래닝서비스</a>
+      <a href={link('business-consulting/')}>기업컨설팅 보기</a>
+      <a href={link('career-planning/')}>커리어플래닝서비스 보기</a>
       <a href={link('contact/')}>문의하기</a>
     </div>
   </section>
 
   <section class="ty-section" aria-label="서비스 개요">
     <div class="ty-section-head">
-      <h2>읽기 쉽고 실행 가능하게</h2>
-      <p>담당자가 이해하고, 설명하고, 바로 실행할 수 있게 복잡한 제도 운영을 단순한 순서로 바꿉니다.</p>
+      <h2>핵심은 대행 제공이 아니라 제도화입니다.</h2>
+      <p>기업컨설팅은 재취업지원서비스를 대신 제공하는 사업이 아닙니다. 기업이 자체적으로 운영할 수 있도록 기준, 절차, 역할, 대상자 흐름을 설계하고 현장 적용 가능성을 확인하는 과정입니다.</p>
     </div>
     <div class="ty-split-cards">
       <article>
-        <span>기업을 위한 지원</span>
+        <span>기업 제도화를 위한 지원</span>
         <h3>기업컨설팅</h3>
-        <p>대상 여부, 내부 준비, 일정 조율, 운영체계 점검을 기업 상황에 맞게 정리합니다.</p>
+        <p>기업의 현재 여건을 진단하고 재취업지원서비스 시행체계, 운영 절차, 내부 역할, 후속 관리 방식을 설계합니다.</p>
         <a href={link('business-consulting/')}>자세히 보기</a>
       </article>
       <article>
-        <span>참여자를 위한 지원</span>
-        <h3>커리어플래닝서비스</h3>
-        <p>중장년 재직자의 직무경험, 보유역량, 다음 경력 방향을 상담 중심으로 정리합니다.</p>
-        <a href={link('career-planning/')}>자세히 보기</a>
+        <span>컨설팅 안에서 검증하는 실행 단계</span>
+        <h3>파일럿 운영</h3>
+        <p>설계한 운영안이 실제 대상자에게 적용 가능한지 일부 프로그램을 시범 운영하고 보완점을 확인합니다.</p>
+        <a href={link('process/')}>진행 절차 보기</a>
       </article>
     </div>
   </section>
 
   <section class="ty-section" aria-label="진행 흐름">
     <div class="ty-section-head">
-      <h2>단순하지만 실제적으로</h2>
-      <p>문의 후 확인해야 할 항목을 네 단계로 압축합니다.</p>
+      <h2>기업 맞춤형 시행안을 만드는 흐름입니다.</h2>
+      <p>문의 이후에는 단순 상담 제공 여부가 아니라 기업이 어떤 방식으로 제도를 정착시킬 수 있는지를 순서대로 확인합니다.</p>
     </div>
     <div class="ty-feature-row">
       {features.map(([title, body]) => <article><h3>{title}</h3><p>{body}</p></article>)}
@@ -54,8 +54,8 @@ const features = [
   </section>
 
   <section class="ty-cta">
-    <p class="ty-comment">기업명, 희망 서비스, 담당자 연락처만 있어도 시작할 수 있습니다</p>
-    <h2>확인부터 시작하세요.</h2>
+    <p class="ty-comment">기업명, 대상자 규모, 현재 준비 수준을 알려주시면 검토가 빠릅니다</p>
+    <h2>먼저 기업의 제도화 가능 범위부터 확인하세요.</h2>
     <a href={link('contact/')}>문의 정보 확인</a>
   </section>
 </BaseLayout>
