@@ -951,6 +951,33 @@ body {
   line-height: 1.58;
   letter-spacing: -.035em;
 }
+.application-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+.application-pill {
+  min-height: auto;
+  padding: 15px 16px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.72);
+}
+.application-pill > strong {
+  display: block;
+  color: #1d1d1f;
+  font-size: .96rem;
+  line-height: 1.25;
+  letter-spacing: -.045em;
+}
+.application-pill > span {
+  display: block;
+  margin-top: 6px;
+  color: #16856f;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: -.025em;
+}
 .flow-step-list { display: grid; gap: 12px; }
 .step-popover-card.compact {
   min-height: 150px;
@@ -1238,6 +1265,7 @@ body {
   .ty-video,
   .ty-process-list,
   .ty-process-list.seven { grid-template-columns: 1fr; }
+  .application-options { grid-template-columns: 1fr; }
   .step-popover {
     position: static;
     width: auto;

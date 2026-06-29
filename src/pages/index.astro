@@ -3,13 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const link = (path) => `${base}${path}`;
 const consultingFlow = [
-  ['01', '제도화 필요 확인', '기업 여건과 제도 도입·개선 필요성을 확인합니다.', '대상자 규모, 현재 운영 여건, 내부 담당체계, 기존 지원제도를 확인해 기업컨설팅이 필요한 범위를 정합니다.'],
+  ['01', '참여 요건 확인', '기업 여건과 지원 기준을 먼저 확인합니다.', '기업 요건, 대상자 규모, 현재 운영 여건, 내부 담당체계, 사업연도별 지원 기준을 함께 확인해 기업컨설팅 적용 범위를 정합니다.'],
   ['02', '운영체계 설계', '기업이 자체 시행할 수 있는 운영 절차를 설계합니다.', '담당자 역할, 대상자 안내, 프로그램 구성, 기록·성과관리 기준을 기업 상황에 맞게 정리합니다.'],
   ['03', '파일럿 운영', '설계한 운영안의 현장 적용 가능성을 확인합니다.', '파일럿은 대행 제공이 아니라 검증 단계입니다. 일부 대상자에게 시범 적용해 안내와 상담 흐름이 실제로 작동하는지 봅니다.'],
   ['04', '개선안 정리', '파일럿 결과와 현장 의견을 바탕으로 보완합니다.', '운영 중 확인된 쟁점, 담당자 의견, 참여자 반응을 정리해 기업별 제도화 과제로 연결합니다.'],
 ];
 const careerFlow = [
-  ['01', '참여자 확인', '상담 대상과 참여 가능 범위를 확인합니다.', '참여자의 연령, 재직 상황, 직무경험, 상담 필요를 확인해 커리어플래닝서비스 적용 범위를 정합니다.'],
+  ['01', '참여 요건 확인', '지원 대상과 신청 방식을 먼저 확인합니다.', '지원 대상은 1,000인 미만 사업장에 재직 중인 40세 이상 중장년입니다. 공공부문은 제외되며, 예산 소진 시 조기 종료될 수 있습니다.'],
   ['02', '경력진단', '직무경험과 보유역량을 객관적으로 살펴봅니다.', '현재까지의 직무경험, 강점, 관심 분야, 변화 가능성을 확인해 상담의 출발점을 만듭니다.'],
   ['03', '상담 진행', '역할 변화와 다음 경력 방향을 구체화합니다.', '진단 결과를 바탕으로 향후 역할, 직무전환, 역량 보완 방향을 상담 중심으로 정리합니다.'],
   ['04', '실행계획 정리', '상담 이후 실천할 과제를 남깁니다.', '교육, 직무 준비, 경력목표, 후속 상담 필요사항을 정리해 참여자가 다음 행동을 확인할 수 있게 합니다.'],
@@ -77,9 +77,27 @@ const careerFlow = [
       </section>
       <section class="flow-lane career" aria-label="커리어플래닝서비스 흐름">
         <div class="flow-lane-head">
-          <span>참여자</span>
+          <span>신청 방식 확인</span>
           <h3>커리어플래닝서비스 흐름</h3>
-          <p>중장년 재직자가 자신의 경력과 다음 방향을 정리합니다.</p>
+          <p>기업 단위 또는 개인 단위로 신청할 수 있으며, 중장년 재직자의 경력과 다음 방향을 정리합니다.</p>
+          <div class="application-options" aria-label="커리어플래닝서비스 신청 방식">
+            <article class="step-popover-card application-pill" tabindex="0" aria-describedby="career-company-apply-detail">
+              <strong>기업단위 신청</strong>
+              <span>기업 담당자 일괄 신청</span>
+              <div class="step-popover" id="career-company-apply-detail" role="tooltip">
+                <strong>기업단위 신청</strong>
+                <p>기업 담당자가 참여 소속 근로자를 일괄 신청합니다. 기업용 신청서, 신청 근로자 명단, 사업자등록증, 고용보험 완납증명원, 근로자별 동의서 등을 기준으로 접수합니다.</p>
+              </div>
+            </article>
+            <article class="step-popover-card application-pill" tabindex="0" aria-describedby="career-personal-apply-detail">
+              <strong>개인단위 신청</strong>
+              <span>근로자 직접 신청</span>
+              <div class="step-popover" id="career-personal-apply-detail" role="tooltip">
+                <strong>개인단위 신청</strong>
+                <p>개인 근로자가 수행기관으로 직접 신청합니다. 개인용 신청서와 개인정보 동의서, 재직증명서·고용보험 자격이력내역서·건강보험 자격득실확인서 등 재직 사실 증명 서류를 확인합니다.</p>
+              </div>
+            </article>
+          </div>
         </div>
         <div class="flow-step-list">
           {careerFlow.map(([num, title, body, detail]) => (
