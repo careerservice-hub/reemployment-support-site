@@ -1075,6 +1075,72 @@ body {
 .ty-process-list.seven article {
   min-height: 218px;
 }
+.step-popover-card {
+  position: relative;
+  outline: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.step-popover-card:hover,
+.step-popover-card:focus,
+.step-popover-card:focus-within,
+.step-popover-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(0, 102, 204, .22);
+  box-shadow: 0 24px 68px rgba(30,80,120,.11);
+}
+.step-popover {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 14px);
+  z-index: 30;
+  width: min(360px, 78vw);
+  padding: 20px 22px;
+  border-radius: 24px;
+  background: rgba(255,255,255,.94);
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 28px 80px rgba(30,80,120,.18);
+  backdrop-filter: blur(22px) saturate(150%);
+  color: #1d1d1f;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 8px) scale(.98);
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+}
+.step-popover::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 16px;
+  height: 16px;
+  background: rgba(255,255,255,.94);
+  border-right: 1px solid rgba(0,0,0,.08);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  transform: translateX(-50%) rotate(45deg);
+}
+.step-popover strong {
+  display: block;
+  color: #0066cc;
+  font-size: .86rem;
+  font-weight: 760;
+  letter-spacing: -.02em;
+}
+.step-popover p {
+  margin-top: 9px;
+  color: #515154;
+  font-size: .94rem;
+  line-height: 1.62;
+  letter-spacing: -.035em;
+}
+.step-popover-card:hover .step-popover,
+.step-popover-card:focus .step-popover,
+.step-popover-card:focus-within .step-popover,
+.step-popover-card:focus-visible .step-popover {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0) scale(1);
+}
 .ty-process-list span {
   color: #0066cc;
   font-weight: 760;
@@ -1117,6 +1183,17 @@ body {
   .ty-video,
   .ty-process-list,
   .ty-process-list.seven { grid-template-columns: 1fr; }
+  .step-popover {
+    position: static;
+    width: auto;
+    margin-top: 18px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: rgba(248,248,250,.9);
+  }
+  .step-popover::after { display: none; }
   .ty-hero { min-height: auto; }
   .ty-checks p,
   .ty-contact-lines p { grid-template-columns: 1fr; }
