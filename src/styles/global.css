@@ -888,6 +888,12 @@ body {
   max-width: 980px;
   font-size: clamp(2.8rem, 6.4vw, 5.8rem);
 }
+.ty-hero.sub h1.business-title {
+  max-width: 1120px;
+  font-size: clamp(2.65rem, 5.4vw, 4.6rem);
+  line-height: 1.08;
+  letter-spacing: -.072em;
+}
 .ty-lead {
   max-width: 900px;
   margin-top: 26px;
@@ -1055,6 +1061,9 @@ body {
   grid-template-columns: repeat(3, minmax(0,1fr));
   gap: 16px;
 }
+.ty-process-list.seven {
+  grid-template-columns: repeat(4, minmax(0,1fr));
+}
 .ty-process-list article {
   min-height: 230px;
   padding: 28px;
@@ -1062,6 +1071,9 @@ body {
   background: rgba(255,255,255,.82);
   border: 1px solid rgba(0,0,0,.07);
   box-shadow: 0 18px 54px rgba(30,80,120,.06);
+}
+.ty-process-list.seven article {
+  min-height: 218px;
 }
 .ty-process-list span {
   color: #0066cc;
@@ -1103,7 +1115,8 @@ body {
   .ty-note-panel,
   .ty-contact-card,
   .ty-video,
-  .ty-process-list { grid-template-columns: 1fr; }
+  .ty-process-list,
+  .ty-process-list.seven { grid-template-columns: 1fr; }
   .ty-hero { min-height: auto; }
   .ty-checks p,
   .ty-contact-lines p { grid-template-columns: 1fr; }
