@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const link = (path) => `${base}${path}`;
 const consultingFlow = [
-  ['01', '참여 요건 확인', '기업 여건과 지원 기준을 먼저 확인합니다.', '기업 요건, 대상자 규모, 현재 운영 여건, 내부 담당체계, 사업연도별 지원 기준을 함께 확인해 기업컨설팅 적용 범위를 정합니다.'],
+  ['01', '신청 요건 확인', '지원대상, 신청자격, 제한사항을 먼저 확인합니다.', '재취업지원서비스 의무대상기업, 제도 도입·개선 희망 기업, 공동 도입 희망 기업인지 확인합니다. 100인 이상 기준, 공동 신청 기준, 참여 제한사항도 함께 봅니다.'],
   ['02', '운영체계 설계', '기업이 자체 시행할 수 있는 운영 절차를 설계합니다.', '담당자 역할, 대상자 안내, 프로그램 구성, 기록·성과관리 기준을 기업 상황에 맞게 정리합니다.'],
   ['03', '파일럿 운영', '설계한 운영안의 현장 적용 가능성을 확인합니다.', '파일럿은 대행 제공이 아니라 검증 단계입니다. 일부 대상자에게 시범 적용해 안내와 상담 흐름이 실제로 작동하는지 봅니다.'],
   ['04', '개선안 정리', '파일럿 결과와 현장 의견을 바탕으로 보완합니다.', '운영 중 확인된 쟁점, 담당자 의견, 참여자 반응을 정리해 기업별 제도화 과제로 연결합니다.'],
@@ -57,9 +57,43 @@ const careerFlow = [
     <div class="dual-flow-grid">
       <section class="flow-lane consulting" aria-label="기업컨설팅 흐름">
         <div class="flow-lane-head">
-          <span>기업 담당자</span>
+          <span>신청 요건 확인</span>
           <h3>기업컨설팅 흐름</h3>
-          <p>기업이 자체 시행할 수 있는 재취업지원서비스 운영체계를 만듭니다.</p>
+          <p>의무대상기업과 제도 도입·개선 희망 기업이 신청 요건과 제한사항을 확인한 뒤, 자체 시행 체계를 설계합니다.</p>
+          <div class="application-options" aria-label="기업컨설팅 신청 요건">
+            <article class="step-popover-card application-pill" tabindex="0" aria-describedby="consulting-target-detail">
+              <strong>지원대상</strong>
+              <span>의무대상·도입 희망 기업</span>
+              <div class="step-popover" id="consulting-target-detail" role="tooltip">
+                <strong>지원대상</strong>
+                <p>재취업지원서비스 의무대상기업과 제도 도입·개선을 희망하는 기업이 대상입니다. 원·하청 관계사 또는 중소산업단지 내 기업이 공동으로 도입을 검토하는 경우도 포함됩니다.</p>
+              </div>
+            </article>
+            <article class="step-popover-card application-pill" tabindex="0" aria-describedby="consulting-qualification-detail">
+              <strong>신청자격</strong>
+              <span>100인 이상 기준 확인</span>
+              <div class="step-popover" id="consulting-qualification-detail" role="tooltip">
+                <strong>신청자격</strong>
+                <p>재취업지원서비스 도입을 희망하는 전년도 기준 고용보험 피보험자수 100인 이상 기업이 기본 대상입니다. 공동 신청은 대표기업 100인 이상이면 참여기업은 100인 미만도 참여할 수 있습니다.</p>
+              </div>
+            </article>
+            <article class="step-popover-card application-pill" tabindex="0" aria-describedby="consulting-apply-detail">
+              <strong>신청방법</strong>
+              <span>온라인·이메일 신청</span>
+              <div class="step-popover" id="consulting-apply-detail" role="tooltip">
+                <strong>신청방법</strong>
+                <p>노사발전재단 누리집 온라인 신청 또는 이메일 신청 방식으로 접수합니다. 신청서, 사업자등록증, 고용보험 완납증명원, 개인정보활용동의서 등을 기준으로 확인합니다.</p>
+              </div>
+            </article>
+            <article class="step-popover-card application-pill" tabindex="0" aria-describedby="consulting-limit-detail">
+              <strong>신청제한</strong>
+              <span>체납·공표기업 등 제외</span>
+              <div class="step-popover" id="consulting-limit-detail" role="tooltip">
+                <strong>신청제한</strong>
+                <p>중앙행정기관, 지방자치단체, 교육청 등 국가·지방행정기관은 참여할 수 없습니다. 중대산업재해 공표기업, 산업재해 발생건수 공표기업, 고용보험료 체납 또는 임금체불 기업도 제한됩니다.</p>
+              </div>
+            </article>
+          </div>
         </div>
         <div class="flow-step-list">
           {consultingFlow.map(([num, title, body, detail]) => (
