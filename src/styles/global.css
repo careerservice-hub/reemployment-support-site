@@ -875,11 +875,11 @@ body {
   margin: 0 0 18px;
 }
 .ty-hero h1 {
-  max-width: 1080px;
+  max-width: 980px;
   color: #1d1d1f;
-  font-size: clamp(3.2rem, 8.4vw, 7.2rem);
-  line-height: .96;
-  letter-spacing: -.085em;
+  font-size: clamp(2.75rem, 6.2vw, 5.55rem);
+  line-height: 1.04;
+  letter-spacing: -.078em;
   font-weight: 760;
   margin: 0;
   text-wrap: balance;
@@ -910,7 +910,7 @@ body {
 }
 .ty-actions a:hover { text-decoration: underline; }
 .ty-section {
-  padding: clamp(72px, 10vw, 122px) 0;
+  padding: clamp(64px, 8.2vw, 104px) 0;
   border-bottom: 1px solid rgba(0,0,0,.06);
 }
 .ty-section-head {
@@ -923,9 +923,9 @@ body {
 .ty-note-panel h2,
 .ty-contact-card h2 {
   color: #1d1d1f;
-  font-size: clamp(2rem, 4vw, 3.8rem);
-  line-height: 1.05;
-  letter-spacing: -.075em;
+  font-size: clamp(1.8rem, 3.35vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: -.068em;
   font-weight: 760;
   margin: 0;
   text-wrap: balance;
@@ -1075,9 +1075,9 @@ body {
 }
 .ty-cta h2 {
   color: #1d1d1f;
-  font-size: clamp(2rem, 4vw, 3.6rem);
-  line-height: 1.05;
-  letter-spacing: -.075em;
+  font-size: clamp(1.9rem, 3.45vw, 3.15rem);
+  line-height: 1.12;
+  letter-spacing: -.068em;
   margin: 0 0 24px;
 }
 .ty-cta a {
