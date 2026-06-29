@@ -565,17 +565,17 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
   backdrop-filter: saturate(180%) blur(20px);
 }
 .brand { min-width: auto; gap: 10px; }
-.brand-logo { display: none; }
-.brand-kicker { display: none; }
-.brand-title {
-  font-size: .9rem;
-  font-weight: 700;
-  letter-spacing: -.02em;
-  color: #1d1d1f;
+.brand-logo {
+  display: block;
+  height: 30px;
+  width: auto;
+  max-width: 76px;
+  object-fit: contain;
+  border-radius: 0;
+  background: transparent;
 }
-.brand-title::before { content: 'K·JOBS'; }
-.brand-title { color: transparent; width: 58px; overflow: hidden; white-space: nowrap; }
-.brand-title::before { color: #1d1d1f; }
+.brand-kicker { display: none; }
+.brand-title { display: none; }
 .nav { gap: 28px; font-size: .78rem; font-weight: 500; color: rgba(29,29,31,.74); }
 .nav a { border: 0; padding: 4px 0; }
 .nav a:hover { color: #0066cc; border: 0; }
