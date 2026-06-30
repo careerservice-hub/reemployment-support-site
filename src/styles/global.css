@@ -1375,7 +1375,7 @@ body {
   left: 50%;
   bottom: calc(100% + 14px);
   z-index: 30;
-  width: min(360px, 78vw);
+  width: min(560px, calc(100vw - 48px));
   padding: 20px 22px;
   border-radius: 24px;
   background: rgba(255,255,255,.94);
@@ -1479,17 +1479,6 @@ body {
   .ty-process-list,
   .ty-process-list.seven { grid-template-columns: 1fr; }
   .application-options { grid-template-columns: 1fr; }
-  .step-popover {
-    position: static;
-    width: auto;
-    margin-top: 18px;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    background: rgba(248,248,250,.9);
-  }
-  .step-popover::after { display: none; }
   .ty-hero { min-height: auto; }
   .ty-checks p,
   .ty-contact-lines p { grid-template-columns: 1fr; }
@@ -1509,4 +1498,15 @@ body {
   .ty-split-cards article,
   .ty-feature-row article,
   .ty-process-list article { min-height: auto; padding: 24px; }
+  .step-popover {
+    position: static;
+    width: auto;
+    margin-top: 18px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: rgba(248,248,250,.9);
+  }
+  .step-popover::after { display: none; }
 }
