@@ -1123,12 +1123,14 @@ body {
   min-height: 300px;
   padding: 34px;
 }
-.ty-split-cards article.consulting-image-card {
+.ty-split-cards article.consulting-image-card,
+.ty-split-cards article.career-image-card {
   position: relative;
   overflow: hidden;
   background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.96) 45%, rgba(255,255,255,.72) 100%);
 }
-.ty-split-cards article.consulting-image-card::before {
+.ty-split-cards article.consulting-image-card::before,
+.ty-split-cards article.career-image-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -1140,6 +1142,12 @@ body {
   filter: saturate(.92) contrast(.96) brightness(1.04);
   pointer-events: none;
 }
+.ty-split-cards article.career-image-card::before {
+  background-image: url('/assets/career-planning-consultation-bg.webp');
+  background-position: right center;
+  opacity: .46;
+  filter: saturate(.86) contrast(.94) brightness(1.08);
+}
 .ty-split-cards article.consulting-image-card::after {
   content: '';
   position: absolute;
@@ -1147,7 +1155,15 @@ body {
   background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.90) 42%, rgba(255,255,255,.24) 100%);
   pointer-events: none;
 }
-.ty-split-cards article.consulting-image-card > * {
+.ty-split-cards article.career-image-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.91) 44%, rgba(255,255,255,.30) 100%);
+  pointer-events: none;
+}
+.ty-split-cards article.consulting-image-card > *,
+.ty-split-cards article.career-image-card > * {
   position: relative;
   z-index: 1;
   max-width: 60%;
@@ -1626,17 +1642,22 @@ body {
     margin-left: 0;
     padding-right: 48px;
   }
-  .ty-split-cards article.consulting-image-card {
+  .ty-split-cards article.consulting-image-card,
+  .ty-split-cards article.career-image-card {
     background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.96) 58%, rgba(255,255,255,.78) 100%);
   }
-  .ty-split-cards article.consulting-image-card::before {
+  .ty-split-cards article.consulting-image-card::before,
+  .ty-split-cards article.career-image-card::before {
     width: 52%;
     opacity: .38;
   }
-  .ty-split-cards article.consulting-image-card::after {
+  .ty-split-cards article.career-image-card::before { opacity: .34; }
+  .ty-split-cards article.consulting-image-card::after,
+  .ty-split-cards article.career-image-card::after {
     background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.92) 56%, rgba(255,255,255,.36) 100%);
   }
-  .ty-split-cards article.consulting-image-card > * { max-width: 72%; }
+  .ty-split-cards article.consulting-image-card > *,
+  .ty-split-cards article.career-image-card > * { max-width: 72%; }
 }
 @media (max-width: 560px) {
   .ty-hero h1 { font-size: clamp(2.6rem, 15vw, 4.2rem); }
@@ -1645,20 +1666,25 @@ body {
   .ty-split-cards article,
   .ty-feature-row article,
   .ty-process-list article { min-height: auto; padding: 24px; }
-  .ty-split-cards article.consulting-image-card {
+  .ty-split-cards article.consulting-image-card,
+  .ty-split-cards article.career-image-card {
     background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.96) 100%);
   }
-  .ty-split-cards article.consulting-image-card::before {
+  .ty-split-cards article.consulting-image-card::before,
+  .ty-split-cards article.career-image-card::before {
     inset: auto 0 0;
     width: 100%;
     height: 46%;
     opacity: .22;
     background-position: center center;
   }
-  .ty-split-cards article.consulting-image-card::after {
+  .ty-split-cards article.career-image-card::before { opacity: .20; }
+  .ty-split-cards article.consulting-image-card::after,
+  .ty-split-cards article.career-image-card::after {
     background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.88) 62%, rgba(255,255,255,.70) 100%);
   }
-  .ty-split-cards article.consulting-image-card > * { max-width: none; }
+  .ty-split-cards article.consulting-image-card > *,
+  .ty-split-cards article.career-image-card > * { max-width: none; }
   .step-popover {
     position: static;
     width: auto;
