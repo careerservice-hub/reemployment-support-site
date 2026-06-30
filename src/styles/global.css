@@ -1398,6 +1398,35 @@ body {
 }
 .popover-link:hover { text-decoration: underline; }
 .popover-link::after { content: ' ↗'; font-size: .82em; }
+.ty-list-grid .step-popover-card:nth-child(odd) .step-popover,
+.ty-feature-row.three .support-popover-card:first-child .step-popover,
+.ty-process-list.seven .step-popover-card:nth-child(4n+1) .step-popover {
+  left: 0;
+  right: auto;
+  transform: translateY(8px) scale(.98);
+}
+.ty-list-grid .step-popover-card:nth-child(even) .step-popover,
+.ty-feature-row.three .support-popover-card:nth-child(3) .step-popover,
+.ty-process-list.seven .step-popover-card:nth-child(4n) .step-popover,
+.output-popover-card .step-popover {
+  left: auto;
+  right: 0;
+  transform: translateY(8px) scale(.98);
+}
+.ty-list-grid .step-popover-card:nth-child(odd) .step-popover::after,
+.ty-feature-row.three .support-popover-card:first-child .step-popover::after,
+.ty-process-list.seven .step-popover-card:nth-child(4n+1) .step-popover::after {
+  left: 34px;
+  transform: rotate(45deg);
+}
+.ty-list-grid .step-popover-card:nth-child(even) .step-popover::after,
+.ty-feature-row.three .support-popover-card:nth-child(3) .step-popover::after,
+.ty-process-list.seven .step-popover-card:nth-child(4n) .step-popover::after,
+.output-popover-card .step-popover::after {
+  left: auto;
+  right: 34px;
+  transform: rotate(45deg);
+}
 .step-popover-card:hover .step-popover,
 .step-popover-card:focus .step-popover,
 .step-popover-card:focus-within .step-popover,
@@ -1405,6 +1434,36 @@ body {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, 0) scale(1);
+}
+.ty-list-grid .step-popover-card:nth-child(odd):hover .step-popover,
+.ty-list-grid .step-popover-card:nth-child(odd):focus .step-popover,
+.ty-list-grid .step-popover-card:nth-child(odd):focus-within .step-popover,
+.ty-list-grid .step-popover-card:nth-child(odd):focus-visible .step-popover,
+.ty-feature-row.three .support-popover-card:first-child:hover .step-popover,
+.ty-feature-row.three .support-popover-card:first-child:focus .step-popover,
+.ty-feature-row.three .support-popover-card:first-child:focus-within .step-popover,
+.ty-feature-row.three .support-popover-card:first-child:focus-visible .step-popover,
+.ty-process-list.seven .step-popover-card:nth-child(4n+1):hover .step-popover,
+.ty-process-list.seven .step-popover-card:nth-child(4n+1):focus .step-popover,
+.ty-process-list.seven .step-popover-card:nth-child(4n+1):focus-within .step-popover,
+.ty-process-list.seven .step-popover-card:nth-child(4n+1):focus-visible .step-popover,
+.ty-list-grid .step-popover-card:nth-child(even):hover .step-popover,
+.ty-list-grid .step-popover-card:nth-child(even):focus .step-popover,
+.ty-list-grid .step-popover-card:nth-child(even):focus-within .step-popover,
+.ty-list-grid .step-popover-card:nth-child(even):focus-visible .step-popover,
+.ty-feature-row.three .support-popover-card:nth-child(3):hover .step-popover,
+.ty-feature-row.three .support-popover-card:nth-child(3):focus .step-popover,
+.ty-feature-row.three .support-popover-card:nth-child(3):focus-within .step-popover,
+.ty-feature-row.three .support-popover-card:nth-child(3):focus-visible .step-popover,
+.ty-process-list.seven .step-popover-card:nth-child(4n):hover .step-popover,
+.ty-process-list.seven .step-popover-card:nth-child(4n):focus .step-popover,
+.ty-process-list.seven .step-popover-card:nth-child(4n):focus-within .step-popover,
+.ty-process-list.seven .step-popover-card:nth-child(4n):focus-visible .step-popover,
+.output-popover-card:hover .step-popover,
+.output-popover-card:focus .step-popover,
+.output-popover-card:focus-within .step-popover,
+.output-popover-card:focus-visible .step-popover {
+  transform: translateY(0) scale(1);
 }
 .ty-process-list span {
   color: #0066cc;
