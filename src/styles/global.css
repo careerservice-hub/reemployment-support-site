@@ -1100,6 +1100,10 @@ body {
   gap: 34px;
   padding: clamp(30px, 5vw, 48px);
 }
+.business-output-panel {
+  grid-template-columns: minmax(300px, .78fr) minmax(560px, 1.22fr);
+  align-items: start;
+}
 .ty-checks,
 .ty-contact-lines {
   display: grid;
@@ -1113,12 +1117,16 @@ body {
   padding-bottom: 14px;
   border-bottom: 1px solid rgba(0,0,0,.07);
 }
+.business-output-panel .ty-checks p {
+  grid-template-columns: 150px minmax(360px, 1fr);
+  gap: 20px;
+}
 .ty-checks p:last-child,
 .ty-contact-lines p:last-child { border-bottom: 0; padding-bottom: 0; }
 .ty-checks strong,
 .ty-contact-lines strong { color: #1d1d1f; }
 .ty-checks span,
-.ty-contact-lines span { color: #6e6e73; }
+.ty-contact-lines span { color: #6e6e73; line-height: 1.62; }
 .ty-video {
   display: grid;
   grid-template-columns: .74fr 1.26fr;
@@ -1292,6 +1300,7 @@ body {
   .ty-hero { min-height: auto; }
   .ty-checks p,
   .ty-contact-lines p { grid-template-columns: 1fr; }
+  .business-output-panel .ty-checks p { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .ty-hero h1 { font-size: clamp(2.6rem, 15vw, 4.2rem); }
