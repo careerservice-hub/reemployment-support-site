@@ -1206,6 +1206,32 @@ body {
   max-width: none;
 }
 .ty-info-popover.check:last-child > p { border-bottom: 0; padding-bottom: 0; }
+.hover-checks { gap: 0; }
+.output-popover-card {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 18px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid rgba(0,0,0,.07);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.output-popover-card:last-child { border-bottom: 0; padding-bottom: 0; }
+.output-popover-card:hover,
+.output-popover-card:focus,
+.output-popover-card:focus-within,
+.output-popover-card:focus-visible {
+  transform: none;
+  border-color: rgba(0,0,0,.07);
+  box-shadow: none;
+}
+.output-popover-card > strong { color: #1d1d1f; }
+.output-popover-card > span { color: #6e6e73; line-height: 1.62; }
+.output-popover {
+  bottom: calc(100% + 12px);
+  width: min(420px, 78vw);
+}
 .ty-list-grid strong { color: #0066cc; }
 .ty-note-panel,
 .ty-contact-card {
