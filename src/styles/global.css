@@ -987,12 +987,16 @@ body {
 }
 .ty-actions a:hover { text-decoration: underline; }
 .dual-flow-grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+  overflow: visible;
 }
 .flow-lane {
   position: relative;
+  z-index: 1;
+  overflow: visible;
   padding: clamp(28px, 4vw, 38px);
   border-radius: 34px;
   background: rgba(255,255,255,.82);
@@ -1001,6 +1005,12 @@ body {
 }
 .flow-lane.consulting { background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(246,250,255,.82)); }
 .flow-lane.career { background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(247,252,249,.82)); }
+.flow-lane:has(.step-popover-card:hover),
+.flow-lane:has(.step-popover-card:focus),
+.flow-lane:has(.step-popover-card:focus-within),
+.flow-lane:has(.step-popover-card:focus-visible) {
+  z-index: 80;
+}
 .flow-lane-head { max-width: 520px; margin-bottom: 22px; }
 .flow-lane-head span {
   color: #0066cc;
@@ -1023,10 +1033,12 @@ body {
   letter-spacing: -.035em;
 }
 .application-options {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   margin-top: 18px;
+  overflow: visible;
 }
 .application-pill {
   min-height: auto;
@@ -1049,7 +1061,7 @@ body {
   font-weight: 700;
   letter-spacing: -.025em;
 }
-.flow-step-list { display: grid; gap: 12px; }
+.flow-step-list { position: relative; display: grid; gap: 12px; overflow: visible; }
 .step-popover-card.compact {
   min-height: 150px;
   padding: 22px;
@@ -1452,6 +1464,7 @@ body {
 .step-popover-card:focus,
 .step-popover-card:focus-within,
 .step-popover-card:focus-visible {
+  z-index: 100;
   transform: translateY(-2px);
   border-color: rgba(0, 102, 204, .22);
   box-shadow: 0 24px 68px rgba(30,80,120,.11);
@@ -1460,7 +1473,7 @@ body {
   position: absolute;
   left: 50%;
   bottom: calc(100% + 14px);
-  z-index: 30;
+  z-index: 1000;
   width: min(620px, calc(100vw - 48px));
   padding: 20px 22px;
   border-radius: 24px;
