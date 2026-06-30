@@ -1123,6 +1123,25 @@ body {
   min-height: 300px;
   padding: 34px;
 }
+.ty-split-cards article.consulting-image-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.92) 48%, rgba(255,255,255,.56) 100%),
+    url('/assets/business-consulting-meeting-bg.webp') right center / cover no-repeat;
+}
+.ty-split-cards article.consulting-image-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(235, 250, 248, .10), rgba(255,255,255,.16));
+  pointer-events: none;
+}
+.ty-split-cards article.consulting-image-card > * {
+  position: relative;
+  z-index: 1;
+  max-width: 58%;
+}
 .ty-split-cards span {
   color: #86868b;
   font-size: .86rem;
@@ -1597,6 +1616,12 @@ body {
     margin-left: 0;
     padding-right: 48px;
   }
+  .ty-split-cards article.consulting-image-card {
+    background:
+      linear-gradient(90deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.94) 58%, rgba(255,255,255,.70) 100%),
+      url('/assets/business-consulting-meeting-bg.webp') right center / cover no-repeat;
+  }
+  .ty-split-cards article.consulting-image-card > * { max-width: 72%; }
 }
 @media (max-width: 560px) {
   .ty-hero h1 { font-size: clamp(2.6rem, 15vw, 4.2rem); }
@@ -1605,6 +1630,12 @@ body {
   .ty-split-cards article,
   .ty-feature-row article,
   .ty-process-list article { min-height: auto; padding: 24px; }
+  .ty-split-cards article.consulting-image-card {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.95) 100%),
+      url('/assets/business-consulting-meeting-bg.webp') center center / cover no-repeat;
+  }
+  .ty-split-cards article.consulting-image-card > * { max-width: none; }
   .step-popover {
     position: static;
     width: auto;
