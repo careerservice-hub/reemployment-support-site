@@ -1379,12 +1379,18 @@ body {
   letter-spacing: -.02em;
 }
 .step-popover p {
-  margin-top: 9px;
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+  margin: 9px 0 0;
+  padding: 0;
+  border: 0;
   color: #515154;
   font-size: .94rem;
   line-height: 1.62;
   letter-spacing: -.035em;
   max-width: none;
+  width: 100%;
 }
 .popover-link {
   display: inline-flex;
