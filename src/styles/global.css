@@ -1155,7 +1155,7 @@ body {
   min-height: 82px;
   display: grid;
   align-content: center;
-  padding: 20px 64px 20px 24px;
+  padding: 22px 24px;
   border-radius: 28px;
   background: rgba(255,255,255,.82);
   border: 1px solid rgba(0,0,0,.07);
@@ -1167,47 +1167,17 @@ body {
   font-weight: 700;
   letter-spacing: -.035em;
 }
-.readiness-popover-card > span {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(0,102,204,.08);
-  color: #0066cc;
-  border: 1px solid rgba(0,102,204,.14);
-  font-size: .88rem;
-  font-weight: 760;
-}
 .readiness-popover {
   bottom: calc(100% + 12px);
   width: min(620px, calc(100vw - 48px));
 }
 .support-popover-card {
   min-height: 218px;
-  padding: 28px 64px 28px 28px;
+  padding: 28px;
   border-radius: 28px;
   background: rgba(255,255,255,.82);
   border: 1px solid rgba(0,0,0,.07);
   box-shadow: 0 18px 54px rgba(30,80,120,.06);
-}
-.support-popover-card > span {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(0,102,204,.08);
-  color: #0066cc;
-  border: 1px solid rgba(0,102,204,.14);
-  font-size: .88rem;
-  font-weight: 760;
 }
 .support-popover-card h3 { margin-top: 0; }
 .support-popover { width: min(620px, calc(100vw - 48px)); }

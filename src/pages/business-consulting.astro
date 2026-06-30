@@ -43,7 +43,6 @@ const outputItems = [
       {readinessItems.map(([title, detail]) => (
         <article class="step-popover-card readiness-popover-card" tabindex="0" aria-describedby={`readiness-${title}-detail`}>
           <strong>{title}</strong>
-          <span aria-hidden="true">?</span>
           <div class="step-popover readiness-popover" id={`readiness-${title}-detail`} role="tooltip">
             <strong>{title}</strong>
             <p>{detail}</p>
@@ -81,7 +80,6 @@ const outputItems = [
     <div class="ty-feature-row three info-grid">
       {supportTypes.map(([title, body, detail]) => (
         <article class="step-popover-card support-popover-card" tabindex="0" aria-describedby={`support-${title}-detail`}>
-          <span aria-hidden="true">?</span>
           <h3>{title}</h3>
           <p>{body}</p>
           <div class="step-popover support-popover" id={`support-${title}-detail`} role="tooltip">
