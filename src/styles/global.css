@@ -1184,7 +1184,7 @@ body {
 }
 .readiness-popover {
   bottom: calc(100% + 12px);
-  width: min(430px, 78vw);
+  width: min(620px, calc(100vw - 48px));
 }
 .support-popover-card {
   min-height: 218px;
@@ -1210,7 +1210,7 @@ body {
   font-weight: 760;
 }
 .support-popover-card h3 { margin-top: 0; }
-.support-popover { width: min(430px, 78vw); }
+.support-popover { width: min(620px, calc(100vw - 48px)); }
 .ty-info-popover.feature {
   min-height: 218px;
 }
@@ -1291,7 +1291,7 @@ body {
 .output-popover-card > span { color: #6e6e73; line-height: 1.62; }
 .output-popover {
   bottom: calc(100% + 12px);
-  width: min(420px, 78vw);
+  width: min(620px, calc(100vw - 48px));
 }
 .ty-list-grid strong { color: #0066cc; }
 .ty-note-panel,
@@ -1375,7 +1375,7 @@ body {
   left: 50%;
   bottom: calc(100% + 14px);
   z-index: 30;
-  width: min(560px, calc(100vw - 48px));
+  width: min(620px, calc(100vw - 48px));
   padding: 20px 22px;
   border-radius: 24px;
   background: rgba(255,255,255,.94);
@@ -1414,6 +1414,7 @@ body {
   font-size: .94rem;
   line-height: 1.62;
   letter-spacing: -.035em;
+  max-width: none;
 }
 .popover-link {
   display: inline-flex;
