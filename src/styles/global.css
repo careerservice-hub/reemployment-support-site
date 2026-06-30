@@ -1126,21 +1126,31 @@ body {
 .ty-split-cards article.consulting-image-card {
   position: relative;
   overflow: hidden;
-  background:
-    linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.92) 48%, rgba(255,255,255,.56) 100%),
-    url('/assets/business-consulting-meeting-bg.webp') right center / cover no-repeat;
+  background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.96) 45%, rgba(255,255,255,.72) 100%);
+}
+.ty-split-cards article.consulting-image-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 56%;
+  background: url('/assets/business-consulting-meeting-bg.webp') right center / cover no-repeat;
+  opacity: .48;
+  filter: saturate(.92) contrast(.96) brightness(1.04);
+  pointer-events: none;
 }
 .ty-split-cards article.consulting-image-card::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(235, 250, 248, .10), rgba(255,255,255,.16));
+  background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.90) 42%, rgba(255,255,255,.24) 100%);
   pointer-events: none;
 }
 .ty-split-cards article.consulting-image-card > * {
   position: relative;
   z-index: 1;
-  max-width: 58%;
+  max-width: 60%;
 }
 .ty-split-cards span {
   color: #86868b;
@@ -1617,9 +1627,14 @@ body {
     padding-right: 48px;
   }
   .ty-split-cards article.consulting-image-card {
-    background:
-      linear-gradient(90deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.94) 58%, rgba(255,255,255,.70) 100%),
-      url('/assets/business-consulting-meeting-bg.webp') right center / cover no-repeat;
+    background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.96) 58%, rgba(255,255,255,.78) 100%);
+  }
+  .ty-split-cards article.consulting-image-card::before {
+    width: 52%;
+    opacity: .38;
+  }
+  .ty-split-cards article.consulting-image-card::after {
+    background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.92) 56%, rgba(255,255,255,.36) 100%);
   }
   .ty-split-cards article.consulting-image-card > * { max-width: 72%; }
 }
@@ -1631,9 +1646,17 @@ body {
   .ty-feature-row article,
   .ty-process-list article { min-height: auto; padding: 24px; }
   .ty-split-cards article.consulting-image-card {
-    background:
-      linear-gradient(180deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.95) 100%),
-      url('/assets/business-consulting-meeting-bg.webp') center center / cover no-repeat;
+    background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.96) 100%);
+  }
+  .ty-split-cards article.consulting-image-card::before {
+    inset: auto 0 0;
+    width: 100%;
+    height: 46%;
+    opacity: .22;
+    background-position: center center;
+  }
+  .ty-split-cards article.consulting-image-card::after {
+    background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.88) 62%, rgba(255,255,255,.70) 100%);
   }
   .ty-split-cards article.consulting-image-card > * { max-width: none; }
   .step-popover {
