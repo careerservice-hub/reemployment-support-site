@@ -89,12 +89,16 @@ const outputItems = [
       <p class="ty-comment">정리 산출물</p>
       <h2>기업이 계속 운영할 수 있는 기준을 남깁니다.</h2>
     </div>
-    <div class="ty-checks info-checks">
+    <div class="ty-checks info-checks hover-checks">
       {outputItems.map(([title, body, detail]) => (
-        <details class="ty-info-popover check">
-          <summary><strong>{title}</strong><span>{body}</span></summary>
-          <p>{detail}</p>
-        </details>
+        <article class="step-popover-card output-popover-card" tabindex="0" aria-describedby={`output-${title}-detail`}>
+          <strong>{title}</strong>
+          <span>{body}</span>
+          <div class="step-popover output-popover" id={`output-${title}-detail`} role="tooltip">
+            <strong>{title}</strong>
+            <p>{detail}</p>
+          </div>
+        </article>
       ))}
     </div>
   </section>
