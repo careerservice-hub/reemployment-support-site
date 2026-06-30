@@ -37,14 +37,18 @@ const outputItems = [
   <section class="ty-section">
     <div class="ty-section-head">
       <h2>기업의 제도화 준비를 확인합니다.</h2>
-      <p>의무대상기업뿐 아니라 제도 도입·개선을 검토하는 기업도 현재 여건을 기준으로 운영 가능성을 점검합니다. 항목을 누르면 실무 설명을 확인할 수 있습니다.</p>
+      <p>의무대상기업뿐 아니라 제도 도입·개선을 검토하는 기업도 현재 여건을 기준으로 운영 가능성을 점검합니다. 항목에 마우스를 올리면 실무 설명을 확인할 수 있습니다.</p>
     </div>
-    <div class="ty-list-grid info-grid">
+    <div class="ty-list-grid info-grid hover-info-grid">
       {readinessItems.map(([title, detail]) => (
-        <details class="ty-info-popover">
-          <summary>{title}</summary>
-          <p>{detail}</p>
-        </details>
+        <article class="step-popover-card readiness-popover-card" tabindex="0" aria-describedby={`readiness-${title}-detail`}>
+          <strong>{title}</strong>
+          <span aria-hidden="true">?</span>
+          <div class="step-popover readiness-popover" id={`readiness-${title}-detail`} role="tooltip">
+            <strong>{title}</strong>
+            <p>{detail}</p>
+          </div>
+        </article>
       ))}
     </div>
   </section>
@@ -76,10 +80,15 @@ const outputItems = [
     </div>
     <div class="ty-feature-row three info-grid">
       {supportTypes.map(([title, body, detail]) => (
-        <details class="ty-info-popover feature">
-          <summary><span>{title}</span><em>{body}</em></summary>
-          <p>{detail}</p>
-        </details>
+        <article class="step-popover-card support-popover-card" tabindex="0" aria-describedby={`support-${title}-detail`}>
+          <span aria-hidden="true">?</span>
+          <h3>{title}</h3>
+          <p>{body}</p>
+          <div class="step-popover support-popover" id={`support-${title}-detail`} role="tooltip">
+            <strong>{title}</strong>
+            <p>{detail}</p>
+          </div>
+        </article>
       ))}
     </div>
   </section>
