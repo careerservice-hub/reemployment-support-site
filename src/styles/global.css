@@ -1221,6 +1221,75 @@ body {
   line-height: 1.55;
 }
 .ty-list-grid strong { color: #0066cc; }
+.application-download-section .ty-section-head { max-width: 900px; }
+.download-panel {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(420px, 1.05fr);
+  gap: 18px;
+  align-items: stretch;
+}
+.download-copy,
+.download-card,
+.submission-note {
+  background: rgba(255,255,255,.84);
+  border: 1px solid rgba(0,0,0,.07);
+  border-radius: 28px;
+  box-shadow: 0 18px 54px rgba(30,80,120,.06);
+}
+.download-copy { padding: clamp(28px, 4vw, 40px); }
+.download-copy h3 {
+  margin: 0 0 18px;
+  color: #1d1d1f;
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  line-height: 1.16;
+  letter-spacing: -.06em;
+}
+.download-copy ol {
+  margin: 0;
+  padding-left: 1.2em;
+  color: #515154;
+  line-height: 1.72;
+  letter-spacing: -.035em;
+}
+.download-copy li + li { margin-top: 8px; }
+.download-files { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+.download-card {
+  min-height: 220px;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 28px;
+}
+.download-card span {
+  color: #16856f;
+  font-size: .82rem;
+  font-weight: 760;
+  letter-spacing: -.02em;
+}
+.download-card strong {
+  color: #1d1d1f;
+  font-size: clamp(1.18rem, 1.8vw, 1.55rem);
+  line-height: 1.22;
+  letter-spacing: -.055em;
+}
+.download-card p { color: #6e6e73; line-height: 1.6; letter-spacing: -.035em; }
+.download-card.pending { background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(247,252,249,.86)); }
+.submission-note {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 0;
+  overflow: hidden;
+}
+.submission-note p {
+  display: grid;
+  gap: 6px;
+  padding: 22px 24px;
+  border-right: 1px solid rgba(0,0,0,.06);
+}
+.submission-note p:last-child { border-right: 0; }
+.submission-note strong { color: #0066cc; font-size: .9rem; }
+.submission-note span { color: #1d1d1f; font-weight: 650; line-height: 1.45; }
 .info-grid { align-items: stretch; }
 .ty-info-popover {
   position: relative;
@@ -1642,11 +1711,16 @@ body {
   .ty-contact-card,
   .ty-video,
   .ty-process-list,
-  .ty-process-list.seven { grid-template-columns: 1fr; }
+  .ty-process-list.seven,
+  .download-panel,
+  .download-files,
+  .submission-note { grid-template-columns: 1fr; }
   .application-options { grid-template-columns: 1fr; }
   .ty-hero { min-height: auto; }
   .ty-checks p,
   .ty-contact-lines p { grid-template-columns: 1fr; }
+  .submission-note p { border-right: 0; border-bottom: 1px solid rgba(0,0,0,.06); }
+  .submission-note p:last-child { border-bottom: 0; }
   .ty-info-popover.check summary {
     grid-template-columns: 1fr;
     padding-right: 48px;
