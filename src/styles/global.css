@@ -1252,6 +1252,61 @@ body {
   letter-spacing: -.035em;
 }
 .download-copy li + li { margin-top: 8px; }
+.application-step-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; overflow: visible; }
+.application-step-card {
+  min-height: 112px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(0,0,0,.07);
+}
+.application-step-card > strong {
+  color: #1d1d1f;
+  font-size: 1rem;
+  line-height: 1.25;
+  letter-spacing: -.045em;
+}
+.application-step-card > span { color: #6e6e73; font-size: .9rem; line-height: 1.5; font-weight: 650; }
+.career-step-card { position: relative; }
+.career-popover { width: min(360px, calc(100vw - 48px)); }
+.application-flow-popover { width: min(420px, calc(100vw - 48px)); }
+.ty-feature-row.four .career-step-card:first-child .step-popover,
+.application-step-grid .application-step-card:nth-child(odd) .step-popover {
+  left: 0;
+  right: auto;
+  transform: translateY(8px) scale(.98);
+}
+.ty-feature-row.four .career-step-card:last-child .step-popover,
+.application-step-grid .application-step-card:nth-child(even) .step-popover {
+  left: auto;
+  right: 0;
+  transform: translateY(8px) scale(.98);
+}
+.ty-feature-row.four .career-step-card:first-child .step-popover::after,
+.application-step-grid .application-step-card:nth-child(odd) .step-popover::after {
+  left: 34px;
+  transform: rotate(45deg);
+}
+.ty-feature-row.four .career-step-card:last-child .step-popover::after,
+.application-step-grid .application-step-card:nth-child(even) .step-popover::after {
+  left: auto;
+  right: 34px;
+  transform: rotate(45deg);
+}
+.ty-feature-row.four .career-step-card:first-child:hover .step-popover,
+.ty-feature-row.four .career-step-card:first-child:focus .step-popover,
+.ty-feature-row.four .career-step-card:first-child:focus-within .step-popover,
+.ty-feature-row.four .career-step-card:last-child:hover .step-popover,
+.ty-feature-row.four .career-step-card:last-child:focus .step-popover,
+.ty-feature-row.four .career-step-card:last-child:focus-within .step-popover,
+.application-step-grid .application-step-card:hover .step-popover,
+.application-step-grid .application-step-card:focus .step-popover,
+.application-step-grid .application-step-card:focus-within .step-popover {
+  transform: translateY(0) scale(1);
+}
 .download-files { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
 .download-card {
   min-height: 220px;
@@ -1714,6 +1769,7 @@ body {
   .ty-process-list.seven,
   .download-panel,
   .download-files,
+  .application-step-grid,
   .submission-note { grid-template-columns: 1fr; }
   .application-options { grid-template-columns: 1fr; }
   .ty-hero { min-height: auto; }

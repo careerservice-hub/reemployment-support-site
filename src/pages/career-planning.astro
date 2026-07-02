@@ -1,10 +1,56 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const flow = [
-  ['경력진단', '직무경험, 강점, 관심 분야를 점검합니다.'],
-  ['역량 점검', '현재 보유역량과 향후 필요한 역량을 비교합니다.'],
-  ['목표 설정', '역할 변화와 개인 목표를 연결해 방향을 구체화합니다.'],
-  ['실행계획', '교육, 직무, 전직준비 등 실천 과제를 정리합니다.'],
+  {
+    title: '경력진단',
+    body: '직무경험, 강점, 관심 분야를 점검합니다.',
+    detailTitle: '무엇을 확인하나요?',
+    detail: '현재까지 수행한 직무, 역할 변화, 주요 성과, 강점과 관심 분야를 정리해 경력의 흐름을 다시 확인합니다.',
+  },
+  {
+    title: '역량 점검',
+    body: '현재 보유역량과 향후 필요한 역량을 비교합니다.',
+    detailTitle: '어떤 기준으로 보나요?',
+    detail: '현재 직무에서 활용 가능한 역량과 향후 직무전환·계속근로·전직 준비에 필요한 역량을 비교해 보완 과제를 찾습니다.',
+  },
+  {
+    title: '목표 설정',
+    body: '역할 변화와 개인 목표를 연결해 방향을 구체화합니다.',
+    detailTitle: '어떤 방향을 정하나요?',
+    detail: '계속근로, 직무전환, 재취업 준비, 교육 참여 등 개인 상황에 맞는 경력 방향과 우선순위를 구체화합니다.',
+  },
+  {
+    title: '실행계획',
+    body: '교육, 직무, 전직준비 등 실천 과제를 정리합니다.',
+    detailTitle: '결과물은 무엇인가요?',
+    detail: '상담 결과를 바탕으로 교육·자격·직무경험 정리·구직 준비 등 바로 실행할 수 있는 후속 과제를 정리합니다.',
+  },
+];
+const applicationSteps = [
+  {
+    title: '양식 다운로드',
+    body: '신청 양식과 동의서를 내려받습니다.',
+    detailTitle: '파일은 어디서 받나요?',
+    detail: '신청서, 개인정보 수집·이용 동의서, 작성예시 파일을 이 페이지의 다운로드 영역에 게시할 예정입니다.',
+  },
+  {
+    title: '작성·서명',
+    body: '신청서와 개인정보 동의서를 작성하고 서명합니다.',
+    detailTitle: '무엇을 확인해야 하나요?',
+    detail: '성명, 연락처, 희망 일정, 서명란 누락 여부를 확인합니다. 서명이 빠지면 접수 보완을 요청할 수 있습니다.',
+  },
+  {
+    title: '이메일 제출',
+    body: '스캔본 또는 선명한 사진 파일을 이메일로 보냅니다.',
+    detailTitle: '어떤 파일이 좋나요?',
+    detail: 'PDF 제출을 권장하며, 사진 파일은 글자와 서명이 선명하게 보이도록 촬영합니다. 파일명은 성명과 휴대폰 뒤 4자리를 포함하는 방식이 좋습니다.',
+  },
+  {
+    title: '접수 확인',
+    body: '대상 여부와 진행 일정을 별도 안내합니다.',
+    detailTitle: '신청하면 바로 확정되나요?',
+    detail: '신청서 제출은 참여 확정이 아닙니다. 접수 후 대상 여부, 일정, 보완 필요사항을 확인해 별도로 안내합니다.',
+  },
 ];
 ---
 <BaseLayout title="커리어플래닝서비스" description="중장년 재직자의 역량 향상과 경력설계를 지원합니다.">
@@ -31,8 +77,17 @@ const flow = [
       <h2>명확한 경력 설계</h2>
       <p>진단에서 실행계획까지 상담 구조를 단순하게 정리합니다.</p>
     </div>
-    <div class="ty-feature-row four">
-      {flow.map(([title, body]) => <article><h3>{title}</h3><p>{body}</p></article>)}
+    <div class="ty-feature-row four career-popover-row">
+      {flow.map((item) => (
+        <article class="step-popover-card career-step-card" tabindex="0">
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+          <div class="step-popover career-popover" role="tooltip">
+            <strong>{item.detailTitle}</strong>
+            <p>{item.detail}</p>
+          </div>
+        </article>
+      ))}
     </div>
   </section>
 
@@ -45,12 +100,18 @@ const flow = [
     <div class="download-panel">
       <div class="download-copy">
         <h3>제출 흐름</h3>
-        <ol>
-          <li>홈페이지에서 신청 양식을 내려받습니다.</li>
-          <li>신청서와 개인정보 동의서를 작성하고 서명합니다.</li>
-          <li>스캔본 또는 선명한 사진 파일을 이메일로 제출합니다.</li>
-          <li>접수 확인 후 대상 여부와 진행 일정을 별도 안내합니다.</li>
-        </ol>
+        <div class="application-step-grid" aria-label="커리어플래닝서비스 신청 제출 흐름">
+          {applicationSteps.map((item) => (
+            <article class="step-popover-card application-step-card" tabindex="0">
+              <strong>{item.title}</strong>
+              <span>{item.body}</span>
+              <div class="step-popover application-flow-popover" role="tooltip">
+                <strong>{item.detailTitle}</strong>
+                <p>{item.detail}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
       <div class="download-files" aria-label="커리어플래닝서비스 신청 양식 다운로드 영역">
         <article class="download-card pending">
