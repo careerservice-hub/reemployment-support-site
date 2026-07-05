@@ -175,8 +175,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="consultation-submit">상담 이메일 작성하기</button>
-        <p id="formStatus" role="status" aria-live="polite">버튼을 누르면 작성하신 상담 내용이 정리된 이메일 작성 화면이 열립니다. 내용을 확인한 뒤 전송해 주세요.</p>
+        <button type="submit" class="consultation-submit">상담신청 보내기</button>
+        <p id="formStatus" role="status" aria-live="polite">버튼을 누르면 작성하신 상담 내용이 담당자 텔레그램으로 전송됩니다.</p>
       </div>
     </form>
   </section>
@@ -275,7 +275,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     form.addEventListener('change', updatePanels);
     updatePanels();
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
       const data = new FormData(form);
 
@@ -287,12 +287,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         return;
       }
 
-      const body = buildSummary(data);
-      const subject = `[상담신청] ${serviceLabels[activeService()]} - ${getValue(data, 'name')}`;
-      const mailto = `mailto:h.douze@kjobs.co.kr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const payload = Object.fromEntries(data.entries());
+      payload.privacyConsent = data.get('privacyConsent') === 'on';
 
-      window.location.href = mailto;
-      statusEl.textContent = '이메일 작성 화면이 열렸습니다. 작성된 내용을 확인한 뒤 전송해 주세요.';
+      const submitButton = form.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = '전송 중입니다';
+      statusEl.textContent = '상담 내용을 전송하고 있습니다.';
+
+      try {
+        const response = await fetch('https://kjobs-consultation-alert.kjobs-alert.workers.dev', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) {
+          throw new Error(result.error || 'send_failed');
+        }
+        statusEl.textContent = '상담신청이 전송되었습니다. 담당자 확인 후 연락드리겠습니다.';
+        form.reset();
+        updatePanels();
+      } catch (error) {
+        const body = buildSummary(data);
+        const subject = `[상담신청] ${serviceLabels[activeService()]} - ${getValue(data, 'name')}`;
+        const mailto = `mailto:h.douze@kjobs.co.kr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        statusEl.textContent = '자동 전송이 원활하지 않습니다. 이메일 작성 화면을 열어 문의 내용을 보낼 수 있습니다.';
+        window.location.href = mailto;
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = '상담신청 보내기';
+      }
     });
   </script>
 </BaseLayout>

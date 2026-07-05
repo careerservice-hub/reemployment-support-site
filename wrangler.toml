@@ -1,0 +1,6 @@
+name = "kjobs-consultation-alert"
+main = "workers/consultation-alert.js"
+compatibility_date = "2026-07-05"
+
+[vars]
+ALLOWED_ORIGIN = "https://www.careerservice.co.kr"
