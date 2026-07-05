@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { contactJsonLd } from '../data/structuredData.js';
 ---
-<BaseLayout title="문의">
+<BaseLayout title="문의" description="재취업지원서비스 기업컨설팅과 커리어플래닝서비스 상담 가능 여부, 준비자료, 일정 확인을 문의할 수 있습니다." jsonLd={contactJsonLd}>
   <section class="ty-hero sub">
     <div class="ty-mark">문의 안내</div>
     <p class="ty-comment">상담 가능 여부를 먼저 확인하세요</p>

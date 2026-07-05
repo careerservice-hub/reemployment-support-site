@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { businessConsultingJsonLd } from '../data/structuredData.js';
 const readinessItems = [
   ['재취업지원서비스 도입 또는 개선을 검토하는 기업', '처음 도입하는 기업은 기본 운영체계를, 이미 운영 중인 기업은 안내·참여·성과관리 방식의 개선점을 중심으로 점검합니다.'],
   ['대상자 규모, 내부 역할, 운영 절차를 정리해야 하는 기업', '퇴직예정자 규모와 발생 시점, 담당 부서 역할, 내부 결재·안내 흐름을 먼저 정리해야 실행 가능한 제도 설계가 가능합니다.'],
@@ -26,7 +27,7 @@ const outputItems = [
   ['최종 개선 과제', '파일럿 결과와 현장 의견을 바탕으로 후속 보완사항을 제시합니다.', '한 번의 컨설팅으로 끝내지 않고 다음 운영 주기에 반영할 개선 과제와 우선순위를 남깁니다.'],
 ];
 ---
-<BaseLayout title="기업컨설팅" description="기업이 재취업지원서비스를 자체 제도화하고 시행할 수 있도록 7단계 컨설팅과 파일럿 운영을 지원합니다.">
+<BaseLayout title="재취업지원서비스 기업컨설팅" description="기업이 재취업지원서비스를 자체 제도화하고 시행할 수 있도록 현황 진단, 운영체계 설계, 7단계 컨설팅과 파일럿 운영을 지원합니다." jsonLd={businessConsultingJsonLd}>
   <section class="ty-hero sub">
     <div class="ty-mark">기업컨설팅</div>
     <p class="ty-comment">대행 제공이 아니라 제도화 설계</p>

@@ -1,0 +1,26 @@
+# K·JOBS 재취업지원서비스 시행지원
+
+이 사이트는 케이잡스 K·JOBS가 운영하는 재취업지원서비스 시행지원 안내 홈페이지입니다. 기업의 재취업지원서비스 제도화와 운영체계 구축을 위한 기업컨설팅, 중장년 재직자의 경력진단과 경력설계를 위한 커리어플래닝서비스를 안내합니다.
+
+## 주요 서비스
+
+- 기업컨설팅: 기업이 재취업지원서비스를 자체적으로 제도화하고 시행할 수 있도록 현황 진단, 운영체계 설계, 파일럿 운영, 개선과제 정리를 지원합니다.
+- 커리어플래닝서비스: 중장년 재직자의 직무경험, 보유역량, 향후 경력방향을 점검하고 경력설계와 후속 실행계획을 정리합니다.
+
+## 주요 페이지
+
+- 홈: https://www.careerservice.co.kr/
+- 기업컨설팅: https://www.careerservice.co.kr/business-consulting/
+- 커리어플래닝서비스: https://www.careerservice.co.kr/career-planning/
+- 진행 절차: https://www.careerservice.co.kr/process/
+- K·JOBS 지원 방식: https://www.careerservice.co.kr/approach/
+- 문의: https://www.careerservice.co.kr/contact/
+
+## 문의
+
+- 이메일: h.douze@kjobs.co.kr
+- 전화: 02-797-5659, 010-5747-8286
+
+## 크롤링 안내
+
+공개 페이지의 일반적인 검색엔진 및 AI 크롤링을 허용합니다. 상담신청에 입력되는 개인정보, 내부 알림 경로, 서버 측 Secret, Telegram Bot Token, Cloudflare 설정값은 공개 콘텐츠가 아니며 색인 대상이 아닙니다.

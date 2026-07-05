@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { careerPlanningJsonLd } from '../data/structuredData.js';
 const flow = [
   {
     title: '경력진단',
@@ -53,7 +54,7 @@ const applicationSteps = [
   },
 ];
 ---
-<BaseLayout title="커리어플래닝서비스" description="중장년 재직자의 역량 향상과 경력설계를 지원합니다.">
+<BaseLayout title="커리어플래닝서비스" description="중장년 재직자의 직무경험과 보유역량을 점검하고 향후 경력방향, 직무전환, 계속근로, 재취업 준비를 상담 중심으로 지원합니다." jsonLd={careerPlanningJsonLd}>
   <section class="ty-hero sub">
     <div class="ty-mark">커리어플래닝서비스</div>
     <p class="ty-comment">경험을 다음 경력 방향으로</p>
