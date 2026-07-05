@@ -4,3 +4,9 @@ compatibility_date = "2026-07-05"
 
 [vars]
 ALLOWED_ORIGIN = "https://www.careerservice.co.kr"
+RATE_LIMIT_WINDOW_SECONDS = "600"
+RATE_LIMIT_MAX_REQUESTS = "3"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "214c4736c596458eab000487bb1dbea7"
