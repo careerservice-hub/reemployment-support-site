@@ -1516,6 +1516,166 @@ body {
   width: min(620px, calc(100vw - 48px));
 }
 .ty-list-grid strong { color: #0066cc; }
+.consultation-section .ty-section-head { max-width: 920px; }
+.consultation-form {
+  display: grid;
+  gap: 22px;
+  padding: clamp(28px, 5vw, 48px);
+  border-radius: 34px;
+  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(0,0,0,.07);
+  box-shadow: 0 24px 70px rgba(30,80,120,.08);
+}
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.consultation-type {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.consultation-type legend {
+  grid-column: 1 / -1;
+  margin-bottom: 6px;
+  color: #1d1d1f;
+  font-size: 1.02rem;
+  font-weight: 760;
+  letter-spacing: -.035em;
+}
+.consultation-type label {
+  position: relative;
+  display: grid;
+  cursor: pointer;
+}
+.consultation-type input {
+  position: absolute;
+  inset: 18px auto auto 18px;
+  accent-color: #0066cc;
+}
+.consultation-type span {
+  min-height: 138px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 22px 22px 22px 48px;
+  border-radius: 24px;
+  background: rgba(248,248,250,.86);
+  border: 1px solid rgba(0,0,0,.07);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+.consultation-type input:checked + span {
+  border-color: rgba(0,102,204,.36);
+  box-shadow: 0 18px 44px rgba(0,102,204,.10);
+  background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(244,249,255,.92));
+}
+.consultation-type label:hover span { transform: translateY(-1px); }
+.consultation-type strong {
+  color: #1d1d1f;
+  font-size: clamp(1.08rem, 1.5vw, 1.32rem);
+  line-height: 1.2;
+  letter-spacing: -.052em;
+}
+.consultation-type small { color: #6e6e73; line-height: 1.48; letter-spacing: -.035em; }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+}
+.form-grid.compact { margin-top: 2px; }
+.form-grid label,
+.message-field {
+  display: grid;
+  gap: 8px;
+}
+.form-grid span,
+.message-field > span {
+  color: #1d1d1f;
+  font-size: .94rem;
+  font-weight: 720;
+  letter-spacing: -.035em;
+}
+.form-grid b,
+.message-field b,
+.privacy-check b { color: #9a4d4d; }
+.form-grid input,
+.form-grid select,
+.message-field textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  color: #1d1d1f;
+  font: inherit;
+  letter-spacing: -.025em;
+}
+.message-field textarea { resize: vertical; min-height: 150px; }
+.form-grid input:focus,
+.form-grid select:focus,
+.message-field textarea:focus {
+  outline: 3px solid rgba(0,102,204,.14);
+  border-color: rgba(0,102,204,.42);
+}
+.conditional-fields {
+  padding: 20px;
+  border-radius: 24px;
+  background: rgba(248,248,250,.74);
+  border: 1px solid rgba(0,0,0,.06);
+}
+.privacy-box {
+  display: grid;
+  gap: 8px;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(246,250,255,.84);
+  border: 1px solid rgba(0,102,204,.12);
+}
+.privacy-box strong { color: #1d1d1f; }
+.privacy-box p { color: #6e6e73; font-size: .94rem; line-height: 1.55; letter-spacing: -.03em; }
+.privacy-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 8px;
+  color: #1d1d1f;
+  font-weight: 700;
+}
+.privacy-check input { margin-top: 5px; accent-color: #0066cc; }
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.consultation-submit {
+  min-height: 48px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: #0066cc;
+  color: #fff;
+  font: inherit;
+  font-weight: 760;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0,102,204,.16);
+}
+.consultation-submit:hover { background: #004fb3; }
+#formStatus {
+  flex: 1 1 360px;
+  color: #6e6e73;
+  font-size: .92rem;
+  line-height: 1.55;
+  letter-spacing: -.03em;
+}
 .ty-note-panel,
 .ty-contact-card {
   display: grid;
@@ -1770,7 +1930,9 @@ body {
   .download-panel,
   .download-files,
   .application-step-grid,
-  .submission-note { grid-template-columns: 1fr; }
+  .submission-note,
+  .consultation-type,
+  .form-grid { grid-template-columns: 1fr; }
   .application-options { grid-template-columns: 1fr; }
   .ty-hero { min-height: auto; }
   .ty-checks p,
