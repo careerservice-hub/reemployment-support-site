@@ -1328,10 +1328,14 @@ body {
   letter-spacing: -.055em;
 }
 .download-card p { color: #6e6e73; line-height: 1.6; letter-spacing: -.035em; }
-.grouped-download-card { min-height: 260px; }
+.grouped-download-card {
+  min-height: 260px;
+  grid-template-rows: auto auto 1fr;
+}
 .same-form-choice {
   display: grid;
   gap: 12px;
+  align-self: end;
   margin-top: 4px;
   padding: 16px;
   border-radius: 20px;
