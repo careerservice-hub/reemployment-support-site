@@ -1337,6 +1337,16 @@ body {
   display: flex;
   align-items: flex-start;
 }
+.evidence-download-card { grid-column: 1 / -1; }
+.evidence-download-card strong { min-height: auto; }
+.evidence-note ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #1d1d1f;
+  line-height: 1.65;
+  letter-spacing: -.035em;
+}
+.evidence-note li + li { margin-top: 4px; }
 .same-form-choice {
   display: grid;
   gap: 12px;
