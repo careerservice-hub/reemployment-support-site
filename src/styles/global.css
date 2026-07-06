@@ -1332,6 +1332,11 @@ body {
   min-height: 260px;
   grid-template-rows: auto auto 1fr;
 }
+.grouped-download-card strong {
+  min-height: 4.6em;
+  display: flex;
+  align-items: flex-start;
+}
 .same-form-choice {
   display: grid;
   gap: 12px;
