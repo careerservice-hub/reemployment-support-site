@@ -140,20 +140,17 @@ const outputItems = [
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (container) {
-      const animation = lottie.loadAnimation({
+      lottie.loadAnimation({
         container,
         renderer: 'svg',
-        loop: true,
-        autoplay: true,
+        loop: !prefersReducedMotion,
+        autoplay: !prefersReducedMotion,
         path: '/animations/business-consulting-7steps.json',
         rendererSettings: {
           preserveAspectRatio: 'xMidYMid meet',
           progressiveLoad: true,
         },
       });
-
-      animation.setSpeed(prefersReducedMotion ? 0.55 : 1);
-      animation.addEventListener('DOMLoaded', () => animation.play());
     }
   </script>
 </BaseLayout>
