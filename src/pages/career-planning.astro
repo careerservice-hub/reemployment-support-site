@@ -30,9 +30,9 @@ const flow = [
 const applicationSteps = [
   {
     title: '양식 다운로드',
-    body: '사용 가능한 파일 형식을 선택해 신청서를 내려받습니다.',
+    body: '필요한 양식을 내려받고 사용 가능한 파일 형식을 선택합니다.',
     detailTitle: '파일은 어디서 받나요?',
-    detail: '신청서와 개인정보 동의서 양식은 이 페이지의 다운로드 영역에서 HWP와 PDF 형식으로 제공합니다. 같은 양식은 파일 형식만 다릅니다.',
+    detail: '신청서와 개인정보 동의서는 각각 HWP와 PDF 형식으로 제공합니다. 신청자는 사용 가능한 프로그램에 맞춰 한 가지 형식을 선택하면 됩니다.',
   },
   {
     title: '작성·서명',
@@ -42,9 +42,9 @@ const applicationSteps = [
   },
   {
     title: '이메일 제출',
-    body: '스캔본 또는 선명한 사진 파일을 이메일로 보냅니다.',
-    detailTitle: '어떤 파일이 좋나요?',
-    detail: 'PDF 제출을 권장하며, 사진 파일은 글자와 서명이 선명하게 보이도록 촬영합니다. 파일명은 성명과 휴대폰 뒤 4자리를 포함하는 방식이 좋습니다.',
+    body: '양식과 재직증명서를 이메일로 보냅니다.',
+    detailTitle: '무엇을 함께 제출하나요?',
+    detail: '작성·서명한 신청서, 개인정보 동의서, 재직증명서를 함께 제출합니다. PDF 제출을 권장하며, 사진 파일은 글자와 서명이 선명하게 보이도록 촬영합니다.',
   },
   {
     title: '접수 확인',
@@ -115,33 +115,28 @@ const applicationSteps = [
         </div>
       </div>
       <div class="download-files" aria-label="커리어플래닝서비스 신청 양식 다운로드 영역">
-        <article class="download-card">
-          <span>신청서 · HWP</span>
+        <article class="download-card grouped-download-card">
+          <span>신청서</span>
           <strong>커리어플래닝서비스 신청서</strong>
-          <p>한글 프로그램에서 작성할 수 있는 신청서 파일입니다.</p>
-          <a href="/downloads/career-planning-application.hwp" download>HWP 다운로드</a>
+          <p>사용 가능한 프로그램에 맞춰 HWP 또는 PDF 중 하나를 선택해 내려받습니다.</p>
+          <div class="download-actions" aria-label="커리어플래닝서비스 신청서 다운로드">
+            <a href="/downloads/career-planning-application.hwp" download>HWP 다운로드</a>
+            <a href="/downloads/career-planning-application.pdf" download>PDF 다운로드</a>
+          </div>
         </article>
-        <article class="download-card">
-          <span>신청서 · PDF</span>
-          <strong>커리어플래닝서비스 신청서</strong>
-          <p>서식 확인, 출력, 서명 제출에 사용할 수 있는 PDF 파일입니다.</p>
-          <a href="/downloads/career-planning-application.pdf" download>PDF 다운로드</a>
-        </article>
-        <article class="download-card">
-          <span>개인정보 동의서 · HWP</span>
+        <article class="download-card grouped-download-card">
+          <span>개인정보 동의서</span>
           <strong>개인정보 수집·이용·제공 및 고유식별정보 처리 동의서</strong>
-          <p>한글 프로그램에서 작성할 수 있는 개인정보 관련 동의서 파일입니다.</p>
-          <a href="/downloads/privacy-consent-form.hwp" download>HWP 다운로드</a>
-        </article>
-        <article class="download-card">
-          <span>개인정보 동의서 · PDF</span>
-          <strong>개인정보 수집·이용·제공 및 고유식별정보 처리 동의서</strong>
-          <p>서식 확인, 출력, 서명 제출에 사용할 수 있는 PDF 파일입니다.</p>
-          <a href="/downloads/privacy-consent-form.pdf" download>PDF 다운로드</a>
+          <p>신청서와 함께 작성·서명해야 하는 개인정보 관련 동의서입니다. HWP 또는 PDF 중 하나를 선택해 내려받습니다.</p>
+          <div class="download-actions" aria-label="개인정보 동의서 다운로드">
+            <a href="/downloads/privacy-consent-form.hwp" download>HWP 다운로드</a>
+            <a href="/downloads/privacy-consent-form.pdf" download>PDF 다운로드</a>
+          </div>
         </article>
       </div>
     </div>
     <div class="submission-note">
+      <p><strong>제출서류</strong><span>신청서, 개인정보 동의서, 재직증명서</span></p>
       <p><strong>제출 이메일</strong><span>h.douze@kjobs.co.kr</span></p>
       <p><strong>파일명 권장</strong><span>커리어플래닝서비스_신청서_성명_휴대폰뒤4자리</span></p>
       <p><strong>문의</strong><span>02-797-5659 / 010-5747-8286</span></p>

@@ -1328,6 +1328,13 @@ body {
   letter-spacing: -.055em;
 }
 .download-card p { color: #6e6e73; line-height: 1.6; letter-spacing: -.035em; }
+.grouped-download-card { min-height: 260px; }
+.download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
 .download-card a {
   display: inline-flex;
   justify-content: center;
@@ -1348,7 +1355,7 @@ body {
 .submission-note {
   margin-top: 16px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
+  grid-template-columns: repeat(4, minmax(0,1fr));
   gap: 0;
   overflow: hidden;
 }
