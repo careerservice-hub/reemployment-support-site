@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "latest",
-    "astro": "latest"
-  },
-  "devDependencies": {}
+    "astro": "latest",
+    "lottie-web": "^5.13.0"
+  }
 }
