@@ -1328,6 +1328,22 @@ body {
   letter-spacing: -.055em;
 }
 .download-card p { color: #6e6e73; line-height: 1.6; letter-spacing: -.035em; }
+.download-card a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #007aff;
+  color: #fff;
+  font-weight: 760;
+  font-size: .92rem;
+  text-decoration: none;
+  letter-spacing: -.035em;
+}
+.download-card a:hover { background: #005ecb; }
 .download-card.pending { background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(247,252,249,.86)); }
 .submission-note {
   margin-top: 16px;
