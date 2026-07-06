@@ -53,28 +53,6 @@ const outputItems = [
     </div>
   </section>
 
-  <section class="ty-section lottie-flow-section" aria-labelledby="business-lottie-title">
-    <div class="ty-section-head">
-      <p class="ty-comment">한눈에 보는 흐름</p>
-      <h2 id="business-lottie-title">7단계 진행 흐름을 시각적으로 확인합니다.</h2>
-      <p>복잡한 컨설팅 과정을 착수부터 최종보고까지 한 방향의 흐름으로 보여 줍니다. 움직이는 선과 단계 강조는 전체 절차를 빠르게 이해하도록 돕는 보조 요소입니다.</p>
-    </div>
-    <div class="lottie-flow-card">
-      <div id="businessConsultingLottie" class="lottie-flow-animation" aria-hidden="true"></div>
-      <ol class="lottie-flow-labels" aria-label="기업컨설팅 7단계">
-        <li><span>01</span><strong>착수</strong></li>
-        <li><span>02</span><strong>환경분석</strong></li>
-        <li><span>03</span><strong>계획수립</strong></li>
-        <li><span>04</span><strong>중간보고</strong></li>
-        <li><span>05</span><strong>파일럿운영</strong></li>
-        <li><span>06</span><strong>제도설계</strong></li>
-        <li><span>07</span><strong>최종보고</strong></li>
-      </ol>
-      <p class="lottie-flow-note">실제 진행은 기업 상황, 신청 기준, 일정에 따라 조정될 수 있습니다.</p>
-      <a class="lottie-flow-cta" href="/contact/#consultation-request">상담신청으로 진행 가능성 확인하기</a>
-    </div>
-  </section>
-
   <section class="ty-section">
     <div class="ty-section-head">
       <h2>7단계로 제도화 가능성을 확인합니다.</h2>
@@ -132,25 +110,4 @@ const outputItems = [
       ))}
     </div>
   </section>
-
-  <script>
-    import lottie from 'lottie-web';
-
-    const container = document.getElementById('businessConsultingLottie');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (container) {
-      lottie.loadAnimation({
-        container,
-        renderer: 'svg',
-        loop: !prefersReducedMotion,
-        autoplay: !prefersReducedMotion,
-        path: '/animations/business-consulting-7steps.json',
-        rendererSettings: {
-          preserveAspectRatio: 'xMidYMid meet',
-          progressiveLoad: true,
-        },
-      });
-    }
-  </script>
 </BaseLayout>
