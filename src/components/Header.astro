@@ -10,6 +10,12 @@ const nav = [
   { href: link('faq/'), label: 'FAQ' },
   { href: link('contact/'), label: '문의', cta: true },
 ];
+const mobileNav = [
+  { href: link('business-consulting/'), label: '기업' },
+  { href: link('career-planning/'), label: '개인' },
+  { href: link('faq/'), label: 'FAQ' },
+  { href: link('contact/'), label: '문의', cta: true },
+];
 ---
 <header class="site-header">
   <a class="brand" href={base} aria-label="재취업지원서비스 시행지원 홈">
@@ -19,7 +25,10 @@ const nav = [
       <span class="brand-title">기업컨설팅 · 커리어플래닝서비스</span>
     </span>
   </a>
-  <nav class="nav" aria-label="주요 메뉴">
+  <nav class="nav desktop-nav" aria-label="주요 메뉴">
     {nav.map((item) => <a href={item.href} class={item.cta ? 'nav-cta' : undefined}>{item.label}</a>)}
+  </nav>
+  <nav class="nav mobile-nav" aria-label="모바일 주요 메뉴">
+    {mobileNav.map((item) => <a href={item.href} class={item.cta ? 'nav-cta' : undefined}>{item.label}</a>)}
   </nav>
 </header>
