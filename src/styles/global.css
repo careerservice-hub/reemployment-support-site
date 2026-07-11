@@ -1968,6 +1968,23 @@ body {
 .output-popover-card:focus-visible .step-popover {
   transform: translateY(0) scale(1);
 }
+.application-step-grid .application-step-card .application-flow-popover {
+  left: 0;
+  right: auto;
+  width: min(420px, calc(100vw - 48px));
+  transform: translateY(8px) scale(.98);
+}
+.application-step-grid .application-step-card .application-flow-popover::after {
+  left: 34px;
+  right: auto;
+  transform: rotate(45deg);
+}
+.application-step-grid .application-step-card:hover .application-flow-popover,
+.application-step-grid .application-step-card:focus .application-flow-popover,
+.application-step-grid .application-step-card:focus-within .application-flow-popover,
+.application-step-grid .application-step-card:focus-visible .application-flow-popover {
+  transform: translateY(0) scale(1);
+}
 .ty-process-list span {
   color: #0066cc;
   font-weight: 760;
