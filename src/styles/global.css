@@ -1046,6 +1046,34 @@ body {
   border-radius: 18px;
   background: rgba(255,255,255,.72);
 }
+.application-options .application-pill .step-popover {
+  width: min(460px, calc(100vw - 48px));
+}
+.application-options .application-pill:nth-child(odd) .step-popover {
+  left: 0;
+  right: auto;
+  transform: translateY(8px) scale(.98);
+}
+.application-options .application-pill:nth-child(even) .step-popover {
+  left: auto;
+  right: 0;
+  transform: translateY(8px) scale(.98);
+}
+.application-options .application-pill:nth-child(odd) .step-popover::after {
+  left: 34px;
+  transform: rotate(45deg);
+}
+.application-options .application-pill:nth-child(even) .step-popover::after {
+  left: auto;
+  right: 34px;
+  transform: rotate(45deg);
+}
+.application-options .application-pill:hover .step-popover,
+.application-options .application-pill:focus .step-popover,
+.application-options .application-pill:focus-within .step-popover,
+.application-options .application-pill:focus-visible .step-popover {
+  transform: translateY(0) scale(1);
+}
 .application-pill > strong {
   display: block;
   color: #1d1d1f;
@@ -1990,6 +2018,23 @@ body {
   .consultation-type,
   .form-grid { grid-template-columns: 1fr; }
   .application-options { grid-template-columns: 1fr; }
+  .application-options .application-pill .step-popover {
+    left: 0;
+    right: auto;
+    width: 100%;
+    transform: translateY(8px) scale(.98);
+  }
+  .application-options .application-pill .step-popover::after {
+    left: 34px;
+    right: auto;
+    transform: rotate(45deg);
+  }
+  .application-options .application-pill:hover .step-popover,
+  .application-options .application-pill:focus .step-popover,
+  .application-options .application-pill:focus-within .step-popover,
+  .application-options .application-pill:focus-visible .step-popover {
+    transform: translateY(0) scale(1);
+  }
   .ty-hero { min-height: auto; }
   .ty-checks p,
   .ty-contact-lines p { grid-template-columns: 1fr; }
