@@ -68,7 +68,9 @@ const preview = process.env.POPOVER_CHECK_BASE_URL ? null : startPreview();
 let browser;
 try {
   await waitForServer();
-  browser = await chromium.launch();
+  console.log(`Preview server ready: ${baseUrl}`);
+  browser = await chromium.launch({ timeout: 15000 });
+  console.log('Chromium launched for popover check');
   const page = await browser.newPage();
   const failures = [];
 
@@ -89,5 +91,7 @@ try {
   }
 } finally {
   if (browser) await browser.close();
-  if (preview) preview.kill('SIGTERM');
+  if (preview) preview.kill('SIGKILL');
 }
+
+process.exit(process.exitCode ?? 0);
