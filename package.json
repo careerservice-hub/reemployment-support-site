@@ -6,11 +6,14 @@
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
     "build": "astro build",
-    "preview": "astro preview --host 127.0.0.1"
+    "preview": "astro preview --host 127.0.0.1",
+    "check:popovers": "node scripts/check-popover-overflow.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "latest",
     "astro": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
 }
