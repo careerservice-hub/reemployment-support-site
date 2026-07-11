@@ -7,11 +7,11 @@ const viewports = [
   { name: 'tablet', width: 900, height: 900 },
   { name: 'mobile', width: 390, height: 900 },
 ];
-const baseUrl = process.env.POPOVER_CHECK_BASE_URL || 'http://localhost:4321';
+const baseUrl = process.env.POPOVER_CHECK_BASE_URL || 'http://127.0.0.1:4321';
 const tolerance = 1;
 
 function startPreview() {
-  const child = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1'], {
+  const child = spawn('npx', ['astro', 'preview', '--host', '0.0.0.0'], {
     stdio: ['ignore', 'pipe', 'pipe'],
     env: { ...process.env },
   });
@@ -23,10 +23,16 @@ function startPreview() {
 async function waitForServer(timeoutMs = 30000) {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 1000);
     try {
-      const res = await fetch(baseUrl, { method: 'HEAD' });
+      const res = await fetch(baseUrl, { method: 'HEAD', signal: controller.signal });
       if (res.ok || res.status < 500) return;
-    } catch {}
+    } catch {
+      // Retry until the preview server is ready.
+    } finally {
+      clearTimeout(timer);
+    }
     await new Promise((resolve) => setTimeout(resolve, 500));
   }
   throw new Error(`Preview server did not become ready: ${baseUrl}`);
