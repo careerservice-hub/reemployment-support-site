@@ -34,7 +34,7 @@ async function waitForServer(timeoutMs = 30000) {
 
 async function auditPage(page, route, viewport) {
   await page.setViewportSize({ width: viewport.width, height: viewport.height });
-  await page.goto(`${baseUrl}${route}`, { waitUntil: 'networkidle' });
+  await page.goto(`${baseUrl}${route}`, { waitUntil: 'domcontentloaded', timeout: 15000 });
 
   return page.evaluate(({ route, viewportName, tolerance }) => {
     const vw = window.innerWidth;
