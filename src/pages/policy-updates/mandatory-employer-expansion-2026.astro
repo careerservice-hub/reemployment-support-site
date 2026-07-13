@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const sourceUrl = 'https://www.korea.kr/news/policyNewsView.do?newsId=148965452';
+const canonicalUrl = 'https://www.careerservice.co.kr/policy-updates/mandatory-employer-expansion-2026/';
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '재취업지원서비스 의무사업장 확대 추진: 기업이 미리 확인할 사항',
+  description: '재취업지원서비스 의무사업장을 500인 이상 사업주로 확대하는 시행령 개정안의 핵심과 기업의 준비사항을 설명합니다.',
+  datePublished: '2026-07-14',
+  dateModified: '2026-07-14',
+  inLanguage: 'ko-KR',
+  mainEntityOfPage: canonicalUrl,
+  author: { '@type': 'Organization', name: '케이잡스 K·JOBS' },
+  publisher: { '@id': 'https://www.careerservice.co.kr/#organization' },
+  about: ['재취업지원서비스 의무사업장', '재취업지원서비스 500인 이상', '고령자고용법 시행령 개정안', '기업 재취업지원서비스 준비'],
+  citation: sourceUrl,
+};
+---
+<BaseLayout title="재취업지원서비스 의무사업장 확대 추진" description="재취업지원서비스 의무사업장을 500인 이상 사업주로 확대하는 시행령 개정안의 핵심과 기업이 미리 준비할 실무 항목을 안내합니다." jsonLd={articleJsonLd}>
+  <article class="policy-article">
+    <header class="policy-article-header">
+      <nav class="policy-breadcrumb" aria-label="현재 위치">
+        <a href="/policy-updates/">정책·제도 업데이트</a><span aria-hidden="true">/</span><span>재취업지원서비스 제도</span>
+      </nav>
+      <p class="ty-comment">재취업지원서비스 제도</p>
+      <h1>재취업지원서비스 의무사업장 확대 추진:<br class="wide-break" /> 기업이 미리 확인할 사항</h1>
+      <p class="ty-lead">고용노동부가 2026년 5월 29일 발표한 시행령 개정안의 핵심을 기업 담당자의 준비 관점에서 정리했습니다.</p>
+      <div class="policy-date-row">
+        <span>게시 2026.07.14</span>
+        <span>정책자료 발표 2026.05.29</span>
+        <span>확인 기준 2026.07.14</span>
+      </div>
+    </header>
+
+    <aside class="policy-status-note" aria-label="제도 확정 여부">
+      <strong>먼저 확인하세요</strong>
+      <p>이 내용은 2026년 5월 29일 발표된 <b>시행령 개정안 입법예고 자료</b>를 기준으로 한 해설입니다. 최종 시행 시기와 세부 기준은 확정 법령 및 고용노동부의 최신 안내를 다시 확인해야 합니다.</p>
+    </aside>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">핵심 변화</p>
+      <h2>의무사업장 범위를 단계적으로 넓히는 방안입니다.</h2>
+      <p>발표 자료에 따르면 현재 1,000인 이상 사업주를 대상으로 하는 재취업지원서비스 제공 의무를 단계적으로 확대하는 내용이 제시됐습니다.</p>
+      <div class="policy-fact-grid">
+        <article><span>현행 기준</span><strong>1,000인 이상</strong><p>정책자료에서 설명한 현행 의무사업장 기준</p></article>
+        <article><span>개정안</span><strong>2027년 하반기 500인 이상</strong><p>입법예고 자료에 제시된 확대 일정</p></article>
+        <article><span>개정안</span><strong>2029년 하반기 300인 이상</strong><p>입법예고 자료에 제시된 추가 확대 일정</p></article>
+      </div>
+      <p>또한 대상 근로자가 희망하는 직업훈련 등에 참여할 때 사업주가 근로시간 조정, 휴가, 비용 지원 등의 편의를 제공하면 의무 이행으로 인정하는 방안도 포함됐습니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">기업 실무</p>
+      <h2>500인 이상 기업은 적용 여부보다 운영 준비상태를 먼저 점검할 필요가 있습니다.</h2>
+      <ol class="policy-checklist">
+        <li><strong>대상 가능성 확인</strong><span>상시근로자 규모와 퇴직예정자 현황을 기준으로 제도 적용 가능성을 점검합니다.</span></li>
+        <li><strong>내부 담당체계 확인</strong><span>인사·노무·교육 담당 부서의 역할과 대상자 안내 절차를 정리합니다.</span></li>
+        <li><strong>근로자 요구 파악</strong><span>일률적인 프로그램보다 직업훈련, 경력설계, 전직지원 등 실제 요구를 확인합니다.</span></li>
+        <li><strong>이행방식 비교</strong><span>직접 제공, 외부 전문기관 활용, 근로자 선택 지원 등 가능한 운영방식을 검토합니다.</span></li>
+        <li><strong>기록과 증빙 준비</strong><span>대상자 안내, 참여 여부, 제공 내용과 편의 지원 내역을 확인할 수 있는 관리기준을 마련합니다.</span></li>
+      </ol>
+    </section>
+
+    <section class="policy-article-section policy-kjobs-view">
+      <p class="policy-section-label">K·JOBS 해설</p>
+      <h2>제도 확대에 대비하려면 단발성 교육보다 운영체계를 갖추는 것이 중요합니다.</h2>
+      <p>재취업지원서비스는 프로그램 한 번을 제공하는 것으로 끝나지 않습니다. 대상자 선정, 안내, 요구 확인, 서비스 제공, 참여 관리, 결과 확인과 개선이 연결돼야 합니다.</p>
+      <p>K·JOBS 기업컨설팅은 기업이 스스로 운영할 수 있는 시행체계를 마련하도록 현황 진단, 절차 설계, 파일럿 운영과 개선과제 정리를 지원합니다.</p>
+      <div class="policy-actions">
+        <a class="btn primary" href="/business-consulting/">기업컨설팅 확인</a>
+        <a class="btn secondary" href="/contact/">적용 가능성 문의</a>
+      </div>
+    </section>
+
+    <section class="policy-source-box" aria-labelledby="source-title">
+      <h2 id="source-title">출처 및 이용 안내</h2>
+      <dl>
+        <div><dt>원자료</dt><dd>대한민국 정책브리핑, 「재취업지원서비스 의무사업장, 내년 500인 이상 사업주로 확대」</dd></div>
+        <div><dt>발표기관</dt><dd>고용노동부</dd></div>
+        <div><dt>발표일</dt><dd>2026년 5월 29일</dd></div>
+      </dl>
+      <p>이 페이지는 공식 자료의 사실관계를 바탕으로 K·JOBS가 기업 실무 관점에서 새로 작성한 해설입니다. 원문의 사진·이미지·일러스트는 사용하지 않았습니다.</p>
+      <a class="ty-inline-link" href={sourceUrl} target="_blank" rel="noopener noreferrer">정책브리핑 원문 확인</a>
+      <p class="policy-legal-note">정책브리핑 원문은 텍스트에 한해 공공누리 제1유형(출처표시) 조건이 안내돼 있습니다. 세부 법령 적용과 지원 가능 여부는 관계기관의 최신 공고와 확정 법령을 기준으로 판단해야 합니다.</p>
+    </section>
+  </article>
+</BaseLayout>

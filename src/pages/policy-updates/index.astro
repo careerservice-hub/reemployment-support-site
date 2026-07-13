@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const article = {
+  href: '/policy-updates/mandatory-employer-expansion-2026/',
+  category: '재취업지원서비스 제도',
+  title: '재취업지원서비스 의무사업장 확대 추진: 기업이 미리 확인할 사항',
+  summary: '고용노동부가 발표한 시행령 개정안의 핵심과 500인 이상 기업이 준비할 실무 항목을 K·JOBS 관점에서 정리했습니다.',
+  published: '2026.07.14',
+  sourceDate: '정책자료 발표 2026.05.29',
+};
+---
+<BaseLayout title="정책·제도 업데이트" description="재취업지원서비스 의무사업장, 고령자고용법, 기업컨설팅과 커리어플래닝서비스 관련 정책 변화를 기업 실무 관점에서 설명합니다.">
+  <section class="ty-hero sub policy-hero">
+    <div class="ty-mark">POLICY UPDATE</div>
+    <p class="ty-comment">공식 정책자료를 기업 실무 관점으로 해설합니다</p>
+    <h1>정책·제도 업데이트</h1>
+    <p class="ty-lead">고용노동부와 관계기관의 공개자료를 바탕으로 재취업지원서비스 제도 변화와 기업의 준비사항을 자체적으로 정리합니다. 원문 출처와 확인 기준일을 함께 표시합니다.</p>
+  </section>
+
+  <section class="ty-section policy-list" aria-labelledby="latest-policy-title">
+    <div class="ty-section-head">
+      <p class="ty-comment">최신 해설</p>
+      <h2 id="latest-policy-title">기업 담당자가 먼저 확인할 변화</h2>
+    </div>
+    <article class="policy-card">
+      <div class="policy-card-meta">
+        <span>{article.category}</span>
+        <time datetime="2026-07-14">{article.published}</time>
+      </div>
+      <h3><a href={article.href}>{article.title}</a></h3>
+      <p>{article.summary}</p>
+      <div class="policy-card-footer">
+        <span>{article.sourceDate}</span>
+        <a class="ty-inline-link" href={article.href}>해설 보기</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="ty-section policy-principles" aria-labelledby="policy-principles-title">
+    <div class="ty-section-head">
+      <p class="ty-comment">운영 원칙</p>
+      <h2 id="policy-principles-title">원문 복제가 아닌 실무 해설을 제공합니다.</h2>
+    </div>
+    <div class="policy-principle-grid">
+      <article><strong>공식 출처 표시</strong><p>자료명, 발표기관, 발표일과 원문 링크를 명확히 표시합니다.</p></article>
+      <article><strong>확정 여부 구분</strong><p>입법예고·개정안·확정 법령을 구분하고 확인 기준일을 적습니다.</p></article>
+      <article><strong>자체 실무 해설</strong><p>기업 담당자가 준비할 절차와 점검사항을 K·JOBS의 경험에 따라 정리합니다.</p></article>
+    </div>
+  </section>
+</BaseLayout>
