@@ -2325,10 +2325,10 @@ body {
   .desktop-nav { display: none; }
   .mobile-nav {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 7px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 6px;
     width: 100%;
-    font-size: .76rem;
+    font-size: .74rem;
   }
   .mobile-nav a {
     display: flex;
