@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const effectiveDate = '2026년 7월 14일';
+---
+<BaseLayout title="개인정보처리방침" description="케이잡스 재취업지원서비스 홈페이지의 개인정보 처리 목적, 항목, 보유기간과 정보주체의 권리를 안내합니다.">
+  <article class="policy-article privacy-policy">
+    <header class="policy-article-header">
+      <p class="ty-comment">개인정보 보호</p>
+      <h1>개인정보처리방침</h1>
+      <p class="ty-lead">케이잡스 주식회사는 개인정보 보호법 등 관계 법령을 준수하며, 홈페이지 이용자의 개인정보를 필요한 범위에서 안전하게 처리합니다.</p>
+      <div class="policy-date-row">
+        <span>시행일 {effectiveDate}</span>
+      </div>
+    </header>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제1조</p>
+      <h2>개인정보의 처리 목적</h2>
+      <p>홈페이지에서 수집한 개인정보는 다음 목적에 필요한 범위에서 처리합니다.</p>
+      <ul>
+        <li>재취업지원서비스 기업컨설팅 및 커리어플래닝서비스 상담 신청 확인</li>
+        <li>신청 가능 여부, 준비자료와 일정 안내</li>
+        <li>문의사항에 대한 답변과 후속 연락</li>
+        <li>상담신청의 부정 이용 및 반복 전송 방지</li>
+      </ul>
+      <p>수집한 개인정보는 위 목적 외의 용도로 이용하지 않습니다. 이용 목적이 변경되는 경우 관계 법령에 따라 별도 동의를 받는 등 필요한 조치를 합니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제2조</p>
+      <h2>처리하는 개인정보 항목</h2>
+      <div class="policy-source-box privacy-summary-box">
+        <dl>
+          <div><dt>필수 항목</dt><dd>성명 또는 담당자명, 연락처, 이메일, 상담 희망 내용, 상담 유형</dd></div>
+          <div><dt>선택 항목</dt><dd>기업명, 상시근로자 규모, 기존 서비스 운영 여부, 노사발전재단 기업컨설팅 신청 여부, 퇴직예정자·50세 이상 근로자 관련 문의, 신청 구분, 재직 여부, 희망 상담 내용과 일정</dd></div>
+          <div><dt>자동 생성 정보</dt><dd>접속 IP를 복원하기 어려운 형태로 변환한 전송 제한용 값, 접수시각</dd></div>
+        </dl>
+      </div>
+      <p>주민등록번호, 건강정보, 급여자료, 퇴직자 명단 등 민감정보나 내부 인사자료는 홈페이지 상담 양식으로 수집하지 않습니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제3조</p>
+      <h2>개인정보의 처리 및 보유기간</h2>
+      <p>상담신청 정보는 상담과 문의 대응이 끝난 날부터 <strong>3개월간</strong> 보관한 후 지체 없이 파기합니다. 관계 법령에 따라 보존할 필요가 있는 경우에는 해당 법령에서 정한 기간 동안 분리하여 보관합니다.</p>
+      <p>부정 이용 방지를 위한 전송 제한 정보는 최대 11분 이내 자동 삭제되도록 운영합니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제4조</p>
+      <h2>개인정보의 제3자 제공</h2>
+      <p>케이잡스는 정보주체의 개인정보를 처리 목적 범위 안에서 이용하며, 원칙적으로 사전 동의 없이 제3자에게 제공하지 않습니다. 다만 법령에 특별한 근거가 있거나 정보주체가 별도로 동의한 경우에는 예외로 합니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제5조</p>
+      <h2>개인정보 처리업무의 위탁 및 외부 서비스 이용</h2>
+      <p>홈페이지 상담신청의 안전한 전달과 담당자 알림을 위해 다음 외부 서비스를 이용합니다.</p>
+      <div class="policy-source-box privacy-summary-box">
+        <dl>
+          <div><dt>Cloudflare, Inc.</dt><dd>상담신청 요청 중계, 접속 허용 확인과 반복 전송 제한</dd></div>
+          <div><dt>Telegram Messenger Inc.</dt><dd>상담신청 내용을 담당자에게 전달하는 알림 서비스</dd></div>
+        </dl>
+      </div>
+      <p>외부 서비스 이용 과정에서 상담신청 정보가 국외 소재 서버를 통해 전송·처리될 수 있습니다. 이전되는 항목은 상담신청 양식에 입력한 정보이며, 전송 시점에 암호화된 통신 방식으로 전달됩니다. 정보주체는 개인정보 수집·이용 동의를 거부할 수 있으나, 이 경우 홈페이지 상담신청 기능을 이용할 수 없으며 이메일 또는 전화로 문의할 수 있습니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제6조</p>
+      <h2>개인정보의 파기 절차와 방법</h2>
+      <p>개인정보의 보유기간이 끝나거나 처리 목적이 달성되면 지체 없이 파기합니다. 전자적 파일과 메시지는 복구하기 어려운 방법으로 삭제하고, 종이 문서가 발생한 경우 분쇄하거나 소각합니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제7조</p>
+      <h2>정보주체의 권리와 행사방법</h2>
+      <p>정보주체는 자신의 개인정보에 대해 열람, 정정·삭제, 처리정지 또는 동의 철회를 요청할 수 있습니다. 아래 개인정보 보호 담당부서에 이메일이나 전화로 요청하면 본인 확인 후 관계 법령에 따라 조치합니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제8조</p>
+      <h2>개인정보의 안전성 확보조치</h2>
+      <ul>
+        <li>상담신청 전송 구간 암호화</li>
+        <li>허용된 홈페이지에서만 요청을 받도록 출처 확인</li>
+        <li>입력 길이와 전송량 제한, 반복 전송 방지</li>
+        <li>접근 권한을 업무 담당자로 제한</li>
+        <li>주민등록번호와 민감정보 입력 금지 안내</li>
+      </ul>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제9조</p>
+      <h2>개인정보 보호 담당부서</h2>
+      <div class="policy-source-box privacy-summary-box">
+        <dl>
+          <div><dt>담당부서</dt><dd>재취업지원서비스 담당</dd></div>
+          <div><dt>이메일</dt><dd><a href="mailto:h.douze@kjobs.co.kr">h.douze@kjobs.co.kr</a></dd></div>
+          <div><dt>연락처</dt><dd><a href="tel:02-797-5659">02-797-5659</a> / <a href="tel:010-5747-8286">010-5747-8286</a></dd></div>
+        </dl>
+      </div>
+      <p>개인정보 침해에 대한 신고나 상담이 필요한 경우 개인정보침해신고센터(국번 없이 118) 또는 개인정보분쟁조정위원회에 문의할 수 있습니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제10조</p>
+      <h2>개인정보처리방침의 변경</h2>
+      <p>이 방침은 {effectiveDate}부터 시행합니다. 내용이 변경되는 경우 홈페이지를 통해 변경사항과 시행일을 안내합니다.</p>
+    </section>
+  </article>
+</BaseLayout>

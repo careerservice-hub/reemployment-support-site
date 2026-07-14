@@ -504,6 +504,19 @@ h2 { font-size: clamp(1.85rem, 3.35vw, 3rem); }
   font-weight: 700;
 }
 .footer-info-list span { color: #6e6e73; }
+.footer-policy-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 18px;
+  font-size: .92rem;
+}
+.footer-policy-links a {
+  color: #1d1d1f;
+  font-weight: 760;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 .footer-cert {
   display: grid;
   grid-template-columns: 86px 1fr;
@@ -2307,6 +2320,16 @@ body {
 .policy-source-box dd { margin: 0; color: var(--muted); }
 .policy-source-box > p { margin: 14px 0; color: var(--muted); }
 .policy-source-box .policy-legal-note { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); font-size: .84rem; }
+.privacy-policy .policy-article-section > ul {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0;
+  padding-left: 1.25rem;
+  color: #445267;
+}
+.privacy-policy .policy-article-section > ul li { padding-left: 4px; }
+.privacy-summary-box { margin: 24px 0; }
+.privacy-summary-box a { color: var(--kjobs-blue); font-weight: 760; }
 
 @media (max-width: 900px) {
   .policy-principle-grid, .policy-fact-grid { grid-template-columns: 1fr; }
