@@ -6,7 +6,7 @@ const link = (path) => `${base}${path}`;
 const consultingFlow = [
   ['01', '신청 요건 확인', '지원대상, 신청자격, 제한사항을 먼저 확인합니다.', '재취업지원서비스 의무대상기업, 제도 도입·개선 희망 기업, 공동 도입 희망 기업인지 확인합니다. 100인 이상 기준, 공동 신청 기준, 참여 제한사항도 함께 봅니다.'],
   ['02', '운영체계 설계', '기업이 자체 시행할 수 있는 운영 절차를 설계합니다.', '담당자 역할, 대상자 안내, 프로그램 구성, 기록·성과관리 기준을 기업 상황에 맞게 정리합니다.'],
-  ['03', '파일럿 운영', '설계한 운영안의 현장 적용 가능성을 확인합니다.', '파일럿은 대행 제공이 아니라 검증 단계입니다. 일부 대상자에게 시범 적용해 안내와 상담 흐름이 실제로 작동하는지 봅니다.'],
+  ['03', '파일럿 운영', '설계한 운영안의 현장 적용 가능성을 확인합니다.', '일부 대상자에게 운영안을 시범 적용해 안내와 상담 절차를 점검합니다.'],
   ['04', '개선안 정리', '파일럿 결과와 현장 의견을 바탕으로 보완합니다.', '운영 중 확인된 쟁점, 담당자 의견, 참여자 반응을 정리해 기업별 제도화 과제로 연결합니다.'],
 ];
 const careerFlow = [
@@ -21,11 +21,11 @@ const careerFlow = [
     <div class="ty-mark">K·JOBS</div>
     <p class="ty-comment">재취업지원서비스 시행지원</p>
     <h1>기업의 제도 운영과<br />중장년의 경력설계를 함께 준비합니다.</h1>
-    <p class="ty-lead">케이잡스는 재취업지원서비스 시행지원 사업 안에서<br class="wide-break" /> 기업컨설팅과 커리어플래닝서비스를 기업과 참여자 관점에 맞게 안내합니다.</p>
+    <p class="ty-lead">케이잡스는 기업의 제도 운영과<br class="wide-break" /> 중장년 재직자의 경력설계를 지원합니다.</p>
     <div class="mobile-quick-card" aria-label="모바일 빠른 안내">
-      <span>모바일 간략 안내</span>
+      <span>대상별 안내</span>
       <strong>먼저 해당되는 대상을 선택하세요.</strong>
-      <p>상세 기준과 절차는 PC에서 확인하기 편합니다. 모바일에서는 핵심만 확인하고 문의로 이어지도록 구성했습니다.</p>
+      <p>해당하는 대상을 선택하면 서비스 내용과 신청 절차를 확인할 수 있습니다.</p>
       <div class="mobile-choice-grid">
         <a href={link('business-consulting/')}>기업 담당자</a>
         <a href={link('career-planning/')}>개인 신청자</a>
@@ -40,8 +40,8 @@ const careerFlow = [
 
   <section class="ty-section" aria-label="서비스 개요">
     <div class="ty-section-head">
-      <h2>두 가지 지원을 한 흐름에서 확인합니다.</h2>
-      <p>기업에는 제도화와 운영 준비가 필요하고, 참여자에게는 경력 진단과 다음 경력 방향이 필요합니다. 홈에서는 두 서비스를 구분해 검토할 수 있게 정리합니다.</p>
+      <h2>기업컨설팅과 커리어플래닝서비스를 대상별로 안내합니다.</h2>
+      <p>기업은 제도 운영체계를, 중장년 재직자는 앞으로의 경력 방향을 준비할 수 있습니다.</p>
     </div>
     <div class="ty-split-cards">
       <article class="consulting-image-card">
@@ -61,8 +61,8 @@ const careerFlow = [
 
   <section class="ty-section" aria-label="서비스별 진행 흐름">
     <div class="ty-section-head">
-      <h2>필요한 지원 흐름을 나눠 확인합니다.</h2>
-      <p>기업컨설팅은 기업의 제도화 흐름으로, 커리어플래닝서비스는 참여자의 경력설계 흐름으로 구분해 볼 수 있습니다.</p>
+      <h2>서비스별 진행 절차를 확인하세요.</h2>
+      <p>기업컨설팅은 제도 도입과 운영을, 커리어플래닝서비스는 개인의 경력진단과 설계를 중심으로 진행합니다.</p>
     </div>
     <div class="dual-flow-grid">
       <section class="flow-lane consulting" aria-label="기업컨설팅 흐름">
@@ -92,7 +92,7 @@ const careerFlow = [
               <span>온라인·이메일 신청</span>
               <div class="step-popover" id="consulting-apply-detail" role="tooltip">
                 <strong>신청방법</strong>
-                <p>노사발전재단 누리집 온라인 신청 또는 이메일 신청 방식으로 접수합니다. 신청서, 사업자등록증, 고용보험 완납증명원, 개인정보활용동의서 등을 기준으로 확인합니다.</p>
+                <p>노사발전재단 누리집 온라인 신청 또는 이메일 신청 방식으로 접수합니다. 신청서, 사업자등록증, 고용보험 완납증명원, 개인정보 활용 동의서 등을 제출합니다.</p>
                 <a class="popover-link" href="https://www.nosa.or.kr/portal/nosa/majorBiz/reEmpymnSport/entrprsCnsl" target="_blank" rel="noopener noreferrer">노사발전재단 기업컨설팅 페이지</a>
               </div>
             </article>
@@ -131,7 +131,7 @@ const careerFlow = [
               <span>기업 담당자 일괄 신청</span>
               <div class="step-popover" id="career-company-apply-detail" role="tooltip">
                 <strong>기업단위 신청</strong>
-                <p>기업 담당자가 참여 소속 근로자를 일괄 신청합니다. 기업용 신청서, 신청 근로자 명단, 사업자등록증, 고용보험 완납증명원, 근로자별 동의서 등을 기준으로 접수합니다.</p>
+                <p>기업 담당자가 참여 소속 근로자를 일괄 신청합니다. 기업용 신청서, 신청 근로자 명단, 사업자등록증, 고용보험 완납증명원, 근로자별 동의서 등을 제출합니다.</p>
               </div>
             </article>
             <article class="step-popover-card application-pill" tabindex="0" aria-describedby="career-personal-apply-detail">
@@ -139,7 +139,7 @@ const careerFlow = [
               <span>근로자 직접 신청</span>
               <div class="step-popover" id="career-personal-apply-detail" role="tooltip">
                 <strong>개인단위 신청</strong>
-                <p>개인 근로자가 케이잡스로 직접 신청합니다. 개인용 신청서와 개인정보 동의서, 재직증명서·고용보험 자격이력내역서·건강보험 자격득실확인서 등 재직 사실 증명 서류를 확인합니다.</p>
+                <p>개인 근로자가 케이잡스로 직접 신청합니다. 개인용 신청서와 개인정보 동의서, 재직증명서·고용보험 자격이력내역서·건강보험 자격득실확인서 등 재직 사실 증명 서류를 제출합니다.</p>
               </div>
             </article>
           </div>
@@ -162,8 +162,8 @@ const careerFlow = [
   </section>
 
   <section class="ty-cta">
-    <p class="ty-comment">기업명, 희망 서비스, 담당자 연락처를 알려주시면 확인이 빠릅니다</p>
-    <h2>먼저 필요한 지원 유형부터 확인하세요.</h2>
-    <a href={link('contact/')}>문의 정보 확인</a>
+    <p class="ty-comment">기업명, 희망 서비스와 연락처를 남겨 주세요</p>
+    <h2>어떤 지원이 필요한지 상담해 드립니다.</h2>
+    <a href={link('contact/')}>상담 문의하기</a>
   </section>
 </BaseLayout>
