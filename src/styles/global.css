@@ -2262,7 +2262,7 @@ body {
 .mobile-quick-card.service > a { margin-top: 14px; width: 100%; }
 
 /* Policy updates */
-.policy-hero { max-width: 920px; }
+.policy-hero { max-width: 920px; margin-inline: auto; }
 .policy-list { max-width: 920px; margin-inline: auto; }
 .policy-card { padding: 30px; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: var(--shadow-raised); }
 .policy-card + .policy-card { margin-top: 20px; }
