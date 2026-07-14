@@ -3,6 +3,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 const link = (path) => `${base}${path}`;
 const nav = [
   { href: link(''), label: '홈' },
+  { href: link('career-support/'), label: '경력지원서비스' },
   { href: link('business-consulting/'), label: '기업컨설팅' },
   { href: link('career-planning/'), label: '커리어플래닝서비스' },
   { href: link('process/'), label: '진행 절차' },
@@ -12,6 +13,7 @@ const nav = [
   { href: link('contact/'), label: '문의', cta: true },
 ];
 const mobileNav = [
+  { href: link('career-support/'), label: '경력' },
   { href: link('business-consulting/'), label: '기업' },
   { href: link('career-planning/'), label: '개인' },
   { href: link('policy-updates/'), label: '정책' },
