@@ -2265,6 +2265,7 @@ body {
 .policy-hero { max-width: 920px; }
 .policy-list { max-width: 920px; margin-inline: auto; }
 .policy-card { padding: 30px; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: var(--shadow-raised); }
+.policy-card + .policy-card { margin-top: 20px; }
 .policy-card-meta, .policy-card-footer, .policy-date-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 18px; color: var(--muted); font-size: .86rem; font-weight: 700; }
 .policy-card-meta span { color: var(--teal-dark); }
 .policy-card h3 { margin: 14px 0 10px; color: var(--navy); font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.35; letter-spacing: -.04em; }

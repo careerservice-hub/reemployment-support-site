@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const sourceUrl = 'https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19387';
+const canonicalUrl = 'https://www.careerservice.co.kr/policy-updates/reemployment-service-reform-2026/';
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '재취업지원서비스 제도개선 5가지 핵심: 노동자 선택과 기업 지원',
+  description: '고용노동부가 2026년 5월 14일 발표한 재취업지원서비스 제도개선 방안의 5대 과제와 기업·중장년 근로자가 확인할 사항을 설명합니다.',
+  datePublished: '2026-07-14',
+  dateModified: '2026-07-14',
+  inLanguage: 'ko-KR',
+  mainEntityOfPage: canonicalUrl,
+  author: { '@type': 'Organization', name: '케이잡스 K·JOBS' },
+  publisher: { '@id': 'https://www.careerservice.co.kr/#organization' },
+  about: ['재취업지원서비스 제도개선', '재취업지원서비스 기업 지원', '노동자 선택 재취업지원서비스', '40+ 조기경력설계', '커리어플래닝서비스'],
+  citation: sourceUrl,
+};
+---
+<BaseLayout title="재취업지원서비스 제도개선 5가지 핵심" description="고용노동부가 2026년 5월 14일 발표한 재취업지원서비스 제도개선 방안의 5대 과제와 기업·중장년 근로자가 확인할 사항을 안내합니다." jsonLd={articleJsonLd}>
+  <article class="policy-article">
+    <header class="policy-article-header">
+      <nav class="policy-breadcrumb" aria-label="현재 위치">
+        <a href="/policy-updates/">정책·제도 업데이트</a><span aria-hidden="true">/</span><span>재취업지원서비스 제도</span>
+      </nav>
+      <p class="ty-comment">재취업지원서비스 제도</p>
+      <h1>재취업지원서비스 제도개선,<br class="wide-break" /> 무엇이 달라지나</h1>
+      <p class="ty-lead">노동자가 희망하는 서비스를 선택하고 기업이 이를 지원하는 방향으로 제도개선이 추진되고 있습니다. 기업과 중장년 근로자가 확인할 5대 과제를 정리했습니다.</p>
+      <div class="policy-date-row">
+        <span>정책 발표 2026.05.14</span>
+        <span>확인 기준 2026.07.14</span>
+      </div>
+    </header>
+
+    <aside class="policy-status-note" aria-label="제도 확정 여부">
+      <strong>먼저 확인하세요</strong>
+      <p>이 내용은 고용노동부가 2026년 5월 14일 발표한 <b>재취업지원서비스 제도개선 방안</b>을 기준으로 정리했습니다. 명칭 변경, 의무사업장 확대와 의무이행 인정 방식 등은 법령·고시 개정 추진사항이므로 실제 적용 시에는 확정 법령과 최신 안내를 다시 확인해야 합니다.</p>
+    </aside>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">핵심 방향</p>
+      <h2>기업이 정한 서비스를 제공하는 방식에서 노동자가 선택하는 방식으로 넓어집니다.</h2>
+      <p>고용노동부는 현행 재취업지원서비스의 낮은 참여율과 형식적 운영을 개선하기 위해 노동자의 선택권, 기업의 운영역량, 공공고용서비스 연계를 함께 강화하는 방향을 제시했습니다.</p>
+      <ol class="policy-checklist">
+        <li><strong>제도적 기반 확대</strong><span>의무사업장 확대, 명칭 변경과 노동자의 서비스 요청권 명시를 추진합니다.</span></li>
+        <li><strong>노동자 선택 서비스 다양화</strong><span>온라인·주말·야간 과정, 직업훈련과 일경험 등 선택 가능한 서비스를 넓힙니다.</span></li>
+        <li><strong>중견·중소기업 지원 강화</strong><span>기업컨설팅, 담당자 연수와 공동이행 지원을 확대합니다.</span></li>
+        <li><strong>공공고용서비스 연계</strong><span>서비스 이력을 관리하고 훈련·일경험·취업알선으로 연결하는 방안을 추진합니다.</span></li>
+        <li><strong>40+ 조기경력설계 전환</strong><span>퇴직 직전의 일회성 지원에서 중장년의 조기 경력점검과 실행지원으로 전환합니다.</span></li>
+      </ol>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제도적 기반</p>
+      <h2>의무사업장 확대와 기업의 의무이행 방식 다양화가 함께 추진됩니다.</h2>
+      <div class="policy-fact-grid">
+        <article><span>현행</span><strong>1,000인 이상</strong><p>50세 이상 비자발적 퇴직예정자에게 진로설계·취업알선·취창업교육 등을 제공합니다.</p></article>
+        <article><span>확대 추진</span><strong>2027년 500인 이상</strong><p>고용노동부 제도개선 방안에 제시된 단계적 확대 일정입니다.</p></article>
+        <article><span>추가 확대 추진</span><strong>2029년 300인 이상</strong><p>확정 시행 여부와 세부 기준은 개정 법령을 확인해야 합니다.</p></article>
+      </div>
+      <p>기업이 직접 또는 위탁하여 서비스를 제공하는 방식뿐 아니라, 노동자가 선택한 직업훈련·일경험 등에 참여할 수 있도록 근무시간 조정, 연가 처리, 교육출장 또는 비용 지원 등의 편의를 제공하는 방안도 제시됐습니다. 구체적인 인정 유형과 시간, 증빙 기준은 향후 고시 개정 내용을 확인해야 합니다.</p>
+      <p><a class="ty-inline-link" href="/policy-updates/mandatory-employer-expansion-2026/">의무사업장 확대와 기업 준비사항 자세히 보기</a></p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">기업 지원</p>
+      <h2>신규 의무기업이 자체 운영체계를 갖출 수 있도록 지원을 강화합니다.</h2>
+      <p>제도개선 방안에는 시행 전 환경분석, 서비스 설계와 시범 운영을 지원하는 기업컨설팅, 기업 담당자 연수, 우수사례 공유와 공동이행 지원이 포함됐습니다.</p>
+      <ol class="policy-checklist">
+        <li><strong>기업컨설팅</strong><span>기업 여건을 분석하고 서비스 운영절차와 시범 운영방안을 설계합니다.</span></li>
+        <li><strong>담당자 역량 강화</strong><span>기업 실무자가 서비스를 설계·운영할 수 있도록 연수와 사례 공유를 확대합니다.</span></li>
+        <li><strong>공동이행 지원</strong><span>대상 노동자가 적은 기업은 업종·지역·원하청 관계를 활용한 공동 운영을 검토할 수 있습니다.</span></li>
+      </ol>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">서비스 연계</p>
+      <h2>경력설계 이후 훈련·일경험·취업지원으로 이어지는 체계를 추진합니다.</h2>
+      <p>개인별 경력설계서와 상담 이력 등을 고용24에서 관리하고, 필요에 따라 직업훈련, 일경험, 취업알선과 중장년내일이음패키지로 연계하는 방안이 제시됐습니다. 개인정보 활용과 전산 개편 등 구체적인 운영기준은 후속 안내를 확인해야 합니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">40+ 조기경력설계</p>
+      <h2>퇴직 직전 지원에서 40세 이상 재직자의 조기 경력점검으로 전환합니다.</h2>
+      <p>정부는 50세 이상 퇴직예정자 중심의 재취업지원에서 40세 이상 중장년의 조기경력설계로 전환하는 방향을 제시했습니다. 커리어플래닝 및 심화 서비스 고도화, 경력개발센터 구축, 전문인력 육성과 AI 기반 경력설계 지원도 추진과제에 포함됐습니다.</p>
+      <p><a class="ty-inline-link" href="/career-planning/">K·JOBS 커리어플래닝서비스 확인</a></p>
+    </section>
+
+    <section class="policy-article-section policy-kjobs-view">
+      <p class="policy-section-label">기업이 준비할 사항</p>
+      <h2>대상 규모만 확인하기보다 운영과 증빙체계를 함께 준비해야 합니다.</h2>
+      <ol class="policy-checklist">
+        <li><strong>적용 가능성 확인</strong><span>상시근로자 규모와 퇴직예정자 현황을 바탕으로 향후 적용 가능성을 점검합니다.</span></li>
+        <li><strong>근로자 요구 파악</strong><span>진로설계, 직업훈련, 일경험과 취업알선 중 실제 수요를 확인합니다.</span></li>
+        <li><strong>지원 기준 검토</strong><span>근무시간 조정, 연가, 교육출장과 비용 지원의 내부 기준을 검토합니다.</span></li>
+        <li><strong>운영절차 설계</strong><span>대상자 안내, 신청, 서비스 제공, 연계와 사후관리 절차를 정리합니다.</span></li>
+        <li><strong>기록과 증빙 관리</strong><span>참여 내용과 기업의 지원 내역을 확인할 수 있는 관리기준을 마련합니다.</span></li>
+      </ol>
+      <div class="policy-actions">
+        <a class="btn primary" href="/business-consulting/">기업컨설팅 확인</a>
+        <a class="btn secondary" href="/contact/">적용 가능성 문의</a>
+      </div>
+    </section>
+
+    <section class="policy-source-box" aria-labelledby="source-title">
+      <h2 id="source-title">자료 출처</h2>
+      <dl>
+        <div><dt>원자료</dt><dd>고용노동부, 「노동자가 선택하고 기업이 지원하도록 중장년 경력지원서비스가 새로워집니다」</dd></div>
+        <div><dt>참고자료</dt><dd>「재취업에서 경력지원으로, 재취업지원서비스 제도 개선 방안」</dd></div>
+        <div><dt>발표기관</dt><dd>고용노동부</dd></div>
+        <div><dt>발표일</dt><dd>2026년 5월 14일</dd></div>
+      </dl>
+      <p>고용노동부 보도자료와 첨부된 제도개선 방안을 바탕으로 기업과 중장년 근로자가 확인할 내용을 정리했습니다.</p>
+      <a class="ty-inline-link" href={sourceUrl} target="_blank" rel="noopener noreferrer">고용노동부 보도자료와 첨부자료 확인</a>
+    </section>
+  </article>
+</BaseLayout>
