@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { careerSupportJsonLd } from '../data/structuredData.js';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const link = (path) => `${base}${path}`;
+
+const supportFaqs = [
+  {
+    q: '경력지원서비스란 무엇인가요?',
+    a: '경력지원서비스는 재직자의 경력진단과 경력설계부터 퇴직예정자의 경력전환과 재취업 준비까지 이어서 살펴보는 지원 개념입니다.',
+  },
+  {
+    q: '경력지원서비스는 별도의 정부사업인가요?',
+    a: '이 페이지에서 사용하는 경력지원서비스는 별도의 정부사업이 확정되었다는 의미가 아닙니다. 현재 공식 사업 안내는 재취업지원서비스 시행지원을 기준으로 하며, K·JOBS가 서비스의 목적과 이용자 효용을 설명하기 위해 사용하는 표현입니다.',
+  },
+  {
+    q: '재취업지원서비스 시행지원과 어떤 관계인가요?',
+    a: '재취업지원서비스 시행지원은 기업의 시행체계 구축과 근로자의 경력전환 준비를 지원합니다. 경력지원서비스는 이 과정을 재직 단계의 경력설계부터 퇴직 이후의 전환 준비까지 연결해 이해하도록 돕는 설명 개념입니다.',
+  },
+];
+---
+<BaseLayout title="경력지원서비스란?" description="경력지원서비스의 의미와 재취업지원서비스 시행지원의 관계를 안내합니다. 기업컨설팅, 커리어플래닝서비스, 경력진단·경력설계·경력전환 지원을 확인하세요." jsonLd={careerSupportJsonLd}>
+  <section class="ty-hero sub career-support-hero" aria-labelledby="career-support-title">
+    <div class="ty-mark">경력지원서비스</div>
+    <p class="ty-comment">재취업지원서비스 시행지원을 이해하는 확장 개념</p>
+    <h1 id="career-support-title">재직 중 경력설계부터<br />경력전환 준비까지 연결합니다.</h1>
+    <p class="ty-lead">현재 공식 사업 안내는 ‘재취업지원서비스 시행지원’을 기준으로 합니다. K·JOBS는 기업의 제도 운영과 참여자의 경력설계를 더 쉽게 이해할 수 있도록 ‘경력지원서비스’라는 표현을 함께 사용합니다.</p>
+    <div class="ty-actions" aria-label="경력지원서비스 주요 이동">
+      <a href={link('business-consulting/')}>기업 지원 확인</a>
+      <a href={link('career-planning/')}>개인 지원 확인</a>
+      <a href={link('contact/')}>상담 문의</a>
+    </div>
+  </section>
+
+  <section class="ty-section" aria-labelledby="career-support-definition">
+    <div class="ty-section-head">
+      <p class="ty-comment">용어 안내</p>
+      <h2 id="career-support-definition">경력지원서비스란?</h2>
+      <p>일과 경력의 변화에 대비할 수 있도록 현재 경험을 진단하고, 다음 역할과 실행계획을 설계하며, 필요한 전환 준비를 연결하는 지원 개념입니다.</p>
+    </div>
+    <div class="ty-feature-row four">
+      <article><span>01</span><h3>경력진단</h3><p>직무경험, 보유역량, 강점과 관심 분야를 확인합니다.</p></article>
+      <article><span>02</span><h3>경력설계</h3><p>계속근로, 역할 변화, 직무전환 등 다음 경력 방향을 정리합니다.</p></article>
+      <article><span>03</span><h3>전환 준비</h3><p>역량 보완, 교육, 구직 준비 등 실행할 과제를 구체화합니다.</p></article>
+      <article><span>04</span><h3>기업 제도화</h3><p>기업이 재취업지원서비스를 자체 운영할 수 있는 절차와 역할을 설계합니다.</p></article>
+    </div>
+  </section>
+
+  <section class="ty-section" aria-labelledby="official-name-relation">
+    <div class="ty-note-panel">
+      <div>
+        <p class="ty-comment">현재 명칭 기준</p>
+        <h2 id="official-name-relation">공식 사업명은 그대로 유지합니다.</h2>
+        <p class="ty-lead">‘재취업지원서비스 시행지원’은 사업 기준과 신청 절차를 안내하는 중심 명칭입니다. ‘경력지원서비스’는 이를 대체하거나 명칭 변경을 예고하는 표현이 아니라, 서비스의 범위와 이용자 효용을 설명하는 K·JOBS의 확장 개념입니다.</p>
+      </div>
+      <div class="ty-checks">
+        <p><strong>공식 안내</strong><span>재취업지원서비스 시행지원</span></p>
+        <p><strong>기업 지원</strong><span>재취업지원서비스 기업컨설팅</span></p>
+        <p><strong>개인 지원</strong><span>커리어플래닝서비스</span></p>
+        <p><strong>설명 개념</strong><span>경력지원서비스</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ty-section" aria-labelledby="career-support-paths">
+    <div class="ty-section-head">
+      <p class="ty-comment">대상별 지원</p>
+      <h2 id="career-support-paths">기업과 참여자의 준비를 구분해 지원합니다.</h2>
+      <p>기업컨설팅과 커리어플래닝서비스는 목적과 대상이 다르지만, 지속 가능한 경력전환을 준비한다는 흐름에서 연결됩니다.</p>
+    </div>
+    <div class="ty-split-cards">
+      <article>
+        <span>기업의 시행체계 구축</span>
+        <h3>기업컨설팅</h3>
+        <p>기업 현황을 확인하고 담당자 역할, 대상자 안내, 운영 절차, 파일럿 운영과 개선과제를 설계합니다.</p>
+        <a href={link('business-consulting/')}>기업컨설팅 확인</a>
+      </article>
+      <article>
+        <span>중장년 재직자의 경력설계</span>
+        <h3>커리어플래닝서비스</h3>
+        <p>직무경험과 보유역량을 점검하고 향후 역할, 경력목표와 실행계획을 상담 중심으로 정리합니다.</p>
+        <a href={link('career-planning/')}>커리어플래닝서비스 확인</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="ty-section faq-section" aria-labelledby="career-support-faq-title">
+    <div class="ty-section-head">
+      <p class="ty-comment">FAQ</p>
+      <h2 id="career-support-faq-title">명칭과 지원 범위를 확인하세요.</h2>
+    </div>
+    <div class="faq-list">
+      {supportFaqs.map((item) => (
+        <details class="faq-item">
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="ty-cta">
+    <p class="ty-comment">기업과 개인의 상황에 따라 지원 범위가 달라질 수 있습니다</p>
+    <h2>필요한 경력지원 방향부터 확인하세요.</h2>
+    <a href={link('contact/')}>상담 문의하기</a>
+  </section>
+</BaseLayout>

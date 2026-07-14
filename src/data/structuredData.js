@@ -20,7 +20,7 @@ export const organizationJsonLd = {
     '@type': 'Country',
     name: '대한민국',
   },
-  serviceType: ['재취업지원서비스 기업컨설팅', '커리어플래닝서비스', '중장년 경력설계 상담'],
+  serviceType: ['재취업지원서비스 기업컨설팅', '커리어플래닝서비스', '경력지원서비스', '중장년 경력설계 상담'],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
@@ -62,6 +62,21 @@ export const servicesJsonLd = [
       name: '중장년 재직자',
     },
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${siteUrl}/career-support/#service`,
+    name: '경력지원서비스',
+    serviceType: '경력진단·경력설계·경력전환 지원',
+    provider: { '@id': `${siteUrl}/#organization` },
+    areaServed: '대한민국',
+    url: `${siteUrl}/career-support/`,
+    description: '재직자의 경력진단과 경력설계부터 퇴직예정자의 경력전환과 재취업 준비까지 연결해 설명하는 K·JOBS의 지원 개념입니다. 현재 공식 사업 안내는 재취업지원서비스 시행지원을 기준으로 합니다.',
+    audience: [
+      { '@type': 'BusinessAudience', name: '재취업지원서비스 운영체계를 준비하는 기업' },
+      { '@type': 'PeopleAudience', name: '경력설계와 경력전환을 준비하는 중장년 재직자' },
+    ],
+  },
 ];
 
 export const websiteJsonLd = {
@@ -90,6 +105,8 @@ export const websiteJsonLd = {
     '직무전환',
     '계속근로',
     '재취업 준비',
+    '경력지원서비스',
+    '경력전환 지원',
   ],
 };
 
@@ -128,4 +145,5 @@ export const faqJsonLd = {
 export const homeJsonLd = [organizationJsonLd, websiteJsonLd, ...servicesJsonLd, faqJsonLd];
 export const businessConsultingJsonLd = [organizationJsonLd, servicesJsonLd[0]];
 export const careerPlanningJsonLd = [organizationJsonLd, servicesJsonLd[1]];
+export const careerSupportJsonLd = [organizationJsonLd, servicesJsonLd[2]];
 export const contactJsonLd = [organizationJsonLd];
