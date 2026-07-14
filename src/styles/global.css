@@ -2382,6 +2382,15 @@ body {
     line-height: 1.56;
     text-align: left;
   }
+  .ty-hero.policy-hero,
+  .ty-hero.sub.policy-hero {
+    justify-items: center;
+    text-align: center;
+  }
+  .ty-hero.policy-hero h1,
+  .ty-hero.policy-hero .ty-lead {
+    text-align: center;
+  }
   .mobile-quick-card { display: block; }
   .ty-actions {
     display: grid;
