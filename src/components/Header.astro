@@ -3,12 +3,12 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 const link = (path) => `${base}${path}`;
 const nav = [
   { href: link(''), label: '홈' },
-  { href: link('career-support/'), label: '경력지원서비스' },
+  { href: link('career-support/'), label: '경력지원' },
   { href: link('business-consulting/'), label: '기업컨설팅' },
-  { href: link('career-planning/'), label: '커리어플래닝서비스' },
-  { href: link('process/'), label: '진행 절차' },
-  { href: link('approach/'), label: 'K·JOBS 지원 방식' },
-  { href: link('policy-updates/'), label: '정책소식' },
+  { href: link('career-planning/'), label: '커리어플래닝' },
+  { href: link('process/'), label: '진행 절차', groupStart: true },
+  { href: link('approach/'), label: '지원 방식' },
+  { href: link('policy-updates/'), label: '정책소식', groupStart: true },
   { href: link('faq/'), label: 'FAQ' },
   { href: link('contact/'), label: '문의', cta: true },
 ];
@@ -20,6 +20,9 @@ const mobileNav = [
   { href: link('faq/'), label: 'FAQ' },
   { href: link('contact/'), label: '문의', cta: true },
 ];
+const normalizePath = (path) => path.replace(/\/+$/, '') || '/';
+const currentPath = normalizePath(Astro.url.pathname);
+const isCurrent = (href) => normalizePath(new URL(href, Astro.url).pathname) === currentPath;
 ---
 <header class="site-header">
   <a class="brand" href={base} aria-label="재취업지원서비스 시행지원 홈">
@@ -30,9 +33,9 @@ const mobileNav = [
     </span>
   </a>
   <nav class="nav desktop-nav" aria-label="주요 메뉴">
-    {nav.map((item) => <a href={item.href} class={item.cta ? 'nav-cta' : undefined}>{item.label}</a>)}
+    {nav.map((item) => <a href={item.href} class:list={[item.cta && 'nav-cta', item.groupStart && 'nav-group-start']} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}
   </nav>
   <nav class="nav mobile-nav" aria-label="모바일 주요 메뉴">
-    {mobileNav.map((item) => <a href={item.href} class={item.cta ? 'nav-cta' : undefined}>{item.label}</a>)}
+    {mobileNav.map((item) => <a href={item.href} class={item.cta ? 'nav-cta' : undefined} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}
   </nav>
 </header>
