@@ -1152,6 +1152,7 @@ body {
   letter-spacing: -.025em;
 }
 .flow-step-list { position: relative; display: grid; gap: 12px; overflow: visible; }
+.mobile-detail-toggle { display: none; }
 .step-popover-card.compact {
   min-height: 150px;
   padding: 22px;
@@ -2186,6 +2187,39 @@ body {
     transform: none;
     box-shadow: none;
     background: rgba(248,248,250,.9);
+  }
+  [data-mobile-detail] .step-popover {
+    display: none;
+  }
+  [data-mobile-detail][data-mobile-open="true"] .step-popover {
+    display: block;
+  }
+  .mobile-detail-toggle {
+    display: inline-flex;
+    min-height: 44px;
+    margin-top: 10px;
+    padding: 0;
+    align-items: center;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #0066cc;
+    font: inherit;
+    font-size: .86rem;
+    font-weight: 760;
+    cursor: pointer;
+  }
+  .mobile-detail-toggle::after {
+    content: '+';
+    margin-left: 6px;
+    font-size: 1rem;
+  }
+  [data-mobile-open="true"] > .mobile-detail-toggle::after {
+    content: '−';
+  }
+  .mobile-detail-toggle:focus-visible {
+    outline: 3px solid rgba(0, 102, 204, .28);
+    outline-offset: 3px;
   }
   .step-popover::after { display: none; }
 }
