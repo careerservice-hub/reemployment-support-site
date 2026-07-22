@@ -1000,6 +1000,54 @@ body {
   font-weight: 500;
 }
 .ty-actions a:hover { text-decoration: underline; }
+.audience-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(210px, 250px));
+  gap: 12px;
+  align-items: stretch;
+}
+.audience-action {
+  display: flex;
+  min-height: 74px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  padding: 14px 20px;
+  border: 1px solid rgba(0,102,204,.14);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(25,71,106,.08);
+  color: #1d1d1f;
+  text-align: left;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.audience-action span {
+  color: #6e6e73;
+  font-size: .78rem;
+  font-weight: 700;
+}
+.audience-action strong {
+  color: #0066cc;
+  font-size: 1rem;
+  letter-spacing: -.025em;
+}
+.audience-action.personal strong { color: #16856f; }
+.audience-action:hover,
+.audience-action:focus-visible {
+  border-color: rgba(0,102,204,.34);
+  box-shadow: 0 16px 40px rgba(25,71,106,.13);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+.audience-support-link {
+  grid-column: 1 / -1;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .92rem;
+}
 .dual-flow-grid {
   position: relative;
   display: grid;
@@ -2259,7 +2307,7 @@ body {
 .mobile-choice-grid a,
 .mobile-quick-card.service > a {
   display: inline-flex;
-  min-height: 42px;
+  min-height: 48px;
   align-items: center;
   justify-content: center;
   padding: 0 14px;
@@ -2364,7 +2412,7 @@ body {
   }
   .mobile-nav a {
     display: flex;
-    min-height: 34px;
+    min-height: 44px;
     align-items: center;
     justify-content: center;
     padding: 0 8px;
@@ -2374,6 +2422,15 @@ body {
     font-weight: 700;
   }
   .mobile-nav a.nav-cta { background: #0066cc; color: #fff; }
+  .ty-hero > .audience-actions { display: none; }
+  .ty-split-cards article > a,
+  .ty-inline-link,
+  .popover-link,
+  .footer-policy-links a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
   .ty-hero,
   .ty-hero.sub {
     min-height: auto;
