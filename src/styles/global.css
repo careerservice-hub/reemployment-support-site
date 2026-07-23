@@ -1459,6 +1459,35 @@ body {
   letter-spacing: -.035em;
 }
 .evidence-note li + li { margin-top: 4px; }
+.employment-proof-guide {
+  display: grid;
+  gap: 14px;
+  margin-top: 6px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(22, 133, 111, .06);
+  border: 1px solid rgba(22, 133, 111, .18);
+}
+.employment-proof-guide h4 {
+  margin: 0;
+  color: #155f51;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  letter-spacing: -.04em;
+}
+.employment-proof-guide ol {
+  margin: 0;
+  padding-left: 22px;
+  color: #343438;
+  line-height: 1.65;
+  letter-spacing: -.035em;
+}
+.employment-proof-guide li + li { margin-top: 6px; }
+.employment-proof-guide small {
+  color: #6e6e73;
+  font-size: .82rem;
+  line-height: 1.55;
+}
 .same-form-choice {
   display: grid;
   gap: 12px;

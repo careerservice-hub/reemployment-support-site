@@ -42,9 +42,9 @@ const applicationSteps = [
   },
   {
     title: '이메일 제출',
-    body: '양식과 재직증명서를 이메일로 보냅니다.',
+    body: '양식과 재직 증빙서류를 이메일로 보냅니다.',
     detailTitle: '무엇을 함께 제출하나요?',
-    detail: '작성·서명한 신청서, 개인정보 동의서, 재직증명서를 함께 제출합니다. PDF 제출을 권장하며, 사진 파일은 글자와 서명이 선명하게 보이도록 촬영합니다.',
+    detail: '작성·서명한 신청서, 개인정보 동의서와 함께 재직증명서 또는 4대 사회보험 가입자 가입내역 확인서 중 1부를 제출합니다. PDF 제출을 권장하며, 사진 파일은 글자와 서명이 선명하게 보이도록 촬영합니다.',
   },
   {
     title: '접수 확인',
@@ -66,7 +66,7 @@ const applicationSteps = [
       <ul>
         <li>중장년 재직자 여부와 상담 가능 일정</li>
         <li>신청서·개인정보 동의서 작성 가능 여부</li>
-        <li>재직증명서 등 재직 확인 서류 준비</li>
+        <li>재직증명서 또는 4대 사회보험 가입자 가입내역 확인서 준비</li>
       </ul>
       <a href="#career-application-title">양식 다운로드로 이동</a>
     </div>
@@ -151,21 +151,32 @@ const applicationSteps = [
         </article>
         <article class="download-card grouped-download-card evidence-download-card">
           <span>필수 양식 3</span>
-          <strong>재직 증빙</strong>
-          <p>신청일 기준 재직 중임을 확인할 수 있는 서류를 함께 제출해 주세요.</p>
+          <strong>재직 증빙서류</strong>
+          <p>신청일 기준 재직 중임을 확인할 수 있도록 아래 서류 중 1부를 제출해 주세요.</p>
           <div class="same-form-choice evidence-note" aria-label="재직 증빙 제출 안내">
-            <b>제출 가능 서류 예시</b>
+            <b>제출 가능 서류 — 둘 중 하나만 준비</b>
             <ul>
               <li>재직증명서</li>
-              <li>건강보험 자격득실확인서</li>
-              <li>4대보험 가입확인서 또는 회사 발급 재직확인 서류</li>
+              <li>4대 사회보험 가입자 가입내역 확인서</li>
             </ul>
+          </div>
+          <div class="employment-proof-guide" aria-labelledby="employment-proof-guide-title">
+            <h4 id="employment-proof-guide-title">4대 사회보험 가입자 가입내역 확인서 발급 방법</h4>
+            <ol>
+              <li>공식 사이트에서 <b>개인 비회원 로그인</b>을 선택하고 본인인증을 진행합니다.</li>
+              <li><b>증명서 발급 → 증명서 신청/발급</b>을 선택합니다.</li>
+              <li>안내사항에 동의한 후 현재 근무 중인 사업장을 선택합니다.</li>
+              <li>신청을 완료하고 처리 상태가 <b>출력 가능</b>으로 바뀔 때까지 기다립니다.</li>
+              <li>확인서를 출력하거나 PDF로 저장해 신청서와 함께 제출합니다.</li>
+            </ol>
+            <a href="https://www.4insure.or.kr/pbiz/main/main.do" target="_blank" rel="noopener noreferrer">4대사회보험 정보연계센터에서 발급하기</a>
+            <small>발급 화면과 인증 방법은 공식 사이트 개편 또는 이용 환경에 따라 달라질 수 있습니다.</small>
           </div>
         </article>
       </div>
     </div>
     <div class="submission-note">
-      <p><strong>제출서류</strong><span>신청서, 개인정보 동의서, 재직증명서</span></p>
+      <p><strong>제출서류</strong><span>신청서, 개인정보 동의서, 재직증명서 또는 4대 사회보험 가입자 가입내역 확인서 중 1부</span></p>
       <p><strong>제출 이메일</strong><span>h.douze@kjobs.co.kr</span></p>
       <p><strong>파일명 권장</strong><span>커리어플래닝서비스_신청서_성명_휴대폰뒤4자리</span></p>
       <p><strong>문의</strong><span>02-797-5659 / 010-5747-8286</span></p>
