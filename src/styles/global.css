@@ -1734,9 +1734,25 @@ body {
   bottom: calc(100% + 12px);
   width: min(620px, calc(100vw - 48px));
 }
-.practical-detail-popover {
-  width: min(680px, calc(100vw - 48px));
+.output-popover-card .practical-detail-popover {
+  top: calc(100% + 12px);
+  bottom: auto;
+  width: min(560px, calc(100vw - 48px));
   padding: 22px 24px;
+  transform: translateY(-8px) scale(.98);
+}
+.output-popover-card:hover .practical-detail-popover,
+.output-popover-card:focus .practical-detail-popover,
+.output-popover-card:focus-within .practical-detail-popover,
+.output-popover-card:focus-visible .practical-detail-popover {
+  transform: translateY(0) scale(1);
+}
+.output-popover-card .practical-detail-popover::after {
+  top: -8px;
+  bottom: auto;
+  border: 0;
+  border-left: 1px solid rgba(0,0,0,.08);
+  border-top: 1px solid rgba(0,0,0,.08);
 }
 .practical-detail-popover .popover-section-label {
   margin: 14px 0 8px;
