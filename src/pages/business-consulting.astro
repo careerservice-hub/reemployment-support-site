@@ -22,10 +22,30 @@ const supportTypes = [
   ['공동컨설팅', '원·하청, 산업단지 등 공동 운영 여건에 맞춰 별도 기준과 모듈식 방식으로 조정합니다.', '여러 기업이 함께 운영해야 하는 경우 적용합니다. 공통 기준과 기업별 차이를 구분해 공동 운영 가능한 구조로 조정합니다.'],
 ];
 const practicalChecks = [
-  ['의무기업 여부와 대상자 발생 가능성', '전년도 고용보험 피보험자 수, 50세 이상 근로자 현황, 퇴직예정자 발생 시점을 먼저 확인합니다.'],
-  ['담당부서와 내부 의사결정 흐름', '인사·노무 담당자, 결재선, 노사협의 필요 여부를 정리해 안내와 실행이 끊기지 않게 합니다.'],
-  ['서비스 제공 방식과 증빙관리 기준', '상담·교육·취업알선 등 제공 방식, 참여 안내, 결과물 보관, 만족도 확인 절차를 함께 점검합니다.'],
-  ['파일럿 운영으로 확인할 현장 쟁점', '참여자 모집, 일정 운영, 상담 흐름, 결과 정리 방식이 실제 사업장에서 작동하는지 소규모로 확인합니다.'],
+  {
+    title: '의무기업 여부와 대상자 발생 가능성',
+    body: '전년도 고용보험 피보험자 수, 50세 이상 근로자 현황, 퇴직예정자 발생 시점을 먼저 확인합니다.',
+    criteria: ['전년도 월평균 고용보험 피보험자 수', '연령대별 근로자 수와 전체 근로자 대비 비율', '해당 연도 퇴직예정자 수와 예상 퇴직 시점', '향후 1~3년간 예상되는 대상자 규모'],
+    materials: '고용보험 가입인원 자료, 연령별 인원 현황, 퇴직예정자 인원 집계표',
+  },
+  {
+    title: '담당부서와 내부 의사결정 흐름',
+    body: '인사·노무 담당자, 결재선, 노사협의 필요 여부를 정리해 안내와 실행이 끊기지 않게 합니다.',
+    criteria: ['제도 운영을 담당할 부서와 실무담당자', '시행계획과 예산을 승인하는 내부 결재선', '참여자 안내와 일정을 조정할 현장 책임자', '노사협의회 또는 노동조합 협의 필요 여부'],
+    materials: '조직도, 업무분장표, 내부 결재 절차, 노사협의회 운영 현황',
+  },
+  {
+    title: '서비스 제공 방식과 증빙관리 기준',
+    body: '상담·교육·취업알선 등 제공 방식, 참여 안내, 결과물 보관, 만족도 확인 절차를 함께 점검합니다.',
+    criteria: ['진로설계·취업알선·취·창업교육·복합제공 중 적합한 유형', '집체교육·개별상담·온라인·대면 등 운영 방식', '참여 대상자 선정과 안내·동의 절차', '상담일지·출석부·교육사진·만족도 조사 등 증빙자료'],
+    materials: '기존 교육·상담 자료, 참여자 안내문, 개인정보 동의서, 증빙관리 양식',
+  },
+  {
+    title: '파일럿 운영으로 확인할 현장 쟁점',
+    body: '참여자 모집, 일정 운영, 상담 흐름, 결과 정리 방식이 실제 사업장에서 작동하는지 소규모로 확인합니다.',
+    criteria: ['파일럿 참여자 모집 가능 여부와 적정 인원', '근무시간·교대근무를 고려한 일정 편성', '상담·교육 장소와 참여시간 확보 가능 여부', '참여자 의견·만족도 확인과 후속 보완 방식'],
+    materials: '대상자 후보, 근무일정, 운영장소, 참여 안내계획, 만족도 조사양식',
+  },
 ];
 const outputItems = [
   ['운영 현황 진단', '대상자, 준비 수준, 내부 의사결정 필요사항을 구분합니다.', '현재 기업이 바로 실행할 수 있는 부분과 추가 정리가 필요한 부분을 나눠 이후 제도설계의 기준으로 삼습니다.'],
@@ -115,13 +135,17 @@ const outputItems = [
       <p>기업 담당자가 제도 운영 전에 확인해야 할 실무 항목입니다.</p>
     </div>
     <div class="ty-checks hover-checks">
-      {practicalChecks.map(([title, body]) => (
+      {practicalChecks.map(({ title, body, criteria, materials }) => (
         <article class="step-popover-card output-popover-card" tabindex="0" aria-describedby={`practical-${title}-detail`}>
           <strong>{title}</strong>
           <span>{body}</span>
-          <div class="step-popover output-popover" id={`practical-${title}-detail`} role="tooltip">
+          <div class="step-popover output-popover practical-detail-popover" id={`practical-${title}-detail`} role="tooltip">
             <strong>{title}</strong>
-            <p>{body}</p>
+            <p class="popover-section-label">세부 확인 기준</p>
+            <ul>
+              {criteria.map((item) => <li>{item}</li>)}
+            </ul>
+            <p class="popover-materials"><strong>준비자료</strong><span>{materials}</span></p>
           </div>
         </article>
       ))}
