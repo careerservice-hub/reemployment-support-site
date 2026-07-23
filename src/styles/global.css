@@ -1335,10 +1335,7 @@ body {
 .ty-list-grid strong { color: #0066cc; }
 .application-download-section .ty-section-head { max-width: 900px; }
 .download-panel {
-  display: grid;
-  grid-template-columns: minmax(0, .95fr) minmax(420px, 1.05fr);
-  gap: 18px;
-  align-items: stretch;
+  margin-top: 18px;
 }
 .download-copy,
 .download-card,
@@ -1349,6 +1346,7 @@ body {
   box-shadow: 0 18px 54px rgba(30,80,120,.06);
 }
 .download-copy { padding: clamp(28px, 4vw, 40px); }
+.application-flow-panel { overflow: visible; }
 .download-copy h3 {
   margin: 0 0 18px;
   color: #1d1d1f;
@@ -1364,9 +1362,14 @@ body {
   letter-spacing: -.035em;
 }
 .download-copy li + li { margin-top: 8px; }
-.application-step-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; overflow: visible; }
+.application-step-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0,1fr));
+  gap: 28px;
+  overflow: visible;
+}
 .application-step-card {
-  min-height: 112px;
+  min-height: 132px;
   display: grid;
   align-content: center;
   gap: 8px;
@@ -1374,6 +1377,22 @@ body {
   border-radius: 22px;
   background: rgba(255,255,255,.78);
   border: 1px solid rgba(0,0,0,.07);
+}
+.application-step-card:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  transform: translateY(-50%);
+  color: #16856f;
+  font-size: 1.15rem;
+  font-weight: 760;
+}
+.application-step-number {
+  color: #16856f !important;
+  font-size: .78rem !important;
+  font-weight: 780 !important;
+  letter-spacing: .08em !important;
 }
 .application-step-card > strong {
   color: #1d1d1f;
@@ -1384,26 +1403,29 @@ body {
 .application-step-card > span { color: #6e6e73; font-size: .9rem; line-height: 1.5; font-weight: 650; }
 .career-step-card { position: relative; }
 .career-popover { width: min(360px, calc(100vw - 48px)); }
-.application-flow-popover { width: min(420px, calc(100vw - 48px)); }
+.application-flow-popover {
+  width: min(380px, calc(100vw - 48px));
+  box-sizing: border-box;
+}
 .ty-feature-row.four .career-step-card:first-child .step-popover,
-.application-step-grid .application-step-card:nth-child(odd) .step-popover {
+.application-step-grid .application-step-card:first-child .step-popover {
   left: 0;
   right: auto;
   transform: translateY(8px) scale(.98);
 }
 .ty-feature-row.four .career-step-card:last-child .step-popover,
-.application-step-grid .application-step-card:nth-child(even) .step-popover {
+.application-step-grid .application-step-card:last-child .step-popover {
   left: auto;
   right: 0;
   transform: translateY(8px) scale(.98);
 }
 .ty-feature-row.four .career-step-card:first-child .step-popover::after,
-.application-step-grid .application-step-card:nth-child(odd) .step-popover::after {
+.application-step-grid .application-step-card:first-child .step-popover::after {
   left: 34px;
   transform: rotate(45deg);
 }
 .ty-feature-row.four .career-step-card:last-child .step-popover::after,
-.application-step-grid .application-step-card:nth-child(even) .step-popover::after {
+.application-step-grid .application-step-card:last-child .step-popover::after {
   left: auto;
   right: 34px;
   transform: rotate(45deg);
@@ -2081,16 +2103,25 @@ body {
 .output-popover-card:focus-visible .step-popover {
   transform: translateY(0) scale(1);
 }
-.application-step-grid .application-step-card .application-flow-popover {
+.application-step-grid .application-step-card:not(:last-child) .application-flow-popover {
   left: 0;
   right: auto;
-  width: min(420px, calc(100vw - 48px));
+  width: min(380px, calc(100vw - 48px));
   transform: translateY(8px) scale(.98);
 }
-.application-step-grid .application-step-card .application-flow-popover::after {
+.application-step-grid .application-step-card:not(:last-child) .application-flow-popover::after {
   left: 34px;
   right: auto;
   transform: rotate(45deg);
+}
+.application-step-grid .application-step-card:last-child .application-flow-popover {
+  left: auto;
+  right: 0;
+  width: min(380px, calc(100vw - 48px));
+}
+.application-step-grid .application-step-card:last-child .application-flow-popover::after {
+  left: auto;
+  right: 34px;
 }
 .application-step-grid .application-step-card:hover .application-flow-popover,
 .application-step-grid .application-step-card:focus .application-flow-popover,
@@ -2152,6 +2183,20 @@ body {
   .download-card,
   .application-step-grid { min-width: 0; width: 100%; }
   .application-step-card { min-width: 0; width: auto; }
+  .application-step-grid { gap: 30px; }
+  .application-step-card:not(:last-child)::after {
+    content: '↓';
+    top: auto;
+    right: 50%;
+    bottom: -24px;
+    transform: translateX(50%);
+  }
+  .application-step-grid .application-step-card .application-flow-popover {
+    left: auto;
+    right: auto;
+    width: auto;
+    max-width: 100%;
+  }
   .application-step-card > strong,
   .application-step-card > span { width: auto; max-width: 100%; }
   .application-options { grid-template-columns: 1fr; }

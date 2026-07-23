@@ -41,8 +41,14 @@ const applicationSteps = [
     detail: '성명, 연락처, 희망 일정, 서명란 누락 여부를 확인합니다. 서명이 빠지면 접수 보완을 요청할 수 있습니다.',
   },
   {
+    title: '재직 증빙 준비',
+    body: '인정되는 재직 증빙서류 중 1부를 준비합니다.',
+    detailTitle: '어떤 서류를 준비하나요?',
+    detail: '재직증명서 또는 4대 사회보험 가입자 가입내역 확인서 중 1부를 준비합니다. 아래 재직 증빙서류 안내에서 온라인 발급 방법도 확인할 수 있습니다.',
+  },
+  {
     title: '이메일 제출',
-    body: '양식과 재직 증빙서류를 이메일로 보냅니다.',
+    body: '작성한 양식과 재직 증빙서류를 함께 보냅니다.',
     detailTitle: '무엇을 함께 제출하나요?',
     detail: '작성·서명한 신청서, 개인정보 동의서와 함께 재직증명서 또는 4대 사회보험 가입자 가입내역 확인서 중 1부를 제출합니다. PDF 제출을 권장하며, 사진 파일은 글자와 서명이 선명하게 보이도록 촬영합니다.',
   },
@@ -108,22 +114,23 @@ const applicationSteps = [
       <h2 id="career-application-title">양식을 내려받아 작성한 뒤 이메일로 제출합니다.</h2>
       <p>개인 신청자는 신청서와 개인정보 동의서를 작성·서명해 이메일로 제출해 주세요.</p>
     </div>
-    <div class="download-panel">
-      <div class="download-copy">
-        <h3>제출 흐름</h3>
-        <div class="application-step-grid" aria-label="커리어플래닝서비스 신청 제출 흐름">
-          {applicationSteps.map((item) => (
-            <article class="step-popover-card application-step-card" tabindex="0">
-              <strong>{item.title}</strong>
-              <span>{item.body}</span>
-              <div class="step-popover application-flow-popover" role="tooltip">
-                <strong>{item.detailTitle}</strong>
-                <p>{item.detail}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+    <div class="download-copy application-flow-panel">
+      <h3>제출 흐름</h3>
+      <div class="application-step-grid" aria-label="커리어플래닝서비스 신청 제출 흐름">
+        {applicationSteps.map((item, index) => (
+          <article class="step-popover-card application-step-card" tabindex="0">
+            <span class="application-step-number">{String(index + 1).padStart(2, '0')}</span>
+            <strong>{item.title}</strong>
+            <span>{item.body}</span>
+            <div class="step-popover application-flow-popover" role="tooltip">
+              <strong>{item.detailTitle}</strong>
+              <p>{item.detail}</p>
+            </div>
+          </article>
+        ))}
       </div>
+    </div>
+    <div class="download-panel">
       <div class="download-files" aria-label="커리어플래닝서비스 신청 양식 다운로드 영역">
         <article class="download-card grouped-download-card">
           <span>필수 양식 1</span>
