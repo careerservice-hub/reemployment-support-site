@@ -1378,6 +1378,37 @@ body {
 .download-panel {
   margin-top: 18px;
 }
+.download-requirement-intro {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 14px;
+  padding: 20px 24px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(22, 133, 111, .08), rgba(0, 122, 255, .05));
+  border: 1px solid rgba(22, 133, 111, .15);
+}
+.download-requirement-intro > span {
+  flex: 0 0 auto;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #16856f;
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 780;
+  letter-spacing: -.02em;
+}
+.download-requirement-intro div { display: grid; gap: 5px; }
+.download-requirement-intro strong {
+  color: #17364a;
+  font-size: 1.08rem;
+  letter-spacing: -.04em;
+}
+.download-requirement-intro p {
+  color: #4f5f6f;
+  line-height: 1.55;
+  letter-spacing: -.035em;
+}
 .download-copy,
 .download-card,
 .submission-note {
@@ -1512,6 +1543,16 @@ body {
   display: flex;
   align-items: flex-start;
 }
+.form-download-card {
+  min-height: 0;
+  grid-template-rows: auto auto auto 1fr;
+  padding: 26px 28px 24px;
+}
+.form-download-card strong {
+  min-height: auto;
+  font-size: clamp(1.2rem, 1.7vw, 1.48rem);
+}
+.form-download-card > p { max-width: 36em; }
 .evidence-download-card { grid-column: 1 / -1; }
 .evidence-download-card strong { min-height: auto; }
 .evidence-note ul {
@@ -1561,14 +1602,22 @@ body {
   background: rgba(0, 122, 255, .06);
   border: 1px solid rgba(0, 122, 255, .16);
 }
+.form-download-card .same-form-choice {
+  margin-top: 12px;
+  padding: 16px 0 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 102, 204, .14);
+  border-radius: 0;
+  background: transparent;
+}
 .same-form-choice b {
   color: #0066cc;
   font-size: .9rem;
   letter-spacing: -.035em;
 }
 .download-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   align-items: center;
 }
@@ -1588,6 +1637,18 @@ body {
   letter-spacing: -.035em;
 }
 .download-card a:hover { background: #005ecb; }
+.form-download-card .download-actions a {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(0, 102, 204, .3);
+  background: #fff;
+  color: #0066cc;
+}
+.form-download-card .download-actions a:hover,
+.form-download-card .download-actions a:focus-visible {
+  border-color: #0066cc;
+  background: #eef7ff;
+}
 .download-card.pending { background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(247,252,249,.86)); }
 .submission-note {
   margin-top: 16px;
@@ -2808,7 +2869,21 @@ body {
     justify-content: center;
   }
   .grouped-download-card strong { min-height: auto; }
+  .download-requirement-intro {
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 18px;
+  }
+  .download-requirement-intro > span { margin-top: 1px; }
+  .download-requirement-intro strong { font-size: 1rem; }
+  .download-requirement-intro p { font-size: .9rem; }
   .same-form-choice { padding: 13px; border-radius: 16px; }
+  .form-download-card .same-form-choice {
+    padding: 14px 0 0;
+    border-radius: 0;
+  }
+  .download-actions { grid-template-columns: 1fr; }
   .download-actions a { flex: 1 1 120px; }
   .submission-note p { padding: 16px 18px; }
   .faq-item summary { padding: 17px 18px; font-size: .98rem; }
