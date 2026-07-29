@@ -2282,10 +2282,11 @@ body {
     bottom: -24px;
     transform: translateX(50%);
   }
-  .application-step-grid .application-step-card .application-flow-popover {
+  .application-step-grid .application-step-card:not(:last-child) .application-flow-popover,
+  .application-step-grid .application-step-card:last-child .application-flow-popover {
     left: auto;
     right: auto;
-    width: auto;
+    width: 100%;
     max-width: 100%;
   }
   .application-step-card > strong,
