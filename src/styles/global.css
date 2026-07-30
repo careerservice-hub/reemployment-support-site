@@ -1108,7 +1108,12 @@ body {
 }
 .recruitment-summary,
 .recruitment-detail-grid { display: grid; gap: 16px; }
-.recruitment-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 28px; }
+.recruitment-summary {
+  width: 100%;
+  max-width: 900px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 28px auto 0;
+}
 .recruitment-summary p {
   margin: 0;
   border: 1px solid rgba(0,0,0,.07);
