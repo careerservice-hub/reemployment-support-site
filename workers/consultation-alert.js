@@ -15,6 +15,9 @@ const FIELD_LIMITS = {
   message: 1000,
 };
 
+const ALLOWED_SERVICE_TYPES = new Set(['business', 'career', 'general']);
+const MAX_PAYLOAD_BYTES = 8000;
+
 export default {
   async fetch(request, env) {
     const allowedOrigin = env.ALLOWED_ORIGIN || 'https://www.careerservice.co.kr';
@@ -39,14 +42,26 @@ export default {
       return json({ ok: false, error: 'origin_not_allowed' }, 403, corsHeaders);
     }
 
+    const contentType = request.headers.get('Content-Type') || '';
+    if (contentType.split(';', 1)[0].trim().toLowerCase() !== 'application/json') {
+      return json({ ok: false, error: 'invalid_content_type' }, 415, corsHeaders);
+    }
+
     const contentLength = Number(request.headers.get('Content-Length') || 0);
-    if (contentLength > 8000) {
+    if (contentLength > MAX_PAYLOAD_BYTES) {
       return json({ ok: false, error: 'payload_too_large' }, 413, corsHeaders);
     }
 
     let payload;
     try {
-      payload = await request.json();
+      const rawBody = await request.text();
+      if (new TextEncoder().encode(rawBody).byteLength > MAX_PAYLOAD_BYTES) {
+        return json({ ok: false, error: 'payload_too_large' }, 413, corsHeaders);
+      }
+      payload = JSON.parse(rawBody);
+      if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+        return json({ ok: false, error: 'invalid_json' }, 400, corsHeaders);
+      }
     } catch {
       return json({ ok: false, error: 'invalid_json' }, 400, corsHeaders);
     }
@@ -55,7 +70,13 @@ export default {
       return json({ ok: true, skipped: true }, 200, corsHeaders);
     }
 
-    payload = sanitizePayload(payload);
+    payload = normalizePayload(payload);
+
+    for (const [field, maxLength] of Object.entries(FIELD_LIMITS)) {
+      if (payload[field].length > maxLength) {
+        return json({ ok: false, error: 'field_too_long', field }, 400, corsHeaders);
+      }
+    }
 
     const required = ['serviceType', 'name', 'phone', 'email', 'message'];
     for (const field of required) {
@@ -68,6 +89,10 @@ export default {
       return json({ ok: false, error: 'privacy_required' }, 400, corsHeaders);
     }
 
+    if (!ALLOWED_SERVICE_TYPES.has(payload.serviceType)) {
+      return json({ ok: false, error: 'invalid_service_type' }, 400, corsHeaders);
+    }
+
     if (payload.message.length < 10) {
       return json({ ok: false, error: 'message_too_short' }, 400, corsHeaders);
     }
@@ -76,7 +101,11 @@ export default {
       return json({ ok: false, error: 'invalid_email' }, 400, corsHeaders);
     }
 
-    const rate = await checkRateLimit(request, env);
+    if (!isReasonablePhone(payload.phone)) {
+      return json({ ok: false, error: 'invalid_phone' }, 400, corsHeaders);
+    }
+
+    const rate = await applyBestEffortKvThrottle(request, env);
     if (!rate.ok) {
       return json({ ok: false, error: 'rate_limited' }, 429, {
         ...corsHeaders,
@@ -95,28 +124,35 @@ export default {
   },
 };
 
-function sanitizePayload(raw) {
+function normalizePayload(raw) {
   const payload = {};
-  for (const [key, max] of Object.entries(FIELD_LIMITS)) {
-    payload[key] = clean(raw[key], max);
+  for (const key of Object.keys(FIELD_LIMITS)) {
+    payload[key] = clean(raw[key]);
   }
   payload.privacyConsent = raw.privacyConsent === true || raw.privacyConsent === 'true' || raw.privacyConsent === 'on';
   return payload;
 }
 
-function clean(value, max = 1200) {
+function clean(value) {
   return String(value || '')
     .replace(/[\u0000-\u001F\u007F]/g, ' ')
     .replace(/\s+/g, ' ')
-    .trim()
-    .slice(0, max);
+    .trim();
 }
 
 function isReasonableEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value.length <= FIELD_LIMITS.email;
 }
 
-async function checkRateLimit(request, env) {
+function isReasonablePhone(value) {
+  const normalized = value.replace(/[\s\-()]/g, '');
+  return /^\d{9,11}$/.test(normalized);
+}
+
+// Cloudflare KV read/put operations are not atomic. This is a best-effort throttle
+// layered behind Origin, honeypot, payload, and format validation; concurrent
+// requests can observe the same counter and exceed the configured limit.
+async function applyBestEffortKvThrottle(request, env) {
   if (!env.RATE_LIMIT) return { ok: true };
 
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
