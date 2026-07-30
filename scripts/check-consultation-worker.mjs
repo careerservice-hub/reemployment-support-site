@@ -42,10 +42,12 @@ function assert(condition, message) {
 
 let telegramFetches = 0;
 let telegramReply = { ok: true };
+let telegramThrows = false;
 globalThis.fetch = async (url, options) => {
   assert(String(url).startsWith('https://api.telegram.org/bot'), `unexpected external URL: ${url}`);
   assert(options?.method === 'POST', 'Telegram fetch must use POST');
   telegramFetches += 1;
+  if (telegramThrows) throw new Error('mocked network failure');
   return new Response(JSON.stringify(telegramReply), {
     status: 200,
     headers: { 'Content-Type': 'application/json' },
@@ -149,9 +151,24 @@ try {
     TELEGRAM_CHAT_ID: 'test-chat',
   });
   assert(failureResponse.status === 502, `Telegram failure: expected 502, got ${failureResponse.status}`);
-  assert((await failureResponse.json()).error === 'telegram_send_failed', 'Telegram failure: wrong error');
+  assert((await failureResponse.json()).error === 'delivery_failed', 'Telegram failure: wrong error');
+  assert(failureResponse.headers.get('X-Request-ID'), 'Telegram failure: missing request id');
   assert(telegramFetches === fetchesBeforeFailure + 1, 'Telegram failure: expected exactly one mocked fetch');
   console.log('PASS mocked Telegram API failure returns 502');
+
+  const fetchesBeforeNetworkFailure = telegramFetches;
+  telegramThrows = true;
+  const networkFailureResponse = await worker.fetch(makeRequest(), {
+    ALLOWED_ORIGIN: allowedOrigin,
+    TELEGRAM_BOT_TOKEN: 'test-token',
+    TELEGRAM_CHAT_ID: 'test-chat',
+  });
+  telegramThrows = false;
+  assert(networkFailureResponse.status === 502, `Telegram network failure: expected 502, got ${networkFailureResponse.status}`);
+  assert((await networkFailureResponse.json()).error === 'delivery_failed', 'Telegram network failure: wrong error');
+  assert(networkFailureResponse.headers.get('X-Request-ID'), 'Telegram network failure: missing request id');
+  assert(telegramFetches === fetchesBeforeNetworkFailure + 1, 'Telegram network failure: expected exactly one mocked fetch');
+  console.log('PASS mocked Telegram network failure returns safe 502');
 
   let limitedPuts = 0;
   const fetchesBeforeLimit = telegramFetches;

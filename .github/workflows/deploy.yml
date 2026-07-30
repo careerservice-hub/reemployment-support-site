@@ -35,6 +35,10 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Check popover viewport overflow
         run: npm run check:popovers
+      - name: Check consultation form validation and fallback
+        run: npm run check:contact-form
+      - name: Check consultation Worker security and delivery paths
+        run: npm run check:consultation-worker
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
