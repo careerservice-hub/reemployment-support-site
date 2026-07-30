@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const effectiveDate = '2026년 7월 14일';
+const effectiveDate = '2026년 7월 30일';
 ---
 <BaseLayout title="개인정보처리방침" description="케이잡스 재취업지원서비스 홈페이지의 개인정보 처리 목적, 항목, 보유기간과 정보주체의 권리를 안내합니다.">
   <article class="policy-article privacy-policy">
@@ -23,6 +23,7 @@ const effectiveDate = '2026년 7월 14일';
         <li>신청 가능 여부, 준비자료와 일정 안내</li>
         <li>문의사항에 대한 답변과 후속 연락</li>
         <li>상담신청의 부정 이용 및 반복 전송 방지</li>
+        <li>홈페이지 방문·페이지 이용 현황과 실제 이용환경을 집계하여 안내 구조와 성능 개선</li>
       </ul>
       <p>수집한 개인정보는 위 목적 외의 용도로 이용하지 않습니다. 이용 목적이 변경되는 경우 관계 법령에 따라 별도 동의를 받는 등 필요한 조치를 합니다.</p>
     </section>
@@ -34,7 +35,7 @@ const effectiveDate = '2026년 7월 14일';
         <dl>
           <div><dt>필수 항목</dt><dd>성명 또는 담당자명, 연락처, 이메일, 상담 희망 내용, 상담 유형</dd></div>
           <div><dt>선택 항목</dt><dd>기업명, 전년도 월평균 고용보험 피보험자 수, 기존 서비스 운영 여부, 노사발전재단 기업컨설팅 신청 여부, 퇴직예정자·50세 이상 근로자 관련 문의, 신청 구분, 재직 여부, 희망 상담 내용과 일정</dd></div>
-          <div><dt>자동 생성 정보</dt><dd>접속 IP를 복원하기 어려운 형태로 변환한 전송 제한용 값, 접수시각</dd></div>
+          <div><dt>자동 생성 정보</dt><dd>상담신청 시 접속 IP를 복원하기 어려운 형태로 변환한 전송 제한용 값과 접수시각, 홈페이지 이용 시 국가, 방문한 호스트·경로, 유입경로, 기기 유형, 브라우저, 운영체제, 페이지 탐색 유형과 로딩 성능 지표</dd></div>
         </dl>
       </div>
       <p>주민등록번호, 건강정보, 급여자료, 퇴직자 명단 등 민감정보나 내부 인사자료는 홈페이지 상담 양식으로 수집하지 않습니다.</p>
@@ -45,6 +46,7 @@ const effectiveDate = '2026년 7월 14일';
       <h2>개인정보의 처리 및 보유기간</h2>
       <p>상담신청 정보는 상담과 문의 대응이 끝난 날부터 <strong>3개월간</strong> 보관한 후 지체 없이 파기합니다. 관계 법령에 따라 보존할 필요가 있는 경우에는 해당 법령에서 정한 기간 동안 분리하여 보관합니다.</p>
       <p>부정 이용 방지를 위한 전송 제한 정보는 최대 11분 이내 자동 삭제되도록 운영합니다.</p>
+      <p>홈페이지 이용 통계는 방문자 개인을 식별하거나 상담신청 정보와 결합하지 않고 집계 형태로 확인합니다. Cloudflare는 Web Analytics가 개별 방문자의 개인정보를 수집·이용하거나 고객사의 서로 다른 인터넷 자산을 가로질러 개인을 추적하지 않는다고 안내합니다.</p>
     </section>
 
     <section class="policy-article-section">
@@ -56,10 +58,10 @@ const effectiveDate = '2026년 7월 14일';
     <section class="policy-article-section">
       <p class="policy-section-label">제5조</p>
       <h2>개인정보 처리업무의 위탁 및 외부 서비스 이용</h2>
-      <p>홈페이지 상담신청의 안전한 전달과 담당자 알림을 위해 다음 외부 서비스를 이용합니다.</p>
+      <p>홈페이지 이용 현황 확인, 상담신청의 안전한 전달과 담당자 알림을 위해 다음 외부 서비스를 이용합니다.</p>
       <div class="policy-source-box privacy-summary-box">
         <dl>
-          <div><dt>Cloudflare, Inc.</dt><dd>상담신청 요청 중계, 접속 허용 확인과 반복 전송 제한</dd></div>
+          <div><dt>Cloudflare, Inc.</dt><dd>상담신청 요청 중계, 접속 허용 확인과 반복 전송 제한, 홈페이지 방문·페이지별 이용·유입경로·기기환경·로딩 성능에 관한 집계형 Web Analytics 제공</dd></div>
           <div><dt>Telegram Messenger Inc.</dt><dd>상담신청 내용을 담당자에게 전달하는 알림 서비스</dd></div>
         </dl>
       </div>
