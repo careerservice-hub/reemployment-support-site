@@ -1109,7 +1109,7 @@ body {
 .recruitment-summary,
 .recruitment-detail-grid { display: grid; gap: 16px; }
 .recruitment-summary {
-  width: 100%;
+  width: calc(100% - 32px);
   max-width: 900px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 28px auto 0;
