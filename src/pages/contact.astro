@@ -62,19 +62,19 @@ import { contactJsonLd } from '../data/structuredData.js';
       <div class="form-grid">
         <label>
           <span>성명 또는 담당자명 <b>*</b></span>
-          <input type="text" name="name" required autocomplete="name" placeholder="예: 홍길동" />
+          <input type="text" name="name" required maxlength="50" autocomplete="name" placeholder="예: 홍길동" />
         </label>
         <label class="company-field">
           <span>기업명</span>
-          <input type="text" name="company" autocomplete="organization" placeholder="예: ○○산업" />
+          <input type="text" name="company" maxlength="80" autocomplete="organization" placeholder="예: ○○산업" />
         </label>
         <label>
           <span>연락처 <b>*</b></span>
-          <input type="tel" name="phone" required autocomplete="tel" placeholder="예: 010-0000-0000" />
+          <input type="tel" name="phone" required maxlength="30" inputmode="tel" autocomplete="tel" placeholder="예: 010-0000-0000" />
         </label>
         <label>
           <span>이메일 <b>*</b></span>
-          <input type="email" name="email" required autocomplete="email" placeholder="예: name@example.com" />
+          <input type="email" name="email" required maxlength="120" autocomplete="email" placeholder="예: name@example.com" />
         </label>
       </div>
 
@@ -155,14 +155,14 @@ import { contactJsonLd } from '../data/structuredData.js';
           </label>
           <label>
             <span>희망 일정</span>
-            <input type="text" name="preferredSchedule" placeholder="예: 7월 중, 평일 오후" />
+            <input type="text" name="preferredSchedule" maxlength="80" placeholder="예: 7월 중, 평일 오후" />
           </label>
         </div>
       </div>
 
       <label class="message-field">
         <span>상담 희망 내용 <b>*</b></span>
-        <textarea name="message" required rows="6" minlength="10" placeholder="상담 받고 싶은 내용을 간단히 적어 주세요. 민감정보나 내부 인사자료는 입력하지 마세요."></textarea>
+        <textarea name="message" required rows="6" minlength="10" maxlength="1000" placeholder="상담 받고 싶은 내용을 간단히 적어 주세요. 민감정보나 내부 인사자료는 입력하지 마세요."></textarea>
       </label>
 
       <div class="privacy-box">
@@ -224,6 +224,11 @@ import { contactJsonLd } from '../data/structuredData.js';
       return (data.get(key) || '').toString().trim();
     }
 
+    function isValidKoreanPhone(value) {
+      const normalized = value.replace(/[\s\-()]/g, '');
+      return /^\d{9,11}$/.test(normalized);
+    }
+
     function buildSummary(data) {
       const service = activeService();
       const lines = [
@@ -271,6 +276,8 @@ import { contactJsonLd } from '../data/structuredData.js';
     }
 
     form.addEventListener('change', updatePanels);
+    const phoneInput = form.querySelector('input[name="phone"]');
+    phoneInput.addEventListener('input', () => phoneInput.setCustomValidity(''));
     updatePanels();
 
     form.addEventListener('submit', async (event) => {
@@ -279,9 +286,18 @@ import { contactJsonLd } from '../data/structuredData.js';
 
       if (getValue(data, 'website')) return;
 
+      phoneInput.setCustomValidity('');
+
       if (!form.checkValidity()) {
         form.reportValidity();
         statusEl.textContent = '필수 항목과 개인정보 동의를 확인해 주세요.';
+        return;
+      }
+
+      if (!isValidKoreanPhone(getValue(data, 'phone'))) {
+        phoneInput.setCustomValidity('연락처는 공백, 하이픈, 괄호를 제외한 숫자 9~11자리로 입력해 주세요.');
+        phoneInput.reportValidity();
+        statusEl.textContent = '연락처는 공백, 하이픈, 괄호를 제외한 숫자 9~11자리로 입력해 주세요.';
         return;
       }
 

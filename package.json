@@ -7,7 +7,9 @@
     "dev": "astro dev --host 127.0.0.1",
     "build": "astro build",
     "preview": "astro preview --host 127.0.0.1",
-    "check:popovers": "node scripts/check-popover-overflow.mjs"
+    "check:popovers": "node scripts/check-popover-overflow.mjs",
+    "check:contact-form": "node scripts/check-contact-form.mjs",
+    "check:consultation-worker": "node scripts/check-consultation-worker.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "latest",
