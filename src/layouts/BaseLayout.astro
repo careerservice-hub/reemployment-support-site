@@ -3,7 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
-const { title, description, jsonLd } = Astro.props;
+const { title, description, jsonLd, noindex = false } = Astro.props;
 const pageTitle = title ? `${title} | K·JOBS` : '재취업지원서비스 시행지원 | K·JOBS';
 const pageDescription = description ?? '케이잡스 K·JOBS가 기업컨설팅과 커리어플래닝서비스를 통해 기업의 제도 운영과 중장년 근로자의 경력설계를 지원합니다.';
 const currentUrl = new URL(Astro.url.pathname, 'https://www.careerservice.co.kr').toString();
@@ -15,6 +15,7 @@ const socialImageUrl = 'https://www.careerservice.co.kr/assets/careerservice-og-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={pageDescription} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="canonical" href={currentUrl} />
     <meta property="og:type" content="website" />

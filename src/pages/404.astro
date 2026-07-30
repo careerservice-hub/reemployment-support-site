@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="페이지를 찾을 수 없습니다"
+  description="요청한 페이지를 찾을 수 없습니다. K·JOBS 재취업지원서비스 홈페이지의 주요 메뉴를 이용해 주세요."
+  noindex={true}
+>
+  <section class="not-found-section" aria-labelledby="not-found-title">
+    <p class="ty-comment">404 오류</p>
+    <h1 id="not-found-title">페이지를 찾을 수 없습니다.</h1>
+    <p>주소가 변경되었거나 입력한 주소가 정확하지 않을 수 있습니다.</p>
+    <div class="not-found-actions">
+      <a class="not-found-primary" href="/">홈으로 이동</a>
+      <a class="not-found-secondary" href="/contact/">문의 안내 확인</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found-section {
+    width: min(760px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: clamp(96px, 14vw, 160px) 0;
+    text-align: center;
+  }
+
+  .not-found-section h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.15;
+    word-break: keep-all;
+  }
+
+  .not-found-section > p:not(.ty-comment) {
+    margin: 0 auto;
+    color: #4b5563;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+
+  .not-found-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .not-found-actions a {
+    display: inline-flex;
+    min-height: 48px;
+    padding: 0 22px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .not-found-primary {
+    background: #005eb8;
+    color: #fff;
+  }
+
+  .not-found-secondary {
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    color: #1f2937;
+  }
+</style>
