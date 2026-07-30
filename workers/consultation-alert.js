@@ -20,6 +20,7 @@ const MAX_PAYLOAD_BYTES = 8000;
 
 export default {
   async fetch(request, env) {
+    const requestId = crypto.randomUUID();
     const allowedOrigin = env.ALLOWED_ORIGIN || 'https://www.careerservice.co.kr';
     const origin = request.headers.get('Origin') || '';
     const corsHeaders = {
@@ -39,7 +40,8 @@ export default {
     }
 
     if (origin !== allowedOrigin) {
-      return json({ ok: false, error: 'origin_not_allowed' }, 403, corsHeaders);
+      securityLog('origin_rejected', requestId);
+      return json({ ok: false, error: 'origin_not_allowed' }, 403, corsHeaders, requestId);
     }
 
     const contentType = request.headers.get('Content-Type') || '';
@@ -67,7 +69,8 @@ export default {
     }
 
     if (payload.website) {
-      return json({ ok: true, skipped: true }, 200, corsHeaders);
+      securityLog('honeypot_skipped', requestId);
+      return json({ ok: true, skipped: true }, 200, corsHeaders, requestId);
     }
 
     payload = normalizePayload(payload);
@@ -107,20 +110,23 @@ export default {
 
     const rate = await applyBestEffortKvThrottle(request, env);
     if (!rate.ok) {
+      securityLog('rate_limited', requestId);
       return json({ ok: false, error: 'rate_limited' }, 429, {
         ...corsHeaders,
         'Retry-After': String(rate.retryAfter),
-      });
+      }, requestId);
     }
 
     const text = buildTelegramMessage(payload);
     const result = await sendTelegram(env.TELEGRAM_BOT_TOKEN, env.TELEGRAM_CHAT_ID, text);
 
     if (!result.ok) {
-      return json({ ok: false, error: 'telegram_send_failed' }, 502, corsHeaders);
+      securityLog('delivery_failed', requestId, { status: result.status || 0 });
+      return json({ ok: false, error: 'delivery_failed' }, 502, corsHeaders, requestId);
     }
 
-    return json({ ok: true }, 200, corsHeaders);
+    securityLog('submission_delivered', requestId);
+    return json({ ok: true }, 200, corsHeaders, requestId);
   },
 };
 
@@ -235,16 +241,29 @@ function buildTelegramMessage(data) {
 }
 
 async function sendTelegram(token, chatId, text) {
-  if (!token || !chatId) return { ok: false };
-  const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chatId, text }),
-  });
-  return response.json();
+  if (!token || !chatId) return { ok: false, status: 0 };
+  try {
+    const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: chatId, text }),
+    });
+    const result = await response.json().catch(() => ({ ok: false }));
+    return { ok: response.ok && result.ok === true, status: response.status };
+  } catch {
+    return { ok: false, status: 0 };
+  }
 }
 
-function json(body, status, headers) {
+function securityLog(event, requestId, details = {}) {
+  console.log(JSON.stringify({
+    event,
+    requestId,
+    ...details,
+  }));
+}
+
+function json(body, status, headers, requestId) {
   return new Response(JSON.stringify(body), {
     status,
     headers: {
@@ -252,6 +271,7 @@ function json(body, status, headers) {
       'Content-Type': 'application/json; charset=utf-8',
       'X-Content-Type-Options': 'nosniff',
       'Cache-Control': 'no-store',
+      ...(requestId ? { 'X-Request-ID': requestId } : {}),
     },
   });
 }
