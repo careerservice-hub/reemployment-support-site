@@ -1,72 +1,53 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const principles = [
+const supportFlow = [
   {
-    title: '기준 정확성',
-    body: '공식 자료와 확인된 절차를 바탕으로 안내합니다.',
-    detailTitle: '공식 기준을 먼저 확인',
-    detail: '노사발전재단·고용노동부 기준을 중심으로 대상 여부, 신청 제한, 제출자료와 일정 조건을 안내합니다. 변경 가능성이 있는 사항은 최신 공고를 함께 확인합니다.',
+    title: '대상·기준 확인',
+    body: '신청 주체와 희망 서비스를 구분하고, 대상 여부와 준비자료를 먼저 확인합니다.',
+    detailTitle: '공식 기준을 실제 신청조건으로 정리',
+    detail: '노사발전재단·고용노동부 기준을 중심으로 대상 여부, 신청 제한, 제출자료와 일정 조건을 확인합니다. 변경 가능성이 있는 사항은 최신 공고와 함께 안내합니다.',
   },
   {
-    title: '실행 가능성',
-    body: '기업 담당자가 내부 설명과 일정 조율에 쓸 수 있도록 준비사항을 구체화합니다.',
-    detailTitle: '현장에서 바로 쓸 수 있게 정리',
-    detail: '기업 담당자가 내부 보고, 참여자 안내, 일정 조율에 사용할 수 있도록 준비자료와 진행순서를 짧고 명확하게 정리합니다.',
+    title: '일정·운영 조율',
+    body: '기업 담당자와 참여자의 여건을 반영해 무리 없는 진행 순서와 일정을 맞춥니다.',
+    detailTitle: '현장에서 실행 가능한 운영 흐름으로 조정',
+    detail: '기업 내부 보고와 참여자 안내, 진단·상담 가능 시간, 결과 정리 일정을 연결합니다. 기업과 참여자가 이해하기 쉬운 언어로 준비사항과 담당 절차를 정리합니다.',
   },
   {
-    title: '이해도 향상',
-    body: '중장년 재직자가 경력 방향을 쉽게 이해하도록 상담 언어를 정돈합니다.',
-    detailTitle: '참여자 관점의 상담 언어',
-    detail: '제도 설명에 머무르지 않고 참여자가 자신의 경력, 직무경험, 전환 가능성을 이해할 수 있도록 상담 결과와 후속 행동을 쉬운 언어로 정리합니다.',
-  },
-];
-
-const supportScopes = [
-  {
-    title: '안내',
-    body: '서비스 목적, 대상 여부, 신청 전 확인사항을 이해하기 쉬운 순서로 설명합니다.',
-    detailTitle: '처음 이해해야 할 내용을 정리',
-    detail: '기업과 참여자가 혼동하기 쉬운 서비스 목적, 신청 대상, 준비서류, 진행 전 확인사항을 먼저 정리해 시작 단계의 부담을 줄입니다.',
-  },
-  {
-    title: '조율',
-    body: '기업 담당자, 참여자, 상담 진행 일정을 맞춰 무리 없는 진행 흐름을 만듭니다.',
-    detailTitle: '담당자와 참여자 사이의 운영 흐름 조정',
-    detail: '기업 내부 일정, 참여자 가능 시간, 상담 운영 방식이 어긋나지 않도록 진행 순서와 커뮤니케이션 기준을 맞춥니다.',
-  },
-  {
-    title: '정리',
-    body: '상담 결과와 후속 과제를 남겨 다음 행동을 확인할 수 있게 합니다.',
-    detailTitle: '결과가 다음 행동으로 이어지게 정리',
-    detail: '상담에서 확인된 경력 방향, 보완 과제, 후속지원 필요사항을 남겨 기업과 참여자가 이후 행동을 확인할 수 있게 합니다.',
+    title: '결과·후속과제 정리',
+    body: '진행 결과와 이후 실행할 과제를 구분해 기업과 참여자가 다음 행동을 확인하게 합니다.',
+    detailTitle: '결과가 실제 다음 행동으로 이어지게 정리',
+    detail: '기업에는 자체 운영체계에 반영할 확인사항과 개선과제를, 개인 참여자에게는 경력 방향과 후속 준비사항을 중심으로 결과를 정리합니다.',
   },
 ];
 ---
-<BaseLayout title="K·JOBS 지원 방식" description="K·JOBS가 재취업지원서비스 기업컨설팅과 커리어플래닝서비스를 기준 정확성, 실행 가능성, 상담 결과 정리 중심으로 지원하는 방식을 안내합니다.">
+<BaseLayout title="K·JOBS 지원 방식" description="K·JOBS가 재취업지원서비스 기업컨설팅과 커리어플래닝서비스를 대상·기준 확인, 일정·운영 조율, 결과·후속과제 정리의 흐름으로 지원하는 방식을 안내합니다.">
   <section class="ty-hero sub">
     <div class="ty-mark">K·JOBS 지원 방식</div>
     <p class="ty-comment">기준은 정확하게, 실행은 쉽게</p>
-    <h1>기업과 참여자를 함께 보는<br />K·JOBS 지원 방식</h1>
-    <p class="ty-lead">공식 기준은 정확하게 확인하고, 현장에서는 기업 담당자와 참여자가 이해하기 쉬운 언어와 절차로 풀어냅니다.</p>
+    <h1>확인한 기준을<br />실행 가능한 흐름으로 연결합니다.</h1>
+    <p class="ty-lead">공식 기준을 확인하는 데 그치지 않고, 기업 담당자와 참여자가 실제로 준비하고 진행할 수 있도록 일정·절차·결과를 연결합니다.</p>
   </section>
 
   <section class="ty-section ty-editorial">
     <p>재취업지원서비스는 기업의 제도 운영과 근로자의 경력 준비가 함께 맞물려야 합니다.</p>
-    <p>케이잡스는 기준, 일정, 상담, 결과 정리를 하나의 흐름으로 연결합니다.</p>
+    <p>K·JOBS는 신청 전 확인부터 결과 정리까지 필요한 내용을 한 흐름으로 조율합니다.</p>
   </section>
 
-  <section class="ty-section">
+  <section class="ty-section" aria-labelledby="approach-flow-title">
     <div class="ty-section-head">
-      <h2>세 가지 지원 원칙</h2>
-      <p>정확한 기준, 실행 가능한 절차, 이해하기 쉬운 안내를 원칙으로 합니다.</p>
+      <p class="ty-comment">지원 흐름</p>
+      <h2 id="approach-flow-title">이용자가 실제로 받는 지원을 세 단계로 확인합니다.</h2>
+      <p>기업컨설팅과 커리어플래닝서비스의 목적은 다르지만, 기준 확인·운영 조율·결과 정리의 원칙은 같습니다.</p>
     </div>
-    <div class="ty-feature-row three info-grid">
-      {principles.map((item) => (
-        <article class="step-popover-card support-popover-card" tabindex="0" aria-describedby={`approach-principle-${item.title}-detail`}>
+    <div class="ty-feature-row three info-grid approach-outcome-grid">
+      {supportFlow.map((item, index) => (
+        <article class="step-popover-card support-popover-card" tabindex="0" aria-describedby={`approach-flow-${index + 1}-detail`}>
+          <span class="approach-outcome-number">{String(index + 1).padStart(2, '0')}</span>
           <h3>{item.title}</h3>
           <p>{item.body}</p>
-          <div class="step-popover support-popover" id={`approach-principle-${item.title}-detail`} role="tooltip">
+          <div class="step-popover support-popover" id={`approach-flow-${index + 1}-detail`} role="tooltip">
             <strong>{item.detailTitle}</strong>
             <p>{item.detail}</p>
           </div>
@@ -75,22 +56,27 @@ const supportScopes = [
     </div>
   </section>
 
-  <section class="ty-section ty-note-panel">
-    <div>
-      <p class="ty-comment">지원 범위</p>
-      <h2>안내, 조율, 정리를 함께 수행합니다.</h2>
-    </div>
-    <div class="ty-checks hover-checks">
-      {supportScopes.map((item) => (
-        <article class="step-popover-card output-popover-card" tabindex="0" aria-describedby={`approach-scope-${item.title}-detail`}>
-          <strong>{item.title}</strong>
-          <span>{item.body}</span>
-          <div class="step-popover output-popover" id={`approach-scope-${item.title}-detail`} role="tooltip">
-            <strong>{item.detailTitle}</strong>
-            <p>{item.detail}</p>
-          </div>
-        </article>
-      ))}
+  <section class="ty-section page-next-actions" aria-labelledby="approach-next-actions-title">
+    <div class="ty-note-panel">
+      <div>
+        <p class="ty-comment">서비스 선택</p>
+        <h2 id="approach-next-actions-title">필요한 지원 유형을 이어서 확인하세요.</h2>
+        <p>기업은 자체 운영체계 설계를, 개인은 경력진단과 경력설계 참여방법을 확인할 수 있습니다.</p>
+      </div>
+      <div class="page-next-actions-grid" aria-label="지원 방식 다음 행동">
+        <a href="/business-consulting/">
+          <strong>기업컨설팅 확인</strong>
+          <span>기업의 자체 운영체계와 컨설팅 지원내용 확인</span>
+        </a>
+        <a class="primary" href="/career-planning/">
+          <strong>커리어플래닝 확인</strong>
+          <span>개인·기업 참여방식과 경력설계 지원내용 확인</span>
+        </a>
+        <a href="/contact/#consultation-request">
+          <strong>상담 문의</strong>
+          <span>대상 여부와 진행 가능 일정 확인</span>
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
