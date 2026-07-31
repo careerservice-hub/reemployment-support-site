@@ -2701,6 +2701,14 @@ body {
   text-decoration: none;
 }
 .faq-actions a.primary { background: #0066cc; color: #fff; }
+.approach-outcome-grid .approach-outcome-number {
+  display: inline-block;
+  margin-bottom: 4px;
+  color: #0066cc;
+  font-size: .86rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
 .page-next-actions { padding-top: 10px; }
 .page-next-actions .ty-note-panel {
   display: grid;
