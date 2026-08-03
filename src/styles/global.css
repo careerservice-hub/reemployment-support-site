@@ -1126,6 +1126,7 @@ body {
 .recruitment-summary span { display: block; }
 .recruitment-summary strong { color: #0066cc; font-size: .82rem; margin-bottom: 7px; }
 .recruitment-summary span { color: #1d1d1f; font-weight: 700; }
+.recruitment-summary .eligibility-note { margin-top: 5px; color: #515154; font-size: .86rem; font-weight: 650; line-height: 1.4; }
 .recruitment-source { color: #6e6e73; font-size: .9rem; }
 .recruitment-period { margin: 16px 0 0; color: #6e6e73; text-align: center; font-size: .92rem; }
 .recruitment-details { max-width: 880px; margin: 22px auto 0; border-top: 1px solid rgba(0,0,0,.08); border-bottom: 1px solid rgba(0,0,0,.08); }
