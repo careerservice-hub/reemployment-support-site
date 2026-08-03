@@ -2,6 +2,10 @@
 
 케이잡스(K·JOBS) 수행기관 관점의 재취업지원서비스 시행지원 홈페이지 원본 저장소입니다.
 
+- 공개 홈페이지: [재취업지원서비스 시행지원](https://www.careerservice.co.kr/)
+- 기업 안내: [재취업지원서비스 기업컨설팅](https://www.careerservice.co.kr/business-consulting/)
+- 개인·기업 안내: [커리어플래닝서비스](https://www.careerservice.co.kr/career-planning/)
+
 ## 범위
 
 - 기업컨설팅
@@ -24,8 +28,7 @@ npm run dev
 npm run build
 ```
 
-## 배포 예정
+## 배포
 
-- 1차: GitHub 저장소 관리
-- 2차: Cloudflare Pages 연결
-- 3차: 보유 도메인 연결
+- GitHub Pages와 맞춤 도메인 `careerservice.co.kr`로 공개 운영
+- 배포 전 빌드·반응형 화면·상담신청 회귀검사 수행
