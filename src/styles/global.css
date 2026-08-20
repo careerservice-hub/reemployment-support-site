@@ -1106,6 +1106,53 @@ body {
   background: linear-gradient(180deg, #f7fbff 0%, #fff 100%);
   box-shadow: 0 20px 60px rgba(30,80,120,.07);
 }
+.recruitment-rounds {
+  display: grid;
+  width: calc(100% - 32px);
+  max-width: 980px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 30px auto 0;
+}
+.recruitment-round {
+  padding: 26px;
+  border: 1px solid rgba(0,102,204,.14);
+  border-radius: 24px;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 14px 36px rgba(30,80,120,.06);
+}
+.recruitment-round.upcoming { background: linear-gradient(180deg, rgba(243,249,255,.96), rgba(255,255,255,.96)); }
+.round-status {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  margin: 0 0 14px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #0066cc;
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 750;
+  letter-spacing: .01em;
+}
+.recruitment-round.upcoming .round-status { background: #e8f2ff; color: #0057ad; }
+.recruitment-round h3 { margin: 0; color: #1d1d1f; font-size: clamp(1.2rem, 2vw, 1.45rem); }
+.round-intro { min-height: 3.4em; margin: 10px 0 20px; color: #515154; line-height: 1.65; }
+.round-facts { display: grid; gap: 10px; }
+.round-facts p {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 3px 12px;
+  align-items: baseline;
+  margin: 0;
+  padding: 13px 14px;
+  border-radius: 15px;
+  background: #f7f9fb;
+}
+.round-facts strong { color: #0066cc; font-size: .82rem; }
+.round-facts span { color: #1d1d1f; font-weight: 700; line-height: 1.45; }
+.round-facts small { grid-column: 2; color: #6e6e73; font-size: .8rem; line-height: 1.45; }
+.round-period { margin: 16px 0 0; color: #6e6e73; font-size: .86rem; line-height: 1.55; }
 .recruitment-summary,
 .recruitment-detail-grid { display: grid; gap: 16px; }
 .recruitment-summary {
@@ -1140,8 +1187,15 @@ body {
 .recruitment-actions a.primary { background: #0066cc; color: #fff; }
 .recruitment-source { margin: 18px 0 0; text-align: center; }
 
+@media (max-width: 900px) {
+  .recruitment-rounds { grid-template-columns: 1fr; }
+  .round-intro { min-height: 0; }
+}
 @media (max-width: 760px) {
   .recruitment-notice { border-radius: 24px; }
+  .recruitment-rounds { width: 100%; gap: 14px; }
+  .recruitment-round { padding: 21px 18px; border-radius: 20px; }
+  .round-facts p { grid-template-columns: 82px minmax(0, 1fr); padding: 12px; }
   .recruitment-summary,
   .recruitment-detail-grid { grid-template-columns: 1fr; }
   .recruitment-actions { flex-direction: column; }
