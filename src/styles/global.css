@@ -1243,7 +1243,7 @@ body {
   background: rgba(255,255,255,.72);
 }
 .application-options .application-pill .step-popover {
-  width: min(460px, calc(100vw - 48px));
+  width: min(400px, calc(100vw - 48px));
 }
 .application-options .application-pill:nth-child(odd) .step-popover {
   left: 0;
@@ -2327,13 +2327,13 @@ body {
   left: 50%;
   bottom: calc(100% + 14px);
   z-index: 1000;
-  width: min(620px, calc(100vw - 48px));
-  padding: 20px 22px;
-  border-radius: 24px;
-  background: rgba(255,255,255,.94);
+  width: min(520px, calc(100vw - 48px));
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.96);
   border: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 28px 80px rgba(30,80,120,.18);
-  backdrop-filter: blur(22px) saturate(150%);
+  box-shadow: 0 24px 64px rgba(30,80,120,.16);
+  backdrop-filter: blur(20px) saturate(145%);
   color: #1d1d1f;
   opacity: 0;
   visibility: hidden;
@@ -2348,7 +2348,7 @@ body {
   bottom: -8px;
   width: 16px;
   height: 16px;
-  background: rgba(255,255,255,.94);
+  background: rgba(255,255,255,.96);
   border-right: 1px solid rgba(0,0,0,.08);
   border-bottom: 1px solid rgba(0,0,0,.08);
   transform: translateX(-50%) rotate(45deg);
@@ -2456,7 +2456,7 @@ body {
 .application-step-grid .application-step-card:not(:last-child) .application-flow-popover {
   left: 0;
   right: auto;
-  width: min(380px, calc(100vw - 48px));
+  width: min(400px, calc(100vw - 48px));
   transform: translateY(8px) scale(.98);
 }
 .application-step-grid .application-step-card:not(:last-child) .application-flow-popover::after {
@@ -2467,7 +2467,7 @@ body {
 .application-step-grid .application-step-card:last-child .application-flow-popover {
   left: auto;
   right: 0;
-  width: min(380px, calc(100vw - 48px));
+  width: min(400px, calc(100vw - 48px));
 }
 .application-step-grid .application-step-card:last-child .application-flow-popover::after {
   left: auto;
@@ -2636,11 +2636,13 @@ body {
     position: static;
     width: auto;
     margin-top: 18px;
+    padding: 18px;
+    border-radius: 20px;
     opacity: 1;
     visibility: visible;
     transform: none;
     box-shadow: none;
-    background: rgba(248,248,250,.9);
+    background: rgba(248,248,250,.96);
   }
   .practical-detail-popover {
     padding: 20px;
