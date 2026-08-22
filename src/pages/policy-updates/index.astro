@@ -31,8 +31,28 @@ const articles = [
     sourceDate: '정책자료 발표 2026.05.29',
   },
 ];
+const policyListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'K·JOBS 정책·제도 업데이트',
+  numberOfItems: articles.length,
+  itemListElement: articles.map((article, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: article.title,
+    url: new URL(article.href, 'https://www.careerservice.co.kr').toString(),
+  })),
+};
+const policyCollectionData = {
+  about: ['재취업지원서비스', '재취업지원서비스 기업컨설팅', '중장년 경력지원'],
+  hasPart: articles.map((article) => ({
+    '@type': 'Article',
+    headline: article.title,
+    url: new URL(article.href, 'https://www.careerservice.co.kr').toString(),
+  })),
+};
 ---
-<BaseLayout title="정책·제도 업데이트" description="재취업지원서비스 의무사업장, 제도개선, 기업컨설팅과 커리어플래닝서비스 관련 정책 변화를 기업 실무 관점에서 설명합니다.">
+<BaseLayout title="정책·제도 업데이트" description="재취업지원서비스 의무사업장, 제도개선, 기업컨설팅과 커리어플래닝서비스 관련 정책 변화를 기업 실무 관점에서 설명합니다." jsonLd={policyListJsonLd} pageType="CollectionPage" pageStructuredData={policyCollectionData}>
   <section class="ty-hero sub policy-hero">
     <div class="ty-mark">POLICY UPDATE</div>
     <p class="ty-comment">정책 변화와 기업의 준비사항을 안내합니다</p>
