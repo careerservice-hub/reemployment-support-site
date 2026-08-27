@@ -59,6 +59,53 @@ const applicationSteps = [
     detail: '신청서를 접수한 뒤 참여 대상 여부와 진행 일정, 보완할 사항을 안내합니다.',
   },
 ];
+const decisionDetails = [
+  {
+    id: 'career-eligibility-dialog', label: '참여대상',
+    cardTitle: '경력 방향을 점검하려는 중장년 재직자',
+    cardBody: '현재 직무경험과 강점을 정리하고 계속근로, 직무전환 또는 재취업 준비 방향을 구체화합니다.',
+    buttonLabel: '참여 가능 여부와 준비사항 보기',
+    title: '커리어플래닝서비스는 누가 참여할 수 있나요?',
+    lead: '중장년 재직자가 현재까지의 경력을 점검하고 앞으로의 경력 방향과 실행계획을 준비하도록 지원하는 서비스입니다.',
+    sections: [
+      { title: '이런 분에게 필요합니다', items: ['지금까지의 직무경험과 강점을 체계적으로 정리하고 싶은 분', '현재 직무를 이어가면서 향후 경력 방향을 준비하고 싶은 분', '직무전환이나 새로운 역할을 검토하고 있는 분', '퇴직 이전에 재취업 가능성과 준비과제를 점검하고 싶은 분', '막연한 고민을 구체적인 경력목표와 실행계획으로 바꾸고 싶은 분'] },
+      { title: '참여 전 확인사항', items: ['현재 재직 여부와 연령 등 지원사업 참여기준을 확인합니다.', '상담 가능한 일정과 신청서 작성 가능 여부를 확인합니다.', '재직증명서 또는 4대 사회보험 가입자 가입내역 확인서를 준비합니다.', '최종 참여 가능 여부는 신청 접수 후 개별 안내합니다.'] },
+    ],
+    note: '지원사업 적용 여부와 참여기준은 신청 접수 후 확인합니다.',
+    actions: [{ label: '개인 신청 준비하기', href: '#career-application-title', primary: true }, { label: '기업 담당자 운영 문의', href: '/contact/#consultation-request' }],
+  },
+  {
+    id: 'career-support-dialog', label: '지원내용',
+    cardTitle: '진단부터 실행계획까지 상담 중심 지원',
+    cardBody: '경력진단, 역량 점검, 목표 설정과 실행과제를 순서대로 정리합니다.',
+    buttonLabel: '상담 과정과 결과물 보기',
+    title: '상담에서는 무엇을 지원하나요?',
+    lead: '단순한 진단에 그치지 않고 현재 경력을 정리한 뒤 목표와 실행과제를 단계적으로 구체화합니다.',
+    steps: [
+      { title: '현재 경력 점검', body: '주요 직무와 경력경험, 업무성과와 강점, 현재의 경력 고민을 정리합니다.' },
+      { title: '역량과 경력 방향 진단', body: '보유역량을 확인하고 계속근로·직무전환·재취업 등 가능한 방향을 검토합니다.' },
+      { title: '경력목표 설정', body: '현실적으로 실행 가능한 목표와 우선순위, 준비기간을 구체화합니다.' },
+      { title: '실행계획 수립', body: '교육·자격·경력관리 등 단기·중기 준비과제와 행동계획을 정리합니다.' },
+    ],
+    sections: [{ title: '상담을 통해 정리되는 내용', items: ['나의 주요 경력과 강점', '앞으로의 경력 방향', '우선적으로 준비할 과제', '단계별 실행계획'] }],
+    actions: [{ label: '신청에 필요한 서류 확인하기', href: '#career-application-title', primary: true }],
+  },
+  {
+    id: 'career-schedule-dialog', label: '비용·일정',
+    cardTitle: '지원사업 적용 여부와 운영 일정을 확인해 안내',
+    cardBody: '신청 접수 후 참여 가능 여부, 상담 일정과 필요한 준비사항을 개별 안내합니다.',
+    buttonLabel: '비용 적용과 진행 절차 보기',
+    title: '비용과 상담 일정은 어떻게 정해지나요?',
+    lead: '신청 접수 후 지원사업 적용 여부와 참여 가능 여부를 확인하고 상담 일정과 준비사항을 개별 안내합니다.',
+    sections: [
+      { title: '비용 안내', items: ['지원사업 참여기준을 충족하는 경우 사업 기준에 따라 지원될 수 있습니다.', '지원 적용 여부는 신청자의 조건과 운영 상황을 확인한 후 안내합니다.', '별도 비용이 발생할 수 있는 경우 상담 진행 전에 먼저 안내합니다.'] },
+      { title: '일정 안내', items: ['신청서 접수 후 참여 가능 여부를 확인합니다.', '담당자가 상담 가능한 일정을 개별 조율합니다.', '기업 단위 운영은 참여 인원과 운영 여건을 확인한 후 별도로 협의합니다.'] },
+    ],
+    steps: [{ title: '신청', body: '양식을 작성해 제출합니다.' }, { title: '확인', body: '참여기준과 제출서류를 확인합니다.' }, { title: '연락', body: '담당자가 개별 연락합니다.' }, { title: '확정', body: '상담 일정을 조율해 확정합니다.' }, { title: '상담', body: '준비사항을 확인하고 상담을 진행합니다.' }],
+    note: '구체적인 비용과 상담 일정은 참여기준 및 운영 상황 확인 후 확정합니다.',
+    actions: [{ label: '개인 신청 양식 내려받기', href: '#career-application-title', primary: true }, { label: '기업 단위 운영 문의', href: '/contact/#consultation-request' }],
+  },
+];
 ---
 <BaseLayout title="커리어플래닝서비스" description="중장년 재직자의 직무경험과 보유역량을 점검하고 향후 경력방향, 직무전환, 계속근로, 재취업 준비를 상담 중심으로 지원합니다." jsonLd={careerPlanningJsonLd}>
   <section class="ty-hero sub">
@@ -85,27 +132,56 @@ const applicationSteps = [
       <p>개인은 양식을 내려받아 신청할 수 있고, 기업은 중장년 재직자 대상 운영을 별도로 문의할 수 있습니다.</p>
     </div>
     <div class="career-decision-grid">
-      <article>
-        <span>참여대상</span>
-        <strong>경력 방향을 점검하려는 중장년 재직자</strong>
-        <p>현재 직무경험과 강점을 정리하고 계속근로, 직무전환 또는 재취업 준비 방향을 구체화합니다.</p>
-      </article>
-      <article>
-        <span>지원내용</span>
-        <strong>진단부터 실행계획까지 상담 중심 지원</strong>
-        <p>경력진단, 역량 점검, 목표 설정과 실행과제를 순서대로 정리합니다.</p>
-      </article>
-      <article>
-        <span>비용·일정</span>
-        <strong>지원사업 적용 여부와 운영 일정을 확인해 안내</strong>
-        <p>신청 접수 후 참여 가능 여부, 상담 일정과 필요한 준비사항을 개별 안내합니다.</p>
-      </article>
+      {decisionDetails.map((item) => (
+        <article class="career-decision-card">
+          <span>{item.label}</span>
+          <strong>{item.cardTitle}</strong>
+          <p>{item.cardBody}</p>
+          <button type="button" class="career-detail-trigger" data-dialog={item.id} aria-haspopup="dialog">
+            {item.buttonLabel}<span aria-hidden="true">→</span>
+          </button>
+        </article>
+      ))}
     </div>
     <div class="career-decision-actions" aria-label="커리어플래닝서비스 신청 방식 선택">
       <a class="primary" href="#career-application-title">개인 신청 양식 내려받기</a>
       <a href="/contact/#consultation-request">기업 단위 운영 문의</a>
     </div>
   </section>
+
+  {decisionDetails.map((item) => (
+    <dialog id={item.id} class="career-detail-dialog" aria-labelledby={`${item.id}-title`}>
+      <div class="career-dialog-shell">
+        <header class="career-dialog-header">
+          <div>
+            <span>{item.label} 자세히 보기</span>
+            <h2 id={`${item.id}-title`}>{item.title}</h2>
+          </div>
+          <button type="button" class="career-dialog-close" aria-label={`${item.label} 상세 안내 닫기`}>×</button>
+        </header>
+        <div class="career-dialog-scroll">
+          <p class="career-dialog-lead">{item.lead}</p>
+          {item.steps && (
+            <ol class="career-dialog-steps">
+              {item.steps.map((step, index) => (
+                <li><span>{String(index + 1).padStart(2, '0')}</span><div><strong>{step.title}</strong><p>{step.body}</p></div></li>
+              ))}
+            </ol>
+          )}
+          {item.sections.map((section) => (
+            <section class="career-dialog-section">
+              <h3>{section.title}</h3>
+              <ul>{section.items.map((detail) => <li>{detail}</li>)}</ul>
+            </section>
+          ))}
+          {item.note && <p class="career-dialog-note"><strong>확인해 주세요.</strong>{item.note}</p>}
+        </div>
+        <footer class="career-dialog-actions">
+          {item.actions.map((action) => <a class:list={{ primary: action.primary }} href={action.href}>{action.label}</a>)}
+        </footer>
+      </div>
+    </dialog>
+  ))}
 
   <section class="ty-section ty-video" aria-labelledby="career-video-title">
     <div class="ty-section-head left">
@@ -237,4 +313,72 @@ const applicationSteps = [
       <p><strong>후속 지원</strong><span>상담 결과와 준비사항을 정리해 다음 행동으로 이어지도록 돕습니다.</span></p>
     </div>
   </section>
+
+  <style>
+    .career-decision-card { display: flex; flex-direction: column; }
+    .career-detail-trigger { margin-top: auto; padding: 16px 0 0; border: 0; border-top: 1px solid rgba(18,116,123,.14); background: transparent; color: #0066cc; font: inherit; font-size: .92rem; font-weight: 750; text-align: left; cursor: pointer; display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .career-detail-trigger:hover, .career-detail-trigger:focus-visible { color: #004f9f; text-decoration: underline; text-underline-offset: 4px; }
+    .career-detail-trigger:focus-visible, .career-dialog-close:focus-visible, .career-dialog-actions a:focus-visible { outline: 3px solid rgba(0,102,204,.28); outline-offset: 3px; }
+    .career-detail-dialog { width: min(720px, calc(100vw - 40px)); max-width: none; max-height: min(86vh, 820px); padding: 0; border: 0; border-radius: 28px; background: #fff; color: #17222c; box-shadow: 0 28px 90px rgba(19,42,55,.25); overflow: hidden; }
+    .career-detail-dialog::backdrop { background: rgba(10,29,40,.56); backdrop-filter: blur(3px); }
+    .career-dialog-shell { display: flex; flex-direction: column; max-height: min(86vh, 820px); }
+    .career-dialog-header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; padding: 28px 30px 22px; border-bottom: 1px solid rgba(18,116,123,.13); background: linear-gradient(145deg, #f4fbfb, #fff); }
+    .career-dialog-header span { display: block; margin-bottom: 7px; color: #12747b; font-size: .82rem; font-weight: 800; letter-spacing: .03em; }
+    .career-dialog-header h2 { margin: 0; font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.32; letter-spacing: -.035em; }
+    .career-dialog-close { flex: 0 0 44px; width: 44px; height: 44px; border: 1px solid rgba(18,116,123,.16); border-radius: 50%; background: #fff; color: #31434c; font-size: 1.7rem; line-height: 1; cursor: pointer; }
+    .career-dialog-scroll { overflow-y: auto; padding: 26px 30px 10px; overscroll-behavior: contain; }
+    .career-dialog-lead { margin: 0 0 24px; padding: 18px 20px; border-left: 4px solid #12747b; border-radius: 0 14px 14px 0; background: #f4f9f9; color: #344b55; font-size: 1.02rem; line-height: 1.72; }
+    .career-dialog-section { margin: 0 0 26px; }
+    .career-dialog-section h3 { margin: 0 0 12px; font-size: 1.12rem; }
+    .career-dialog-section ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
+    .career-dialog-section li { position: relative; padding-left: 20px; color: #455b64; line-height: 1.66; }
+    .career-dialog-section li::before { content: ''; position: absolute; left: 2px; top: .72em; width: 7px; height: 7px; border-radius: 50%; background: #12747b; }
+    .career-dialog-steps { margin: 0 0 28px; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .career-dialog-steps li { display: grid; grid-template-columns: 42px 1fr; gap: 12px; padding: 15px 16px; border: 1px solid rgba(18,116,123,.14); border-radius: 16px; background: #fff; }
+    .career-dialog-steps > li > span { color: #12747b; font-weight: 800; }
+    .career-dialog-steps strong { display: block; margin-bottom: 4px; }
+    .career-dialog-steps p { margin: 0; color: #51656d; line-height: 1.58; }
+    .career-dialog-note { margin: 0 0 18px; padding: 15px 17px; border-radius: 14px; background: #fff7e8; color: #6f5228; line-height: 1.6; }
+    .career-dialog-note strong { display: block; margin-bottom: 2px; }
+    .career-dialog-actions { display: flex; gap: 10px; padding: 18px 30px 24px; border-top: 1px solid rgba(18,116,123,.13); background: #fff; }
+    .career-dialog-actions a { min-height: 48px; padding: 13px 18px; border: 1px solid rgba(18,116,123,.22); border-radius: 13px; color: #12646b; font-weight: 750; text-align: center; text-decoration: none; flex: 1; }
+    .career-dialog-actions a.primary { border-color: #0066cc; background: #0066cc; color: #fff; }
+    @media (max-width: 767px) {
+      .career-detail-dialog { width: 100%; max-height: 92dvh; margin: auto 0 0; border-radius: 24px 24px 0 0; }
+      .career-dialog-shell { max-height: 92dvh; }
+      .career-dialog-header { position: sticky; top: 0; z-index: 2; padding: 20px 18px 16px; }
+      .career-dialog-header h2 { font-size: 1.38rem; }
+      .career-dialog-scroll { padding: 20px 18px 8px; }
+      .career-dialog-lead { font-size: 1rem; line-height: 1.7; padding: 16px; }
+      .career-dialog-section li, .career-dialog-steps p { font-size: 1rem; line-height: 1.66; }
+      .career-dialog-steps li { grid-template-columns: 36px 1fr; padding: 14px; }
+      .career-dialog-actions { flex-direction: column; padding: 14px 18px calc(16px + env(safe-area-inset-bottom)); }
+      .career-dialog-actions a { width: 100%; min-height: 50px; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .career-detail-dialog[open] { animation: career-dialog-in .2s ease-out; }
+      @keyframes career-dialog-in { from { opacity: 0; transform: translateY(18px) scale(.985); } }
+    }
+  </style>
+
+  <script>
+    const triggers = document.querySelectorAll('.career-detail-trigger');
+    const closeDialog = (dialog) => {
+      if (dialog instanceof HTMLDialogElement) dialog.close();
+    };
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const id = trigger.getAttribute('data-dialog');
+        const dialog = id ? document.getElementById(id) : null;
+        if (dialog instanceof HTMLDialogElement) dialog.showModal();
+      });
+    });
+    document.querySelectorAll('.career-detail-dialog').forEach((dialog) => {
+      dialog.querySelector('.career-dialog-close')?.addEventListener('click', () => closeDialog(dialog));
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) closeDialog(dialog);
+      });
+      dialog.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => closeDialog(dialog)));
+    });
+  </script>
 </BaseLayout>
