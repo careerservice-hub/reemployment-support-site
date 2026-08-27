@@ -40,7 +40,7 @@ export const servicesJsonLd = [
     provider: { '@id': `${siteUrl}/#organization` },
     areaServed: '대한민국',
     url: `${siteUrl}/business-consulting/`,
-    description: '기업이 재취업지원서비스를 자체 제도화하고 시행할 수 있도록 현황 진단, 운영체계 설계, 파일럿 운영, 개선과제 정리를 지원합니다.',
+    description: '기업 현황 진단, 운영체계 설계와 파일럿 검증을 통해 재취업지원서비스를 자체 시행하고 다음 운영주기에 개선할 수 있는 제도화 기반 마련을 지원합니다.',
     audience: {
       '@type': 'BusinessAudience',
       name: '재취업지원서비스 도입 또는 개선을 검토하는 기업',
