@@ -8,7 +8,7 @@ const contentLastModified = {
   '/business-consulting/': '2026-08-27',
   '/business-consulting-guide/': '2026-08-27',
   '/career-planning/': '2026-07-31',
-  '/career-support/': '2026-07-14',
+  '/career-support/': '2026-08-27',
   '/contact/': '2026-07-30',
   '/faq/': '2026-08-27',
   '/policy-updates/': '2026-08-20',
