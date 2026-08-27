@@ -3,28 +3,56 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { careerPlanningJsonLd } from '../data/structuredData.js';
 const flow = [
   {
-    title: '경력진단',
-    body: '직무경험, 강점, 관심 분야를 점검합니다.',
-    detailTitle: '무엇을 확인하나요?',
-    detail: '현재까지 수행한 직무, 역할 변화, 주요 성과, 강점과 관심 분야를 정리해 경력의 흐름을 다시 확인합니다.',
+    id: 'career-diagnosis-dialog', title: '경력진단', body: '직무경험, 강점, 관심 분야를 점검합니다.',
+    buttonLabel: '내 경력을 어떻게 진단하는지 보기',
+    modalTitle: '지금까지 어떤 일을 해왔는지부터 정리합니다.',
+    lead: '직장명이나 근무기간만 나열하는 것이 아니라 실제로 수행한 업무와 역할, 성과와 강점을 중심으로 경력의 흐름을 살펴봅니다.',
+    sections: [
+      { title: '이 단계에서 하는 일', items: ['지금까지 수행한 주요 직무와 역할을 정리합니다.', '업무 중 잘해왔던 일과 의미 있었던 경험을 확인합니다.', '현재의 경력 고민과 앞으로 바꾸고 싶은 부분을 살펴봅니다.', '관심 있는 직무와 계속 활용하고 싶은 경험을 확인합니다.'] },
+      { title: '상담에서 함께 확인하는 질문', items: ['지금까지 가장 오래 수행한 업무는 무엇인가요?', '주변에서 본인에게 자주 요청하는 일은 무엇인가요?', '가장 자신 있게 설명할 수 있는 업무성과는 무엇인가요?', '현재 직무를 계속하고 싶은지, 새로운 방향을 찾고 싶은지 확인합니다.'] },
+      { title: '미리 준비하면 좋은 내용', items: ['주요 근무경력과 담당업무', '기억에 남는 업무성과나 문제해결 경험', '보유 자격·교육·훈련 이력', '현재 가장 고민되는 경력 문제'] },
+      { title: '이 단계에서 정리되는 결과', items: ['주요 경력과 직무경험', '반복적으로 활용해 온 강점', '관심 분야와 경력 고민', '다음 단계에서 점검할 핵심역량'] },
+    ],
+    next: '다음 단계에서는 정리한 경험을 바탕으로 현재 보유역량과 보완이 필요한 역량을 점검합니다.',
   },
   {
-    title: '역량 점검',
-    body: '현재 보유역량과 향후 필요한 역량을 비교합니다.',
-    detailTitle: '어떤 기준으로 보나요?',
-    detail: '현재 직무에서 활용 가능한 역량과 향후 직무전환·계속근로·전직 준비에 필요한 역량을 비교해 보완 과제를 찾습니다.',
+    id: 'career-competency-dialog', title: '역량 점검', body: '현재 보유역량과 향후 필요한 역량을 비교합니다.',
+    buttonLabel: '내 역량을 어떻게 확인하는지 보기',
+    modalTitle: '현재 가진 역량과 앞으로 필요한 역량을 비교합니다.',
+    lead: '지금까지 쌓은 경험 중 계속 활용할 수 있는 역량과 앞으로의 경력 방향을 위해 보완해야 할 역량을 구분합니다.',
+    sections: [
+      { title: '이 단계에서 하는 일', items: ['현재 업무에서 활용하고 있는 지식·기술·태도를 확인합니다.', '다른 직무에도 활용할 수 있는 전이 가능한 역량을 찾습니다.', '희망하는 경력 방향에 필요한 역량과 현재 수준을 비교합니다.', '교육, 자격, 실무경험 등 보완이 필요한 부분을 정리합니다.'] },
+      { title: '상담에서 함께 확인하는 질문', items: ['지금 잘할 수 있는 일은 무엇인가요?', '현재 경험 중 다른 직무에서도 활용할 수 있는 것은 무엇인가요?', '희망 직무에서 요구하는 지식이나 기술은 무엇인가요?', '새로 배우거나 보완해야 할 부분은 무엇인가요?'] },
+      { title: '경험이 역량으로 연결되는 예', items: ['고객응대 경험 → 상담·영업·서비스 운영 역량', '현장관리 경험 → 인력관리·안전관리·품질관리 역량', '문서작성 경험 → 행정·사무·사업운영 역량', '후배지도 경험 → 교육·코칭·조직관리 역량'] },
+      { title: '이 단계에서 정리되는 결과', items: ['현재 보유역량', '다른 직무에도 활용 가능한 역량', '보완이 필요한 역량', '교육·훈련 또는 경험 보완 과제'] },
+    ],
+    next: '다음 단계에서는 보유역량과 현실적인 조건을 함께 검토해 우선 경력목표를 정합니다.',
   },
   {
-    title: '목표 설정',
-    body: '역할 변화와 개인 목표를 연결해 방향을 구체화합니다.',
-    detailTitle: '어떤 방향을 정하나요?',
-    detail: '계속근로, 직무전환, 재취업 준비, 교육 참여 등 개인 상황에 맞는 경력 방향과 우선순위를 구체화합니다.',
+    id: 'career-goal-dialog', title: '목표 설정', body: '역할 변화와 개인 목표를 연결해 방향을 구체화합니다.',
+    buttonLabel: '경력목표를 정하는 방법 보기',
+    modalTitle: '막연한 고민을 현실적인 경력목표로 구체화합니다.',
+    lead: '계속근로, 현재 회사 안에서의 역할 변화, 직무전환 또는 재취업 등 본인의 상황에 맞는 방향을 검토하고 우선순위를 정합니다.',
+    sections: [
+      { title: '이 단계에서 하는 일', items: ['현재 직무를 유지하거나 확장하는 방향을 검토합니다.', '조직 안에서 역할이나 직무를 전환할 가능성을 살펴봅니다.', '퇴직 이후 재취업을 준비할 경우 목표 직무와 조건을 구체화합니다.', '여러 방향 중 현실적으로 실행 가능한 우선순위를 정합니다.'] },
+      { title: '검토할 수 있는 경력 방향', items: ['계속근로 — 현재 직무를 유지하면서 전문성과 역할 강화', '직무전환 — 기존 경험을 활용할 수 있는 새로운 직무로 이동', '역할변화 — 현장실무에서 관리·교육·지원 역할 등으로 확장', '재취업 준비 — 목표 직무와 업종을 정하고 필요한 준비 시작', '역량 보완 — 교육이나 자격 취득 후 다음 경력단계 준비'] },
+      { title: '목표를 정할 때 확인하는 사항', items: ['본인이 원하는 방향', '현재 보유한 경험과 강점', '건강·가족·근무시간 등 현실적인 조건', '목표 직무의 요구역량', '준비에 사용할 수 있는 기간과 자원'] },
+      { title: '이 단계에서 정리되는 결과', items: ['우선 경력목표', '대안이 되는 경력 방향', '목표 선택의 근거', '실행계획에 반영할 우선과제'] },
+    ],
+    next: '다음 단계에서는 선택한 경력목표를 실제로 옮길 수 있도록 과제와 일정을 구체화합니다.',
   },
   {
-    title: '실행계획',
-    body: '교육, 직무, 전직준비 등 실천 과제를 정리합니다.',
-    detailTitle: '결과물은 무엇인가요?',
-    detail: '상담 결과를 바탕으로 교육·자격·직무경험 정리·구직 준비 등 바로 실행할 수 있는 후속 과제를 정리합니다.',
+    id: 'career-action-dialog', title: '실행계획', body: '교육, 직무, 전직준비 등 실천 과제를 정리합니다.',
+    buttonLabel: '실행계획에 무엇이 담기는지 보기',
+    modalTitle: '정한 목표를 실제로 옮길 수 있는 계획으로 바꿉니다.',
+    lead: '상담이 끝난 뒤 무엇부터 시작해야 하는지 알 수 있도록 준비과제, 순서와 일정을 구체적으로 정리합니다.',
+    sections: [
+      { title: '이 단계에서 하는 일', items: ['목표 달성에 필요한 준비과제를 정합니다.', '당장 시작할 일과 중장기 과제를 구분합니다.', '교육, 자격, 직무경험 정리, 재취업 준비 등을 일정에 배치합니다.', '실행을 방해할 수 있는 요인과 대응 방법을 함께 검토합니다.'] },
+      { title: '실행과제 예시', items: ['경력기술서에 사용할 주요 업무성과 정리', '희망 직무에 필요한 교육과정 탐색', '필요한 자격증의 취득 일정 확인', '현재 회사에서 추가로 경험할 수 있는 업무 검토', '목표 업종과 기업의 채용정보 조사', '이력서·경력기술서·면접 준비'] },
+      { title: '실행 일정 구분', items: ['바로 실행 — 상담 후 1개월 이내 시작할 일', '단기 실행 — 3개월 이내 준비할 과제', '중기 실행 — 6개월 이상 준비가 필요한 과제'] },
+      { title: '이 단계에서 정리되는 결과', items: ['우선 실행과제', '단계별 일정', '필요한 교육·자격·경험', '상담 이후 점검할 행동계획'] },
+    ],
+    next: '상담 후에는 정리한 행동계획을 기준으로 실천 여부를 점검하고 필요한 부분을 보완합니다.',
   },
 ];
 const applicationSteps = [
@@ -194,24 +222,55 @@ const decisionDetails = [
     </div>
   </section>
 
-  <section class="ty-section">
+  <section class="ty-section career-flow-section" aria-labelledby="career-flow-title">
     <div class="ty-section-head">
-      <h2>경력진단부터 실행계획까지</h2>
+      <h2 id="career-flow-title">경력진단부터 실행계획까지</h2>
       <p>직무경험과 역량을 살펴보고 다음 경력 방향과 실천 과제를 정합니다.</p>
     </div>
+    <div class="career-flow-service-note">
+      <strong>상담은 참여자의 상황에 맞춰 진행됩니다.</strong>
+      <p><b>기초서비스</b>는 현재 경력과 고민을 점검해 경력 방향과 우선과제를 정리하고, <b>심화서비스</b>는 진단 결과를 바탕으로 목표와 실행계획을 더 구체화합니다. 두 서비스 모두 무료입니다.</p>
+    </div>
     <div class="ty-feature-row four career-popover-row">
-      {flow.map((item) => (
-        <article class="step-popover-card career-step-card" tabindex="0">
+      {flow.map((item, index) => (
+        <article class="career-step-card career-flow-detail-card">
+          <span class="career-flow-number">{String(index + 1).padStart(2, '0')}</span>
           <h3>{item.title}</h3>
           <p>{item.body}</p>
-          <div class="step-popover career-popover" role="tooltip">
-            <strong>{item.detailTitle}</strong>
-            <p>{item.detail}</p>
-          </div>
+          <button type="button" class="career-detail-trigger" data-dialog={item.id} aria-haspopup="dialog">
+            {item.buttonLabel}<span aria-hidden="true">→</span>
+          </button>
         </article>
       ))}
     </div>
   </section>
+
+  {flow.map((item) => (
+    <dialog id={item.id} class="career-detail-dialog career-flow-dialog" aria-labelledby={`${item.id}-title`}>
+      <div class="career-dialog-shell">
+        <header class="career-dialog-header">
+          <div>
+            <span>{item.title} 자세히 보기</span>
+            <h2 id={`${item.id}-title`}>{item.modalTitle}</h2>
+          </div>
+          <button type="button" class="career-dialog-close" aria-label={`${item.title} 상세 안내 닫기`}>×</button>
+        </header>
+        <div class="career-dialog-scroll">
+          <p class="career-dialog-lead">{item.lead}</p>
+          {item.sections.map((section) => (
+            <section class="career-dialog-section">
+              <h3>{section.title}</h3>
+              <ul>{section.items.map((detail) => <li>{detail}</li>)}</ul>
+            </section>
+          ))}
+          <p class="career-dialog-next"><strong>다음 연결</strong>{item.next}</p>
+        </div>
+        <footer class="career-dialog-actions">
+          <a class="primary" href="#career-application-title">무료 서비스 신청 준비하기</a>
+        </footer>
+      </div>
+    </dialog>
+  ))}
 
   <section class="ty-section application-download-section" aria-labelledby="career-application-title">
     <div class="ty-section-head">
@@ -315,6 +374,14 @@ const decisionDetails = [
   </section>
 
   <style>
+    .career-flow-service-note { margin: -2px auto 24px; padding: 18px 20px; max-width: 920px; border: 1px solid rgba(18,116,123,.15); border-radius: 18px; background: #f4f9f9; }
+    .career-flow-service-note > strong { display: block; margin-bottom: 6px; color: #174b52; font-size: 1.02rem; }
+    .career-flow-service-note p { margin: 0; color: #4b626b; line-height: 1.68; }
+    .career-flow-detail-card { display: flex; flex-direction: column; position: relative; padding-top: 24px; }
+    .career-flow-number { display: inline-block; margin-bottom: 14px; color: #12747b; font-size: .78rem; font-weight: 850; letter-spacing: .08em; }
+    .career-flow-detail-card .career-detail-trigger { margin-top: auto; }
+    .career-dialog-next { margin: 0 0 18px; padding: 16px 18px; border-radius: 14px; background: #eef7ff; color: #36566c; line-height: 1.62; }
+    .career-dialog-next strong { display: block; margin-bottom: 3px; color: #0066cc; }
     .career-decision-card { display: flex; flex-direction: column; }
     .career-detail-trigger { margin-top: auto; padding: 16px 0 0; border: 0; border-top: 1px solid rgba(18,116,123,.14); background: transparent; color: #0066cc; font: inherit; font-size: .92rem; font-weight: 750; text-align: left; cursor: pointer; display: flex; justify-content: space-between; gap: 12px; align-items: center; }
     .career-detail-trigger:hover, .career-detail-trigger:focus-visible { color: #004f9f; text-decoration: underline; text-underline-offset: 4px; }
