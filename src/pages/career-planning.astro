@@ -361,19 +361,70 @@ const decisionDetails = [
     </div>
   </section>
 
-  <section class="ty-section ty-note-panel">
-    <div>
-      <p class="ty-comment">기대 효과</p>
-      <h2>참여자와 기업이 기대할 수 있는 변화</h2>
+  <section class="ty-section career-company-effects" aria-labelledby="career-company-effects-title">
+    <div class="ty-section-head">
+      <p class="ty-comment">기업 단위 운영 효과</p>
+      <h2 id="career-company-effects-title">근로자의 경력개발과 기업의 인력운영을 함께 지원합니다.</h2>
+      <p>기업이 중장년 재직자를 대상으로 커리어플래닝서비스를 운영하면 근로자의 다음 경력 준비를 지원하면서 조직 안에서 경험과 역량을 지속적으로 활용할 기반을 마련할 수 있습니다.</p>
     </div>
-    <div class="ty-checks">
-      <p><strong>참여자</strong><span>자신의 경력과 강점을 객관적으로 이해하고 다음 경력 방향을 준비합니다.</span></p>
-      <p><strong>기업</strong><span>중장년 재직자의 역량 활용과 직무 전환 가능성을 점검할 수 있습니다.</span></p>
-      <p><strong>후속 지원</strong><span>상담 결과와 준비사항을 정리해 다음 행동으로 이어지도록 돕습니다.</span></p>
+    <div class="career-effects-grid">
+      <article class="career-effects-card worker">
+        <span>근로자에게 기대되는 효과</span>
+        <h3>경험을 경력목표와 실행계획으로 연결</h3>
+        <ul>
+          <li>직무경험과 강점을 체계적으로 정리할 수 있습니다.</li>
+          <li>계속근로, 역할변화, 직무전환과 재취업 방향을 검토할 수 있습니다.</li>
+          <li>희망하는 경력 방향에 필요한 역량과 보완과제를 확인할 수 있습니다.</li>
+          <li>교육·자격·직무경험 등 우선적으로 준비할 과제를 정리할 수 있습니다.</li>
+          <li>퇴직 이전부터 다음 경력단계를 준비할 수 있습니다.</li>
+        </ul>
+      </article>
+      <article class="career-effects-card company">
+        <span>기업에 기대되는 효과</span>
+        <h3>중장년 인력의 경험과 역량 활용 기반 마련</h3>
+        <ul>
+          <li>중장년 근로자가 보유한 직무경험과 활용 가능한 역량을 확인할 수 있습니다.</li>
+          <li>계속근로, 직무전환과 역할변화 등 인력 활용 가능성을 검토할 수 있습니다.</li>
+          <li>근로자의 경력개발 수요와 조직의 인력운영 방향을 연결할 수 있습니다.</li>
+          <li>교육·배치·직무전환 지원에 필요한 기초자료를 마련할 수 있습니다.</li>
+          <li>중장년 친화적인 경력지원 체계를 준비하는 데 활용할 수 있습니다.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="career-effects-privacy">
+      <strong>상담결과 활용과 개인정보 보호</strong>
+      <p>상담 결과는 참여자 개인의 경력설계와 실행계획 수립을 중심으로 활용합니다. 개인별 상담내용과 결과는 개인정보 보호기준에 따라 관리하며, 기업에는 사전에 합의된 범위의 운영 현황과 종합적인 시사점을 중심으로 안내합니다.</p>
+    </div>
+    <div class="career-effects-action">
+      <div>
+        <strong>기업 상황에 맞는 운영 방법을 안내합니다.</strong>
+        <p>참여 대상, 예상 인원과 희망 일정을 확인한 뒤 미팅 또는 이메일로 운영 방법을 협의합니다.</p>
+      </div>
+      <a href="/contact/#consultation-request">기업 단위 운영 문의</a>
     </div>
   </section>
 
   <style>
+    .career-company-effects { overflow: hidden; }
+    .career-effects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+    .career-effects-card { padding: 28px; border: 1px solid rgba(18,116,123,.14); border-radius: 24px; background: #fff; box-shadow: 0 14px 38px rgba(29,64,75,.07); }
+    .career-effects-card.worker { background: linear-gradient(150deg, #f4fbfb 0%, #fff 58%); }
+    .career-effects-card.company { background: linear-gradient(150deg, #f2f7ff 0%, #fff 58%); }
+    .career-effects-card > span { display: block; margin-bottom: 9px; color: #12747b; font-size: .82rem; font-weight: 800; letter-spacing: .025em; }
+    .career-effects-card.company > span { color: #0066cc; }
+    .career-effects-card h3 { margin: 0 0 18px; color: #20343d; font-size: 1.24rem; line-height: 1.42; letter-spacing: -.025em; }
+    .career-effects-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 11px; }
+    .career-effects-card li { position: relative; padding-left: 20px; color: #4c626b; line-height: 1.62; }
+    .career-effects-card li::before { content: ''; position: absolute; left: 2px; top: .68em; width: 7px; height: 7px; border-radius: 50%; background: #12747b; }
+    .career-effects-card.company li::before { background: #0066cc; }
+    .career-effects-privacy { display: grid; grid-template-columns: minmax(180px, .32fr) 1fr; gap: 24px; margin-top: 18px; padding: 21px 24px; border: 1px solid rgba(18,116,123,.13); border-radius: 18px; background: #f7f9fa; }
+    .career-effects-privacy strong { color: #2d4650; }
+    .career-effects-privacy p { margin: 0; color: #5a6d75; line-height: 1.68; }
+    .career-effects-action { display: flex; justify-content: space-between; align-items: center; gap: 28px; margin-top: 18px; padding: 25px 28px; border-radius: 20px; background: #173b45; color: #fff; }
+    .career-effects-action strong { display: block; margin-bottom: 5px; font-size: 1.12rem; }
+    .career-effects-action p { margin: 0; color: rgba(255,255,255,.78); line-height: 1.6; }
+    .career-effects-action a { flex: 0 0 auto; min-height: 48px; padding: 13px 20px; border-radius: 13px; background: #fff; color: #12646b; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+    .career-effects-action a:hover, .career-effects-action a:focus-visible { background: #eaf7f7; }
     .career-flow-service-note { margin: -2px auto 24px; padding: 18px 20px; max-width: 920px; border: 1px solid rgba(18,116,123,.15); border-radius: 18px; background: #f4f9f9; }
     .career-flow-service-note > strong { display: block; margin-bottom: 6px; color: #174b52; font-size: 1.02rem; }
     .career-flow-service-note p { margin: 0; color: #4b626b; line-height: 1.68; }
@@ -410,7 +461,17 @@ const decisionDetails = [
     .career-dialog-actions { display: flex; gap: 10px; padding: 18px 30px 24px; border-top: 1px solid rgba(18,116,123,.13); background: #fff; }
     .career-dialog-actions a { min-height: 48px; padding: 13px 18px; border: 1px solid rgba(18,116,123,.22); border-radius: 13px; color: #12646b; font-weight: 750; text-align: center; text-decoration: none; flex: 1; }
     .career-dialog-actions a.primary { border-color: #0066cc; background: #0066cc; color: #fff; }
+    @media (max-width: 900px) {
+      .career-effects-grid { grid-template-columns: 1fr; }
+      .career-effects-privacy { grid-template-columns: 1fr; gap: 8px; }
+    }
     @media (max-width: 767px) {
+      .career-effects-card { padding: 22px 19px; border-radius: 20px; }
+      .career-effects-card h3 { font-size: 1.15rem; }
+      .career-effects-card li { font-size: 1rem; line-height: 1.65; }
+      .career-effects-privacy { padding: 18px; }
+      .career-effects-action { flex-direction: column; align-items: stretch; padding: 22px 19px; }
+      .career-effects-action a { width: 100%; min-height: 50px; }
       .career-detail-dialog { width: 100%; max-height: 92dvh; margin: auto 0 0; border-radius: 24px 24px 0 0; }
       .career-dialog-shell { max-height: 92dvh; }
       .career-dialog-header { position: sticky; top: 0; z-index: 2; padding: 20px 18px 16px; }
