@@ -128,7 +128,7 @@ export const faqJsonLd = {
   ],
 };
 
-export const homeJsonLd = [organizationJsonLd, websiteJsonLd, ...servicesJsonLd, faqJsonLd];
+export const homeJsonLd = [organizationJsonLd, websiteJsonLd, ...servicesJsonLd];
 export const businessConsultingJsonLd = [organizationJsonLd, servicesJsonLd[0]];
 export const careerPlanningJsonLd = [organizationJsonLd, servicesJsonLd[1]];
 export const careerSupportJsonLd = [organizationJsonLd, servicesJsonLd[2]];
