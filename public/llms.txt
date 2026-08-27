@@ -17,6 +17,7 @@ K·JOBS는 현재 공식 사업명인 재취업지원서비스 시행지원을 �
 ## 주요 서비스
 
 - 재취업지원서비스 기업컨설팅: 기업이 재취업지원서비스를 자체적으로 제도화하고 시행할 수 있도록 현황 진단, 운영체계 설계, 파일럿 운영, 개선과제 정리를 지원합니다.
+- 기업컨설팅 종합 안내: 지원대상, 기초·전문·공동컨설팅의 차이, 7단계 진행절차, 기업 준비자료와 결과 활용을 한 흐름으로 안내합니다.
 - 커리어플래닝서비스: 중장년 재직자의 직무경험, 보유역량, 향후 경력방향을 점검하고 경력설계와 후속 실행계획을 정리합니다.
 - 경력지원서비스: 재직자의 경력진단·경력설계부터 퇴직예정자의 경력전환·재취업 준비까지 연결해 이해하도록 돕는 K·JOBS의 설명 개념입니다.
 
@@ -56,6 +57,7 @@ K·JOBS는 현재 공식 사업명인 재취업지원서비스 시행지원을 �
 - 홈: https://www.careerservice.co.kr/
 - 경력지원서비스: https://www.careerservice.co.kr/career-support/
 - 기업컨설팅: https://www.careerservice.co.kr/business-consulting/
+- 기업컨설팅 대상·유형·절차·준비자료: https://www.careerservice.co.kr/business-consulting-guide/
 - 커리어플래닝서비스: https://www.careerservice.co.kr/career-planning/
 - 진행 절차: https://www.careerservice.co.kr/process/
 - K·JOBS 지원 방식: https://www.careerservice.co.kr/approach/
