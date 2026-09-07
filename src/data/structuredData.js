@@ -1,3 +1,5 @@
+import { careerPlanningEligibility } from './serviceFacts.js';
+
 const siteUrl = 'https://www.careerservice.co.kr';
 
 export const organizationJsonLd = {
@@ -59,7 +61,7 @@ export const servicesJsonLd = [
     audience: {
       '@type': 'PeopleAudience',
       suggestedMinAge: 40,
-      name: '중장년 재직자',
+      name: `${careerPlanningEligibility.audience} (공공부문 제외)`,
     },
   },
   {
