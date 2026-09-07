@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { homeJsonLd } from '../data/structuredData.js';
+import { careerPlanningEligibilityAnswer } from '../data/serviceFacts.js';
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const link = (path) => `${base}${path}`;
 const consultingFlow = [
@@ -10,7 +11,7 @@ const consultingFlow = [
   ['04', '제도화 기준 정리', '자체 시행과 반복 개선에 필요한 기준을 마련합니다.', '파일럿에서 확인된 쟁점과 현장 의견을 담당자 역할, 운영 절차, 기록·성과관리 기준과 다음 운영주기의 개선과제로 정리합니다.'],
 ];
 const careerFlow = [
-  ['01', '참여 요건 확인', '지원 대상과 신청 방식을 먼저 확인합니다.', '지원 대상은 1,000인 미만 사업장에 재직 중인 40세 이상 중장년입니다. 공공부문은 제외되며, 예산 소진 시 조기 종료될 수 있습니다.'],
+  ['01', '참여 요건 확인', '지원 대상과 신청 방식을 먼저 확인합니다.', careerPlanningEligibilityAnswer],
   ['02', '경력진단', '직무경험과 보유역량을 객관적으로 살펴봅니다.', '현재까지의 직무경험, 강점, 관심 분야, 변화 가능성을 확인해 상담의 출발점을 만듭니다.'],
   ['03', '상담 진행', '역할 변화와 다음 경력 방향을 구체화합니다.', '진단 결과를 바탕으로 향후 역할, 직무전환, 역량 보완 방향을 상담 중심으로 정리합니다.'],
   ['04', '실행계획 정리', '상담 이후 실천할 과제를 남깁니다.', '교육, 직무 준비, 경력목표, 후속 상담 필요사항을 정리해 참여자가 다음 행동을 확인할 수 있게 합니다.'],

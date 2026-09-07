@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { careerPlanningJsonLd } from '../data/structuredData.js';
+import { careerPlanningEligibility, careerPlanningEligibilityAnswer } from '../data/serviceFacts.js';
 const flow = [
   {
     id: 'career-diagnosis-dialog', title: '경력진단', body: '직무경험, 강점, 관심 분야를 점검합니다.',
@@ -90,16 +91,16 @@ const applicationSteps = [
 const decisionDetails = [
   {
     id: 'career-eligibility-dialog', label: '참여대상',
-    cardTitle: '경력 방향을 점검하려는 중장년 재직자',
-    cardBody: '현재 직무경험과 강점을 정리하고 계속근로, 직무전환 또는 재취업 준비 방향을 구체화합니다.',
+    cardTitle: '1,000인 미만 사업장의 40세 이상 재직자',
+    cardBody: `2026년 지원 대상은 ${careerPlanningEligibility.audience}입니다. ${careerPlanningEligibility.exclusions}`,
     buttonLabel: '참여 가능 여부와 준비사항 보기',
     title: '커리어플래닝서비스는 누가 참여할 수 있나요?',
-    lead: '중장년 재직자가 현재까지의 경력을 점검하고 앞으로의 경력 방향과 실행계획을 준비하도록 지원하는 서비스입니다.',
+    lead: careerPlanningEligibilityAnswer,
     sections: [
       { title: '이런 분에게 필요합니다', items: ['지금까지의 직무경험과 강점을 체계적으로 정리하고 싶은 분', '현재 직무를 이어가면서 향후 경력 방향을 준비하고 싶은 분', '직무전환이나 새로운 역할을 검토하고 있는 분', '퇴직 이전에 재취업 가능성과 준비과제를 점검하고 싶은 분', '막연한 고민을 구체적인 경력목표와 실행계획으로 바꾸고 싶은 분'] },
-      { title: '참여 전 확인사항', items: ['현재 재직 여부와 연령 등 지원사업 참여기준을 확인합니다.', '상담 가능한 일정과 신청서 작성 가능 여부를 확인합니다.', '재직증명서 또는 4대 사회보험 가입자 가입내역 확인서를 준비합니다.', '최종 참여 가능 여부는 신청 접수 후 개별 안내합니다.'] },
+      { title: '참여 전 확인사항', items: [`${careerPlanningEligibility.audience}인지 확인합니다.`, '상담 가능한 일정과 신청서 작성 가능 여부를 확인합니다.', '재직증명서 또는 4대 사회보험 가입자 가입내역 확인서를 준비합니다.', '최종 참여 가능 여부는 신청 접수 후 개별 안내합니다.'] },
     ],
-    note: '지원사업 적용 여부와 참여기준은 신청 접수 후 확인합니다.',
+    note: careerPlanningEligibility.confirmation,
     actions: [{ label: '개인 신청 준비하기', href: '#career-application-title', primary: true }, { label: '기업 담당자 운영 문의', href: '/contact/#consultation-request' }],
   },
   {
@@ -145,7 +146,7 @@ const decisionDetails = [
       <span>신청 전 확인사항</span>
       <strong>다음 세 가지를 준비해 주세요.</strong>
       <ul>
-        <li>중장년 재직자 여부와 상담 가능 일정</li>
+        <li>1,000인 미만 사업장·40세 이상 재직 여부 확인</li>
         <li>신청서·개인정보 동의서 작성 가능 여부</li>
         <li>재직증명서 또는 4대 사회보험 가입자 가입내역 확인서 준비</li>
       </ul>
@@ -158,6 +159,7 @@ const decisionDetails = [
       <p class="ty-comment">참여 전 핵심 확인</p>
       <h2 id="career-decision-title">대상과 지원내용을 확인하고 신청 방식을 선택하세요.</h2>
       <p>개인은 양식을 내려받아 신청할 수 있고, 기업은 중장년 재직자 대상 운영을 별도로 문의할 수 있습니다.</p>
+      <p class="career-official-source"><a href="https://www.nosa.or.kr/board/bltnMngr?boardId=nosa202109&amp;bltnNo=11780540696956&amp;" target="_blank" rel="noopener noreferrer">노사발전재단 2026년 공식 서비스 안내</a> · 기초·심화 상담의 대상과 지원내용을 확인해 주세요.</p>
     </div>
     <div class="career-decision-grid">
       {decisionDetails.map((item) => (

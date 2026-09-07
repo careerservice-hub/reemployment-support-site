@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { businessConsultingJsonLd } from '../data/structuredData.js';
+import RecruitmentStatus from '../components/RecruitmentStatus.astro';
 const readinessItems = [
   ['재취업지원서비스 도입 또는 개선을 검토하는 기업', '처음 도입하는 기업은 기본 운영체계를, 이미 운영 중인 기업은 안내·참여·성과관리 방식의 개선점을 중심으로 점검합니다.'],
   ['대상자 규모, 내부 역할, 운영 절차를 정리해야 하는 기업', '퇴직예정자 규모와 발생 시점, 담당 부서 역할, 내부 결재·안내 흐름을 먼저 정리해야 실행 가능한 제도 설계가 가능합니다.'],
@@ -98,13 +99,13 @@ const outputItems = [
   <section class="ty-section recruitment-notice" aria-labelledby="recruitment-title">
     <div class="ty-section-head">
       <p class="ty-comment">2026년 기업컨설팅 모집 안내</p>
-      <h2 id="recruitment-title">현재 5차 모집과 다음 6차 모집 일정을 확인하세요.</h2>
-      <p>6차도 일반 기업이 신청할 수 있으며, 일정 요건을 충족한 500~999인 기존 참여기업에는 기초컨설팅 재참여 기회가 한시적으로 추가됩니다.</p>
+      <h2 id="recruitment-title">5차·6차 기업컨설팅 신청기간을 확인하세요.</h2>
+      <p>6차도 일반 기업이 신청할 수 있으며, 500~999인 기업의 전문컨설팅 추가 참여와 제도 장기 미도입 기업의 기초컨설팅 재참여가 한시적으로 허용됩니다.</p>
     </div>
 
     <div class="recruitment-rounds">
-      <article class="recruitment-round current" aria-labelledby="round-five-title">
-        <p class="round-status">현재 접수 중</p>
+      <article class="recruitment-round closed" aria-labelledby="round-five-title">
+        <RecruitmentStatus start="2026-07-27" end="2026-08-31" />
         <h3 id="round-five-title">2026년 5차 기업컨설팅</h3>
         <p class="round-intro">재취업지원서비스 도입 또는 개선이 필요한 기업을 대상으로 기업컨설팅을 지원합니다.</p>
         <div class="round-facts" aria-label="기업컨설팅 5차 모집 핵심 일정">
@@ -116,12 +117,12 @@ const outputItems = [
       </article>
 
       <article class="recruitment-round upcoming" aria-labelledby="round-six-title">
-        <p class="round-status">다음 차수 사전 안내</p>
+        <RecruitmentStatus start="2026-09-01" end="2026-09-22" />
         <h3 id="round-six-title">2026년 6차 기업컨설팅</h3>
-        <p class="round-intro">재취업지원서비스 도입·개선을 희망하는 기업의 일반 신청과 500~999인 기존 참여기업의 한시적 재참여 신청을 함께 받습니다.</p>
+        <p class="round-intro">재취업지원서비스 도입·개선을 희망하는 기업의 일반 신청과 최신 공고의 재참여 요건에 해당하는 기업의 신청을 함께 받습니다.</p>
         <div class="round-facts" aria-label="기업컨설팅 6차 모집 핵심 일정">
-          <p><strong>신청기간</strong><span>2026. 8. 31.~9. 22.</span></p>
-          <p><strong>지원대상</strong><span>의무대상기업 및 제도 도입·개선 희망기업</span><small>500~999인 기존 참여기업에는 재참여 특례 추가</small></p>
+          <p><strong>신청기간</strong><span>2026. 9. 1.~9. 22.</span></p>
+          <p><strong>지원대상</strong><span>의무대상기업 및 제도 도입·개선 희망기업</span><small>전문·기초 재참여 특례는 아래 요건 확인</small></p>
           <p><strong>컨설팅 비용</strong><span>전액 무료</span></p>
         </div>
         <p class="round-period">선정심사: 9. 28. · 선정발표: 9. 29. · 컨설팅 기간: 9. 30.~11. 27.</p>
@@ -133,11 +134,13 @@ const outputItems = [
       <div class="recruitment-detail-grid">
         <div>
           <h3>일반 신청대상</h3>
-          <p>6차도 재취업지원서비스 의무대상기업과 제도 도입·개선을 희망하는 기업이 신청할 수 있습니다. 재참여 특례 대상에 해당하지 않아도 일반 신청이 가능합니다.</p>
+          <p>6차도 재취업지원서비스 의무대상기업과 제도 도입·개선을 희망하는 기업이 신청할 수 있습니다. 재참여 특례 대상에 해당하지 않더라도 일반 신청 자격과 참여 제한을 충족하면 신청할 수 있습니다.</p>
         </div>
         <div>
-          <h3>500~999인 재참여 특례</h3>
-          <p>기존 기초·전문컨설팅에 모두 참여하고 3년이 경과한 500~999인 기업은 6차에 한해 기초컨설팅 추가 참여를 신청할 수 있습니다. 예를 들어 2021년 기초, 2022년 전문컨설팅 참여기업은 2026년 재참여를 검토할 수 있습니다.</p>
+          <h3>전문컨설팅 재참여 특례</h3>
+          <p>500~999인 기업 중 2021~2025년에 기초·전문컨설팅에 모두 참여한 기업은 전문컨설팅 추가 참여를 신청할 수 있습니다.</p>
+          <h3>기초컨설팅 재참여 특례</h3>
+          <p>제도 장기 미도입 기업 중 2021년 기초·2022년 전문컨설팅 참여 후 3년이 경과한 기업은 기초컨설팅 추가 참여를 신청할 수 있습니다. 두 특례는 요건과 신청 유형이 다르므로 해당 차수 공고를 기준으로 확인합니다.</p>
         </div>
         <div>
           <h3>신청 제한</h3>
@@ -149,7 +152,7 @@ const outputItems = [
       <a href="https://www.nosa.or.kr/portal/nosa/majorBiz/reEmpymnSport/entrprsCnsl" target="_blank" rel="noopener noreferrer">노사발전재단 공식 신청 안내</a>
       <a class="primary" href="/contact/">케이잡스 신청 전 상담</a>
     </div>
-    <p class="recruitment-source">기준: 노사발전재단 2026년 5차 모집 변경 일정 및 「재취업지원서비스 기업컨설팅 참여기업(500~999인) 재참여 안내」(2026. 8. 3.) · 일정은 사업 운영상 변경될 수 있으므로 최신 공식 공고를 확인해 주세요.</p>
+    <p class="recruitment-source">근거: 노사발전재단 <a href="https://www.nosa.or.kr/board/bltnMngr?boardId=nosa05&amp;bltnNo=11785485331738&amp;" target="_blank" rel="noopener noreferrer">5차 변경공고(2026. 7. 31.)</a> · <a href="https://www.nosa.or.kr/board/bltnMngr?boardId=nosa05&amp;bltnNo=11788226445943&amp;" target="_blank" rel="noopener noreferrer">6차 모집공고·재참여 요건(2026. 9. 1.)</a><br />확인 기준: 2026. 9. 7. · 접수 상태는 기재된 신청기간 기준이며, 일정 변경·추가 안내는 최신 공식 공고를 확인해 주세요.</p>
   </section>
 
   <section class="ty-section">
