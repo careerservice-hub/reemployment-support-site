@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const sourceUrl = 'https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19885';
+const sourcePdfUrl = 'https://www.moel.go.kr/common/downloadFile.do?file_seq=20260900286&bbs_seq=19885&bbs_id=12&file_ext=pdf';
+const canonicalUrl = 'https://www.careerservice.co.kr/policy-updates/enterprise-course-budget-2027/';
+const headline = '2027년 재취업지원서비스 기업과정 신설 추진: 정부 예산안에 담긴 기업 지원 방향';
+const description = '고용노동부가 2027년 예산안에 담은 재취업지원서비스 기업과정 신설 계획과 기업이 후속 공고에서 확인할 사항을 정리했습니다.';
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline,
+  description,
+  datePublished: '2026-09-07',
+  dateModified: '2026-09-07',
+  inLanguage: 'ko-KR',
+  mainEntityOfPage: canonicalUrl,
+  author: { '@type': 'Organization', name: '케이잡스 K·JOBS' },
+  publisher: { '@id': 'https://www.careerservice.co.kr/#organization' },
+  about: ['재취업지원서비스 기업과정', '2027년 정부 예산안', '기업 재취업지원서비스 준비'],
+  citation: [sourceUrl, sourcePdfUrl],
+};
+---
+<BaseLayout title="2027년 재취업지원서비스 기업과정 신설 추진" description={description} jsonLd={articleJsonLd}>
+  <article class="policy-article">
+    <header class="policy-article-header">
+      <nav class="policy-breadcrumb" aria-label="현재 위치">
+        <a href="/policy-updates/">정책·제도 업데이트</a><span aria-hidden="true">/</span><span>정부 예산안</span>
+      </nav>
+      <p class="ty-comment">재취업지원서비스 기업 지원 · 정부 예산안</p>
+      <h1>{headline}</h1>
+      <p class="ty-lead">고용노동부가 2027년 예산안에 재취업지원서비스 기업과정 신설 계획을 담았습니다. 예산안의 지원 방향과 기업이 후속 공고에서 확인할 사항을 정리했습니다.</p>
+      <div class="policy-date-row">
+        <span>보도자료 발표 2026.09.04</span>
+        <span>확인 기준 2026.09.07</span>
+      </div>
+    </header>
+
+    <aside class="policy-status-note" aria-label="예산안 및 운영 확정 여부">
+      <strong>정부 예산안 단계입니다</strong>
+      <p>이 글은 2026년 9월 4일 발표된 <b>고용노동부 소관 2027년 정부 예산안</b>을 기준으로 합니다. 예산은 국회 심의·의결을 거쳐 확정되므로 지원 규모와 내용이 달라질 수 있습니다. 기업과정의 상세 지원대상, 운영기관, 운영·신청 방법과 일정은 이 자료만으로 확인되지 않습니다. 현재 신청을 받는다는 안내가 아닙니다.</p>
+    </aside>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">예산안에 담긴 방향</p>
+      <h2>의무 대상 기업 확대에 맞춰 기업과정 신설을 추진합니다.</h2>
+      <p>보도자료 3쪽은 중장년의 재취업 기회를 넓히기 위해 <b>재취업지원서비스 기업과정 신설에 6억원, 3천명 규모</b>를 계획했다고 설명합니다. 의무 대상 기업 확대에 맞춘 지원 방향으로 제시된 내용입니다.</p>
+      <p>여기서 확인되는 것은 기업과정의 신설 계획과 예산안상 규모입니다. 기업별 지원금이나 배정 인원, 참여 비용, 구체적인 교육·상담 구성까지 정해졌다는 뜻은 아닙니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">제도 변화와의 관계</p>
+      <h2>예산 지원 계획과 법령상 의무는 나누어 확인해야 합니다.</h2>
+      <p>이번 예산안은 앞서 발표된 제도개선과 의무사업장 확대 추진에 대응하는 지원 방향을 보여줍니다. 다만 예산안 발표가 시행령 개정이나 개별 기업의 의무 적용 시점을 확정하는 것은 아닙니다. 의무 대상과 시행 시기는 확정 법령 및 고용노동부의 최신 안내를 별도로 확인해야 합니다.</p>
+      <p>기존 해설에서는 제도개선의 전체 방향과 의무사업장 확대 개정안을 각각 살펴볼 수 있습니다.</p>
+      <ul>
+        <li><a class="ty-inline-link" href="/policy-updates/reemployment-service-reform-2026/">재취업지원서비스 제도개선 5가지 핵심</a></li>
+        <li><a class="ty-inline-link" href="/policy-updates/mandatory-employer-expansion-2026/">의무사업장 확대 추진과 기업 준비사항</a></li>
+      </ul>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">기업 준비사항</p>
+      <h2>후속 공고와 비교할 수 있도록 내부 현황부터 정리하세요.</h2>
+      <ol class="policy-checklist">
+        <li><strong>지원 필요 파악</strong><span>퇴직예정자 현황과 근로자의 경력설계·재취업 지원 수요를 정리합니다.</span></li>
+        <li><strong>기존 운영 점검</strong><span>현재 제공하는 서비스, 담당 부서, 참여 안내와 기록관리 절차를 확인합니다. 신규 지원을 전제로 기존 의무 이행을 미루지 않도록 합니다.</span></li>
+        <li><strong>후속 공고 확인</strong><span>상세 지원대상, 운영기관, 과정 구성, 운영·신청 방법, 참여 비용과 모집 일정을 확인한 뒤 참여 가능성을 판단합니다.</span></li>
+        <li><strong>법령과 지원사업 구분</strong><span>과정 참여가 법령상 의무 이행으로 인정되는지, 기존 지원사업과 함께 이용할 수 있는지는 확정 기준과 해당 사업 안내로 확인합니다.</span></li>
+      </ol>
+    </section>
+
+    <section class="policy-article-section policy-kjobs-view">
+      <p class="policy-section-label">K·JOBS 해설</p>
+      <h2>새 지원을 기다리는 동안 기업의 운영 준비를 점검할 수 있습니다.</h2>
+      <p>기업은 지원 여부가 정해지기 전에도 담당체계, 대상자 안내와 기록관리 등 필요한 준비를 검토할 수 있습니다. 기존 재취업지원서비스 기업컨설팅의 역할은 별도 안내에서 확인할 수 있습니다.</p>
+      <p>기업과정의 운영방식과 기존 기업컨설팅과의 관계는 후속 사업 안내에서 확인할 사항입니다.</p>
+      <p><a class="ty-inline-link" href="/business-consulting/">기존 재취업지원서비스 기업컨설팅 안내</a></p>
+    </section>
+
+    <section class="policy-source-box" aria-labelledby="source-title">
+      <h2 id="source-title">자료 출처</h2>
+      <dl>
+        <div><dt>원자료</dt><dd>「2027년 고용노동부 예산안 38조 9,537억 원」 보도자료</dd></div>
+        <div><dt>발표기관</dt><dd>고용노동부</dd></div>
+        <div><dt>발표일</dt><dd>2026년 9월 4일</dd></div>
+        <div><dt>확인 위치</dt><dd>첨부 PDF 3쪽, 중장년 재취업지원서비스 기업과정 신설 계획</dd></div>
+      </dl>
+      <p><a class="ty-inline-link" href={sourceUrl} target="_blank" rel="noopener noreferrer">고용노동부 보도자료 원문 확인</a></p>
+      <p><a class="ty-inline-link" href={sourcePdfUrl} target="_blank" rel="noopener noreferrer">고용노동부 첨부 PDF 확인</a></p>
+      <p class="policy-legal-note">지원 가능 여부는 확정 예산과 후속 사업 공고를, 법적 의무는 확정 법령을 기준으로 확인해야 합니다.</p>
+    </section>
+  </article>
+</BaseLayout>
