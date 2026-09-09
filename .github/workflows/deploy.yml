@@ -35,6 +35,8 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Check popover viewport overflow
         run: npm run check:popovers
+      - name: Stop popover preview before starting contact preview
+        run: npx astro preview stop
       - name: Check consultation form validation and fallback
         run: npm run check:contact-form
       - name: Check consultation Worker security and delivery paths
