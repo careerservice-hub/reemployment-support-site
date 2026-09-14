@@ -267,9 +267,47 @@ const outputItems = [
       ))}
     </div>
   </section>
+
+  <section id="official-casebooks" class="ty-section official-casebooks" aria-labelledby="official-casebooks-title">
+    <p class="ty-comment">노사발전재단 공식 자료</p>
+    <h2 id="official-casebooks-title">재취업지원서비스 우수사례집</h2>
+    <p class="casebooks-intro">노사발전재단이 발간한 우수사례집에서 기업의 재취업지원서비스 시행과 컨설팅 사례를 살펴보세요.</p>
+    <ul class="casebooks-grid">
+      {[
+        ['2025년 재취업지원서비스 기업컨설팅 우수사례집', '2025.12.04', '11764828906733'],
+        ['2023년 재취업지원서비스 시행지원 기업 우수사례집', '2024.02.06', '11707210912826'],
+        ['2022년 재취업지원서비스 기업컨설팅 우수사례집', '2023.01.30', '11675061344483'],
+        ['2021년 재취업지원서비스 기업컨설팅 우수사례집', '2022.01.24', '11643004158183'],
+      ].map(([title, postedDate, bltnNo]) => (
+        <li class="casebook-card">
+          <h3>{title}</h3>
+          <p class="casebook-date">노사발전재단 게시일 <time datetime={postedDate.replaceAll('.', '-')}>{postedDate}</time></p>
+          <a href={`https://www.nosa.or.kr/portal/nosa/FoundNews/etcData/bestChoice?bltnNo=${bltnNo}`} target="_blank" rel="noopener noreferrer">
+            노사발전재단 원문 보기 <span class="casebook-new-tab">(새 탭)</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="casebooks-caution">사례의 운영 시점과 현재 기준은 다를 수 있으므로 실제 적용 시 최신 법령과 사업 안내를 함께 확인해 주세요.</p>
+  </section>
 </BaseLayout>
 
 <style>
+  .official-casebooks .casebooks-intro { color: #6e6e73; line-height: 1.7; }
+  .official-casebooks .casebooks-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 0; margin: 24px 0 18px; list-style: none; }
+  .official-casebooks .casebook-card { display: flex; flex-direction: column; min-width: 0; padding: 24px; border: 1px solid rgba(0,0,0,.07); border-radius: 24px; background: rgba(255,255,255,.82); }
+  .official-casebooks .casebook-card h3 { margin: 0; color: #1d1d1f; font-size: 18px; line-height: 1.55; letter-spacing: -.035em; word-break: keep-all; overflow-wrap: anywhere; }
+  .official-casebooks .casebook-date { margin: 12px 0 16px; color: #6e6e73; font-size: 14px; line-height: 1.6; }
+  .official-casebooks .casebook-card a { display: flex; align-items: center; flex-wrap: wrap; gap: 0 6px; align-self: flex-start; min-height: 44px; margin-top: auto; padding: 8px 12px; border-radius: 12px; background: #eef5fc; color: #175b91; font-size: 15px; font-weight: 600; line-height: 1.6; text-decoration: none; }
+  .official-casebooks .casebook-card a:hover { background: #e1eef9; text-decoration: underline; text-underline-offset: 3px; }
+  .official-casebooks .casebook-card a:focus-visible { outline: 3px solid #175b91; outline-offset: 3px; }
+  .official-casebooks .casebook-new-tab { font-size: 13px; font-weight: 400; }
+  .official-casebooks .casebooks-caution { margin: 0; color: #6e6e73; font-size: 14px; line-height: 1.7; }
+  @media (max-width: 640px) {
+    .official-casebooks { scroll-margin-top: 170px; }
+    .official-casebooks .casebooks-grid { grid-template-columns: minmax(0, 1fr); }
+    .official-casebooks .casebook-card { padding: 20px; }
+  }
   .business-inline-card { min-width: 0; }
   .business-inline-readiness,
   .business-inline-support {
