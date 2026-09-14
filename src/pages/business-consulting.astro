@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { businessConsultingJsonLd } from '../data/structuredData.js';
+import BusinessInlineDetails from '../components/BusinessInlineDetails.astro';
 import RecruitmentStatus from '../components/RecruitmentStatus.astro';
 const readinessItems = [
   ['재취업지원서비스 도입 또는 개선을 검토하는 기업', '처음 도입하는 기업은 기본 운영체계를, 이미 운영 중인 기업은 안내·참여·성과관리 방식의 개선점을 중심으로 점검합니다.'],
@@ -162,12 +163,12 @@ const outputItems = [
     </div>
     <div class="ty-list-grid info-grid hover-info-grid">
       {readinessItems.map(([title, detail]) => (
-        <article class="step-popover-card readiness-popover-card" tabindex="0" aria-describedby={`readiness-${title}-detail`}>
+        <article class="business-inline-card business-inline-readiness">
           <strong>{title}</strong>
-          <div class="step-popover readiness-popover" id={`readiness-${title}-detail`} role="tooltip">
+          <BusinessInlineDetails id={`readiness-${title}-detail`}>
             <strong>{title}</strong>
             <p>{detail}</p>
-          </div>
+          </BusinessInlineDetails>
         </article>
       ))}
     </div>
@@ -180,14 +181,14 @@ const outputItems = [
     </div>
     <div class="ty-process-list seven">
       {steps.map(([num, title, body, detail]) => (
-        <article class="step-popover-card" tabindex="0" aria-describedby={`step-${num}-detail`}>
+        <article class="business-inline-card">
           <span>{num}</span>
           <h3>{title}</h3>
           <p>{body}</p>
-          <div class="step-popover" id={`step-${num}-detail`} role="tooltip">
+          <BusinessInlineDetails id={`step-${num}-detail`}>
             <strong>{title} 단계</strong>
             <p>{detail}</p>
-          </div>
+          </BusinessInlineDetails>
         </article>
       ))}
     </div>
@@ -200,13 +201,13 @@ const outputItems = [
     </div>
     <div class="ty-feature-row three info-grid">
       {supportTypes.map(([title, body, detail]) => (
-        <article class="step-popover-card support-popover-card" tabindex="0" aria-describedby={`support-${title}-detail`}>
+        <article class="business-inline-card business-inline-support">
           <h3>{title}</h3>
           <p>{body}</p>
-          <div class="step-popover support-popover" id={`support-${title}-detail`} role="tooltip">
+          <BusinessInlineDetails id={`support-${title}-detail`}>
             <strong>{title}</strong>
             <p>{detail}</p>
-          </div>
+          </BusinessInlineDetails>
         </article>
       ))}
     </div>
@@ -220,17 +221,17 @@ const outputItems = [
     </div>
     <div class="ty-checks hover-checks">
       {practicalChecks.map(({ title, body, criteria, materials }) => (
-        <article class="step-popover-card output-popover-card" tabindex="0" aria-describedby={`practical-${title}-detail`}>
+        <article class="business-inline-card business-inline-row">
           <strong>{title}</strong>
           <span>{body}</span>
-          <div class="step-popover output-popover practical-detail-popover" id={`practical-${title}-detail`} role="tooltip">
+          <BusinessInlineDetails id={`practical-${title}-detail`}>
             <strong>{title}</strong>
-            <p class="popover-section-label">세부 확인 기준</p>
+            <p class="inline-section-label">세부 확인 기준</p>
             <ul>
               {criteria.map((item) => <li>{item}</li>)}
             </ul>
-            <p class="popover-materials"><strong>준비자료</strong><span>{materials}</span></p>
-          </div>
+            <p class="inline-materials"><strong>준비자료</strong><span>{materials}</span></p>
+          </BusinessInlineDetails>
         </article>
       ))}
     </div>
@@ -255,15 +256,43 @@ const outputItems = [
     </div>
     <div class="ty-checks info-checks hover-checks">
       {outputItems.map(([title, body, detail]) => (
-        <article class="step-popover-card output-popover-card" tabindex="0" aria-describedby={`output-${title}-detail`}>
+        <article class="business-inline-card business-inline-row">
           <strong>{title}</strong>
           <span>{body}</span>
-          <div class="step-popover output-popover" id={`output-${title}-detail`} role="tooltip">
+          <BusinessInlineDetails id={`output-${title}-detail`}>
             <strong>{title}</strong>
             <p>{detail}</p>
-          </div>
+          </BusinessInlineDetails>
         </article>
       ))}
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .business-inline-card { min-width: 0; }
+  .business-inline-readiness,
+  .business-inline-support {
+    padding: 22px 24px;
+    border-radius: 28px;
+    background: rgba(255,255,255,.82);
+    border: 1px solid rgba(0,0,0,.07);
+    box-shadow: 0 18px 54px rgba(30,80,120,.06);
+  }
+  .business-inline-readiness > strong { color: #1d1d1f; line-height: 1.55; font-weight: 700; letter-spacing: -.035em; }
+  .business-inline-support { min-height: 218px; padding: 28px; }
+  .business-inline-support h3 { margin-top: 0; }
+  .business-inline-row {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 0 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(0,0,0,.07);
+  }
+  .business-inline-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .business-inline-row > span { color: #6e6e73; line-height: 1.62; }
+  .business-inline-row > :global(.business-inline-details) { grid-column: 1 / -1; }
+  @media (max-width: 640px) {
+    .business-inline-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  }
+</style>
