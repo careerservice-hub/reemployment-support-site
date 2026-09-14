@@ -1,0 +1,46 @@
+---
+interface Props { id: string }
+const { id } = Astro.props;
+---
+<details class="business-inline-details">
+  <summary><span class="disclosure-open-label">상세 보기</span><span class="disclosure-close-label">접기</span><span class="disclosure-indicator" aria-hidden="true"></span></summary>
+  <div class="business-inline-content" id={id}><slot /></div>
+</details>
+
+<style>
+  .business-inline-details { position: static; min-width: 0; margin-top: 12px; transform: none; }
+  .business-inline-details > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 44px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: #0066cc;
+    font-size: .88rem;
+    font-weight: 700;
+    line-height: 1.5;
+    list-style: none;
+    cursor: pointer;
+  }
+  .business-inline-details > summary::-webkit-details-marker { display: none; }
+  .business-inline-details > summary:hover { background: rgba(0,102,204,.06); }
+  .business-inline-details > summary:focus-visible { outline: 3px solid #0066cc; outline-offset: 2px; }
+  .business-inline-details > summary > span { color: inherit; font: inherit; letter-spacing: normal; }
+  .business-inline-details .disclosure-close-label { display: none; }
+  .business-inline-details[open] .disclosure-open-label { display: none; }
+  .business-inline-details[open] .disclosure-close-label { display: inline; }
+  .disclosure-indicator::before { content: '+'; }
+  .business-inline-details[open] .disclosure-indicator::before { content: '−'; }
+  .business-inline-content { position: static; padding-top: 12px; border-top: 1px solid rgba(0,0,0,.08); overflow-wrap: anywhere; transform: none; }
+  .business-inline-content :global(strong) { color: #0066cc; font-size: .86rem; font-weight: 760; letter-spacing: -.02em; }
+  /* Reset global .ty-checks p grid and process-number span inheritance. */
+  .business-inline-content :global(p) { display: block; grid-template-columns: none; gap: 0; margin: 9px 0 0; padding: 0; border: 0; color: #515154; font-size: .94rem; line-height: 1.62; letter-spacing: -.035em; max-width: none; width: 100%; }
+  .business-inline-content :global(span) { color: inherit; font-weight: inherit; letter-spacing: normal; }
+  .business-inline-content :global(.inline-section-label) { margin: 14px 0 8px; color: #0066cc; font-size: .78rem; font-weight: 760; }
+  .business-inline-content :global(ul) { display: grid; gap: 6px; margin: 0; padding-left: 20px; }
+  .business-inline-content :global(li) { color: #424245; font-size: .88rem; line-height: 1.5; }
+  .business-inline-content :global(.inline-materials) { display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(0,0,0,.08); font-size: .84rem; line-height: 1.5; }
+  .business-inline-content :global(.inline-materials strong) { color: #1d1d1f; }
+</style>
