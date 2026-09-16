@@ -12,6 +12,7 @@ const contentLastModified = {
   '/contact/': '2026-07-30',
   '/faq/': '2026-09-07',
   '/policy-updates/': '2026-09-16',
+  '/policy-updates/excellent-companies-2026/': '2026-09-16',
   '/policy-updates/labor-culture-employment-retention-2026/': '2026-09-16',
   '/policy-updates/enterprise-course-budget-2027/': '2026-09-07',
   '/policy-updates/joint-consulting-pilot-2026/': '2026-08-27',
