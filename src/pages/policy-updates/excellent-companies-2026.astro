@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = '2026년 재취업지원서비스 우수기업 선정: 공동 운영과 근로자 선택 중심의 제도화 사례';
+const description = '고용노동부가 발표한 2026년 재취업지원서비스 우수기업 선정 사례에서 공동 운영, 근로자 선택과 참여 편의, 지속 가능한 사내 운영체계의 실무 의미를 살펴봅니다.';
+const sourceUrl = 'https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=19941';
+const sourcePdfUrl = 'https://www.moel.go.kr/common/downloadFile.do?file_seq=20260900925&bbs_seq=19941&bbs_id=12&file_ext=pdf';
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-09-16',
+  dateModified: '2026-09-16',
+  inLanguage: 'ko-KR',
+  mainEntityOfPage: 'https://www.careerservice.co.kr/policy-updates/excellent-companies-2026/',
+  author: { '@type': 'Organization', name: '케이잡스 K·JOBS' },
+  publisher: { '@id': 'https://www.careerservice.co.kr/#organization' },
+  about: ['재취업지원서비스 우수기업', '공동컨설팅', '근로자 선택', '기업 운영체계'],
+  citation: [sourceUrl, sourcePdfUrl],
+};
+---
+<BaseLayout title={title} description={description} jsonLd={articleJsonLd}>
+  <article class="policy-article">
+    <header class="policy-article-header">
+      <nav class="policy-breadcrumb" aria-label="현재 위치">
+        <a href="/policy-updates/">정책·제도 업데이트</a><span aria-hidden="true">/</span><span>우수기업 선정 사례</span>
+      </nav>
+      <p class="ty-comment">우수기업 선정 사례</p>
+      <h1>{title}</h1>
+      <p class="ty-lead">교육과정을 마련하는 데서 한 걸음 더 나아가, 근로자가 필요한 서비스를 고르고 실제로 참여할 수 있게 하려면 무엇이 필요할까요? 우수기업의 공동 운영과 사내 지원체계에서 기업의 점검사항을 정리했습니다.</p>
+      <div class="policy-date-row"><span>원자료 발표 2026.09.15</span></div>
+    </header>
+
+    <aside class="policy-status-note" aria-label="선정 결과 안내">
+      <strong>2026년 재취업지원서비스 우수기업 선정 결과입니다</strong>
+      <p>고용노동부와 노사발전재단은 우수기업 7개사를 선정했습니다. 고용노동부 장관상은 최우수상 의료법인 백송의료재단, 우수상 한국콜마주식회사이며, 노사발전재단 사무총장상 장려상은 서울특별시중구시설관리공단, 주식회사 안산교통, 연구개발특구진흥재단, ㈜한국중소벤처기업유통원, 현대에이치디에스㈜입니다.</p>
+    </aside>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">공식 자료의 평가 방향</p>
+      <h2>서비스의 종류와 함께 선택권과 참여 여건을 살폈습니다.</h2>
+      <p>보도자료는 근로자가 필요한 서비스를 선택할 수 있도록 프로그램을 다양화했는지, 근무시간 조정 등 참여 편의를 제공했는지를 주요 평가사항으로 설명합니다. 중소기업 또는 원·하청 공동이행, 40대부터의 조기 경력설계도 제도개편 방향을 현장에 적용한 사례로 다뤘습니다.</p>
+      <p>여기서 40대 조기 경력설계는 지원을 앞당긴 운영 방향에 관한 설명입니다. 법정 서비스 제공 대상 연령이 40세로 변경됐다는 의미는 아닙니다. 의무대상과 시행 단계는 <a href="/policy-updates/mandatory-employer-expansion-2026/">의무사업장 확대 추진 해설</a>과 최신 법령을 구분해 확인해야 합니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">보도자료에서 확인한 운영 사례</p>
+      <h2>공동 운영의 책임과 참여시간, 후속 예산을 구체화했습니다.</h2>
+      <ol class="policy-checklist">
+        <li><strong>백송의료재단 · 협력기업과 함께 운영하는 체계</strong><span>한국에스웨이와 공동컨설팅을 추진하고 양사가 참여하는 경력개발지원위원회를 설치해 매월 회의를 열었습니다. 운영 지침에 협력업체 근로자를 서비스 대상으로 명시하고, 교육 참여시간을 유급 근로시간으로 인정했습니다. 노사합의에 따른 근무일 조정으로 현장직의 참여 부담도 낮췄습니다. <small>(보도자료 2쪽)</small></span></li>
+        <li><strong>한국콜마 · 교육과 개별 상담을 사내 제도에 연결</strong><span>집합교육에 1:1 취업알선 상담을 결합하고 상담을 추가 제공했습니다. 전담 부서를 지정하고 취업규칙을 개정했으며, 차년도 예산을 별도로 편성해 지속적인 운영 근거를 마련했습니다. <small>(보도자료 2쪽)</small></span></li>
+        <li><strong>안산교통 · 동종업종 중소기업과 참여 여건 마련</strong><span>단독 참여가 어려운 동종업종 중소기업 신원운수와 공동컨설팅을 실시하고 근무시간 중 교육을 운영했습니다. 업종 변화에 맞춘 AI·스마트폰 활용 교육도 포함했습니다. <small>(보도자료 3쪽)</small></span></li>
+      </ol>
+      <p>이 밖에도 자료는 중구시설관리공단의 직군별 교육·상담, 연구개발특구진흥재단의 자체 퇴직지원프로그램 연계, 한국중소벤처기업유통원의 자격취득 지원과 교육 몰입 시간제, 현대에이치디에스의 IT 업종 특화 미래설계 프로그램을 소개합니다.</p>
+    </section>
+
+    <section class="policy-article-section policy-kjobs-view">
+      <p class="policy-section-label">K·JOBS 실무 해설</p>
+      <h2>공동교육 여부보다 운영 책임과 지속 조건을 먼저 점검합니다.</h2>
+      <p>다음은 선정 사례를 바탕으로 정리한 K·JOBS의 점검 질문입니다. 위 기업의 사례를 K·JOBS 수행성과로 소개하는 것은 아닙니다.</p>
+      <ol class="policy-checklist">
+        <li><strong>공동 운영 · 누가 대상자와 일정을 조정하나요?</strong><span>대표 운영주체와 기업별 담당자를 정하고 대상자 안내, 참여시간 조정, 비용 부담, 이력·개인정보 관리의 책임을 나눕니다. 공동컨설팅은 교육을 함께 듣는 데 그치지 않고 운영계획과 협의 절차를 마련하는 과정으로 볼 필요가 있습니다.</span></li>
+        <li><strong>근로자 선택 · 필요한 지원과 참여 가능 시간을 물었나요?</strong><span>희망 서비스와 직무·근무형태를 함께 확인합니다. 집합교육, 개별 상담, 취업알선 등을 어떤 필요에 따라 연결할지 정하고 교대근무나 현장 공백 때문에 참여가 막히지 않는지도 살핍니다.</span></li>
+        <li><strong>지속 운영 · 규정과 담당 부서, 다음 예산이 이어지나요?</strong><span>파일럿 운영 후 개선사항을 정리하고 운영 지침, 담당자 역할, 다음 운영일정과 예산에 반영할 항목을 정합니다. 규정이 있다는 사실과 실제로 작동하는 절차가 있다는 사실은 나누어 확인해야 합니다.</span></li>
+      </ol>
+      <p>첨부 우수기업 명단에는 백송의료재단의 기초·전문·공동컨설팅 참여 이력과 한국콜마 등 여러 기업의 기초에서 전문컨설팅으로 이어진 이력이 제시돼 있습니다. 기업은 이를 단계별 운영 개선의 참고사례로 살펴볼 수 있습니다. 다만 이력이 있다는 사실만으로 선정의 원인이나 개별 컨설팅의 효과를 단정할 수는 없습니다.</p>
+      <div class="policy-actions">
+        <a class="btn primary" href="/business-consulting/">기업컨설팅 운영체계 살펴보기</a>
+        <a class="btn secondary" href="/contact/">우리 기업의 준비사항 상담</a>
+      </div>
+    </section>
+
+    <section class="policy-source-box" aria-labelledby="source-title">
+      <h2 id="source-title">자료 출처</h2>
+      <dl>
+        <div><dt>원자료</dt><dd>「원·하청 상생부터 조기 경력 설계까지 재취업지원서비스 우수기업 7개사 선정」 및 붙임 우수기업 명단·선정 공고문</dd></div>
+        <div><dt>발표기관</dt><dd>고용노동부·노사발전재단</dd></div>
+        <div><dt>발표일</dt><dd>2026년 9월 15일</dd></div>
+        <div><dt>참고 위치</dt><dd>보도자료 1쪽(선정·평가 방향), 2~3쪽(기업 사례), 4쪽(명단·컨설팅 이력), 5쪽(선정 공고문)</dd></div>
+      </dl>
+      <a class="ty-inline-link" href={sourceUrl} target="_blank" rel="noopener noreferrer">고용노동부 보도자료 확인</a>
+      <a class="ty-inline-link" href={sourcePdfUrl} target="_blank" rel="noopener noreferrer">보도자료·선정 명단 PDF 확인</a>
+    </section>
+  </article>
+</BaseLayout>
