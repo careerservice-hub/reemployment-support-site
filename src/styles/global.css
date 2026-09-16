@@ -2976,6 +2976,12 @@ body {
 .policy-kjobs-view { margin-top: 28px; padding: 38px; border: 1px solid rgba(18,116,123,.17); border-radius: 22px; background: linear-gradient(135deg, var(--wash-blue), var(--wash-mint)); }
 .policy-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .policy-source-box { margin-top: 40px; padding: 30px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+.policy-source-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.policy-source-actions > a { margin-top: 0; }
+@media (max-width: 640px) {
+  .policy-source-actions { flex-direction: column; }
+  .policy-source-actions > a { width: 100%; text-align: center; }
+}
 .policy-source-box dl { margin: 0 0 18px; }
 .policy-source-box dl div { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid #edf3f5; }
 .policy-source-box dt { color: var(--navy); font-weight: 900; }
