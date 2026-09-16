@@ -46,8 +46,8 @@ for (const url of urls) {
   if (new URL(url).pathname === '/policy-updates/') {
     const collection = nodes.find((node) => node['@type'] === 'CollectionPage');
     const itemList = nodes.find((node) => node['@type'] === 'ItemList');
-    if (collection?.hasPart?.length !== 5) failures.push('/policy-updates/: CollectionPage.hasPart must contain 5 articles');
-    if (itemList?.numberOfItems !== 5) failures.push('/policy-updates/: ItemList must contain 5 articles');
+    if (collection?.hasPart?.length !== 6) failures.push('/policy-updates/: CollectionPage.hasPart must contain 6 articles');
+    if (itemList?.numberOfItems !== 6) failures.push('/policy-updates/: ItemList must contain 6 articles');
   }
 }
 
