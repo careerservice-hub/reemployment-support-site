@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = '노사문화 대상 후보사업장 사례로 살펴본 고용유지와 중장년 인력운영';
+const description = '2026년 노사문화 대상 후보사업장 공개검증 자료를 바탕으로 전환배치, 역할전환, 노사협의 사례와 기업의 중장년 인력운영 점검사항을 살펴봅니다.';
+const sourceUrl = 'https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20260900362';
+const sourcePdfUrl = 'https://www.moel.go.kr/common/downloadFile.do?file_seq=20260900632&bbs_seq=20260900362&bbs_id=9&file_ext=pdf';
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-09-16',
+  dateModified: '2026-09-16',
+  inLanguage: 'ko-KR',
+  mainEntityOfPage: 'https://www.careerservice.co.kr/policy-updates/labor-culture-employment-retention-2026/',
+  author: { '@type': 'Organization', name: '케이잡스 K·JOBS' },
+  publisher: { '@id': 'https://www.careerservice.co.kr/#organization' },
+  about: ['노사문화 대상 후보사업장', '고용유지', '중장년 인력운영', '경력설계'],
+  citation: [sourceUrl, sourcePdfUrl],
+};
+---
+<BaseLayout title="노사문화 대상 후보사례: 고용유지와 중장년 인력운영" description={description} jsonLd={articleJsonLd}>
+  <article class="policy-article">
+    <header class="policy-article-header">
+      <nav class="policy-breadcrumb" aria-label="현재 위치">
+        <a href="/policy-updates/">정책·제도 업데이트</a><span aria-hidden="true">/</span><span>고용유지·인력운영 사례</span>
+      </nav>
+      <p class="ty-comment">고용유지·인력운영 사례</p>
+      <h1>{title}</h1>
+      <p class="ty-lead">사업 변화에 대응하면서 근로자의 경험을 어떻게 이어갈 수 있을까요? 전환배치와 역할 조정, 노사협의 사례에서 기업이 미리 살펴볼 질문을 정리했습니다.</p>
+      <div class="policy-date-row">
+        <span>원자료 발표 2026.09.10</span>
+        <span>해설 게시·확인 기준 2026.09.16</span>
+      </div>
+    </header>
+
+    <aside class="policy-status-note" aria-label="후보자료 안내">
+      <strong>수상 확정 전 후보사업장 자료입니다</strong>
+      <p>고용노동부의 공개검증 기간은 <b>2026년 9월 10일~9월 25일</b>입니다. 아래 사례는 후보사업장 자료에 기재된 내용이며, 향후 심사 결과에 따라 수상 여부가 달라질 수 있습니다.</p>
+    </aside>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">후보자료에서 살펴본 사례</p>
+      <h2>고용유지를 위한 배치와 역할, 협의 구조를 함께 살펴봅니다.</h2>
+      <p>공개검증 자료에는 경영위기나 자동화에 대응한 인력배치, 임금피크제 대상자의 직군 전환, 근로자위원의 의사결정 참여가 소개돼 있습니다. 각 사례의 운영 맥락을 구분해 읽는 것이 중요합니다.</p>
+      <ol class="policy-checklist">
+        <li><strong>삼양화성(주) 전주공장 · 전환배치 우선 적용</strong><span>자료는 경영위기 속에서 노사상생 TFT를 운영하고, 정년퇴직에 따른 자연감소와 전환배치를 우선 적용해 인위적 구조조정 없이 고용안정을 유지했다고 설명합니다. 기업은 사업 축소 시 인력감축에 앞서 검토할 직무와 배치 대안을 살펴볼 수 있습니다. <small>(첨부 2쪽)</small></span></li>
+        <li><strong>에스케이하이스텍 주식회사 · 자동화에 따른 이동배치</strong><span>자동화 창고 전환으로 유휴인력 발생이 예상됐으나 신규사업 이관과 이동배치로 정규직 인원 감소 없이 운영했다고 기재돼 있습니다. 기술 도입 계획과 함께 기존 인력이 맡을 업무, 필요한 역량과 준비기간을 점검할 필요가 있습니다. <small>(첨부 6쪽)</small></span></li>
+        <li><strong>부산환경공단 · 임금피크제 별도직군 운영</strong><span>2025년 9월 임금피크제 별도직군을 도입해 대상자가 전환·근무한 사례가 제시돼 있습니다. 기업에서는 직군 명칭뿐 아니라 실제 담당업무, 경험 활용 방식과 근로조건을 함께 검토하는 질문으로 연결할 수 있습니다. <small>(첨부 8쪽)</small></span></li>
+        <li><strong>한국철도기술연구원 · 근로자위원의 심의 참여</strong><span>노사협의회 근로자위원이 인사위원회·기획관리위원회와 TFT에 참여해 성과급·승진·정년연장 등을 심의한다고 소개합니다. 이는 협의·심의 구조에 관한 사례로, 정년연장이 확정되거나 모든 기업에 적용된다는 뜻은 아닙니다. <small>(첨부 11쪽)</small></span></li>
+      </ol>
+      <p>전환배치 사례의 대상자가 모두 중장년이라고 명시된 것은 아닙니다. 이 글에서는 고용유지와 인력운영 사례를 중장년의 경험 활용과 경력전환 준비를 점검하는 참고자료로 살펴봅니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">기업 점검사항</p>
+      <h2>제도 이름보다 근로자가 맡을 일과 준비과정을 구체화해야 합니다.</h2>
+      <p>다음은 사례를 바탕으로 정리한 K·JOBS의 실무 점검 질문입니다. 해당 사업장이 아래 항목을 모두 운영했다는 의미는 아닙니다.</p>
+      <ol class="policy-checklist">
+        <li><strong>경험 · 남겨야 할 역량은 무엇인가요?</strong><span>숙련업무, 현장 대응 경험, 후배에게 전수할 지식과 본인이 계속 활용하고 싶은 강점을 확인합니다. 연령만으로 역할을 정하기보다 실제 직무경험과 희망을 함께 살펴봅니다.</span></li>
+        <li><strong>역할전환 · 옮겨갈 업무가 준비돼 있나요?</strong><span>현재 업무와 전환 가능한 업무의 차이, 필요한 역량, 배치 시기와 적응기간을 정리합니다. 직군 변경이나 이동배치 후 담당업무와 평가기준이 명확한지도 확인합니다.</span></li>
+        <li><strong>교육·상담 · 실행계획까지 연결되나요?</strong><span>새 업무를 위한 교육과 개인별 경력진단·상담 수요를 구분합니다. 교육 수료에 그치지 않고 근로자가 실행할 과제, 후속 면담과 점검 시점을 정합니다.</span></li>
+        <li><strong>노사협의 · 누가 무엇을 결정하나요?</strong><span>인사부서, 현업, 근로자 측의 역할과 의견수렴 절차를 정리합니다. 배치·근로조건 변경은 관계 법령과 사내 규정, 필요한 협의 절차를 별도로 확인합니다.</span></li>
+      </ol>
+    </section>
+
+    <section class="policy-article-section policy-kjobs-view">
+      <p class="policy-section-label">경력설계와 운영체계로 연결하기</p>
+      <h2>개인의 경력 준비와 기업의 지원 절차를 나누어 설계합니다.</h2>
+      <p>개인에게는 직무경험과 보유역량을 정리하고 앞으로의 경력방향을 구체화하는 과정이 필요합니다. 기업에는 대상자 안내, 담당자 역할, 교육·상담 연계와 후속 점검을 지속할 수 있는 절차가 필요합니다.</p>
+      <p><a href="/career-planning/">커리어플래닝서비스</a>에서는 지원대상에 해당하는 중장년 재직자의 경력진단·경력설계를 안내합니다. <a href="/business-consulting/">기업컨설팅</a>은 기업이 자체적으로 재취업지원서비스를 운영할 수 있도록 현황 진단, 운영체계 설계, 파일럿 운영과 개선과제 정리를 지원합니다. 참여대상과 지원조건은 각 서비스 안내에서 확인해 주세요.</p>
+      <p>위 후보사례는 고용유지·인력운영을 위한 참고자료이며, 재취업지원서비스 제공 실적이나 K·JOBS 수행성과를 소개하는 자료는 아닙니다.</p>
+      <div class="policy-actions">
+        <a class="btn primary" href="/business-consulting/">기업 운영체계 살펴보기</a>
+        <a class="btn secondary" href="/career-planning/">중장년 경력설계 살펴보기</a>
+      </div>
+    </section>
+
+    <section class="policy-source-box" aria-labelledby="source-title">
+      <h2 id="source-title">자료 출처</h2>
+      <dl>
+        <div><dt>원자료</dt><dd>「2026년 노사문화 대상 후보사업장 공개검증」 및 첨부 후보사업장 명단</dd></div>
+        <div><dt>발표기관</dt><dd>고용노동부</dd></div>
+        <div><dt>발표일</dt><dd>2026년 9월 10일</dd></div>
+        <div><dt>참고 위치</dt><dd>첨부 1쪽(공개검증 안내), 2·6·8·11쪽(사업장 사례)</dd></div>
+      </dl>
+      <a class="ty-inline-link" href={sourceUrl} target="_blank" rel="noopener noreferrer">고용노동부 공고 확인</a>
+      <a class="ty-inline-link" href={sourcePdfUrl} target="_blank" rel="noopener noreferrer">후보사업장 자료 PDF 확인</a>
+    </section>
+  </article>
+</BaseLayout>
