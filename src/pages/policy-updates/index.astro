@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+
+// Render the existing articles at build time so search follows their full content.
+const articlePages = import.meta.glob(['./*.astro', '!./index.astro'], { eager: true });
+const container = await AstroContainer.create();
 
 const articles = [
   {
@@ -25,6 +30,7 @@ const articles = [
   },
   {
     href: '/policy-updates/naver-it-joint-consulting-2026/',
+    source: '노사발전재단 · 고용노동부 게시',
     category: '공동컨설팅 사례',
     title: 'IT 업종 재취업지원서비스 확산 추진: 네이버·노사발전재단 공동컨설팅 협력',
     summary: '노사발전재단과 네이버가 추진하는 IT 업종 상생형 공동컨설팅의 내용과 중소기업이 확인할 적용 방향을 정리했습니다.',
@@ -52,6 +58,23 @@ const articles = [
     sourceDate: '정책자료 발표 2026.05.29',
   },
 ];
+const searchableArticles = await Promise.all(articles.map(async (article) => {
+  const slug = article.href.split('/').filter(Boolean).at(-1);
+  const page = articlePages[`./${slug}.astro`];
+  const html = await container.renderToString(page.default, {
+    request: new Request(new URL(article.href, Astro.site)),
+  });
+  // Main contains one outer policy article, which may contain nested article cards.
+  const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? '';
+  const content = main.match(/<article class="policy-article"[^>]*>([\s\S]*)<\/article>/)?.[1];
+  if (!content) throw new Error(`Missing policy article body: ${article.href}`);
+  const source = article.source ?? content.match(/<dt>발표기관<\/dt>\s*<dd>([\s\S]*?)<\/dd>/)?.[1];
+  if (!source) throw new Error(`Missing policy source institution: ${article.href}`);
+  return { ...article, date: article.sourceDate.match(/\d{4}\.\d{2}\.\d{2}/)[0].replaceAll('.', '-'),
+    source: source.replace(/<[^>]+>/g, ' ').trim(),
+    body: content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() };
+}));
+searchableArticles.sort((a, b) => b.date.localeCompare(a.date));
 const policyListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -81,24 +104,36 @@ const policyCollectionData = {
     <p class="ty-lead">고용노동부와 관계기관의 공식 자료를 바탕으로 재취업지원서비스 제도 변화와 기업의 준비사항을 안내합니다. 출처와 확인 기준일도 함께 제공합니다.</p>
   </section>
 
-  <section class="ty-section policy-list" aria-labelledby="latest-policy-title">
-    <div class="ty-section-head">
-      <p class="ty-comment">정책 해설</p>
-      <h2 id="latest-policy-title">기업 담당자가 확인할 주요 변화</h2>
+  <section class="policy-board" aria-label="정책 자료 검색 및 목록">
+    <form id="policy-search-form" role="search" hidden>
+      <label for="policy-search">정책 자료 검색</label>
+      <div class="search-controls">
+        <input id="policy-search" type="search" placeholder="제목, 요약, 본문으로 검색" autocomplete="off" />
+        <button type="submit">검색</button>
+        <button type="button" id="policy-reset">초기화</button>
+      </div>
+      <p class="search-note">제목·요약·본문 전체에서 검색합니다.</p>
+    </form>
+    <div class="board-meta">
+      <p id="policy-result-count" role="status" aria-live="polite" aria-atomic="true">전체 <strong>{articles.length}</strong>건</p>
+      <span>원자료 발표일 최신순</span>
     </div>
-    {articles.map((article) => (
-      <article class="policy-card">
-        <div class="policy-card-meta">
-          <span>{article.category}</span>
-        </div>
-        <h3><a href={article.href}>{article.title}</a></h3>
-        <p>{article.summary}</p>
-        <div class="policy-card-footer">
-          <span>{article.sourceDate}</span>
-          <a class="ty-inline-link" href={article.href}>해설 보기</a>
-        </div>
-      </article>
-    ))}
+    <div class="list-head" aria-hidden="true"><span>정책 자료</span><span>발표기관</span><span>원자료 발표일</span></div>
+    <div id="policy-list">
+      {searchableArticles.map((article) => (
+        <article class="policy-row" data-search={article.body}>
+          <div class="policy-main">
+            <h2><a href={article.href}>{article.title}</a></h2>
+            <p class="policy-summary" title={article.summary}>{article.summary}</p>
+          </div>
+          <span class="policy-source">{article.source}</span>
+          <time datetime={article.date}><span class="mobile-label">원자료 발표 </span>{article.date.replaceAll('-', '.')}</time>
+        </article>
+      ))}
+    </div>
+    <div id="policy-empty" hidden><h2>검색 결과가 없습니다.</h2><p>다른 검색어를 입력하거나 초기화해 주세요.</p></div>
+    <nav id="policy-pagination" aria-label="정책 목록 페이지" hidden></nav>
+    <p id="policy-page-info"></p>
   </section>
 
   <section class="ty-section policy-principles" aria-labelledby="policy-principles-title">
@@ -113,3 +148,107 @@ const policyCollectionData = {
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#policy-search-form')!;
+  const input = document.querySelector<HTMLInputElement>('#policy-search')!;
+  const pagination = document.querySelector<HTMLElement>('#policy-pagination')!;
+  const rows = [...document.querySelectorAll<HTMLElement>('.policy-row')];
+  const normalize = (value: string) => value.normalize('NFKC').toLocaleLowerCase('ko-KR').replace(/\s+/g, ' ').trim();
+  const decoder = document.createElement('textarea');
+  const records = rows.map(row => {
+    decoder.innerHTML = row.dataset.search ?? '';
+    return { row, text: normalize(`${row.textContent} ${decoder.value}`) };
+  });
+  const pageSize = 10;
+  let currentPage = 1;
+  function render(focusPage = false) {
+    const query = normalize(input.value);
+    const terms = query.split(' ').filter(Boolean);
+    const matched = records.filter(record => terms.every(term => record.text.includes(term)));
+    const pages = Math.max(1, Math.ceil(matched.length / pageSize));
+    currentPage = Math.max(1, Math.min(currentPage, pages));
+    rows.forEach(row => { row.hidden = true; });
+    matched.slice((currentPage - 1) * pageSize, currentPage * pageSize).forEach(({ row }) => { row.hidden = false; });
+    document.querySelector('#policy-result-count')!.textContent = `${query ? '검색 결과' : '전체'} ${matched.length}건`;
+    document.querySelector<HTMLElement>('#policy-empty')!.hidden = matched.length > 0;
+    pagination.replaceChildren();
+    pagination.hidden = matched.length === 0;
+    const addButton = (label: string, target: number, disabled = false, current = false) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = label;
+      button.disabled = disabled;
+      button.setAttribute('aria-label', `${label} 페이지`);
+      if (current) button.setAttribute('aria-current', 'page');
+      button.addEventListener('click', () => { currentPage = target; render(true); });
+      pagination.append(button);
+    };
+    if (matched.length) {
+      addButton('이전', currentPage - 1, currentPage === 1);
+      for (let page = 1; page <= pages; page++) addButton(String(page), page, false, currentPage === page);
+      addButton('다음', currentPage + 1, currentPage === pages);
+    }
+    document.querySelector('#policy-page-info')!.textContent = matched.length ? `${currentPage} / ${pages} 페이지` : '';
+    if (focusPage) pagination.querySelector<HTMLButtonElement>('[aria-current="page"]')?.focus();
+  }
+  input.addEventListener('input', () => { currentPage = 1; render(); });
+  form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; render(); });
+  document.querySelector('#policy-reset')!.addEventListener('click', () => { input.value = ''; currentPage = 1; render(); input.focus(); });
+  form.hidden = false;
+  render();
+</script>
+
+<style>
+  .ty-hero.sub.policy-hero { min-height: 0; padding: 46px 0 34px; border: 0; }
+  .policy-hero .ty-mark { font-size: 24px; margin-bottom: 14px; }
+  .policy-hero .ty-comment { margin-bottom: 16px; }
+  .policy-hero .ty-lead { font-size: 18px; margin-top: 22px; }
+  .policy-board { max-width: 1040px; margin: 0 auto 18px; }
+  .policy-board [hidden] { display: none !important; }
+  #policy-search-form { padding-top: 16px; }
+  label { display: block; font-size: 14px; font-weight: 650; margin-bottom: 10px; }
+  .search-controls { display: flex; gap: 8px; }
+  input { flex: 1; min-width: 0; width: 100%; min-height: 52px; border: 1px solid #d2d2d7; border-radius: 10px; padding: 12px 16px; font: inherit; font-size: 16px; background: white; color: #1d1d1f; }
+  button { cursor: pointer; font: inherit; }
+  .search-controls button { min-height: 52px; border: 1px solid #06c; border-radius: 10px; padding: 0 26px; background: #06c; color: white; font-size: 15px; font-weight: 600; }
+  #policy-reset { background: transparent; border-color: #d2d2d7; color: #515154; }
+  .search-note { font-size: 12px; color: #6e6e73; margin-top: 8px; }
+  .board-meta { display: flex; justify-content: space-between; align-items: center; margin: 28px 0 14px; gap: 12px; }
+  #policy-result-count { font-size: 14px; }
+  .board-meta > span { font-size: 12px; color: #6e6e73; }
+  .list-head, .policy-row { display: grid; grid-template-columns: minmax(0, 1fr) 132px 118px; gap: 24px; align-items: center; }
+  .list-head { border-top: 1px solid #1d1d1f; border-bottom: 1px solid #d2d2d7; padding: 12px 0; font-size: 12px; color: #6e6e73; }
+  .policy-row { padding: 21px 0; border-bottom: 1px solid #dedee3; }
+  .policy-main { min-width: 0; }
+  .policy-main h2 { font-size: 17px; letter-spacing: -.025em; line-height: 1.55; font-weight: 650; text-wrap: initial; color: #1d1d1f; }
+  .policy-main h2 a:hover { color: #06c; text-decoration: underline; text-underline-offset: 4px; }
+  .policy-summary { font-size: 13px; color: #6e6e73; margin-top: 5px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.6; }
+  .policy-source, time { font-size: 12px; color: #6e6e73; line-height: 1.6; }
+  .mobile-label { display: none; }
+  #policy-empty { text-align: center; padding: 64px 16px; border-bottom: 1px solid #dedee3; }
+  #policy-empty h2 { font-size: 18px; }
+  #policy-empty p { margin-top: 8px; font-size: 14px; color: #6e6e73; }
+  #policy-pagination { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin-top: 28px; }
+  #policy-pagination :global(button) { min-width: 44px; min-height: 44px; padding: 0 12px; border: 1px solid #d2d2d7; border-radius: 8px; background: white; color: #515154; font: inherit; font-size: 14px; cursor: pointer; }
+  #policy-pagination :global(button[aria-current="page"]) { background: #06c; color: white; border-color: #06c; }
+  #policy-pagination :global(button:disabled) { opacity: .45; cursor: default; }
+  #policy-page-info { text-align: center; margin-top: 10px; font-size: 12px; color: #6e6e73; }
+  .policy-board :global(:focus-visible) { outline: 2px solid #06c; outline-offset: 3px; }
+  @media (max-width: 700px) {
+    .ty-hero.sub.policy-hero { padding: 32px 0 26px; }
+    .policy-hero .ty-mark { font-size: 18px; margin-bottom: 10px; }
+    .policy-hero .ty-lead { font-size: 15px; margin-top: 16px; }
+    .search-controls { flex-wrap: wrap; }
+    .search-controls input { flex-basis: 100%; }
+    .search-controls button { flex: 1; min-height: 46px; }
+    .list-head { display: none; }
+    #policy-list { border-top: 1px solid #1d1d1f; }
+    .policy-row { grid-template-columns: 1fr auto; gap: 8px 12px; padding: 19px 0; }
+    .policy-main { grid-column: 1 / -1; }
+    .policy-main h2 { font-size: 16px; }
+    .policy-source, time { font-size: 11px; }
+    .mobile-label { display: inline; }
+    .board-meta { margin-top: 22px; }
+  }
+</style>
