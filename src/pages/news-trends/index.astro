@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { publishedNews } from '../../data/news.js';
+// Mirror the policy board without changing existing policy content or scripts.
+const articles = publishedNews();
+const searchableArticles = articles;
+const newsListJsonLd = {
+  '@context': 'https://schema.org', '@type': 'ItemList', name: 'K·JOBS 뉴스·동향',
+  numberOfItems: articles.length,
+  itemListElement: articles.map((article, index) => ({
+    '@type': 'ListItem', position: index + 1, name: article.title,
+    url: new URL(article.href, Astro.site).toString(),
+  })),
+};
+const newsCollectionData = {
+  about: ['재취업지원', '중장년고용', '퇴직/전직지원', '기업경력지원'],
+  hasPart: articles.map(article => ({ '@type': 'Article', headline: article.title,
+    url: new URL(article.href, Astro.site).toString() })),
+};
+---
+<BaseLayout title="뉴스·동향" description="재취업지원·중장년고용·퇴직/전직지원·기업경력지원 관련 뉴스와 동향을 살펴봅니다." jsonLd={newsListJsonLd} pageType="CollectionPage" pageStructuredData={newsCollectionData}>
+  <section class="ty-hero sub policy-hero news-hero">
+    <div class="ty-mark">NEWS & TRENDS</div>
+    <p class="ty-comment">기업 경력지원에 필요한 소식을 살펴봅니다</p>
+    <h1>뉴스·동향</h1>
+    <p class="ty-lead">재취업지원·중장년고용·퇴직/전직지원·기업경력지원 관련 소식과 동향을 전합니다.</p>
+  </section>
+
+  <section class="news-board" aria-label="뉴스·동향 검색 및 목록">
+    <form id="news-search-form" role="search" hidden>
+      <label for="news-search">뉴스·동향 검색</label>
+      <div class="search-controls">
+        <input id="news-search" type="search" placeholder="제목, 요약, 본문으로 검색" autocomplete="off" />
+        <button type="submit">검색</button>
+        <button type="button" id="news-reset">초기화</button>
+      </div>
+      <p class="search-note">제목·요약·본문 전체에서 검색합니다.</p>
+    </form>
+    <div class="board-meta">
+      <p id="news-result-count" role="status" aria-live="polite" aria-atomic="true">전체 <strong>{articles.length}</strong>건</p>
+      <span>원자료 발표일 최신순</span>
+    </div>
+    <div class="list-head" aria-hidden="true"><span>번호</span><span>뉴스·동향</span><span>발표기관</span><span>원자료 발표일</span></div>
+    <div id="news-list">
+      {searchableArticles.map((article) => (
+        <article class="news-row" data-search={article.body}>
+          <span class="news-number" aria-label={`게시글 번호 ${article.id}`}>{article.id}</span>
+          <div class="news-main">
+            <h2><a href={article.href}>{article.title}</a></h2>
+            <span class="news-tag">{article.category}</span>
+            <p class="news-summary" title={article.summary}>{article.summary}</p>
+          </div>
+          <span class="news-source">{article.source}</span>
+          <time datetime={article.date}><span class="mobile-label">원자료 발표 </span>{article.date.replaceAll('-', '.')}</time>
+        </article>
+      ))}
+    </div>
+    <div id="news-empty" hidden={articles.length > 0}><h2>등록된 뉴스·동향이 없습니다.</h2><p>관련 소식이 등록되면 이곳에서 확인할 수 있습니다.</p></div>
+    <nav id="news-pagination" aria-label="뉴스·동향 목록 페이지" hidden></nav>
+    <p id="news-page-info"></p>
+  </section>
+
+</BaseLayout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#news-search-form')!;
+  const input = document.querySelector<HTMLInputElement>('#news-search')!;
+  const pagination = document.querySelector<HTMLElement>('#news-pagination')!;
+  const rows = [...document.querySelectorAll<HTMLElement>('.news-row')];
+  const normalize = (value: string) => value.normalize('NFKC').toLocaleLowerCase('ko-KR').replace(/\s+/g, ' ').trim();
+  const decoder = document.createElement('textarea');
+  const records = rows.map(row => {
+    decoder.innerHTML = row.dataset.search ?? '';
+    return { row, text: normalize(`${row.textContent} ${decoder.value}`) };
+  });
+  const pageSize = 10;
+  let currentPage = 1;
+  function render(focusPage = false) {
+    const query = normalize(input.value);
+    const terms = query.split(' ').filter(Boolean);
+    const matched = records.filter(record => terms.every(term => record.text.includes(term)));
+    const pages = Math.max(1, Math.ceil(matched.length / pageSize));
+    currentPage = Math.max(1, Math.min(currentPage, pages));
+    rows.forEach(row => { row.hidden = true; });
+    matched.slice((currentPage - 1) * pageSize, currentPage * pageSize).forEach(({ row }) => { row.hidden = false; });
+    document.querySelector('#news-result-count')!.textContent = `${query ? '검색 결과' : '전체'} ${matched.length}건`;
+    const empty = document.querySelector<HTMLElement>('#news-empty')!;
+    empty.hidden = matched.length > 0;
+    empty.querySelector('h2')!.textContent = query ? '검색 결과가 없습니다.' : '등록된 뉴스·동향이 없습니다.';
+    empty.querySelector('p')!.textContent = query ? '다른 검색어를 입력하거나 초기화해 주세요.' : '관련 소식이 등록되면 이곳에서 확인할 수 있습니다.';
+    pagination.replaceChildren();
+    pagination.hidden = matched.length === 0;
+    const addButton = (label: string, target: number, disabled = false, current = false) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = label;
+      button.disabled = disabled;
+      button.setAttribute('aria-label', `${label} 페이지`);
+      if (current) button.setAttribute('aria-current', 'page');
+      button.addEventListener('click', () => { currentPage = target; render(true); });
+      pagination.append(button);
+    };
+    if (matched.length) {
+      addButton('이전', currentPage - 1, currentPage === 1);
+      for (let page = 1; page <= pages; page++) addButton(String(page), page, false, currentPage === page);
+      addButton('다음', currentPage + 1, currentPage === pages);
+    }
+    document.querySelector('#news-page-info')!.textContent = matched.length ? `${currentPage} / ${pages} 페이지` : '';
+    if (focusPage) pagination.querySelector<HTMLButtonElement>('[aria-current="page"]')?.focus();
+  }
+  input.addEventListener('input', () => { currentPage = 1; render(); });
+  form.addEventListener('submit', event => { event.preventDefault(); currentPage = 1; render(); });
+  document.querySelector('#news-reset')!.addEventListener('click', () => { input.value = ''; currentPage = 1; render(); input.focus(); });
+  form.hidden = false;
+  render();
+</script>
+
+<style>
+  .ty-hero.sub.news-hero { min-height: 0; padding: 46px 0 34px; border: 0; }
+  .news-hero .ty-mark { font-size: 24px; margin-bottom: 14px; }
+  .news-hero .ty-comment { margin-bottom: 16px; }
+  .news-hero .ty-lead { font-size: 18px; margin-top: 22px; }
+  .news-board { max-width: 1040px; margin: 0 auto 18px; }
+  .news-board [hidden] { display: none !important; }
+  #news-search-form { padding-top: 16px; }
+  label { display: block; font-size: 14px; font-weight: 650; margin-bottom: 10px; }
+  .search-controls { display: flex; gap: 8px; }
+  input { flex: 1; min-width: 0; width: 100%; min-height: 52px; border: 1px solid #d2d2d7; border-radius: 10px; padding: 12px 16px; font: inherit; font-size: 16px; background: white; color: #1d1d1f; }
+  button { cursor: pointer; font: inherit; }
+  .search-controls button { min-height: 52px; border: 1px solid #06c; border-radius: 10px; padding: 0 26px; background: #06c; color: white; font-size: 15px; font-weight: 600; }
+  #news-reset { background: transparent; border-color: #d2d2d7; color: #515154; }
+  .search-note { font-size: 12px; color: #6e6e73; margin-top: 8px; }
+  .board-meta { display: flex; justify-content: space-between; align-items: center; margin: 28px 0 14px; gap: 12px; }
+  #news-result-count { font-size: 14px; }
+  .board-meta > span { font-size: 12px; color: #6e6e73; }
+  .list-head, .news-row { display: grid; grid-template-columns: 40px minmax(0, 1fr) 132px 118px; gap: 24px; align-items: center; }
+  .list-head { border-top: 1px solid #1d1d1f; border-bottom: 1px solid #d2d2d7; padding: 12px 0; font-size: 12px; color: #6e6e73; }
+  .news-row { padding: 21px 0; border-bottom: 1px solid #dedee3; }
+  .news-number { color: #6e6e73; font-size: 13px; text-align: center; font-variant-numeric: tabular-nums; }
+  .news-tag { display: inline-block; margin-top: 7px; padding: 3px 8px; border-radius: 5px; background: #eaf3ff; color: #0057ad; font-size: 11px; line-height: 1.5; }
+  .news-main { min-width: 0; }
+  .news-main h2 { font-size: 17px; letter-spacing: -.025em; line-height: 1.55; font-weight: 650; text-wrap: initial; color: #1d1d1f; }
+  .news-main h2 a:hover { color: #06c; text-decoration: underline; text-underline-offset: 4px; }
+  .news-summary { font-size: 13px; color: #6e6e73; margin-top: 5px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.6; }
+  .news-source, time { font-size: 12px; color: #6e6e73; line-height: 1.6; }
+  .mobile-label { display: none; }
+  #news-empty { text-align: center; padding: 64px 16px; border-bottom: 1px solid #dedee3; }
+  #news-empty h2 { font-size: 18px; }
+  #news-empty p { margin-top: 8px; font-size: 14px; color: #6e6e73; }
+  #news-pagination { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin-top: 28px; }
+  #news-pagination :global(button) { min-width: 44px; min-height: 44px; padding: 0 12px; border: 1px solid #d2d2d7; border-radius: 8px; background: white; color: #515154; font: inherit; font-size: 14px; cursor: pointer; }
+  #news-pagination :global(button[aria-current="page"]) { background: #06c; color: white; border-color: #06c; }
+  #news-pagination :global(button:disabled) { opacity: .45; cursor: default; }
+  #news-page-info { text-align: center; margin-top: 10px; font-size: 12px; color: #6e6e73; }
+  .news-board :global(:focus-visible) { outline: 2px solid #06c; outline-offset: 3px; }
+  @media (max-width: 700px) {
+    .ty-hero.sub.news-hero { padding: 32px 0 26px; }
+    .news-hero .ty-mark { font-size: 18px; margin-bottom: 10px; }
+    .news-hero .ty-lead { font-size: 15px; margin-top: 16px; }
+    .search-controls { flex-wrap: wrap; }
+    .search-controls input { flex-basis: 100%; }
+    .search-controls button { flex: 1; min-height: 46px; }
+    .list-head { display: none; }
+    #news-list { border-top: 1px solid #1d1d1f; }
+    .news-row { grid-template-columns: 1fr auto; gap: 8px 12px; padding: 19px 0; }
+    .news-number { grid-column: 1 / -1; text-align: left; font-size: 11px; }
+    .news-number::before { content: "No. "; }
+    .news-main { grid-column: 1 / -1; }
+    .news-main h2 { font-size: 16px; }
+    .news-source, time { font-size: 11px; }
+    .mobile-label { display: inline; }
+    .board-meta { margin-top: 22px; }
+  }
+</style>

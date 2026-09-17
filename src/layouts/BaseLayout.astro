@@ -10,10 +10,12 @@ const currentUrl = new URL(Astro.url.pathname, 'https://www.careerservice.co.kr'
 const socialImageUrl = 'https://www.careerservice.co.kr/assets/careerservice-og-cover.png';
 const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN?.trim();
 const pathname = Astro.url.pathname;
+const isNewsArticle = pathname.startsWith('/news-trends/') && pathname !== '/news-trends/';
 const isPolicyArticle = pathname.startsWith('/policy-updates/') && pathname !== '/policy-updates/';
 const breadcrumbItems = pathname === '/' ? [] : [
   { name: '홈', item: 'https://www.careerservice.co.kr/' },
   ...(isPolicyArticle ? [{ name: '정책·제도 업데이트', item: 'https://www.careerservice.co.kr/policy-updates/' }] : []),
+  ...(isNewsArticle ? [{ name: '뉴스·동향', item: 'https://www.careerservice.co.kr/news-trends/' }] : []),
   { name: title, item: currentUrl },
 ];
 const pageJsonLd = {
