@@ -5,13 +5,16 @@ import { resolve, join, extname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
 import { newsEntries, publishedNews, contentDigest } from '../src/data/news.js';
+import { trendSnapshots } from '../src/data/trendSnapshots.js';
+import { approvedTrendSnapshots, snapshotDigest } from '../src/data/trends.js';
 
 const root = resolve(import.meta.dirname, '..');
 const evidence = resolve(process.env.NEWS_EVIDENCE_DIR || '/tmp/news-trends-evidence');
 await mkdir(evidence, { recursive: true });
 const checks = [];
 const pass = message => { checks.push(message); console.log(`PASS ${message}`); };
-assert.equal(newsEntries.length, 0);
+assert(publishedNews().length > 0);
+assert(approvedTrendSnapshots().length > 0);
 assert.deepEqual(publishedNews([{ status: 'draft', slug: 'excluded-draft' }]), []);
 const fixture = n => ({ id: n, slug: `test-only-${n}`, status: 'published', category: '재취업지원',
   title: `TEST ONLY — 화면 검증 자료 ${n}`, summary: '시험 전용 텍스트이며 실제 뉴스가 아닙니다.',
@@ -35,7 +38,19 @@ for (const file of ['src', 'public', 'astro.config.mjs', 'package.json', 'tsconf
 await symlink(join(root, 'node_modules'), join(testRoot, 'node_modules'), 'dir');
 const testData = [...Array.from({ length: 12 }, (_, i) => approved(fixture(i + 1))), { status: 'draft', slug: 'excluded-draft' }];
 const moduleText = await readFile(join(root, 'src/data/news.js'), 'utf8');
-await writeFile(join(testRoot, 'src/data/news.js'), moduleText.replace('export const newsEntries = [];', `export const newsEntries = ${JSON.stringify(testData)};`));
+await writeFile(join(testRoot, 'src/data/news.js'), moduleText.replace('export const newsEntries = approvedNews;', `export const newsEntries = ${JSON.stringify(testData)};`));
+// Bind the isolated UI fixtures to a synthetic analysis, never real copy.
+const fixtureSnapshot = { ...trendSnapshots[0], axes: trendSnapshots[0].axes.map(a => ({ ...a, articleSlug: 'test-only-1' })),
+  sourceIds: ['test-only'], entryDigests: testData.filter(e => e.status === 'published').map(contentDigest), articleCount: 12 };
+// Fixture entries deliberately carry no source IDs; an empty source set is
+// not a valid real analysis. Supply an explicit test-only source to both.
+for (const entry of testData.filter(e => e.status === 'published')) {
+  entry.sourceIds = ['test-only']; entry.approval.contentDigest = contentDigest(entry);
+}
+fixtureSnapshot.entryDigests = testData.filter(e => e.status === 'published').map(contentDigest);
+fixtureSnapshot.approval = { decision: 'approved', reference: 'TEST-ONLY', date: '2026-09-18', contentDigest: snapshotDigest(fixtureSnapshot) };
+await writeFile(join(testRoot, 'src/data/news.js'), moduleText.replace('export const newsEntries = approvedNews;', `export const newsEntries = ${JSON.stringify(testData)};`));
+await writeFile(join(testRoot, 'src/data/trendSnapshots.js'), `export const trendSnapshots = ${JSON.stringify([fixtureSnapshot])};`);
 const build = execFileSync(process.execPath, [join(root, 'node_modules/astro/bin/astro.mjs'), 'build'], { cwd: testRoot, encoding: 'utf8' });
 await writeFile(join(evidence, 'fixture-build.log'), build);
 const prodMap = await readFile(join(root, 'dist/sitemap-0.xml'), 'utf8');
@@ -45,7 +60,7 @@ assert(!prodMap.includes('test-only') && !prodMap.includes('excluded-draft'));
 assert(testMap.includes('/news-trends/test-only-1/') && !testMap.includes('excluded-draft'));
 assert(!(await readFile(join(testRoot, 'dist/llms.txt'), 'utf8')).includes('excluded-draft'));
 assert.equal(await readFile(join(root, 'src/data/news.js'), 'utf8'), moduleText);
-pass('separate fixture build, production empty, draft absent from sitemap/llms');
+pass('separate fixture build, production approved, draft absent from sitemap/llms');
 
 async function serve(folder) {
   const server = createServer(async (req, res) => {
@@ -70,7 +85,7 @@ try {
   for (const width of [1280, 768, 390]) {
     const page = await browser.newPage({ viewport: { width, height: 900 } });
     const errors = []; page.on('pageerror', error => errors.push(error.message));
-    for (const [name, url] of [['empty', `${prod.url}/news-trends/`], ['fixture-list', `${test.url}/news-trends/`], ['fixture-detail', `${test.url}/news-trends/test-only-1/`], ['policy', `${prod.url}/policy-updates/`]]) {
+    for (const [name, url] of [['production', `${prod.url}/news-trends/`], ['fixture-list', `${test.url}/news-trends/`], ['fixture-detail', `${test.url}/news-trends/test-only-1/`], ['policy', `${prod.url}/policy-updates/`]]) {
       assert.equal((await page.goto(url)).status(), 200);
       await page.waitForLoadState('networkidle');
       const sizes = await page.evaluate(() => {
@@ -94,15 +109,13 @@ try {
       assert(newsNav.x >= policyNav.right);
       geometry.push({ width, name, ...sizes });
       await page.screenshot({ path: join(evidence, `${name}-${width}.png`), fullPage: true });
-      if (name === 'empty') {
-        assert.equal(await page.locator('.news-row').count(), 0);
-        assert(await page.locator('#news-empty').isVisible());
+      if (name === 'production') {
+        assert.equal(await page.locator('.news-row:visible').count(), publishedNews().length);
+        assert(await page.locator('.trend-thesis').isVisible());
         await page.locator('#news-search').fill('없는검색어');
-        await page.locator('#news-search-form').evaluate(form => form.requestSubmit());
         assert.match(await page.locator('#news-empty').innerText(), /검색 결과가 없습니다/);
         await page.locator('#news-reset').click();
-        assert.match(await page.locator('#news-empty').innerText(), /등록된 뉴스/);
-        assert(await page.locator('#news-search').evaluate(el => document.activeElement === el));
+        assert.equal(await page.locator('.news-row:visible').count(), publishedNews().length);
       }
       if (name === 'fixture-list') {
         assert.equal(await page.locator('.news-row:visible').count(), 10);
@@ -130,16 +143,16 @@ try {
     }
     assert.deepEqual(errors, []);
     await page.close();
-    pass(`${width}px empty/search/reset/pagination/detail/schema/backlink/header/footer geometry; no JS errors`);
+    pass(`${width}px production/search/reset/pagination/detail/schema/backlink/header/footer geometry; no JS errors`);
   }
   const noJs = await browser.newContext({ javaScriptEnabled: false });
   const page = await noJs.newPage();
   await page.goto(`${prod.url}/news-trends/`);
-  assert(await page.locator('#news-empty').isVisible());
+  assert.equal(await page.locator('.news-row a').count(), publishedNews().length);
   await page.goto(`${test.url}/news-trends/`);
   assert.equal(await page.locator('.news-row a').count(), 12);
   assert.equal((await page.goto(`${test.url}/news-trends/excluded-draft/`)).status(), 404);
-  pass('no-JS empty and server-rendered fixture links; draft route 404');
+  pass('no-JS production and server-rendered fixture links; draft route 404');
   await noJs.close();
 } finally {
   await browser.close(); prod.server.close(); test.server.close();

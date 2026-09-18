@@ -1,0 +1,55 @@
+---
+import { approvedTrendSnapshots } from '../data/trends.js';
+const trendSnapshots = approvedTrendSnapshots();
+const snapshots = [...trendSnapshots].sort((a, b) => b.year - a.year || b.asOf.localeCompare(a.asOf) || b.analysisUpdated.localeCompare(a.analysisUpdated) || b.id.localeCompare(a.id));
+---
+{snapshots.length > 0 && <section class="annual-trends" aria-labelledby="annual-title">
+  <div class="trend-heading">
+    <div><p class="trend-eyebrow">K·JOBS 동향 해설</p><h2 id="annual-title">연간 흐름 한눈에 보기</h2></div>
+    <div class="year-control" hidden><label for="trend-year">연도·기준일별 분석</label><select id="trend-year">{snapshots.map(snapshot => <option value={snapshot.id}>{snapshot.label}</option>)}</select></div>
+  </div>
+  {snapshots.map((snapshot, index) => <article class="trend-snapshot" id={snapshot.id} data-snapshot={snapshot.id}>
+    <p class="trend-date">{snapshot.year}년 중간 점검 · 자료 기준 {snapshot.asOf.replaceAll('-', '.')} · 분석 갱신 {snapshot.analysisUpdated.replaceAll('-', '.')}</p>
+    <h3 class="trend-thesis">{snapshot.thesis}</h3>
+    <div class="trend-axes">{snapshot.axes.map(axis => <section><h4>{axis.title}</h4><p>{axis.text}</p><a href={`/news-trends/${axis.articleSlug}/`}>근거 해설 읽기 <span aria-hidden="true">→</span></a></section>)}</div>
+    <div class="trend-takeaway"><h4>기업 담당자에게 주는 의미</h4><p>{snapshot.takeaway}</p></div>
+    <div class="trend-coverage"><p><strong>분석 범위:</strong> {snapshot.coverage}</p><p><strong>연도 비교</strong> {snapshot.comparison}</p><p>공식자료 {snapshot.sourceIds.length}건 · 해설 {snapshot.articleCount}편 · 원자료 발표일과 분석 갱신일은 서로 다릅니다.</p></div>
+  </article>)}
+</section>}
+<script>
+  const select = document.querySelector<HTMLSelectElement>('#trend-year');
+  if (select) {
+    document.querySelector<HTMLElement>('.year-control')!.hidden = false;
+    const show = () => document.querySelectorAll<HTMLElement>('[data-snapshot]').forEach(panel => { panel.hidden = panel.dataset.snapshot !== select.value; });
+    select.addEventListener('change', show); show();
+  }
+</script>
+<style>
+  .annual-trends { max-width: 1040px; margin: 0 auto 32px; padding: 26px 0 24px; border-top: 1px solid #d2d2d7; border-bottom: 1px solid #d2d2d7; }
+  [hidden] { display: none !important; }
+  .trend-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+  .trend-eyebrow { color: #0066cc; font-size: 13px; font-weight: 650; margin-bottom: 6px; }
+  h2 { font-size: 25px; letter-spacing: -.035em; line-height: 1.35; }
+  .year-control { flex-shrink: 0; }
+  label { display: block; font-size: 12px; color: #6e6e73; margin-bottom: 7px; }
+  select { max-width: 100%; min-height: 44px; padding: 8px 12px; border: 1px solid #d2d2d7; border-radius: 8px; background: white; color: #1d1d1f; font: inherit; font-size: 13px; }
+  .trend-date { margin-top: 18px; font-size: 12px; color: #6e6e73; }
+  .trend-thesis { font-size: 21px; line-height: 1.65; letter-spacing: -.035em; margin: 12px 0 24px; max-width: 930px; text-wrap: initial; }
+  .trend-axes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .trend-axes section { border-top: 2px solid #b9d6f3; padding-top: 14px; min-width: 0; }
+  h4 { font-size: 15px; line-height: 1.65; margin-bottom: 8px; letter-spacing: -.025em; }
+  .trend-axes p, .trend-takeaway p { font-size: 14px; line-height: 1.85; color: #515154; }
+  .trend-axes a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #0066cc; font-size: 13px; margin-top: 5px; }
+  .trend-takeaway { margin-top: 18px; padding: 17px 20px; background: #f5f5f7; border-radius: 10px; }
+  .trend-coverage { margin-top: 18px; font-size: 12px; line-height: 1.8; color: #6e6e73; }
+  .trend-coverage p + p { margin-top: 7px; }
+  :focus-visible { outline: 2px solid #0066cc; outline-offset: 3px; }
+  @media (max-width: 700px) {
+    .annual-trends { padding-top: 20px; }
+    .trend-heading { display: block; } h2 { font-size: 22px; }
+    .year-control { margin-top: 14px; } select { width: 100%; }
+    .trend-date { line-height: 1.8; } .trend-thesis { font-size: 19px; }
+    .trend-axes { grid-template-columns: 1fr; gap: 14px; }
+    .trend-axes a { margin-top: 0; } .trend-takeaway { padding: 16px; }
+  }
+</style>

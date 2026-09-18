@@ -33,6 +33,8 @@ jobs:
         run: npm run build
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
+      - name: Check news approval, analysis freshness and responsive UI
+        run: npm run check:news
       - name: Check popover viewport overflow
         run: npm run check:popovers
       - name: Stop popover preview before starting contact preview
