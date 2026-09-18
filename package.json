@@ -12,7 +12,8 @@
     "check:contact-form": "node scripts/check-contact-form.mjs",
     "check:consultation-worker": "node scripts/check-consultation-worker.mjs",
     "check:search-ai": "node scripts/check-recruitment-status.mjs && node scripts/check-public-copy.mjs && node scripts/check-search-ai-readiness.mjs",
-    "submit:indexnow": "node scripts/submit-indexnow.mjs"
+    "submit:indexnow": "node scripts/submit-indexnow.mjs",
+    "check:news": "node scripts/check-trend-approval.mjs && node scripts/check-news-trends.mjs && node scripts/check-published-news.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "latest",

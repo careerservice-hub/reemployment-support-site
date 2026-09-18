@@ -1,9 +1,10 @@
 import { createHash } from 'node:crypto';
+import { approvedNews } from './approvedNews.js';
 
 export const newsTopics = ['재취업지원', '중장년고용', '퇴직/전직지원', '기업경력지원'];
-// No approved articles yet. Never store personal data or applicant stories here,
+// Never store personal data or applicant stories here,
 // even in drafts or anonymized form. Approval evidence stays outside this repo.
-export const newsEntries = [];
+export const newsEntries = approvedNews;
 
 export function contentDigest(entry) {
   const { approval, status, ...content } = entry;
@@ -34,6 +35,6 @@ export function publishedNews(entries = newsEntries) {
         entry.approval.noPersonalData !== true || entry.approval.noApplicantStories !== true) fail();
     ids.add(entry.id); slugs.add(entry.slug);
     return { ...entry, href: `/news-trends/${entry.slug}/`, date: entry.sourceDate,
-      body: entry.sections.map(section => `${section.heading} ${section.paragraphs.join(' ')}`).join(' ') };
+      body: [entry.legalStage, ...entry.sections.map(section => `${section.heading} ${section.paragraphs.join(' ')}`)].join(' ') };
   }).sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id);
 }
