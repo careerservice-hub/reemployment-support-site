@@ -73,7 +73,7 @@ export const servicesJsonLd = [
     provider: { '@id': `${siteUrl}/#organization` },
     areaServed: '대한민국',
     url: `${siteUrl}/career-support/`,
-    description: '재직자의 경력진단과 경력설계부터 퇴직예정자의 경력전환과 재취업 준비까지 연결해 설명하는 K·JOBS의 지원 개념입니다. 현재 공식 사업 안내는 재취업지원서비스 시행지원을 기준으로 합니다.',
+    description: '경력관리·역량 향상의 의미를 담아 재취업지원서비스를 가칭 경력지원서비스로 변경하는 방안이 발표되었습니다. 명칭 변경 추진과 실제 시행을 구분하고, 재취업지원서비스 시행지원의 기업·개인 지원과 신청 절차를 안내합니다.',
     audience: [
       { '@type': 'BusinessAudience', name: '재취업지원서비스 운영체계를 준비하는 기업' },
       { '@type': 'PeopleAudience', name: '경력설계와 경력전환을 준비하는 중장년 재직자' },
