@@ -1,17 +1,17 @@
 ---
 import { recruitmentState } from '../data/recruitmentStatus.js';
-const { start, end } = Astro.props;
+const { start, end, confirmedClosed = false } = Astro.props;
 // A cached, unrendered HTML response must never claim an ongoing application period.
-const closed = recruitmentState(start, end).className === 'closed';
+const closed = recruitmentState(start, end, new Date(), confirmedClosed).className === 'closed';
 ---
-<p class="round-status" data-recruitment-start={start} data-recruitment-end={end}>
+<p class="round-status" data-recruitment-start={start} data-recruitment-end={end} data-recruitment-confirmed-closed={confirmedClosed ? 'true' : undefined}>
   {closed ? '접수 종료' : '신청기간 확인'}
 </p>
 <script>
   import { recruitmentState } from '../data/recruitmentStatus.js';
   function updateRecruitmentStatus() {
     document.querySelectorAll<HTMLElement>('[data-recruitment-start]').forEach((node) => {
-      const state = recruitmentState(node.dataset.recruitmentStart, node.dataset.recruitmentEnd);
+      const state = recruitmentState(node.dataset.recruitmentStart, node.dataset.recruitmentEnd, new Date(), node.dataset.recruitmentConfirmedClosed === 'true');
       node.textContent = state.label;
       const card = node.closest('.recruitment-round');
       card?.classList.remove('current', 'upcoming', 'closed');

@@ -17,7 +17,7 @@ const careerFlow = [
   ['04', '실행계획 정리', '상담 이후 실천할 과제를 남깁니다.', '교육, 직무 준비, 경력목표, 후속 상담 필요사항을 정리해 참여자가 다음 행동을 확인할 수 있게 합니다.'],
 ];
 ---
-<BaseLayout title="경력지원서비스 안내·재취업지원서비스 시행지원" description="경력지원서비스의 의미와 명칭 변경 추진, 현재 재취업지원서비스의 기업·개인 지원을 안내합니다. K·JOBS 기업컨설팅과 커리어플래닝서비스의 대상·비용 조건·신청 절차를 확인하세요." jsonLd={homeJsonLd}>
+<BaseLayout title="경력지원서비스 안내·재취업지원서비스 시행지원" description="경력지원서비스의 의미와 명칭 변경 추진, 현재 재취업지원서비스의 기업·개인 지원을 안내합니다. 기업컨설팅 모집 종료 후 참여 준비 상담과 커리어플래닝서비스의 대상·신청 절차를 확인하세요." jsonLd={homeJsonLd}>
   <section class="ty-hero" aria-label="K·JOBS 재취업지원서비스 시행지원 홈">
     <div class="ty-mark">K·JOBS</div>
     <p class="ty-comment">재취업지원서비스 시행지원</p>
@@ -55,7 +55,9 @@ const careerFlow = [
         <span>기업 제도화를 위한 지원</span>
         <h3>재취업지원서비스 기업컨설팅</h3>
         <p>기업이 재취업지원서비스를 자체적으로 시행하고 반복 개선할 수 있도록 현황 진단, 운영체계 설계, 파일럿 검증과 제도화 기준 마련을 지원합니다.</p>
+        <p>2026년 기업컨설팅은 6차까지 모집이 종료되었습니다. 다음 사업 참여 준비를 위한 상담은 가능합니다.</p>
         <a href={link('business-consulting/')}>재취업지원서비스 기업컨설팅 자세히 보기</a>
+        <a href={link('contact/?preset=business-next-year#consultation-request')}>차년도 참여 준비 상담받기</a>
       </article>
       <article class="career-image-card">
         <span>중장년 재직자를 위한 지원</span>
@@ -94,7 +96,8 @@ const careerFlow = [
           <span>신청 요건 확인</span>
           <h3>기업컨설팅 흐름</h3>
           <p>의무대상기업과 제도 도입·개선 희망 기업이 신청 요건을 확인한 뒤, 운영체계 설계와 파일럿 검증을 거쳐 자체 시행과 반복 개선이 가능한 제도화 기반을 마련합니다.</p>
-          <div class="application-options" aria-label="기업컨설팅 신청 요건">
+          <p>아래 신청 요건은 2026년 모집 당시 기준입니다. 올해 모집은 종료되었으며, 차년도 참여조건과 일정은 공식 공고 후 확인해야 합니다.</p>
+          <div class="application-options" aria-label="2026년 기업컨설팅 모집 이력 기준">
             <article class="step-popover-card application-pill" tabindex="0" aria-describedby="consulting-target-detail" data-mobile-detail>
               <strong>지원대상</strong>
               <span>100~999인 우선·1,000인 이상</span>
@@ -119,7 +122,7 @@ const careerFlow = [
               <button class="mobile-detail-toggle" type="button" aria-expanded="false" aria-controls="consulting-apply-detail">세부 내용 보기</button>
               <div class="step-popover" id="consulting-apply-detail" role="tooltip">
                 <strong>신청방법</strong>
-                <p>단일기업은 노사발전재단 누리집에서 온라인으로 신청하고, 관계사·산업단지 공동컨설팅은 공고에 안내된 이메일로 신청합니다. 케이잡스 상담폼은 공식 접수 전 대상·준비자료 확인용입니다.</p>
+                <p>2026년 모집 당시 단일기업은 노사발전재단 누리집 온라인 접수, 관계사·산업단지 공동컨설팅은 공고에 안내된 이메일 접수 방식이었습니다. 올해 모집은 종료되었으며 케이잡스 상담폼은 다음 사업 참여 준비 상담용으로 이용할 수 있습니다.</p>
                 <a class="popover-link" href="https://www.nosa.or.kr/portal/nosa/majorBiz/reEmpymnSport/entrprsCnsl" target="_blank" rel="noopener noreferrer">노사발전재단 기업컨설팅 페이지</a>
               </div>
             </article>
