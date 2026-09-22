@@ -1,4 +1,6 @@
-export function recruitmentState(startDate, endDate, now = new Date()) {
+export function recruitmentState(startDate, endDate, now = new Date(), confirmedClosed = false) {
+  // An explicitly confirmed closure takes precedence over the scheduled end date.
+  if (confirmedClosed === true) return { className: 'closed', label: '접수 종료' };
   const start = Date.parse(`${startDate}T00:00:00+09:00`);
   const endExclusive = Date.parse(`${endDate}T00:00:00+09:00`) + 86400000;
   const time = now.getTime();

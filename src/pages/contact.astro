@@ -79,6 +79,7 @@ import { contactJsonLd } from '../data/structuredData.js';
       </div>
 
       <div class="conditional-fields" data-panel="business">
+        <p>2026년 기업컨설팅은 6차까지 모집이 종료되었습니다. 다음 사업 참여 준비를 위한 상담을 받을 수 있으며, 사전상담은 공식 사업 신청이나 선정을 대신하지 않습니다. 차년도 모집 일정과 참여조건은 공식 공고 후 확인할 수 있습니다.</p>
         <div class="form-grid compact">
           <label>
             <span>전년도 월평균 고용보험 피보험자 수</span>
@@ -273,6 +274,18 @@ import { contactJsonLd } from '../data/structuredData.js';
       );
 
       return lines.join('\n');
+    }
+
+    // Only a fixed, allowlisted preset may initialize an untouched form.
+    // Do not reapply on pageshow, reset, or service changes: restored/user input wins.
+    const preset = new URLSearchParams(window.location.search).get('preset');
+    const hasExistingInput = [...form.querySelectorAll('input:not([type="radio"]), textarea, select')]
+      .some((field) => field.type === 'checkbox' ? field.checked : field.value !== '');
+    const hasChangedService = [...form.querySelectorAll('input[name="serviceType"]')]
+      .some((field) => field.checked !== field.defaultChecked);
+    if (preset === 'business-next-year' && !hasExistingInput && !hasChangedService) {
+      form.querySelector('input[name="serviceType"][value="business"]').checked = true;
+      form.querySelector('textarea[name="message"]').value = '차년도 기업컨설팅 참여를 위한 사전상담을 희망합니다.';
     }
 
     form.addEventListener('change', updatePanels);

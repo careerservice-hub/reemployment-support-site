@@ -16,4 +16,7 @@ assert.equal(recruitmentState('2026-07-27', '2026-08-31', new Date('2026-09-07T0
 assert.equal(recruitmentState('bad', '2026-09-22').label, '신청기간 확인');
 assert.equal(recruitmentState('2026-09-23', '2026-09-22').label, '신청기간 확인');
 assert.equal(recruitmentState('2026-09-01', '2026-09-22', new Date('bad')).label, '신청기간 확인');
-console.log('Recruitment KST status passed: 10 boundary/fallback cases');
+for (const [time] of checks) {
+  assert.equal(recruitmentState('2026-09-01', '2026-09-22', new Date(time), true).className, 'closed', `confirmed closure: ${time}`);
+}
+console.log('Recruitment KST status passed: 10 boundary/fallback cases + 6 confirmed-closure cases');
