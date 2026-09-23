@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { businessConsultingJsonLd } from '../data/structuredData.js';
 import BusinessInlineDetails from '../components/BusinessInlineDetails.astro';
-import RecruitmentStatus from '../components/RecruitmentStatus.astro';
 const readinessItems = [
   ['재취업지원서비스 도입 또는 개선을 검토하는 기업', '처음 도입하는 기업은 기본 운영체계를, 이미 운영 중인 기업은 안내·참여·성과관리 방식의 개선점을 중심으로 점검합니다.'],
   ['대상자 규모, 내부 역할, 운영 절차를 정리해야 하는 기업', '퇴직예정자 규모와 발생 시점, 담당 부서 역할, 내부 결재·안내 흐름을 먼저 정리해야 실행 가능한 제도 설계가 가능합니다.'],
@@ -110,56 +109,18 @@ const outputItems = [
     <p class="recruitment-source">사전상담은 공식 사업 신청이 아닙니다. 차년도 모집 일정과 참여조건은 공식 공고 후 확인할 수 있습니다.</p>
     <details class="recruitment-details" id="recruitment-history">
       <summary>2026년 모집 이력 보기</summary>
-      <p>아래는 종료된 모집의 당시 일정과 요건입니다. 모집 종료가 진행 중인 컨설팅의 종료를 뜻하지는 않습니다.</p>
-    <div class="recruitment-rounds">
-      <article class="recruitment-round closed" aria-labelledby="round-five-title">
-        <RecruitmentStatus start="2026-07-27" end="2026-08-31" />
-        <h3 id="round-five-title">2026년 5차 기업컨설팅</h3>
-        <p class="round-intro">재취업지원서비스 도입 또는 개선이 필요한 기업을 대상으로 기업컨설팅을 지원합니다.</p>
-        <div class="round-facts" aria-label="기업컨설팅 5차 모집 핵심 일정">
-          <p><strong>신청기간</strong><span>2026. 7. 27.~8. 31.</span></p>
-          <p><strong>지원대상</strong><span>100~999인 기업 우선</span><small>1,000인 이상 의무대상기업 신청 가능</small></p>
-          <p><strong>컨설팅 비용</strong><span>전액 무료</span></p>
-        </div>
-        <p class="round-period">컨설팅 기간: 2026. 9. 7.~11. 27.</p>
-      </article>
-
-      <article class="recruitment-round closed" aria-labelledby="round-six-title">
-        <RecruitmentStatus start="2026-09-01" end="2026-09-22" confirmedClosed />
-        <h3 id="round-six-title">2026년 6차 기업컨설팅</h3>
-        <p class="round-intro">재취업지원서비스 도입·개선을 희망하는 기업의 일반 신청과 최신 공고의 재참여 요건에 해당하는 기업의 신청을 함께 받습니다.</p>
-        <div class="round-facts" aria-label="기업컨설팅 6차 모집 핵심 일정">
-          <p><strong>신청기간</strong><span>2026. 9. 1.~9. 22.</span></p>
-          <p><strong>지원대상</strong><span>의무대상기업 및 제도 도입·개선 희망기업</span><small>전문·기초 재참여 특례는 아래 요건 확인</small></p>
-          <p><strong>컨설팅 비용</strong><span>전액 무료</span></p>
-        </div>
-        <p class="round-period">선정심사: 9. 28. · 선정발표: 9. 29. · 컨설팅 기간: 9. 30.~11. 27.</p>
-      </article>
-    </div>
-
-    <details class="recruitment-details">
-      <summary>6차 신청대상과 재참여 특례 확인</summary>
-      <div class="recruitment-detail-grid">
-        <div>
-          <h3>일반 신청대상</h3>
-          <p>6차도 재취업지원서비스 의무대상기업과 제도 도입·개선을 희망하는 기업이 신청할 수 있습니다. 재참여 특례 대상에 해당하지 않더라도 일반 신청 자격과 참여 제한을 충족하면 신청할 수 있습니다.</p>
-        </div>
-        <div>
-          <h3>전문컨설팅 재참여 특례</h3>
-          <p>500~999인 기업 중 2021~2025년에 기초·전문컨설팅에 모두 참여한 기업은 전문컨설팅 추가 참여를 신청할 수 있습니다.</p>
-          <h3>기초컨설팅 재참여 특례</h3>
-          <p>제도 장기 미도입 기업 중 2021년 기초·2022년 전문컨설팅 참여 후 3년이 경과한 기업은 기초컨설팅 추가 참여를 신청할 수 있습니다. 두 특례는 요건과 신청 유형이 다르므로 해당 차수 공고를 기준으로 확인합니다.</p>
-        </div>
-        <div>
-          <h3>신청 제한</h3>
-          <p>국가·지방행정기관, 최근 3년간 체불사업주 명단 공개 사업장, 중대산업재해 또는 산업재해 발생건수 등 공표기업은 신청할 수 없습니다.</p>
-        </div>
-      </div>
-    </details>
-    <div class="recruitment-actions">
-      <a href="https://www.nosa.or.kr/portal/nosa/majorBiz/reEmpymnSport/entrprsCnsl" target="_blank" rel="noopener noreferrer">노사발전재단 사업 안내 (모집 이력 참고)</a>
-    </div>
-    <p class="recruitment-source">근거: 노사발전재단 <a href="https://www.nosa.or.kr/board/bltnMngr?boardId=nosa05&amp;bltnNo=11785485331738&amp;" target="_blank" rel="noopener noreferrer">5차 변경공고(2026. 7. 31.)</a> · <a href="https://www.nosa.or.kr/board/bltnMngr?boardId=nosa05&amp;bltnNo=11788226445943&amp;" target="_blank" rel="noopener noreferrer">6차 모집공고·재참여 요건(2026. 9. 1.)</a><br />모집 이력 기준: 2026. 9. 7. 공고 확인 · 2026년 6차까지 모집 종료. 차년도 일정과 요건은 후속 공식 공고를 확인해 주세요.</p>
+      <table class="recruitment-history-table">
+        <caption>2026년 기업컨설팅 차수별 공고</caption>
+        <thead><tr><th scope="col">모집공고</th><th scope="col">선정공고</th></tr></thead>
+        <tbody>
+            <tr><td><a href="https://www.nosa.or.kr/board/read.brd?boardId=nosa05&amp;bltnNo=11773634627231" target="_blank" rel="noopener noreferrer" aria-label="1차 모집공고 (새 창)"><strong>1차 모집공고</strong><span>3. 16. ↗</span></a></td><td><a href="https://www.nosa.or.kr/board/read.brd?boardId=nosa05&amp;bltnNo=11776393950070" target="_blank" rel="noopener noreferrer" aria-label="1차 선정공고 (새 창)"><strong>1차 선정공고</strong><span>4. 17. ↗</span></a></td></tr>
+            <tr><td><a href="https://www.nosa.or.kr/board/read.brd?boardId=nosa05&amp;bltnNo=11776645941501" target="_blank" rel="noopener noreferrer" aria-label="2차 모집공고 (새 창)"><strong>2차 모집공고</strong><span>4. 20. ↗</span></a></td><td><a href="https://www.nosa.or.kr/board/read.brd?boardId=nosa05&amp;bltnNo=11779411159512" target="_blank" rel="noopener noreferrer" aria-label="2차 선정공고 (새 창)"><strong>2차 선정공고</strong><span>5. 22. ↗</span></a></td></tr>
+            <tr><td><a href="https://www.nosa.or.kr/board/read.brd?boardId=nosa05&amp;bltnNo=11779758214166" target="_blank" rel="noopener noreferrer" aria-label="3차 모집공고 (새 창)"><strong>3차 모집공고</strong><span>5. 26. ↗</span></a></td><td><a href="https://www.nosa.or.kr/board/read.brd?boardId=nosa05&amp;bltnNo=11782435091662" target="_blank" rel="noopener noreferrer" aria-label="3차 선정공고 (새 창)"><strong>3차 선정공고</strong><span>6. 26. ↗</span></a></td></tr>
+            <tr><td><a href="https://www.nosa.or.kr/board/read.brd?boardId=nosa05&amp;bltnNo=11782695396958" target="_blank" rel="noopener noreferrer" aria-label="4차 모집공고 (새 창)"><strong>4차 모집공고</strong><span>6. 29. ↗</span></a></td><td><a href="https://www.nosa.or.kr/board/read.brd?boardId=nosa05&amp;bltnNo=11785477449530" target="_blank" rel="noopener noreferrer" aria-label="4차 선정공고 (새 창)"><strong>4차 선정공고</strong><span>7. 31. ↗</span></a></td></tr>
+            <tr><td><a href="https://www.nosa.or.kr/board/read.brd?boardId=nosa05&amp;bltnNo=11785485331738" target="_blank" rel="noopener noreferrer" aria-label="5차 모집 변경공고 (새 창)"><strong>5차 모집 변경공고</strong><span>7. 31. ↗</span></a></td><td><a href="https://www.nosa.or.kr/board/read.brd?boardId=nosa05&amp;bltnNo=11788498753242" target="_blank" rel="noopener noreferrer" aria-label="5차 선정공고 (새 창)"><strong>5차 선정공고</strong><span>9. 4. ↗</span></a></td></tr>
+            <tr><td><a href="https://www.nosa.or.kr/board/read.brd?boardId=nosa05&amp;bltnNo=11788226445943" target="_blank" rel="noopener noreferrer" aria-label="6차 모집공고 (새 창)"><strong>6차 모집공고</strong><span>9. 1. ↗</span></a></td><td><span class="history-pending"><strong>6차 선정공고</strong><span>9월 29일 발표 예정</span></span></td></tr>
+        </tbody>
+      </table>
     </details>
   </section>
 
@@ -338,6 +299,26 @@ const outputItems = [
     <p class="casebooks-caution">사례의 운영 시점과 현재 기준은 다를 수 있으므로 실제 적용 시 최신 법령과 사업 안내를 함께 확인해 주세요.</p>
   </section>
 </BaseLayout>
+
+<style>
+  .recruitment-history-table { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 18px; text-align: left; }
+  .recruitment-history-table caption { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .recruitment-history-table th { padding: 12px 16px; background: #f3f6fa; color: #334155; font-size: 15px; }
+  .recruitment-history-table td { padding: 0; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+  .recruitment-history-table th + th, .recruitment-history-table td + td { border-left: 1px solid #e2e8f0; }
+  .recruitment-history-table a, .recruitment-history-table .history-pending { display: flex; flex-direction: column; gap: 5px; padding: 14px 16px; line-height: 1.55; word-break: keep-all; }
+  .recruitment-history-table a { color: #0066cc; text-decoration: none; }
+  .recruitment-history-table a:hover strong { text-decoration: underline; }
+  .recruitment-history-table a:focus-visible { outline: 2px solid #0066cc; outline-offset: -3px; border-radius: 4px; }
+  .recruitment-history-table strong { font-size: 15px; }
+  .recruitment-history-table a > span, .recruitment-history-table .history-pending > span { font-size: 13px; color: #64748b; }
+  .recruitment-history-table .history-pending { color: #64748b; }
+  @media (max-width: 600px) {
+    .recruitment-history-table th { padding: 10px; }
+    .recruitment-history-table a, .recruitment-history-table .history-pending { padding: 12px 10px; }
+    .recruitment-history-table strong { font-size: 14px; }
+  }
+</style>
 
 <style>
   /* Local readability preview: copy, structure and recruitment logic stay unchanged. */
