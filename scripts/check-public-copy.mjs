@@ -23,7 +23,7 @@ for (const stale of ['현재 5차 모집과 다음 6차', '현재 접수 중', '
 assert(business.includes('2026년 기업컨설팅은 6차까지 모집이 종료되었습니다.'), 'Confirmed recruitment closure missing');
 const history = business.match(/<details\b[^>]*id="recruitment-history"[^>]*>([\s\S]*?)<\/details>/)?.[1];
 assert(history, 'Recruitment history disclosure missing');
-assert(history.includes('2026년 모집 이력 보기'), 'History summary missing');
+assert(history.includes('2026년 모집·선정 공고 보기'), 'History summary missing');
 const rows = [...history.matchAll(/<tbody[^>]*>([\s\S]*?)<\/tbody>/g)][0]?.[1].match(/<tr\b/g) || [];
 assert.equal(rows.length, 6, 'History must contain six paired rounds');
 const expectedIds = ['11773634627231', '11776393950070', '11776645941501', '11779411159512', '11779758214166', '11782435091662', '11782695396958', '11785477449530', '11785485331738', '11788498753242', '11788226445943'];
