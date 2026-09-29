@@ -45,14 +45,12 @@ for (let round = 1; round <= 6; round++) {
 }
 const selectionCell = [...history.matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/g)].at(-1)?.[1];
 assert(selectionCell?.includes('11790646998545') && selectionCell.includes('9. 29. ↗'), 'Sixth selection notice/date missing');
-for (const required of ['2026. 9. 29.', '총 59개사', '9월 30일(수)부터 컨설팅 제공 예정', '02-6021-1135, 1157']) {
-  assert(history.includes(required), `Official selection fact missing: ${required}`);
+for (const removed of ['노사발전재단의 2026. 9. 29. 선정공고에 따르면', '총 59개사', '9월 30일(수)부터 컨설팅 제공 예정', '02-6021-1135, 1157', '6차 지원사업장 선정 명단']) {
+  assert(!business.includes(removed), `Removed selection copy returned: ${removed}`);
 }
 for (const forbidden of ['발표 예정', '누적', '수행실적', '60개사']) {
   assert(!history.includes(forbidden), `Invalid selection copy: ${forbidden}`);
 }
-const attachment = [...history.matchAll(/<a\b([^>]*)href="([^"]+)"([^>]*)>/g)].find(([, , href]) => href.includes('/board/fileMngr'));
-assert(attachment, 'Official selection attachment missing');
-assert.equal(attachment[2].replaceAll('&amp;', '&'), 'https://www.nosa.or.kr/board/fileMngr?cmd=down&boardId=nosa05&bltnNo=11790646998545&fileSeq=1&subId=sub06');
-assert((attachment[1] + attachment[3]).includes('target="_blank"') && (attachment[1] + attachment[3]).includes('noopener noreferrer') && (attachment[1] + attachment[3]).includes('(새 창)'), 'Attachment link safety missing');
+assert.equal((history.match(/<a\b/g) || []).length, 12, 'History must contain only the twelve table notice links');
+assert(!history.includes('/board/fileMngr'), 'Removed selection attachment returned');
 console.log(`Public copy passed: 3 eligibility pages, ${faqNode.mainEntity.length} FAQ pairs and recruitment notice`);
