@@ -26,9 +26,10 @@ assert(history, 'Recruitment history disclosure missing');
 assert(history.includes('2026년 모집·선정 공고 보기'), 'History summary missing');
 const rows = [...history.matchAll(/<tbody[^>]*>([\s\S]*?)<\/tbody>/g)][0]?.[1].match(/<tr\b/g) || [];
 assert.equal(rows.length, 6, 'History must contain six paired rounds');
-const expectedIds = ['11773634627231', '11776393950070', '11776645941501', '11779411159512', '11779758214166', '11782435091662', '11782695396958', '11785477449530', '11785485331738', '11788498753242', '11788226445943'];
-const links = [...history.matchAll(/<a\b([^>]*)href="([^"]+)"([^>]*)>/g)];
-assert.equal(links.length, 11, 'History must contain eleven official links');
+const expectedIds = ['11773634627231', '11776393950070', '11776645941501', '11779411159512', '11779758214166', '11782435091662', '11782695396958', '11785477449530', '11785485331738', '11788498753242', '11788226445943', '11790646998545'];
+const table = history.match(/<table\b[^>]*>([\s\S]*?)<\/table>/)?.[1];
+const links = [...table.matchAll(/<a\b([^>]*)href="([^"]+)"([^>]*)>/g)];
+assert.equal(links.length, 12, 'History must contain twelve official notice links');
 assert.deepEqual(links.map(([, , href]) => new URL(href.replaceAll('&amp;', '&')).searchParams.get('bltnNo')), expectedIds, 'Official notice order or IDs differ');
 for (const [, before, href, after] of links) {
   const url = new URL(href.replaceAll('&amp;', '&'));
@@ -42,6 +43,16 @@ for (let round = 1; round <= 6; round++) {
   assert(history.includes(`${round}차 모집${round === 5 ? ' 변경' : ''}공고`), `Recruitment label missing: ${round}`);
   assert(history.includes(`${round}차 선정공고`), `Selection label missing: ${round}`);
 }
-const pendingCell = [...history.matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/g)].at(-1)?.[1];
-assert(pendingCell?.includes('9월 29일 발표 예정') && !pendingCell.includes('<a'), 'Sixth selection must remain a non-link pending notice');
+const selectionCell = [...history.matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/g)].at(-1)?.[1];
+assert(selectionCell?.includes('11790646998545') && selectionCell.includes('9. 29. ↗'), 'Sixth selection notice/date missing');
+for (const required of ['2026. 9. 29.', '총 59개사', '9월 30일(수)부터 컨설팅 제공 예정', '02-6021-1135, 1157']) {
+  assert(history.includes(required), `Official selection fact missing: ${required}`);
+}
+for (const forbidden of ['발표 예정', '누적', '수행실적', '60개사']) {
+  assert(!history.includes(forbidden), `Invalid selection copy: ${forbidden}`);
+}
+const attachment = [...history.matchAll(/<a\b([^>]*)href="([^"]+)"([^>]*)>/g)].find(([, , href]) => href.includes('/board/fileMngr'));
+assert(attachment, 'Official selection attachment missing');
+assert.equal(attachment[2].replaceAll('&amp;', '&'), 'https://www.nosa.or.kr/board/fileMngr?cmd=down&boardId=nosa05&bltnNo=11790646998545&fileSeq=1&subId=sub06');
+assert((attachment[1] + attachment[3]).includes('target="_blank"') && (attachment[1] + attachment[3]).includes('noopener noreferrer') && (attachment[1] + attachment[3]).includes('(새 창)'), 'Attachment link safety missing');
 console.log(`Public copy passed: 3 eligibility pages, ${faqNode.mainEntity.length} FAQ pairs and recruitment notice`);
