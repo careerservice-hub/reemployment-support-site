@@ -16,7 +16,8 @@ assert.throws(() => approvedTrendSnapshots(trendSnapshots, [...newsEntries, addi
 const altered = clone(trendSnapshots); altered[0].thesis += ' changed';
 assert.throws(() => approvedTrendSnapshots(altered), /unapproved/);
 assert.throws(() => approvedTrendSnapshots([]), /review required/);
-const renewed = approveSnapshot({ ...clone(trendSnapshots[0]), id: '2026-asof-20260918-r3', asOf: '2026-09-18', entryDigests: edited.map(contentDigest) });
+const latest = [...trendSnapshots].sort((a, b) => b.asOf.localeCompare(a.asOf) || b.analysisUpdated.localeCompare(a.analysisUpdated) || b.id.localeCompare(a.id))[0];
+const renewed = approveSnapshot({ ...clone(latest), id: `${latest.id}-renewed`, entryDigests: edited.map(contentDigest), articleCount: edited.length, sourceIds: [...new Set(edited.flatMap(e => e.sourceIds ?? []))] });
 const history = approvedTrendSnapshots([...trendSnapshots, renewed], edited);
 assert.equal(history.length, trendSnapshots.length + 1);
 assert.deepEqual(history[0], trendSnapshots[0]);

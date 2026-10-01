@@ -111,7 +111,12 @@ try {
       await page.screenshot({ path: join(evidence, `${name}-${width}.png`), fullPage: true });
       if (name === 'production') {
         assert.equal(await page.locator('.news-row:visible').count(), publishedNews().length);
-        assert(await page.locator('.trend-thesis').isVisible());
+        assert.equal(await page.locator('.trend-thesis:visible').count(), 1);
+        for (const snapshot of trendSnapshots) {
+          await page.locator('#trend-year').selectOption(snapshot.id);
+          assert.equal(await page.locator('.trend-thesis:visible').innerText(), snapshot.thesis);
+        }
+        await page.locator('#trend-year').selectOption({ index: 0 });
         await page.locator('#news-search').fill('없는검색어');
         assert.match(await page.locator('#news-empty').innerText(), /검색 결과가 없습니다/);
         await page.locator('#news-reset').click();

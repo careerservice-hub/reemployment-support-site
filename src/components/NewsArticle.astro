@@ -35,7 +35,6 @@ const articleJsonLd = {
         <div><dt>원자료</dt><dd>{article.sourceTitle}</dd></div>
         <div><dt>발표기관</dt><dd>{article.source}</dd></div>
         <div><dt>발표일</dt><dd>{article.sourceDate}</dd></div>
-        <div><dt>확인 기준일</dt><dd>{article.checkedAt}</dd></div>
       </dl>
       <div class="policy-source-actions">{(article.sources ?? [{label: '원문 확인', url: article.sourceUrl}]).map(source => <a class="ty-inline-link" href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a>)}</div>
     </section>

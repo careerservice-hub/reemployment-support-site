@@ -12,7 +12,7 @@ const contentLastModified = {
   '/career-support/': '2026-08-27',
   '/contact/': '2026-07-30',
   '/faq/': '2026-09-07',
-  '/news-trends/': '2026-09-17',
+  '/news-trends/': '2026-10-01',
   '/policy-updates/': '2026-09-16',
   '/policy-updates/excellent-companies-2026/': '2026-09-16',
   '/policy-updates/labor-culture-employment-retention-2026/': '2026-09-16',

@@ -72,6 +72,11 @@ try {
       assert.equal(await page.locator('.policy-date-row time').getAttribute('datetime'), entry.sourceDate);
       assert.equal(await page.locator('.legal-stage').innerText(), '자료의 단계\n' + entry.legalStage);
       const text = await page.locator('.policy-article').innerText();
+      assert(!text.includes('확인 기준일'));
+      if (entry.publishedAt !== entry.sourceDate) {
+        assert(!text.includes(entry.publishedAt));
+        assert(!text.includes(entry.publishedAt.replaceAll('-', '.')));
+      }
       for (const section of entry.sections) for (const paragraph of section.paragraphs) assert(text.includes(paragraph));
       assert.equal(await page.locator('.policy-source-actions a').count(), entry.sources.length);
       const schemas = await page.locator('script[type="application/ld+json"]').evaluateAll(nodes => nodes.flatMap(n => JSON.parse(n.textContent)));
