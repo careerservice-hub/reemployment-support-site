@@ -3025,14 +3025,14 @@ body {
   .desktop-nav { display: none; }
   .mobile-nav {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-columns: repeat(15, minmax(0, 1fr));
     gap: 6px;
     width: 100%;
     font-size: .74rem;
   }
-  .mobile-nav a:nth-child(-n + 3) { grid-column: span 4; }
+  .mobile-nav a:nth-child(-n + 5) { grid-column: span 3; }
   .mobile-nav a {
-    grid-column: span 3;
+    grid-column: span 5;
     display: flex;
     min-height: 44px;
     align-items: center;
