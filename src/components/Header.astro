@@ -5,6 +5,7 @@ const nav = [
   { href: link(''), label: '홈' },
   { href: link('career-support/'), label: '경력지원' },
   { href: link('business-consulting/'), label: '기업컨설팅' },
+  { href: link('casebooks/'), label: '우수사례집' },
   { href: link('career-planning/'), label: '커리어플래닝' },
   { href: link('process/'), label: '진행 절차', groupStart: true },
   { href: link('approach/'), label: '지원 방식' },
@@ -17,6 +18,7 @@ const nav = [
 const mobileNav = [
   { href: link('career-support/'), label: '경력' },
   { href: link('business-consulting/'), label: '기업' },
+  { href: link('casebooks/'), label: '사례' },
   { href: link('career-planning/'), label: '개인' },
   { href: link('policy-updates/'), label: '정책' },
   { href: link('news-trends/'), label: '뉴스·동향' },
@@ -26,7 +28,7 @@ const mobileNav = [
 ];
 const normalizePath = (path) => path.replace(/\/+$/, '') || '/';
 const currentPath = normalizePath(Astro.url.pathname);
-const isCurrent = (href) => normalizePath(new URL(href, Astro.url).pathname) === currentPath;
+const isCurrent = (href) => normalizePath(new URL(href, Astro.url).pathname) === currentPath || (href === link('casebooks/') && currentPath.startsWith('/casebooks/'));
 ---
 <header class="site-header">
   <a class="brand" href={base} aria-label="재취업지원서비스 시행지원 홈">
@@ -43,3 +45,10 @@ const isCurrent = (href) => normalizePath(new URL(href, Astro.url).pathname) ===
     {mobileNav.map((item) => <a href={item.href} class={item.cta ? 'nav-cta' : undefined} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}
   </nav>
 </header>
+<style>
+  @media (max-width: 640px) {
+    .mobile-nav { grid-template-columns: repeat(20, minmax(0, 1fr)); }
+    .mobile-nav a:nth-child(-n + 4) { grid-column: span 5; }
+    .mobile-nav a:nth-child(n + 5) { grid-column: span 4; }
+  }
+</style>

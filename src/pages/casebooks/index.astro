@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import cases from '../../data/casebooks-public.json';
+import '../../styles/casebooks.css';
+const catalogue=[...cases].sort((a,b)=>b.year-a.year||a.company.localeCompare(b.company,'ko'));
+const industries=[...new Set(cases.map(c=>c.industry_group||'업종 미기재'))];
+const sizes=[...new Set(cases.map(c=>c.size_band||'규모 미기재'))];
+const years=[...new Set(cases.map(c=>c.year))].sort((a,b)=>b-a);
+const topics=[...new Set(cases.flatMap(c=>c.needs||[]))];
+---
+<BaseLayout title="우수사례집" description="업종·기업 규모·도입 과제로 재취업지원서비스 우수사례를 찾아보고 기업별 원문을 바로 확인하세요.">
+ <div class="cb-wrap">
+
+  <header class="cb-hero"><p class="cb-eyebrow">우수사례집</p><h1>우리 사업장과 비슷한<br class="cb-wide-break" /> 사례를 찾아보세요.</h1><p class="cb-lead">업종과 기업 규모, 해결하려는 과제로 사례를 좁혀보세요.<br />기업별 추진 과정과 해당 사례의 원문을 바로 확인할 수 있습니다.</p></header>
+  <form id="cb-search" class="cb-search" role="search" aria-label="우수사례 검색">
+   <h2>어떤 사례를 찾고 계신가요?</h2>
+   <div class="cb-keyword"><div><label for="cb-q">기업명 또는 관심 키워드</label><input id="cb-q" name="q" type="search" maxlength="100" placeholder="예: 기업명, FGI, 생애설계" autocomplete="off" aria-controls="cb-results" /></div><button class="cb-button" type="submit">사례 검색</button></div>
+   <div class="cb-filters">
+    <div><label for="cb-industry">업종</label><select id="cb-industry" name="industry" aria-controls="cb-results"><option value="">전체 업종</option>{industries.map(v=><option value={v}>{v}</option>)}</select></div>
+    <div><label for="cb-size">기업 규모</label><select id="cb-size" name="size" aria-controls="cb-results"><option value="">전체 규모</option>{sizes.map(v=><option value={v}>{v}</option>)}</select></div>
+    <div><label for="cb-year">사례집 연도</label><select id="cb-year" name="year" aria-controls="cb-results"><option value="">전체 연도</option>{years.map(v=><option value={String(v)}>{v}년</option>)}</select></div>
+   </div>
+   <div class="cb-topics" aria-label="도입 과제로 찾기"><span>도입 과제로 찾기</span><div class="cb-topic-buttons">{topics.slice(0,6).map(v=><button type="button" class="cb-topic" data-topic={v} aria-pressed="false" aria-controls="cb-results">{v}</button>)}</div><details class="cb-all-topics" hidden={topics.length<=6}><summary>전체 과제 선택 <span id="cb-topic-total">{topics.length}개</span></summary><div><label for="cb-topic-select">전체 도입 과제</label><select id="cb-topic-select" name="topic" aria-controls="cb-results"><option value="">전체 과제</option>{topics.map(v=><option value={v}>{v}</option>)}</select></div></details></div>
+   <div id="cb-selected" class="cb-selected" aria-label="선택한 검색 조건" hidden></div>
+   <div class="cb-search-foot"><p class="cb-search-note">기업 규모는 사례집에 기재된 시점의 근로자 수를 기준으로 구분합니다.</p><button id="cb-show-results" class="cb-result-jump" type="button">결과로 이동</button></div>
+  </form>
+  <div class="cb-results-head"><div><h2 id="cb-count" tabindex="-1" aria-live="polite" aria-atomic="true">검색 결과 {cases.length}건</h2><p id="cb-range" class="cb-range" hidden></p></div><div class="cb-result-tools"><label for="cb-sort" class="sr-only">사례 정렬</label><select id="cb-sort" name="sort" aria-label="사례 정렬"><option value="latest">최신 연도순</option><option value="company">기업명순</option></select><button type="button" class="cb-reset" id="cb-reset">조건 초기화</button></div></div>
+  <section id="cb-results" aria-labelledby="cb-count">
+   <div id="cb-case-list" class="cb-case-list">
+   {catalogue.map(c=><article id={`case-${c.id}`} class="cb-case" data-case={c.id} data-company={c.company} data-industry={c.industry_group||'업종 미기재'} data-size={c.size_band||'규모 미기재'} data-year={c.year} data-topics={JSON.stringify(c.needs||[])} data-search={[c.company,c.industry,c.industry_group,c.program_name,c.title,c.summary,...(c.needs||[]),c.search_text||''].filter(Boolean).join(' ')}>
+    <div><div class="cb-meta"><span>{c.industry_group||'업종 미기재'}</span><span>{c.size_band||'규모 미기재'}</span><span>{c.year}년</span></div><h3><a class="cb-detail-link" href={`/casebooks/${c.id}/`}>{c.company}</a></h3><p class="cb-case-title">{c.title}</p><p class="cb-case-desc">{c.summary}</p><ul class="cb-case-tags">{(c.needs||[]).map(t=><li>{t}</li>)}</ul><div class="cb-case-actions"><a class="cb-button cb-detail-link" href={`/casebooks/${c.id}/`}>사례 자세히 보기</a><a class="cb-button secondary cb-detail-link" href={`/casebooks/${c.id}/#original`}>원문 바로 읽기</a></div></div>
+    {c.images?.[0]&&<figure class="cb-thumbnail"><img src={c.images[0]} alt={`${c.company} 사례 원문 첫 쪽`} width="482" height="681" loading="lazy" /><figcaption>원문 p.{c.printed_pages}</figcaption></figure>}
+   </article>)}
+   </div>
+   <div class="cb-empty" id="cb-empty" hidden><h3>조건에 맞는 사례가 없습니다.</h3><p>키워드를 짧게 바꾸거나 위의 선택 조건을 하나씩 해제해 보세요.</p><button type="button" class="cb-button secondary" id="cb-empty-reset">전체 사례 다시 보기</button></div>
+  </section>
+  <nav id="cb-pagination" class="cb-pagination" aria-label="우수사례 결과 페이지" hidden><button id="cb-page-prev" type="button" class="cb-button secondary">이전</button><label class="sr-only" for="cb-result-page">결과 페이지 선택</label><select id="cb-result-page" aria-label="결과 페이지 선택"></select><button id="cb-page-next" type="button" class="cb-button secondary">다음</button></nav>
+  <p class="cb-source-note">출처: 노사발전재단 우수사례집. 원문에 근거한 사례를 소개하며, 케이잡스의 자체 수행실적을 의미하지 않습니다.</p>
+  <noscript><p class="cb-source-note">검색·정렬·페이지 이동은 자바스크립트 사용 시 이용할 수 있습니다. 위 기업명과 원문 링크로 모든 사례를 확인할 수 있습니다.</p></noscript>
+ </div>
+ <script>import '../../scripts/casebook-search';</script>
+</BaseLayout>
