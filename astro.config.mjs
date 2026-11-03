@@ -1,6 +1,11 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { publishedNews } from './src/data/news.js';
+import { readFileSync } from 'node:fs';
+
+const casebooks = JSON.parse(readFileSync(new URL('./src/data/casebooks-public.json', import.meta.url), 'utf8'));
+// Website publication date, distinct from the source books' publication years.
+const casebookPublishedAt = '2026-11-04';
 
 // Update only when the page's searchable content changes, not for visual-only edits.
 const contentLastModified = {
@@ -10,6 +15,8 @@ const contentLastModified = {
   '/business-consulting-guide/': '2026-08-27',
   '/career-planning/': '2026-11-02',
   '/career-support/': '2026-11-02',
+  '/casebooks/': casebookPublishedAt,
+  ...Object.fromEntries(casebooks.map(item => [`/casebooks/${item.id}/`, casebookPublishedAt])),
   '/contact/': '2026-07-30',
   '/employment-support/': '2026-11-02',
   '/faq/': '2026-11-02',
