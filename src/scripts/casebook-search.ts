@@ -1,6 +1,9 @@
+import usecases from '../data/casebook-usecases.json';
+const contextLabels=usecases as Record<string,string>;
 const form=document.querySelector<HTMLFormElement>('#cb-search');
 if(form){
  const q=document.querySelector<HTMLInputElement>('#cb-q')!;
+ const context=document.querySelector<HTMLInputElement>('#cb-context')!;
  const industry=document.querySelector<HTMLSelectElement>('#cb-industry')!;
  const size=document.querySelector<HTMLSelectElement>('#cb-size')!;
  const year=document.querySelector<HTMLSelectElement>('#cb-year')!;
@@ -17,7 +20,7 @@ if(form){
  const topicButtons=[...document.querySelectorAll<HTMLButtonElement>('[data-topic]')];
  const normalize=(value:string)=>value.normalize('NFKC').toLocaleLowerCase('ko').replace(/\s+/g,'');
  const collator=new Intl.Collator('ko',{numeric:true});
- const pool=[...list.querySelectorAll<HTMLElement>('[data-case]')].map((node,position)=>({node,position,id:node.dataset.case||'',company:node.dataset.company||'',year:Number(node.dataset.year)||0,industry:node.dataset.industry||'',size:node.dataset.size||'',topics:JSON.parse(node.dataset.topics||'[]') as string[],text:normalize(node.dataset.search||'')}));
+ const pool=[...list.querySelectorAll<HTMLElement>('[data-case]')].map((node,position)=>({node,position,id:node.dataset.case||'',company:node.dataset.company||'',year:Number(node.dataset.year)||0,industry:node.dataset.industry||'',size:node.dataset.size||'',topics:JSON.parse(node.dataset.topics||'[]') as string[],groups:JSON.parse(node.dataset.groups||'[]') as string[],text:normalize(node.dataset.search||'')}));
  const pageSize=10;
  let currentPage=1;
  let resultPages=1;
@@ -27,7 +30,7 @@ if(form){
  document.querySelector('#cb-topic-total')!.textContent=`${topic.options.length-1}개`;
  function params(){
   const result=new URLSearchParams();
-  for(const field of [q,industry,size,year,topic])if(field.value.trim())result.set(field.name,field.value.trim());
+  for(const field of [q,industry,size,year,topic,context])if(field.value.trim())result.set(field.name,field.value.trim());
   if(sort.value!=='latest')result.set('sort',sort.value);
   if(currentPage>1)result.set('page',String(currentPage));
   return result;
@@ -40,11 +43,11 @@ if(form){
  }
  function selectedConditions(){
   selected.replaceChildren();
-  const definitions:[[HTMLInputElement|HTMLSelectElement,string],...Array<[HTMLInputElement|HTMLSelectElement,string]>]=[[q,'키워드'],[industry,'업종'],[size,'규모'],[year,'연도'],[topic,'과제']];
+  const definitions:[[HTMLInputElement|HTMLSelectElement,string],...Array<[HTMLInputElement|HTMLSelectElement,string]>]=[[q,'키워드'],[industry,'업종'],[size,'규모'],[year,'연도'],[topic,'과제'],[context,'활용 과제']];
   for(const [field,label] of definitions){
    if(!field.value.trim())continue;
    const chip=document.createElement('button');chip.type='button';chip.className='cb-condition';
-   const value=field instanceof HTMLSelectElement?field.selectedOptions[0].textContent:field.value.trim();
+   const value=field===context?contextLabels[field.value]:(field instanceof HTMLSelectElement?field.selectedOptions[0].textContent:field.value.trim());
    chip.textContent=`${label}: ${value} ×`;chip.setAttribute('aria-label',`${label} 조건 해제: ${value}`);
    chip.addEventListener('click',()=>{field.value='';currentPage=1;render();(field.getClientRects().length?field:q).focus({preventScroll:true});});
    selected.append(chip);
@@ -53,7 +56,7 @@ if(form){
  }
  function render(updateUrl=true){
   const terms=q.value.trim().split(/\s+/).filter(Boolean).map(normalize);
-  const matches=pool.filter(c=>terms.every(term=>c.text.includes(term))&&(!industry.value||c.industry===industry.value)&&(!size.value||c.size===size.value)&&(!year.value||String(c.year)===year.value)&&(!topic.value||c.topics.includes(topic.value)));
+  const matches=pool.filter(c=>terms.every(term=>c.text.includes(term))&&(!industry.value||c.industry===industry.value)&&(!size.value||c.size===size.value)&&(!year.value||String(c.year)===year.value)&&(!topic.value||c.topics.includes(topic.value))&&(!context.value||c.groups.includes(context.value)));
   matches.sort((a,b)=>sort.value==='company'?collator.compare(a.company,b.company)||b.year-a.year||a.position-b.position:b.year-a.year||collator.compare(a.company,b.company)||a.position-b.position);
   resultPages=Math.max(1,Math.ceil(matches.length/pageSize));currentPage=Math.min(resultPages,Math.max(1,currentPage));
   const start=(currentPage-1)*pageSize;const shown=matches.slice(start,start+pageSize);
@@ -75,11 +78,16 @@ if(form){
     const hash=new URL(link.href,location.origin).hash;
     link.href=`/casebooks/${encodeURIComponent(c.id)}/?from=${encodeURIComponent(returnPath)}${hash}`;
    }
+   for(const link of c.node.querySelectorAll<HTMLAnchorElement>('.cb-card-peer-link')){
+    const peerId=link.dataset.peerId;
+    if(peerId)link.href=`/casebooks/${encodeURIComponent(peerId)}/?from=${encodeURIComponent(returnPath)}#application`;
+   }
   }
   if(updateUrl)history.replaceState(null,'',location.pathname+(state.size?'?'+state.toString():''));
  }
  function restore(){
   const state=new URLSearchParams(location.search);q.value=(state.get('q')||'').slice(0,100);
+  const requestedContext=state.get('context')||'';context.value=Object.hasOwn(contextLabels,requestedContext)?requestedContext:'';
   for(const field of [industry,size,year,topic,sort]){
    const value=state.get(field.name)||(field===sort?'latest':'');
    field.value=[...field.options].some(o=>o.value===value)?value:(field===sort?'latest':'');
@@ -89,7 +97,7 @@ if(form){
   const focused=pool.find(c=>c.id===state.get('focus'));
   if(focused&&list.contains(focused.node))requestAnimationFrame(()=>focusResults(focused.node.querySelector<HTMLAnchorElement>('h3 a')!));
  }
- function reset(){form!.reset();sort.value='latest';currentPage=1;topicDetails.open=false;render();focusResults(q,form!);}
+ function reset(){form!.reset();context.value='';sort.value='latest';currentPage=1;topicDetails.open=false;render();focusResults(q,form!);}
  function change(){currentPage=1;render();}
  q.addEventListener('input',event=>{if(!(event as InputEvent).isComposing)change();});
  q.addEventListener('compositionend',change);

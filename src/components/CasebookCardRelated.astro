@@ -1,0 +1,8 @@
+---
+import related from '../data/casebooks-related.json';
+import cases from '../data/casebooks-public.json';
+type Peer={case_id:string;shared_tags:string[];reason:string;difference:string};
+const {caseId}=Astro.props;
+const peers=((related as Record<string,Peer[]>)[caseId]||[]).map(peer=>({...peer,company:cases.find(c=>c.id===peer.case_id)})).filter(peer=>peer.company);
+---
+{peers.length>0&&<nav class="cb-card-peers" aria-label="함께 참고할 기업 사례"><span class="cb-card-peers-label">함께 참고할 사례</span><div class="cb-card-peer-links">{peers.map(peer=><a class="cb-card-peer-link" data-peer-id={peer.case_id} href={`/casebooks/${peer.case_id}/#application`}>{peer.company!.company}<span aria-hidden="true">→</span></a>)}</div></nav>}
