@@ -5,7 +5,7 @@ const nav = [
   { href: link(''), label: '홈' },
   { href: link('career-support/'), label: '경력지원' },
   { href: link('business-consulting/'), label: '기업컨설팅' },
-  { href: link('casebooks/'), label: '우수사례집' },
+  { href: link('casebooks/'), label: '우수사례집', subtitle: '기업컨설팅' },
   { href: link('career-planning/'), label: '커리어플래닝' },
   { href: link('process/'), label: '진행 절차', groupStart: true },
   { href: link('approach/'), label: '지원 방식' },
@@ -39,13 +39,26 @@ const isCurrent = (href) => normalizePath(new URL(href, Astro.url).pathname) ===
     </span>
   </a>
   <nav class="nav desktop-nav" aria-label="주요 메뉴">
-    {nav.map((item) => <a href={item.href} class:list={[item.cta && 'nav-cta', item.groupStart && 'nav-group-start']} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}
+    {nav.map((item) => <a href={item.href} class:list={[item.cta && 'nav-cta', item.groupStart && 'nav-group-start', item.subtitle && 'nav-with-subtitle']} aria-current={isCurrent(item.href) ? 'page' : undefined} aria-label={item.subtitle ? `${item.label} ${item.subtitle}` : undefined}>{item.subtitle ? <><span class="nav-main-label">{item.label}</span><span class="nav-subtitle">{item.subtitle}</span></> : item.label}</a>)}
   </nav>
   <nav class="nav mobile-nav" aria-label="모바일 주요 메뉴">
     {mobileNav.map((item) => <a href={item.href} class={item.cta ? 'nav-cta' : undefined} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}
   </nav>
 </header>
 <style>
+  .desktop-nav .nav-with-subtitle { position: relative; }
+  .nav-subtitle {
+    position: absolute;
+    top: calc(50% + 9px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9.5px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #5a5f68;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
   @media (max-width: 640px) {
     .mobile-nav { grid-template-columns: repeat(20, minmax(0, 1fr)); }
     .mobile-nav a:nth-child(-n + 4) { grid-column: span 5; }
