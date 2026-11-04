@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CasebookCardRelated from '../../components/CasebookCardRelated.astro';
+import CasebookCompanyDirectory from '../../components/CasebookCompanyDirectory.astro';
 import cases from '../../data/casebooks-public.json';
 import commentary from '../../data/casebooks-commentary.json';
 import usecases from '../../data/casebook-usecases.json';
@@ -31,6 +32,7 @@ const commentarySearch=(id:string)=>{const entry=analysisById.get(id);return ent
    <div id="cb-selected" class="cb-selected" aria-label="선택한 검색 조건" hidden></div>
    <div class="cb-search-foot"><p class="cb-search-note">기업 규모는 사례집에 기재된 시점의 근로자 수를 기준으로 구분합니다.</p><button id="cb-show-results" class="cb-result-jump" type="button">결과로 이동</button></div>
   </form>
+  <CasebookCompanyDirectory />
   <div class="cb-results-head"><div><h2 id="cb-count" tabindex="-1" aria-live="polite" aria-atomic="true">검색 결과 {cases.length}건</h2><p id="cb-range" class="cb-range" hidden></p></div><div class="cb-result-tools"><label for="cb-sort" class="sr-only">사례 정렬</label><select id="cb-sort" name="sort" aria-label="사례 정렬"><option value="latest">최신 연도순</option><option value="company">기업명순</option></select><button type="button" class="cb-reset" id="cb-reset">조건 초기화</button></div></div>
   <section id="cb-results" aria-labelledby="cb-count">
    <div id="cb-case-list" class="cb-case-list">

@@ -1,0 +1,16 @@
+---
+import cases from '../data/casebooks-public.json';
+const sortKey=(name:string)=>name.normalize('NFKC').replace(/^\s*(?:\(주\)|주식회사)\s*|\s*(?:\(주\)|주식회사)\s*$/g,'').trim();
+const collator=new Intl.Collator('ko',{numeric:true});
+const companies=[...cases].sort((a,b)=>collator.compare(sortKey(a.company),sortKey(b.company))||b.year-a.year||a.id.localeCompare(b.id));
+---
+<section class="cb-directory" aria-labelledby="cb-directory-title">
+ <details id="cb-directory" open>
+  <summary><h2 id="cb-directory-title"><span>수록 기업·기관 한눈에 보기</span><span class="cb-directory-count">{companies.length}곳</span><span class="cb-directory-toggle" aria-hidden="true"><span class="cb-directory-open-label">접기 −</span><span class="cb-directory-closed-label">전체 기업명 보기 +</span></span></h2></summary>
+  <p class="cb-directory-note">기업명을 누르면 해당 사례의 활용 해설로 이동합니다. 가나다순으로 정렬했습니다.</p>
+  <ul class="cb-directory-list" aria-label="가나다순 전체 기업·기관 목록">
+   {companies.map(c=><li><a id={`directory-${c.id}`} data-cb-directory-id={c.id} href={`/casebooks/${c.id}/?from=${encodeURIComponent('/casebooks/?directory='+c.id)}#application`}>{c.company}</a></li>)}
+  </ul>
+ </details>
+</section>
+<script>import '../scripts/casebook-directory';</script>
