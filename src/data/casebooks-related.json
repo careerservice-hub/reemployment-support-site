@@ -1,0 +1,1026 @@
+{
+  "nosa-2025-naver": [],
+  "nosa-2025-org-47c4876d4909": [
+    {
+      "case_id": "nosa-2025-org-686edc851eb1",
+      "shared_tags": [
+        "distributed",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 분산사업장 · 현장·교대근무",
+      "difference": "사례 당시 규모는 300–999인입니다."
+    },
+    {
+      "case_id": "nosa-2022-org-84950a623c85",
+      "shared_tags": [
+        "distributed",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 분산사업장 · 현장·교대근무",
+      "difference": "업종은 전문·사업서비스입니다. 2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2025-org-1a7a4f8ff548": [
+    {
+      "case_id": "nosa-2021-org-42c62a880f76",
+      "shared_tags": [
+        "continuity",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 현장·교대근무",
+      "difference": "업종은 전문·사업서비스입니다. 2021년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2023-org-3175053f7b22",
+      "shared_tags": [
+        "shift-field",
+        "internal"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 내부 운영체계",
+      "difference": "업종은 전문·사업서비스입니다. 2023년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2025-org-669150e1ed1e": [],
+  "nosa-2025-org-686edc851eb1": [
+    {
+      "case_id": "nosa-2025-org-47c4876d4909",
+      "shared_tags": [
+        "distributed",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 분산사업장 · 현장·교대근무",
+      "difference": "사례 당시 규모는 1,000인 이상입니다."
+    },
+    {
+      "case_id": "nosa-2022-org-84950a623c85",
+      "shared_tags": [
+        "distributed",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 분산사업장 · 현장·교대근무",
+      "difference": "업종은 전문·사업서비스입니다. 사례 당시 규모는 1,000인 이상입니다."
+    }
+  ],
+  "nosa-2025-org-c7f0e02c1941": [
+    {
+      "case_id": "nosa-2025-org-8faf9c7eb00b",
+      "shared_tags": [
+        "shift-field",
+        "individual"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 개인별 상담",
+      "difference": "업종은 제조업입니다."
+    },
+    {
+      "case_id": "nosa-2023-org-08e26d292949",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "업종은 전문·사업서비스입니다. 2023년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2025-org-9fd19dadaf57": [
+    {
+      "case_id": "nosa-2022-org-93ae13ec6da7",
+      "shared_tags": [
+        "individual",
+        "job-action"
+      ],
+      "reason": "공통 과제: 개인별 상담 · 취업·창업 실행",
+      "difference": "업종은 공공·행정입니다. 사례 당시 규모는 1,000인 이상입니다."
+    }
+  ],
+  "nosa-2025-org-90063171bc08": [
+    {
+      "case_id": "nosa-2022-org-5f9e9c8ce43a",
+      "shared_tags": [
+        "distributed",
+        "pilot"
+      ],
+      "reason": "공통 과제: 분산사업장 · 파일럿·평가개선",
+      "difference": "업종은 건설·기술입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-84950a623c85",
+      "shared_tags": [
+        "distributed",
+        "pilot"
+      ],
+      "reason": "공통 과제: 분산사업장 · 파일럿·평가개선",
+      "difference": "업종은 전문·사업서비스입니다. 사례 당시 규모는 1,000인 이상입니다."
+    }
+  ],
+  "nosa-2025-org-8faf9c7eb00b": [
+    {
+      "case_id": "nosa-2025-org-c7f0e02c1941",
+      "shared_tags": [
+        "shift-field",
+        "individual"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 개인별 상담",
+      "difference": "업종은 도소매·유통입니다."
+    },
+    {
+      "case_id": "nosa-2023-org-b37ccb99e8b9",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "2023년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2021-org-66de915bd19d": [],
+  "nosa-2021-org-579c18453dcd": [
+    {
+      "case_id": "nosa-2022-org-692f2d88d3c3",
+      "shared_tags": [
+        "age-stage",
+        "pilot"
+      ],
+      "reason": "공통 과제: 경력단계별 운영 · 파일럿·평가개선",
+      "difference": "업종은 보건·복지입니다. 2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2021-org-53e6fecf30b5": [
+    {
+      "case_id": "nosa-2022-org-bee23158ff04",
+      "shared_tags": [
+        "individual",
+        "pilot"
+      ],
+      "reason": "공통 과제: 개인별 상담 · 파일럿·평가개선",
+      "difference": "업종은 금융·보험입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2025-org-90063171bc08",
+      "shared_tags": [
+        "pilot",
+        "internal"
+      ],
+      "reason": "공통 과제: 파일럿·평가개선 · 내부 운영체계",
+      "difference": "업종은 도소매·유통입니다. 2025년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2021-org-30407889ba3d": [
+    {
+      "case_id": "nosa-2022-org-2ee3355aa1f4",
+      "shared_tags": [
+        "shift-field",
+        "pilot"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 파일럿·평가개선",
+      "difference": "업종은 전문·사업서비스입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-84950a623c85",
+      "shared_tags": [
+        "shift-field",
+        "pilot"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 파일럿·평가개선",
+      "difference": "업종은 전문·사업서비스입니다. 2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2021-org-fa4d362fccb4": [
+    {
+      "case_id": "nosa-2022-org-2ee3355aa1f4",
+      "shared_tags": [
+        "pilot",
+        "internal"
+      ],
+      "reason": "공통 과제: 파일럿·평가개선 · 내부 운영체계",
+      "difference": "2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2025-org-90063171bc08",
+      "shared_tags": [
+        "pilot",
+        "internal"
+      ],
+      "reason": "공통 과제: 파일럿·평가개선 · 내부 운영체계",
+      "difference": "업종은 도소매·유통입니다. 2025년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2021-org-42c62a880f76": [
+    {
+      "case_id": "nosa-2025-org-1a7a4f8ff548",
+      "shared_tags": [
+        "continuity",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 현장·교대근무",
+      "difference": "업종은 공공·시설운영입니다. 2025년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-2ee3355aa1f4",
+      "shared_tags": [
+        "shift-field",
+        "internal"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 내부 운영체계",
+      "difference": "2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2021-org-8c7b4084da21": [],
+  "nosa-2021-org-affbe088d10f": [
+    {
+      "case_id": "nosa-2022-org-692f2d88d3c3",
+      "shared_tags": [
+        "continuity",
+        "pilot"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 파일럿·평가개선",
+      "difference": "업종은 보건·복지입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-bee23158ff04",
+      "shared_tags": [
+        "continuity",
+        "pilot"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 파일럿·평가개선",
+      "difference": "업종은 금융·보험입니다. 2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2021-org-c87f7bfc26dd": [
+    {
+      "case_id": "nosa-2023-org-605b0e6a5a66",
+      "shared_tags": [
+        "continuity",
+        "pilot"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 파일럿·평가개선",
+      "difference": "2023년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-692f2d88d3c3",
+      "shared_tags": [
+        "continuity",
+        "pilot"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 파일럿·평가개선",
+      "difference": "업종은 보건·복지입니다. 2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2021-org-0d8478403c56": [
+    {
+      "case_id": "nosa-2022-org-bf000439dbe8",
+      "shared_tags": [
+        "continuity",
+        "internal"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 내부 운영체계",
+      "difference": "업종은 운수·물류입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-c7d85004d80f",
+      "shared_tags": [
+        "continuity",
+        "internal"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 내부 운영체계",
+      "difference": "업종은 교육·연구입니다. 2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2021-org-22aff51f9ff3": [
+    {
+      "case_id": "nosa-2022-org-f19c6153841d",
+      "shared_tags": [
+        "continuity",
+        "age-stage"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 경력단계별 운영",
+      "difference": "업종은 에너지·환경입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-6d35887f9c4c",
+      "shared_tags": [
+        "continuity",
+        "individual"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 개인별 상담",
+      "difference": "2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2021-org-1e987e1c0a3a": [],
+  "nosa-2021-org-4f3dad38aa58": [
+    {
+      "case_id": "nosa-2022-org-93ae13ec6da7",
+      "shared_tags": [
+        "distributed",
+        "individual"
+      ],
+      "reason": "공통 과제: 분산사업장 · 개인별 상담",
+      "difference": "업종은 공공·행정입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2023-org-3a9a883bc5ab",
+      "shared_tags": [
+        "distributed",
+        "needs-led"
+      ],
+      "reason": "공통 과제: 분산사업장 · 요구조사·맞춤설계",
+      "difference": "2023년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2021-org-464c82c0eccd": [
+    {
+      "case_id": "nosa-2022-org-c7d85004d80f",
+      "shared_tags": [
+        "continuity",
+        "job-action"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 취업·창업 실행",
+      "difference": "업종은 교육·연구입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2023-org-605b0e6a5a66",
+      "shared_tags": [
+        "continuity",
+        "needs-led"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 요구조사·맞춤설계",
+      "difference": "2023년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2023-org-620cadfe9779": [],
+  "nosa-2023-org-891b7f32557b": [
+    {
+      "case_id": "nosa-2025-org-47c4876d4909",
+      "shared_tags": [
+        "distributed",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 분산사업장 · 현장·교대근무",
+      "difference": "업종은 운수·물류입니다. 2025년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-84950a623c85",
+      "shared_tags": [
+        "distributed",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 분산사업장 · 현장·교대근무",
+      "difference": "업종은 전문·사업서비스입니다. 2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2023-org-08e26d292949": [
+    {
+      "case_id": "nosa-2022-org-dc809a959d20",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "업종은 공공·행정입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2023-org-3175053f7b22",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "사례 당시 규모는 300–999인입니다."
+    }
+  ],
+  "nosa-2023-org-5031b6af39b7": [
+    {
+      "case_id": "nosa-2023-org-3175053f7b22",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "참여 대상의 직무와 기존 제도 등 세부 운영 조건을 비교해 적용하세요."
+    },
+    {
+      "case_id": "nosa-2023-org-380a2c457f83",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "참여 대상의 직무와 기존 제도 등 세부 운영 조건을 비교해 적용하세요."
+    }
+  ],
+  "nosa-2023-org-95a16ecf47ea": [
+    {
+      "case_id": "nosa-2022-org-93ae13ec6da7",
+      "shared_tags": [
+        "individual",
+        "institutional"
+      ],
+      "reason": "공통 과제: 개인별 상담 · 규정·지속운영",
+      "difference": "업종은 공공·행정입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2025-org-8faf9c7eb00b",
+      "shared_tags": [
+        "individual",
+        "participation"
+      ],
+      "reason": "공통 과제: 개인별 상담 · 참여안내·신뢰",
+      "difference": "업종은 제조업입니다. 2025년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2023-org-1ab36629f91d": [
+    {
+      "case_id": "nosa-2023-org-f55ac0aab320",
+      "shared_tags": [
+        "continuity",
+        "pilot"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 파일럿·평가개선",
+      "difference": "업종은 전문·사업서비스입니다."
+    },
+    {
+      "case_id": "nosa-2022-org-692f2d88d3c3",
+      "shared_tags": [
+        "continuity",
+        "pilot"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 파일럿·평가개선",
+      "difference": "2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2023-org-f55ac0aab320": [
+    {
+      "case_id": "nosa-2023-org-1ab36629f91d",
+      "shared_tags": [
+        "continuity",
+        "pilot"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 파일럿·평가개선",
+      "difference": "업종은 보건·복지입니다."
+    },
+    {
+      "case_id": "nosa-2022-org-692f2d88d3c3",
+      "shared_tags": [
+        "continuity",
+        "pilot"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 파일럿·평가개선",
+      "difference": "업종은 보건·복지입니다. 2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2023-org-d2909d3fcd6d": [
+    {
+      "case_id": "nosa-2022-org-84950a623c85",
+      "shared_tags": [
+        "distributed",
+        "needs-led"
+      ],
+      "reason": "공통 과제: 분산사업장 · 요구조사·맞춤설계",
+      "difference": "2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2023-org-3a9a883bc5ab",
+      "shared_tags": [
+        "distributed",
+        "needs-led"
+      ],
+      "reason": "공통 과제: 분산사업장 · 요구조사·맞춤설계",
+      "difference": "사례 당시 규모는 300–999인입니다."
+    }
+  ],
+  "nosa-2023-org-010241c8a4dd": [],
+  "nosa-2023-org-e178b3cfd254": [
+    {
+      "case_id": "nosa-2022-org-614025d49f06",
+      "shared_tags": [
+        "continuity",
+        "external"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 외부 전문기관 활용",
+      "difference": "업종은 제조업입니다. 사례 당시 규모는 1,000인 이상입니다."
+    },
+    {
+      "case_id": "nosa-2022-org-e668c6eea45a",
+      "shared_tags": [
+        "continuity",
+        "external"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 외부 전문기관 활용",
+      "difference": "업종은 보건·복지입니다. 사례 당시 규모는 1,000인 이상입니다."
+    }
+  ],
+  "nosa-2023-org-7c34ce4d158b": [],
+  "nosa-2023-org-3a9a883bc5ab": [
+    {
+      "case_id": "nosa-2022-org-5f9e9c8ce43a",
+      "shared_tags": [
+        "distributed",
+        "participation"
+      ],
+      "reason": "공통 과제: 분산사업장 · 참여안내·신뢰",
+      "difference": "업종은 건설·기술입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-dc809a959d20",
+      "shared_tags": [
+        "distributed",
+        "participation"
+      ],
+      "reason": "공통 과제: 분산사업장 · 참여안내·신뢰",
+      "difference": "업종은 공공·행정입니다. 사례 당시 규모는 1,000인 이상입니다."
+    }
+  ],
+  "nosa-2023-org-380a2c457f83": [
+    {
+      "case_id": "nosa-2023-org-3175053f7b22",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "참여 대상의 직무와 기존 제도 등 세부 운영 조건을 비교해 적용하세요."
+    },
+    {
+      "case_id": "nosa-2023-org-5031b6af39b7",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "참여 대상의 직무와 기존 제도 등 세부 운영 조건을 비교해 적용하세요."
+    }
+  ],
+  "nosa-2023-org-f63b121efc30": [],
+  "nosa-2023-org-9ca21eb368ae": [
+    {
+      "case_id": "nosa-2022-org-5f9e9c8ce43a",
+      "shared_tags": [
+        "pilot",
+        "participation"
+      ],
+      "reason": "공통 과제: 파일럿·평가개선 · 참여안내·신뢰",
+      "difference": "업종은 건설·기술입니다. 2022년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2023-org-605b0e6a5a66",
+      "shared_tags": [
+        "pilot",
+        "participation"
+      ],
+      "reason": "공통 과제: 파일럿·평가개선 · 참여안내·신뢰",
+      "difference": "업종은 제조업입니다."
+    }
+  ],
+  "nosa-2023-org-b37ccb99e8b9": [
+    {
+      "case_id": "nosa-2025-org-8faf9c7eb00b",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "2025년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2025-org-c7f0e02c1941",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "업종은 도소매·유통입니다. 2025년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2023-org-3175053f7b22": [
+    {
+      "case_id": "nosa-2023-org-380a2c457f83",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "참여 대상의 직무와 기존 제도 등 세부 운영 조건을 비교해 적용하세요."
+    },
+    {
+      "case_id": "nosa-2023-org-5031b6af39b7",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "참여 대상의 직무와 기존 제도 등 세부 운영 조건을 비교해 적용하세요."
+    }
+  ],
+  "nosa-2023-org-df93e8cb5efa": [
+    {
+      "case_id": "nosa-2023-org-3175053f7b22",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "참여 대상의 직무와 기존 제도 등 세부 운영 조건을 비교해 적용하세요."
+    },
+    {
+      "case_id": "nosa-2023-org-380a2c457f83",
+      "shared_tags": [
+        "shift-field",
+        "participation"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 참여안내·신뢰",
+      "difference": "참여 대상의 직무와 기존 제도 등 세부 운영 조건을 비교해 적용하세요."
+    }
+  ],
+  "nosa-2023-org-605b0e6a5a66": [
+    {
+      "case_id": "nosa-2021-org-c87f7bfc26dd",
+      "shared_tags": [
+        "continuity",
+        "pilot"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 파일럿·평가개선",
+      "difference": "2021년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-692f2d88d3c3",
+      "shared_tags": [
+        "continuity",
+        "pilot"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 파일럿·평가개선",
+      "difference": "업종은 보건·복지입니다. 2022년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2023-org-34003f7bf4e6": [
+    {
+      "case_id": "nosa-2023-org-95a16ecf47ea",
+      "shared_tags": [
+        "institutional",
+        "participation"
+      ],
+      "reason": "공통 과제: 규정·지속운영 · 참여안내·신뢰",
+      "difference": "업종은 전문·사업서비스입니다. 사례 당시 규모는 1,000인 이상입니다."
+    }
+  ],
+  "nosa-2022-org-2ee3355aa1f4": [
+    {
+      "case_id": "nosa-2022-org-84950a623c85",
+      "shared_tags": [
+        "shift-field",
+        "pilot"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 파일럿·평가개선",
+      "difference": "참여 대상의 직무와 기존 제도 등 세부 운영 조건을 비교해 적용하세요."
+    },
+    {
+      "case_id": "nosa-2021-org-30407889ba3d",
+      "shared_tags": [
+        "shift-field",
+        "pilot"
+      ],
+      "reason": "공통 과제: 현장·교대근무 · 파일럿·평가개선",
+      "difference": "업종은 교육·연구입니다. 2021년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2022-org-5f9e9c8ce43a": [
+    {
+      "case_id": "nosa-2025-org-90063171bc08",
+      "shared_tags": [
+        "distributed",
+        "pilot"
+      ],
+      "reason": "공통 과제: 분산사업장 · 파일럿·평가개선",
+      "difference": "업종은 도소매·유통입니다. 2025년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-84950a623c85",
+      "shared_tags": [
+        "distributed",
+        "pilot"
+      ],
+      "reason": "공통 과제: 분산사업장 · 파일럿·평가개선",
+      "difference": "업종은 전문·사업서비스입니다. 사례 당시 규모는 1,000인 이상입니다."
+    }
+  ],
+  "nosa-2022-org-e668c6eea45a": [
+    {
+      "case_id": "nosa-2022-org-614025d49f06",
+      "shared_tags": [
+        "continuity",
+        "external"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 외부 전문기관 활용",
+      "difference": "업종은 제조업입니다."
+    },
+    {
+      "case_id": "nosa-2022-org-fd181b9350dc",
+      "shared_tags": [
+        "continuity",
+        "external"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 외부 전문기관 활용",
+      "difference": "업종은 제조업입니다."
+    }
+  ],
+  "nosa-2022-org-93ae13ec6da7": [
+    {
+      "case_id": "nosa-2021-org-4f3dad38aa58",
+      "shared_tags": [
+        "distributed",
+        "individual"
+      ],
+      "reason": "공통 과제: 분산사업장 · 개인별 상담",
+      "difference": "업종은 전문·사업서비스입니다. 2021년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2023-org-95a16ecf47ea",
+      "shared_tags": [
+        "individual",
+        "institutional"
+      ],
+      "reason": "공통 과제: 개인별 상담 · 규정·지속운영",
+      "difference": "업종은 전문·사업서비스입니다. 2023년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2022-org-fd181b9350dc": [
+    {
+      "case_id": "nosa-2022-org-bee23158ff04",
+      "shared_tags": [
+        "continuity",
+        "individual"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 개인별 상담",
+      "difference": "업종은 금융·보험입니다."
+    },
+    {
+      "case_id": "nosa-2022-org-6d35887f9c4c",
+      "shared_tags": [
+        "continuity",
+        "individual"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 개인별 상담",
+      "difference": "업종은 공공·행정입니다. 사례 당시 규모는 원문구간: 900인 미만입니다."
+    }
+  ],
+  "nosa-2022-org-84950a623c85": [
+    {
+      "case_id": "nosa-2025-org-47c4876d4909",
+      "shared_tags": [
+        "distributed",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 분산사업장 · 현장·교대근무",
+      "difference": "업종은 운수·물류입니다. 2025년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-dc809a959d20",
+      "shared_tags": [
+        "distributed",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 분산사업장 · 현장·교대근무",
+      "difference": "업종은 공공·행정입니다."
+    }
+  ],
+  "nosa-2022-org-c7d85004d80f": [
+    {
+      "case_id": "nosa-2021-org-464c82c0eccd",
+      "shared_tags": [
+        "continuity",
+        "job-action"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 취업·창업 실행",
+      "difference": "업종은 제조업입니다. 2021년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-bf000439dbe8",
+      "shared_tags": [
+        "continuity",
+        "internal"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 내부 운영체계",
+      "difference": "업종은 운수·물류입니다. 사례 당시 규모는 1,000인 이상입니다."
+    }
+  ],
+  "nosa-2022-org-bf000439dbe8": [
+    {
+      "case_id": "nosa-2022-org-c7d85004d80f",
+      "shared_tags": [
+        "continuity",
+        "internal"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 내부 운영체계",
+      "difference": "업종은 교육·연구입니다. 사례 당시 규모는 원문구간: 900인 미만입니다."
+    },
+    {
+      "case_id": "nosa-2021-org-0d8478403c56",
+      "shared_tags": [
+        "continuity",
+        "internal"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 내부 운영체계",
+      "difference": "업종은 제조업입니다. 2021년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2022-org-f6bce6dce8ea": [
+    {
+      "case_id": "nosa-2022-org-dc809a959d20",
+      "shared_tags": [
+        "distributed",
+        "participation"
+      ],
+      "reason": "공통 과제: 분산사업장 · 참여안내·신뢰",
+      "difference": "업종은 공공·행정입니다."
+    },
+    {
+      "case_id": "nosa-2023-org-3a9a883bc5ab",
+      "shared_tags": [
+        "distributed",
+        "participation"
+      ],
+      "reason": "공통 과제: 분산사업장 · 참여안내·신뢰",
+      "difference": "업종은 전문·사업서비스입니다. 사례 당시 규모는 300–999인입니다."
+    }
+  ],
+  "nosa-2022-org-7dc4445b7e47": [
+    {
+      "case_id": "nosa-2023-org-1ab36629f91d",
+      "shared_tags": [
+        "pilot",
+        "external"
+      ],
+      "reason": "공통 과제: 파일럿·평가개선 · 외부 전문기관 활용",
+      "difference": "2023년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2023-org-f55ac0aab320",
+      "shared_tags": [
+        "pilot",
+        "external"
+      ],
+      "reason": "공통 과제: 파일럿·평가개선 · 외부 전문기관 활용",
+      "difference": "업종은 전문·사업서비스입니다. 2023년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2022-org-6d35887f9c4c": [
+    {
+      "case_id": "nosa-2022-org-7d51de4a4ee7",
+      "shared_tags": [
+        "continuity",
+        "mixed"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 교육·개별지원 연계",
+      "difference": "사례 당시 규모는 1,000인 이상입니다."
+    },
+    {
+      "case_id": "nosa-2021-org-22aff51f9ff3",
+      "shared_tags": [
+        "continuity",
+        "individual"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 개인별 상담",
+      "difference": "2021년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2022-org-dc809a959d20": [
+    {
+      "case_id": "nosa-2025-org-47c4876d4909",
+      "shared_tags": [
+        "distributed",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 분산사업장 · 현장·교대근무",
+      "difference": "업종은 운수·물류입니다. 2025년 사례로 운영 시점이 다릅니다."
+    },
+    {
+      "case_id": "nosa-2022-org-84950a623c85",
+      "shared_tags": [
+        "distributed",
+        "shift-field"
+      ],
+      "reason": "공통 과제: 분산사업장 · 현장·교대근무",
+      "difference": "업종은 전문·사업서비스입니다."
+    }
+  ],
+  "nosa-2022-org-db7662221961": [],
+  "nosa-2022-org-614025d49f06": [
+    {
+      "case_id": "nosa-2022-org-692f2d88d3c3",
+      "shared_tags": [
+        "continuity",
+        "age-stage"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 경력단계별 운영",
+      "difference": "업종은 보건·복지입니다."
+    },
+    {
+      "case_id": "nosa-2022-org-7d51de4a4ee7",
+      "shared_tags": [
+        "continuity",
+        "age-stage"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 경력단계별 운영",
+      "difference": "업종은 공공·행정입니다."
+    }
+  ],
+  "nosa-2022-org-692f2d88d3c3": [
+    {
+      "case_id": "nosa-2022-org-614025d49f06",
+      "shared_tags": [
+        "continuity",
+        "age-stage"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 경력단계별 운영",
+      "difference": "업종은 제조업입니다."
+    },
+    {
+      "case_id": "nosa-2022-org-7d51de4a4ee7",
+      "shared_tags": [
+        "continuity",
+        "age-stage"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 경력단계별 운영",
+      "difference": "업종은 공공·행정입니다."
+    }
+  ],
+  "nosa-2022-org-7d51de4a4ee7": [
+    {
+      "case_id": "nosa-2022-org-f19c6153841d",
+      "shared_tags": [
+        "continuity",
+        "age-stage"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 경력단계별 운영",
+      "difference": "업종은 에너지·환경입니다."
+    },
+    {
+      "case_id": "nosa-2022-org-6d35887f9c4c",
+      "shared_tags": [
+        "continuity",
+        "mixed"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 교육·개별지원 연계",
+      "difference": "사례 당시 규모는 원문구간: 900인 미만입니다."
+    }
+  ],
+  "nosa-2022-org-f19c6153841d": [
+    {
+      "case_id": "nosa-2022-org-7d51de4a4ee7",
+      "shared_tags": [
+        "continuity",
+        "age-stage"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 경력단계별 운영",
+      "difference": "업종은 공공·행정입니다."
+    },
+    {
+      "case_id": "nosa-2021-org-22aff51f9ff3",
+      "shared_tags": [
+        "continuity",
+        "age-stage"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 경력단계별 운영",
+      "difference": "업종은 공공·행정입니다. 2021년 사례로 운영 시점이 다릅니다."
+    }
+  ],
+  "nosa-2022-org-bee23158ff04": [
+    {
+      "case_id": "nosa-2022-org-692f2d88d3c3",
+      "shared_tags": [
+        "continuity",
+        "pilot"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 파일럿·평가개선",
+      "difference": "업종은 보건·복지입니다."
+    },
+    {
+      "case_id": "nosa-2022-org-fd181b9350dc",
+      "shared_tags": [
+        "continuity",
+        "individual"
+      ],
+      "reason": "공통 과제: 기존 제도 고도화 · 개인별 상담",
+      "difference": "업종은 제조업입니다."
+    }
+  ],
+  "nosa-2022-org-acd3245c61ae": [],
+  "nosa-2022-org-bb820cda814b": [
+    {
+      "case_id": "nosa-2022-org-7d51de4a4ee7",
+      "shared_tags": [
+        "age-stage",
+        "mixed"
+      ],
+      "reason": "공통 과제: 경력단계별 운영 · 교육·개별지원 연계",
+      "difference": "업종은 공공·행정입니다."
+    },
+    {
+      "case_id": "nosa-2021-org-22aff51f9ff3",
+      "shared_tags": [
+        "age-stage",
+        "individual"
+      ],
+      "reason": "공통 과제: 경력단계별 운영 · 개인별 상담",
+      "difference": "업종은 공공·행정입니다. 2021년 사례로 운영 시점이 다릅니다."
+    }
+  ]
+}

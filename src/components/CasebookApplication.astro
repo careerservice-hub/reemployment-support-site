@@ -1,0 +1,22 @@
+---
+import commentary from '../data/casebooks-commentary.json';
+import related from '../data/casebooks-related.json';
+import cases from '../data/casebooks-public.json';
+import usecases from '../data/casebook-usecases.json';
+type Point={title:string;source_fact:string;application:string;expected_benefit:string;pages:number[]};
+type Entry={id:string;key_insight:string;key_pages:number[];recommended_for:string[];points:Point[];conditions:string[];questions:string[];tags:string[]};
+type Related={case_id:string;shared_tags:string[];reason:string;difference:string};
+const {caseId}=Astro.props;
+const entry=(commentary as Entry[]).find(item=>item.id===caseId);
+const peers=((related as Record<string,Related[]>)[caseId]||[]).map(item=>({...item,company:cases.find(c=>c.id===item.case_id)})).filter(item=>item.company);
+const groups=usecases as Record<string,string>;
+---
+{entry&&<section class="cb-application" id="application" aria-labelledby="cb-application-title" data-commentary={caseId}>
+ <div class="cb-application-head"><p class="cb-eyebrow">사례 활용 해설</p><h2 id="cb-application-title">우리 기업에 어떻게 적용할까요?</h2><p>사례에서 확인한 운영 방법을 바탕으로 적용점과 기대이점을 정리했습니다. 자사의 여건과 함께 살펴보세요.</p></div>
+ <div class="cb-key-insight"><h3>이 사례의 핵심 판단</h3><p>{entry.key_insight}</p><div class="cb-evidence">{entry.key_pages.map(page=><a href="#original" data-cb-source-page={page}>원문 p.{page}</a>)}</div></div>
+ <div class="cb-recommended"><h3>이런 기업에 참고됩니다</h3><ul>{entry.recommended_for.map(value=><li>{value}</li>)}</ul></div>
+ <ol class="cb-application-points">{entry.points.map((point,index)=><li><article class="cb-application-point"><h3><span aria-hidden="true">0{index+1}</span>{point.title}</h3><dl><div><dt>사례에서 확인한 점</dt><dd>{point.source_fact}</dd></div><div><dt>우리 기업의 적용점</dt><dd>{point.application}</dd></div><div><dt>기대할 수 있는 이점</dt><dd>{point.expected_benefit}</dd></div></dl><div class="cb-evidence">{point.pages.map(page=><a href="#original" data-cb-source-page={page}>원문 p.{page}</a>)}</div></article></li>)}</ol>
+ <div class="cb-application-checks"><section aria-labelledby="cb-conditions-title"><h3 id="cb-conditions-title">적용 전에 확인할 조건</h3><ul>{entry.conditions.map(value=><li>{value}</li>)}</ul></section><section aria-labelledby="cb-questions-title"><h3 id="cb-questions-title">우리 기업에서 먼저 확인할 질문</h3><ol>{entry.questions.map(value=><li>{value}</li>)}</ol></section></div>
+ <nav class="cb-usecase-links" aria-label="같은 운영 과제로 사례 찾기"><h3>같은 운영 과제로 더 찾아보세요</h3><div>{entry.tags.map(tag=><a href={`/casebooks/?context=${encodeURIComponent(tag)}`}>{groups[tag]}</a>)}</div></nav>
+</section>}
+{peers.length>0&&<section class="cb-related" aria-labelledby="cb-related-title"><h2 id="cb-related-title">함께 참고할 기업 사례</h2><p>공통으로 다룬 과제와 운영 방법을 중심으로 연결했습니다. 각 사례의 대상과 운영 조건도 함께 비교해보세요.</p><ul class="cb-related-list">{peers.map(peer=><li data-related-case={peer.case_id}><article><div class="cb-meta"><span>{peer.company!.year}년</span><span>{peer.company!.industry_group||'업종 미기재'}</span></div><h3><a href={`/casebooks/${peer.case_id}/#application`}>{peer.company!.company}</a></h3><p class="cb-related-reason">{peer.reason}</p><p class="cb-related-difference"><strong>비교할 조건</strong>{peer.difference}</p></article></li>)}</ul></section>}

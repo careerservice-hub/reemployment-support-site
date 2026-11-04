@@ -15,34 +15,33 @@ if(reader){
  const select=document.querySelector<HTMLSelectElement>('#cb-page')!;
  const options=[...select.options];
  const image=document.querySelector<HTMLImageElement>('#cb-page-image')!;
- const visual=document.querySelector<HTMLElement>('#cb-page-visual')!;
- const textView=document.querySelector<HTMLElement>('#cb-text-view')!;
- const textPages=[...document.querySelectorAll<HTMLElement>('[data-text-page]')];
- const heading=document.querySelector<HTMLElement>('#cb-text-heading')!;
  const caption=document.querySelector<HTMLElement>('#cb-page-caption')!;
  const previous=document.querySelector<HTMLButtonElement>('#cb-prev')!;
  const next=document.querySelector<HTMLButtonElement>('#cb-next')!;
  const enlarge=document.querySelector<HTMLAnchorElement>('#cb-enlarge')!;
- const imageMode=document.querySelector<HTMLButtonElement>('#cb-mode-image')!;
- const textMode=document.querySelector<HTMLButtonElement>('#cb-mode-text')!;
- let index=0;let mode='image';
+ let index=0;
  function show(requested:number){
   index=Math.max(0,Math.min(options.length-1,Number.isFinite(requested)?requested:0));
   const option=options[index];const printed=option.dataset.printed||'';
   image.src=option.dataset.image!;image.alt=`${reader!.dataset.company} 사례 원문 p.${printed}`;
   select.value=String(index);previous.disabled=index===0;next.disabled=index===options.length-1;
   caption.textContent=`원문 p.${printed} · 발췌본 ${index+1} / ${options.length}쪽`;
-  heading.textContent=`원문 p.${printed} 텍스트`;
   enlarge.href=option.dataset.image!;
-  textPages.forEach(p=>p.hidden=p.dataset.textPage!==String(index));
-  visual.hidden=mode!=='image';textView.hidden=mode!=='text';
-  imageMode.setAttribute('aria-pressed',String(mode==='image'));textMode.setAttribute('aria-pressed',String(mode==='text'));
  }
- document.querySelector<HTMLElement>('#cb-reader-modes')!.hidden=false;
  select.addEventListener('change',()=>show(Number(select.value)));
  previous.addEventListener('click',()=>show(index-1));next.addEventListener('click',()=>show(index+1));
- imageMode.addEventListener('click',()=>{mode='image';show(index);});
- textMode.addEventListener('click',()=>{mode='text';show(index);heading.focus({preventScroll:true});});
+ for(const link of document.querySelectorAll<HTMLAnchorElement>('[data-cb-source-page]')){
+  link.addEventListener('click',event=>{
+   const requested=options.findIndex(option=>option.dataset.printed===link.dataset.cbSourcePage);
+   if(requested<0)return;
+   event.preventDefault();show(requested);
+   const target=document.querySelector<HTMLElement>('#original')!;
+   const header=document.querySelector<HTMLElement>('.site-header');
+   const offset=header?Math.max(0,header.getBoundingClientRect().bottom):0;
+   window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-offset-18),left:0,behavior:'instant'});
+   select.focus({preventScroll:true});
+  });
+ }
  document.querySelector('.cb-file-view')?.addEventListener('toggle',event=>{
   const detail=event.currentTarget as HTMLDetailsElement;const iframe=detail.querySelector<HTMLIFrameElement>('iframe')!;
   if(detail.open&&!iframe.hasAttribute('src'))iframe.src=iframe.dataset.pdfSrc!;
