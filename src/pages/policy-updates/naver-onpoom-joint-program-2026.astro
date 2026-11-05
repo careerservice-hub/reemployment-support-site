@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = '네이버·온품 공동컨설팅 후속 교육: IT 업종 경력지원 운영 사례';
+const description = '노사발전재단이 발표한 네이버·온품의 IT 업종 특화 재취업지원서비스 교육 내용과 기업이 참고할 공동 운영의 준비사항을 살펴봅니다.';
+const sourceUrl = 'https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=20197';
+const sourcePdfUrl = 'https://www.moel.go.kr/common/downloadFile.do?file_seq=20261100190&bbs_seq=20197&bbs_id=12&file_ext=pdf';
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-11-05',
+  dateModified: '2026-11-05',
+  inLanguage: 'ko-KR',
+  mainEntityOfPage: 'https://www.careerservice.co.kr/policy-updates/naver-onpoom-joint-program-2026/',
+  author: { '@type': 'Organization', name: '케이잡스 K·JOBS' },
+  publisher: { '@id': 'https://www.careerservice.co.kr/#organization' },
+  about: ['재취업지원서비스 공동컨설팅', 'IT 업종 경력지원', '대·중소기업 상생협력', '중장년 경력개발'],
+  citation: [sourceUrl, sourcePdfUrl],
+};
+---
+<BaseLayout title={title} description={description} jsonLd={articleJsonLd}>
+  <article class="policy-article">
+    <header class="policy-article-header">
+      <nav class="policy-breadcrumb" aria-label="현재 위치">
+        <a href="/policy-updates/">정책·제도 업데이트</a><span aria-hidden="true">/</span><span>공동컨설팅 운영 사례</span>
+      </nav>
+      <p class="ty-comment">공동컨설팅 운영 사례</p>
+      <h1>{title}</h1>
+      <p class="ty-lead">대기업의 운영 경험을 중소기업과 나누는 협약이 공동 교육과정으로 이어졌습니다. 네이버·온품 사례에서 업종 특성과 서로 다른 직무를 반영한 경력지원의 준비사항을 살펴봅니다.</p>
+      <div class="policy-date-row"><span>원자료 발표 2026.11.04</span></div>
+    </header>
+
+    <aside class="policy-status-note" aria-label="교육 시행 발표의 확인 범위">
+      <strong>공동컨설팅에 따른 교육 시행 발표입니다</strong>
+      <p>노사발전재단은 2026년 11월 4~5일 네이버 본사에서 IT 업종 특화 재취업지원서비스 교육을 실시한다고 발표했습니다. 아래 인원과 시간은 보도자료에 제시된 운영계획이며, 실제 수료인원이나 교육 효과를 집계한 결과는 아닙니다.</p>
+    </aside>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">협약 이후의 실행</p>
+      <h2>네이버와 온품이 공동컨설팅에 참여해 교육과정을 마련했습니다.</h2>
+      <p>이번 교육은 노사발전재단과 네이버가 2026년 8월 19일 체결한 업무협약의 후속 사례입니다. 재단은 대기업의 우수 운영 경험과 전문 컨설팅을 연계하는 ESG 기반 상생형 공동컨설팅을 추진하고 있으며, 네이버와 중소 IT기업 온품이 함께 참여해 교육을 준비했다고 설명했습니다.</p>
+      <p>보도자료에 따르면 네이버는 앞선 기업컨설팅에서 구축한 IT 업종 운영 경험을 공유하고, 온품은 예산과 전담 인력 등의 제약을 보완해 소속 근로자를 선제적으로 지원하고자 참여했습니다. <a class="ty-inline-link" href="/policy-updates/naver-it-joint-consulting-2026/">8월 업무협약의 배경과 추진방향</a>에서 이번 발표로 이어진 경과를 확인할 수 있습니다.</p>
+    </section>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">보도자료의 교육계획</p>
+      <h2>업종은 같아도 다른 직무 경험을 함께 고려한 과정입니다.</h2>
+      <div class="policy-fact-grid">
+        <article><span>참여 예정 대상</span><strong>40세 이상 희망자 40여 명</strong><p>네이버 개발직 30여 명과 온품 영업직 10여 명으로 안내됐습니다.</p></article>
+        <article><span>운영 일정</span><strong>2일간 총 16시간</strong><p>2026년 11월 4~5일 네이버 본사에서 운영하는 계획입니다.</p></article>
+        <article><span>교육 방향</span><strong>IT 업종·직무 경험 반영</strong><p>경력개발 방향 구체화, AI 활용 실습과 재취업 전략 수립에 중점을 둡니다.</p></article>
+      </div>
+      <p>과정에는 생애설계 및 경력자산 진단, IT 업종 재취업·창업 사례 탐색, 재무설계, 정부 지원제도 및 전문활동 기회 탐색, 구직역량 강화, AI 활용 직무역량 강화가 포함됐습니다. 경력자산을 돌아보는 활동과 향후 활동을 준비하는 실습을 함께 구성한 점을 참고할 수 있습니다.</p>
+      <p>40세 이상과 16시간은 이번 사례의 참여·운영 조건입니다. 이를 모든 기업의 법정 서비스 대상이나 공통 이수기준으로 적용해서는 안 됩니다.</p>
+    </section>
+
+    <section class="policy-article-section policy-kjobs-view">
+      <p class="policy-section-label">K·JOBS 실무 해설</p>
+      <h2>공동과정을 마련한 뒤에는 기업별 실행 절차가 이어져야 합니다.</h2>
+      <p>이번 발표에서 참고할 점은 대기업의 경험과 중소기업의 운영 여건을 연결한 방식입니다. 아래는 사례를 바탕으로 정리한 K·JOBS의 준비사항이며, 해당 기업의 실제 운영절차나 K·JOBS 수행성과를 뜻하지 않습니다.</p>
+      <ol class="policy-checklist">
+        <li><strong>공통 주제와 직무별 필요 구분</strong><span>함께 다룰 업종 정보와 교육을 정하되, 개발직·영업직처럼 직무가 다르면 경력자산 정리와 후속 활동의 내용도 나누어 검토합니다.</span></li>
+        <li><strong>기업별 참여 여건과 책임 정리</strong><span>대표사·참여사의 담당자를 정하고 대상자 안내, 참여시간 조정, 장소와 자료 준비, 이력·개인정보 관리의 역할을 나눕니다.</span></li>
+        <li><strong>교육 이후의 실행과 개선 연결</strong><span>참여자가 정리한 경력방향을 개별 상담이나 실행계획으로 연결할 방법을 검토합니다. 운영 후에는 참여 현황과 의견을 확인해 다음 일정, 담당자 역할과 운영기준을 보완합니다.</span></li>
+      </ol>
+      <p>공동컨설팅의 제도와 운영방식은 <a class="ty-inline-link" href="/policy-updates/joint-consulting-pilot-2026/">중소기업 공동 운영모델 해설</a>에서 확인할 수 있습니다. 다른 기업의 참여조건과 일정은 해당 사업의 공식 공고를 기준으로 확인해야 합니다.</p>
+      <div class="policy-actions">
+        <a class="btn primary" href="/business-consulting/">기업컨설팅 운영체계 살펴보기</a>
+        <a class="btn secondary" href="/contact/?preset=business-next-year#consultation-request">차년도 참여 준비 상담</a>
+      </div>
+    </section>
+
+    <section class="policy-source-box" aria-labelledby="source-title">
+      <h2 id="source-title">자료 출처</h2>
+      <dl>
+        <div><dt>원자료</dt><dd>「네이버와 중소 IT 기업, 공동으로 재취업지원서비스 시행!」</dd></div>
+        <div><dt>발표기관</dt><dd>노사발전재단 · 고용노동부 게시</dd></div>
+        <div><dt>발표일</dt><dd>2026년 11월 4일</dd></div>
+        <div><dt>참고 위치</dt><dd>보도자료 1쪽(협약 후속·공동컨설팅 배경), 2쪽(참여 예정 인원·교육시간·교육내용)</dd></div>
+      </dl>
+      <div class="policy-source-actions">
+        <a class="ty-inline-link" href={sourceUrl} target="_blank" rel="noopener noreferrer">고용노동부 보도자료 확인</a>
+        <a class="ty-inline-link" href={sourcePdfUrl} target="_blank" rel="noopener noreferrer">보도자료 PDF 확인</a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
