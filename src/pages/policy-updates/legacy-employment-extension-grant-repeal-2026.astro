@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = '고령자고용연장지원금액 등 고시 폐지: 옛 사업과 계속고용장려금의 구분';
+const description = '2026년 9월 1일 시행된 고령자고용연장지원금액 등 고시 폐지의 배경과, 종료된 옛 지원금 사업을 다른 고용지원제도와 구분해 확인할 사항을 안내합니다.';
+const sourceUrl = 'https://www.moel.go.kr/info/lawinfo/instruction/view.do?bbs_seq=20260800564';
+const explanationUrl = 'https://www.moel.go.kr/common/downloadFile.do?file_seq=20260800989&bbs_seq=20260800564&bbs_id=19&file_ext=hwpx';
+const noticeUrl = 'https://www.moel.go.kr/common/downloadFile.do?file_seq=20260800992&bbs_seq=20260800564&bbs_id=19&file_ext=hwpx';
+const work24Url = 'https://www.work24.go.kr/cm/c/f/1100/selecSystInfo.do?systClId=SC00000311&systId=SI00000320';
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-11-05',
+  dateModified: '2026-11-05',
+  inLanguage: 'ko-KR',
+  mainEntityOfPage: 'https://www.careerservice.co.kr/policy-updates/legacy-employment-extension-grant-repeal-2026/',
+  author: { '@type': 'Organization', name: '케이잡스 K·JOBS' },
+  publisher: { '@id': 'https://www.careerservice.co.kr/#organization' },
+  about: ['고령자고용연장지원금액 등 고시 폐지', '고용노동부고시 제2026-62호', '고령자 계속고용장려금', '기업 고용지원제도 확인'],
+  citation: [sourceUrl, explanationUrl, noticeUrl, work24Url],
+};
+---
+<BaseLayout title={title} description={description} jsonLd={articleJsonLd}>
+  <article class="policy-article">
+    <header class="policy-article-header">
+      <nav class="policy-breadcrumb" aria-label="현재 위치">
+        <a href="/policy-updates/">정책·제도 업데이트</a><span aria-hidden="true">/</span><span>고용지원제도 구분</span>
+      </nav>
+      <p class="ty-comment">고용지원제도 구분</p>
+      <h1>{title}</h1>
+      <p class="ty-lead">고시 폐지와 지원사업의 신규 종료는 같은 의미가 아닙니다. 이번 고시는 이미 종료된 옛 고령자고용연장지원금 사업의 하위 행정규칙을 정비한 내용입니다.</p>
+      <div class="policy-date-row"><span>원자료 발표 2026.08.18</span></div>
+    </header>
+
+    <aside class="policy-status-note" aria-label="고시 폐지의 적용 범위">
+      <strong>옛 지원금의 고시 폐지이며, 모든 고령자 고용지원제도의 폐지가 아닙니다</strong>
+      <p>고용노동부고시 제2026-62호는 「고령자고용연장지원금액 등」 고시를 폐지하며, 2026년 9월 1일부터 시행됐습니다. 고령자 계속고용장려금 등 다른 제도의 지원 여부는 해당 제도의 공식 안내와 별도로 확인해야 합니다.</p>
+    </aside>
+
+    <section class="policy-article-section">
+      <p class="policy-section-label">폐지 배경</p>
+      <h2>사업 종료 이후 남아 있던 고시를 정비했습니다.</h2>
+      <p>고용노동부의 설명자료는 고용보험법 시행령 제25조 삭제에 따른 하위 행정규칙 정비를 폐지 이유로 제시합니다. 해당 옛 지원금 사업은 2016년에 종료됐고, 2021년에 시효가 완성될 때까지 기존 고시 금액을 유지했다고 설명합니다.</p>
+      <div class="policy-fact-grid">
+        <article><span>옛 사업 종료</span><strong>2016년</strong><p>설명자료에 제시된 해당 지원금 사업의 종료 시점입니다.</p></article>
+        <article><span>시효 완성</span><strong>2021년</strong><p>설명자료에 기재된 시효 완성 시점입니다.</p></article>
+        <article><span>폐지 고시 시행</span><strong>2026년 9월 1일</strong><p>최종 고시 제2026-62호 부칙에서 정한 시행일입니다.</p></article>
+      </div>
+      <p>따라서 이번 발표를 ‘2026년 9월부터 고령자 고용지원금이 새로 중단된다’는 내용으로 이해해서는 안 됩니다. 최종 고시가 폐지한 대상은 2012년 1월 2일 고용노동부고시 제2012-2호로 정한 「고령자고용연장지원금액 등」입니다.</p>
+    </section>
+
+    <section class="policy-article-section policy-kjobs-view">
+      <p class="policy-section-label">K·JOBS 실무 해설</p>
+      <h2>비슷한 제도명보다 정확한 사업명과 적용 기준을 확인합니다.</h2>
+      <p>고용24의 ‘고령자 계속고용장려금’ 안내는 정년 연장·폐지 또는 재고용 제도를 도입해 정년 이후에도 고용을 이어가는 사업주 지원을 설명합니다. 이번에 폐지된 옛 고시와 이름이 비슷하더라도 같은 제도로 보아서는 안 됩니다.</p>
+      <ol class="policy-checklist">
+        <li><strong>고시 번호와 사업명 대조</strong><span>검토 중인 안내가 고시 제2026-62호의 폐지 대상인지, 다른 지원사업의 안내인지 먼저 구분합니다.</span></li>
+        <li><strong>종료일과 시행일 구분</strong><span>옛 사업이 종료된 시점과 남아 있던 고시를 폐지한 시점은 다릅니다. 과거 고시에 적힌 지원금액을 현재 신청에 적용하지 않습니다.</span></li>
+        <li><strong>신청하려는 제도의 공식 요건 확인</strong><span>사업주·근로자 요건, 제도 도입시점, 신청기간과 지원내용은 고용24 및 관할 고용센터에서 해당 사업 기준으로 확인합니다.</span></li>
+      </ol>
+      <div class="policy-actions">
+        <a class="btn primary" href="/employment-support/#continued-employment">기업 상황별 고용지원제도 살펴보기</a>
+        <a class="btn secondary" href={work24Url} target="_blank" rel="noopener noreferrer">고용24 계속고용장려금 안내</a>
+      </div>
+    </section>
+
+    <section class="policy-source-box" aria-labelledby="source-title">
+      <h2 id="source-title">자료 출처</h2>
+      <dl>
+        <div><dt>원자료</dt><dd>「고령자고용연장지원금액 등 고시 폐지」 및 첨부 설명자료·폐지 고시 전문</dd></div>
+        <div><dt>발표기관</dt><dd>고용노동부</dd></div>
+        <div><dt>발표일</dt><dd>2026년 8월 18일</dd></div>
+        <div><dt>고시 번호·시행일</dt><dd>고용노동부고시 제2026-62호 · 2026년 9월 1일 시행</dd></div>
+        <div><dt>참고 위치</dt><dd>설명자료 ‘폐지 이유’·‘기존 고시 주요 내용’, 최종 폐지 고시 본문·부칙</dd></div>
+      </dl>
+      <div class="policy-source-actions">
+        <a class="ty-inline-link" href={sourceUrl} target="_blank" rel="noopener noreferrer">고용노동부 원문 확인</a>
+        <a class="ty-inline-link" href={explanationUrl} target="_blank" rel="noopener noreferrer">설명자료 HWPX 확인</a>
+        <a class="ty-inline-link" href={noticeUrl} target="_blank" rel="noopener noreferrer">최종 폐지 고시 HWPX 확인</a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
