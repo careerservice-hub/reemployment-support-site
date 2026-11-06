@@ -79,7 +79,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </article>
     </div>
     <p class="employment-support-note">각 사업은 기업컨설팅과 별도로 신청·심사하며, 컨설팅 참여만으로 지원이 결정되지 않습니다. 신청·접수 및 지원 여부는 해당 사업의 고용센터·운영기관에서 확인해 주세요. 최신 대상·지원내용·신청 절차는 공식 안내를 기준으로 확인하세요.</p>
-    <p class="employment-support-note">2026년 9월 1일 시행된 ‘고령자고용연장지원금액 등’ 고시 폐지는 종료된 옛 사업의 규칙 정비입니다. 고령자 계속고용장려금과 구분해서 확인하세요. <a href="/policy-updates/legacy-employment-extension-grant-repeal-2026/">폐지 고시의 적용 범위 보기</a></p>
+    <aside class="employment-support-notice" aria-labelledby="legacy-grant-notice-title">
+      <h2 id="legacy-grant-notice-title">폐지된 고시와 계속고용장려금은 다릅니다</h2>
+      <p>2026년 9월 1일 시행된 ‘고령자고용연장지원금액 등’ 고시 폐지는 종료된 옛 사업의 규칙 정비입니다.</p>
+      <a href="/policy-updates/legacy-employment-extension-grant-repeal-2026/">폐지 고시의 적용 범위 보기</a>
+    </aside>
   </section>
 </BaseLayout>
 <style>
@@ -109,8 +113,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .employment-support-grid .example-notice { color: #6e6e73; font-size: 13px; }
   .employment-support-note { margin: 20px 0 0; color: #6e6e73; font-size: 14px; line-height: 1.7; }
   .employment-support-note a { color: #175b91; text-decoration: underline; text-underline-offset: 3px; }
+  .employment-support-notice { margin-top: 28px; padding: 24px; border: 1px solid #dedee3; border-radius: 16px; background: #f7f8fa; }
+  .employment-support-notice h2 { margin: 0 0 12px; color: #1d1d1f; font-size: 18px; font-weight: 700; line-height: 1.5; letter-spacing: -.025em; word-break: keep-all; overflow-wrap: anywhere; }
+  .employment-support-notice p { max-width: none; margin: 0 0 12px; color: #515154; font-size: 16px; line-height: 1.75; word-break: keep-all; overflow-wrap: anywhere; }
+  .employment-support-notice a { display: inline-flex; align-items: center; min-height: 44px; color: #175b91; font-size: 15px; font-weight: 600; line-height: 1.6; text-decoration: underline; text-underline-offset: 3px; word-break: keep-all; overflow-wrap: anywhere; }
+  .employment-support-notice a:hover { color: #103e63; }
+  .employment-support-notice a:focus-visible { outline: 3px solid #175b91; outline-offset: 3px; border-radius: 2px; }
   @media (max-width: 900px) { .employment-support-grid { grid-template-columns: minmax(0, 1fr); } }
-  @media (max-width: 640px) { .employment-support-grid article { padding: 20px; } }
+  @media (max-width: 640px) { .employment-support-grid article { padding: 20px; } .employment-support-notice { padding: 20px; } }
   .employment-support-grid .support-type { align-self: flex-start; padding: 4px 10px; border-radius: 999px; background: #eef5fc; color: #175b91; font-size: 13px; font-weight: 650; }
   .employment-support-grid article { scroll-margin-top: 120px; }
   @media (max-width: 640px) { .employment-support-grid article { scroll-margin-top: 190px; } }
