@@ -1,0 +1,81 @@
+---
+const guides = [
+  {
+    kind: 'basic',
+    title: '기초서비스 가이드',
+    description: '상담에서 정리한 경험과 강점을 다시 살펴보고, 우선과제와 다음 행동을 이어가는 자료입니다.',
+    href: '/career-planning/guides/basic/',
+    image: '/assets/career-aftercare/basic-preview.webp',
+    action: '기초 가이드 읽기',
+  },
+  {
+    kind: 'advanced',
+    title: '심화서비스 가이드',
+    description: '실행 과정에서 생긴 질문과 작업물을 점검하고, 목표와 방법을 보완하는 자료입니다.',
+    href: '/career-planning/guides/advanced/',
+    image: '/assets/career-aftercare/advanced-preview.webp',
+    action: '심화 가이드 읽기',
+  },
+];
+---
+
+<section class="ty-section career-aftercare-guides" aria-labelledby="career-aftercare-title">
+  <div class="aftercare-heading">
+    <h2 id="career-aftercare-title">상담 뒤에도 활용하는 경력 가이드</h2>
+  </div>
+  <div class="aftercare-grid">
+    {guides.map((guide) => (
+      <article class:list={['aftercare-card', guide.kind]}>
+        <div class="aftercare-overview">
+          <div class="aftercare-copy">
+            <h3>{guide.title}</h3>
+            <p>{guide.description}</p>
+          </div>
+          <img
+            class="aftercare-preview"
+            src={guide.image}
+            alt=""
+            width="800"
+            height="450"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="aftercare-actions">
+          <a href={guide.href} target="_blank" rel="noopener noreferrer">
+            {guide.action}
+            <span class="sr-only"> (새 창)</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <small>새 창 · A4 9쪽</small>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .aftercare-heading { margin-bottom: 28px; }
+  .aftercare-heading h2 { margin: 0; font-size: clamp(1.4rem, 2.5vw, 1.9rem); line-height: 1.4; letter-spacing: -.03em; text-wrap: balance; }
+  .aftercare-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .aftercare-card { --guide-accent: #25655f; display: flex; flex-direction: column; min-width: 0; padding: 24px; border: 1px solid var(--line); border-top: 3px solid var(--guide-accent); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow); }
+  .aftercare-card.advanced { --guide-accent: #315a7d; }
+  .aftercare-overview { display: grid; grid-template-columns: minmax(0, 1fr) 136px; align-items: start; gap: 20px; }
+  .aftercare-copy { min-width: 0; }
+  .aftercare-copy h3 { margin: 0 0 12px; color: var(--guide-accent); font-size: 1.18rem; font-weight: 800; line-height: 1.45; letter-spacing: -.025em; }
+  .aftercare-copy p { color: var(--muted); font-size: 1rem; line-height: 1.75; }
+  .aftercare-preview { display: block; width: 100%; max-width: 176px; height: auto; border-radius: var(--radius-sm); }
+  .aftercare-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: auto; padding-top: 24px; }
+  .aftercare-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; max-width: 100%; padding: 10px 16px; border: 1px solid var(--guide-accent); border-radius: var(--radius-sm); background: var(--guide-accent); color: var(--white); font-size: .94rem; font-weight: 750; line-height: 1.5; text-decoration: none; }
+  .aftercare-actions a:hover { background: var(--white); color: var(--guide-accent); }
+  .aftercare-actions a:focus-visible { outline: 3px solid var(--guide-accent); outline-offset: 4px; }
+  .aftercare-actions small { color: var(--muted); font-size: .8rem; line-height: 1.5; }
+  @media (max-width: 1000px) {
+    .aftercare-overview { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  }
+  @media (max-width: 767px) {
+    .aftercare-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .aftercare-card { padding: 22px 20px; }
+    .aftercare-heading { margin-bottom: 22px; }
+  }
+</style>

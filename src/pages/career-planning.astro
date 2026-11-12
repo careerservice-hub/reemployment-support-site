@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CareerAftercareGuides from '../components/CareerAftercareGuides.astro';
 import { careerPlanningJsonLd } from '../data/structuredData.js';
 import { careerPlanningEligibility, careerPlanningEligibilityAnswer } from '../data/serviceFacts.js';
 const flow = [
@@ -277,6 +278,8 @@ const decisionDetails = [
       </div>
     </dialog>
   ))}
+
+  <CareerAftercareGuides />
 
   <section class="ty-section application-download-section" aria-labelledby="career-application-title">
     <div class="ty-section-head">
