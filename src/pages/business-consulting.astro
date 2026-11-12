@@ -258,6 +258,18 @@ const outputItems = [
     </div>
   </section>
 
+  <section id="aftercare-manual" class="aftercare-manual-card" aria-labelledby="aftercare-manual-title">
+    <div class="aftercare-manual-copy">
+      <p class="aftercare-manual-label">기업담당자 운영·개선 자료</p>
+      <h2 id="aftercare-manual-title">재취업지원서비스 운영·개선 실무서</h2>
+      <p>컨설팅 이후 기업담당자가 재취업지원서비스를 직접 운영하고 개선할 때 활용하는 실무서입니다. 운영 사례와 작성 예시, 활용 서식을 함께 확인할 수 있습니다.</p>
+    </div>
+    <div class="aftercare-manual-actions" aria-label="운영·개선 실무서 열람 및 다운로드">
+      <a href="https://guide.careerservice.co.kr/aftercare/" target="_blank" rel="noopener noreferrer" aria-label="실무서 바로 보기 (새 창)">실무서 바로 보기<span aria-hidden="true"> ↗</span></a>
+      <a class="aftercare-manual-download" href="/downloads/reemployment-aftercare-manual.pdf" download>PDF 내려받기</a>
+    </div>
+  </section>
+
   <section id="employment-support" class="ty-section" aria-labelledby="employment-support-title">
     <div class="ty-section-head">
       <p class="ty-comment">관련 고용지원제도</p>
@@ -318,6 +330,27 @@ const outputItems = [
     <p class="casebooks-caution">사례의 운영 시점과 현재 기준은 다를 수 있으므로 실제 적용 시 최신 법령과 사업 안내를 함께 확인해 주세요.</p>
   </section>
 </BaseLayout>
+
+<style>
+  .aftercare-manual-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 28px; margin: 32px 0; padding: 28px 32px; border: 1px solid rgba(0,0,0,.07); border-radius: 24px; background: #f8fafc; scroll-margin-top: 160px; }
+  .aftercare-manual-copy { min-width: 0; }
+  .aftercare-manual-copy .aftercare-manual-label { margin: 0 0 8px; color: #175b91; font-size: 14px; font-weight: 600; line-height: 1.6; }
+  .aftercare-manual-copy h2 { margin: 0 0 12px; color: #1d1d1f; font-size: clamp(20px, 2vw, 24px); line-height: 1.4; letter-spacing: -.035em; word-break: keep-all; }
+  .aftercare-manual-copy > p:last-child { max-width: 700px; margin: 0; color: #515154; font-size: 16px; line-height: 1.7; word-break: keep-all; overflow-wrap: anywhere; }
+  .aftercare-manual-actions { display: flex; flex-direction: column; gap: 10px; }
+  .aftercare-manual-actions a { display: flex; align-items: center; justify-content: center; gap: 4px; min-height: 44px; padding: 10px 18px; border: 1px solid #0066cc; border-radius: 12px; background: #0066cc; color: #fff; font-size: 15px; font-weight: 600; line-height: 1.6; text-decoration: none; white-space: nowrap; }
+  .aftercare-manual-actions a.aftercare-manual-download { border-color: #d6e2ee; background: #fff; color: #175b91; }
+  .aftercare-manual-actions a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .aftercare-manual-actions a:focus-visible { outline: 3px solid #175b91; outline-offset: 3px; }
+  @media (max-width: 900px) {
+    .aftercare-manual-card { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 24px; }
+    .aftercare-manual-actions { flex-direction: row; flex-wrap: wrap; }
+  }
+  @media (max-width: 640px) {
+    .aftercare-manual-card { margin: 24px 0; padding: 22px 20px; }
+    .aftercare-manual-actions { flex-direction: column; }
+  }
+</style>
 
 <style>
   .recruitment-history-table { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 18px; text-align: left; }
