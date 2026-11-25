@@ -1,0 +1,32 @@
+---
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const link = (path: string) => `${base}${path}`;
+---
+<header class="home05 home05-bar">
+  <div class="home05-barinner home05-wrap">
+    <a class="home05-brand" href={base} aria-label="재취업지원서비스 시행지원 홈">
+      <img alt="케이잡스 K·JOBS 로고" src={link('assets/kjobs-logo-official.png')} width="196" height="103" loading="eager" />
+    </a>
+    <nav class="home05-nav" aria-label="주요 메뉴">
+      <a class="home05-local" href="#biz">기업컨설팅</a>
+      <a class="home05-local" href="#career">커리어플래닝</a>
+      <details>
+        <summary>전체 메뉴</summary>
+        <div class="home05-menu">
+          <a aria-label="홈" aria-current="page" href={link('')}>재취업지원서비스 시행지원 기업컨설팅 · 커리어플래닝서비스</a>
+          <a href={link('career-support/')}>경력지원</a>
+          <a href={link('business-consulting/')}>기업컨설팅</a>
+          <a href={link('casebooks/')}>우수사례집</a>
+          <a href={link('career-planning/')}>커리어플래닝</a>
+          <a href={link('process/')}>진행 절차</a>
+          <a href={link('approach/')}>지원 방식</a>
+          <a href={link('policy-updates/')}>정책소식</a>
+          <a href={link('news-trends/')}>뉴스·동향</a>
+          <a href={link('faq/')}>FAQ</a>
+          <a href={link('employment-support/')}>고용지원제도</a>
+          <a href={link('contact/')}>문의</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>

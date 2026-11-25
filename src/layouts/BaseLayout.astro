@@ -10,6 +10,7 @@ const currentUrl = new URL(Astro.url.pathname, 'https://www.careerservice.co.kr'
 const socialImageUrl = 'https://www.careerservice.co.kr/assets/careerservice-og-cover.png';
 const cloudflareWebAnalyticsToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN?.trim();
 const pathname = Astro.url.pathname;
+const hasHomeHeader = Astro.slots.has('home-header');
 const sameOriginFrameSource = pathname.startsWith('/casebooks/') ? "'self' " : '';
 const isNewsArticle = pathname.startsWith('/news-trends/') && pathname !== '/news-trends/';
 const isPolicyArticle = pathname.startsWith('/policy-updates/') && pathname !== '/policy-updates/';
@@ -86,12 +87,12 @@ const combinedJsonLd = noindex ? suppliedJsonLd : [
   </head>
   <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
-    <div class="page-shell">
-      <Header />
+    <div class={hasHomeHeader ? undefined : "page-shell"}>
+      {hasHomeHeader ? <slot name="home-header" /> : <Header />}
       <main id="main-content" tabindex="-1">
-        <slot />
+        {hasHomeHeader ? <><slot name="home-intro" /><div class="page-shell"><slot /></div></> : <slot />}
       </main>
-      <Footer />
+      {hasHomeHeader ? <div class="page-shell"><Footer /></div> : <Footer />}
     </div>
   </body>
 </html>

@@ -1,0 +1,147 @@
+/* Approved home masthead and service selection (05); never applied to the existing lower sections. */
+.home05{line-break:auto;font:1rem/1.55 -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#171b22;background:white;word-break:keep-all;overflow-wrap:anywhere}
+:where(.home05) a{color:inherit;text-decoration:none}
+:where(.home05) a:hover{text-decoration:underline;text-underline-offset:.23em}
+:where(.home05) a:focus-visible,:where(.home05) summary:focus-visible{outline:3px solid #1262a9;outline-offset:3px}
+.home05-wrap{width:min(1184px,calc(100% - 64px));margin:auto}
+.home05-bar{border-bottom:1px solid #e9ebed}
+.home05-barinner{display:flex;align-items:center;justify-content:space-between;min-height:58px;gap:14px}
+.home05-brand{min-height:44px;display:flex;align-items:center}
+.home05-brand img{width:68px;height:auto}
+@media(max-width:760px){
+  .home05-brand img{width:64px}
+}
+.home05-nav{display:flex;align-items:center;flex-wrap:wrap;gap:22px;font-size:.86rem;font-weight:620}
+.home05-nav a,.home05 summary,.home05-detail-link,.home05-guide{min-height:44px;display:inline-flex;align-items:center}
+.home05-nav details{position:relative}
+.home05-nav summary{cursor:pointer;list-style:none}
+.home05-nav summary::-webkit-details-marker{display:none}
+.home05-nav summary:after{content:'＋';margin-left:.25em}
+.home05-nav details[open] summary:after{content:'−'}
+.home05-menu{position:absolute;right:0;top:100%;border:1px solid #ccd3dd;background:#fff;border-radius:14px;padding:10px 14px;display:grid;grid-template-columns:1fr 1fr;width:min(19rem,85vw);box-shadow:0 14px 34px #23374e25;z-index:5}
+.home05-menu a{padding:0 .3rem}
+.home05-hero{text-align:center;background:linear-gradient(180deg,#fff 0%,#fbfcff 74%,#f4f7fb 100%);padding:clamp(38px,4.2vw,68px) 0 15px}
+.home05-kicker{color:#365777;font-size:.96rem;letter-spacing:-.015em;font-weight:700;margin:0 0 .68rem}
+.home05 h1{max-width:none;font-family:inherit;color:inherit;text-wrap:wrap;overflow-wrap:inherit;line-break:inherit;font-size:clamp(2.55rem,5.4vw,5.2rem);line-height:1.12;letter-spacing:-.078em;margin:0;font-weight:750}
+.home05 h1 span{display:block}
+.home05-ribbon{width:min(590px,72%);margin:12px auto 0}
+.home05-ribbon svg{display:block;width:100%;height:auto}
+.home05-services{padding:32px 0 40px}
+.home05-sectionhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:13px}
+.home05 h2{font-family:inherit;color:inherit;font-weight:700;text-wrap:wrap;overflow-wrap:inherit;line-break:inherit;font-size:clamp(1.55rem,2.1vw,2.15rem);letter-spacing:-.06em;margin:0;line-height:1.2}
+.home05-guide,.home05-detail-link{color:#164e83;font-weight:650;font-size:.9rem}
+.home05-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.home05-tile{border-radius:22px;padding:clamp(22px,2.6vw,40px);background:#112738;color:white;display:flex;flex-direction:column;scroll-margin:12px}
+.home05-tile:last-child{background:#eaf2f6;color:#122938}
+.home05-label{font-size:.9rem;font-weight:700;color:#a5deef;margin:0}
+.home05-tile:last-child .home05-label{color:#355b6a}
+.home05 h3{font-size:clamp(1.6rem,2.25vw,2.25rem);line-height:1.24;letter-spacing:-.065em;margin:10px 0 8px}
+.home05-intro{font-size:1rem;margin:0;color:#dbe5ec}
+.home05-tile:last-child .home05-intro{color:#314d5c}
+.home05-flow{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:2px 0;margin:18px 0 22px;font-size:.86rem;line-height:1.65;color:#c6d8e2}
+.home05-tile:last-child .home05-flow{color:#3f5b67}
+.home05-flow li:not(:last-child):after{content:'›';margin:0 .48em}
+.home05-decision{margin-top:auto;border-top:1px solid #47606e;padding-top:15px}
+.home05-tile:last-child .home05-decision{border-color:#bfced6}
+.home05-decision p{font-size:.96rem;font-weight:630;margin:0 0 8px}
+.home05-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 17px;border-radius:24px;background:#fff;color:#102737;font-weight:680;font-size:.9rem}
+.home05-tile:last-child .home05-btn{background:#174763;color:#fff}
+.home05-btn:hover{text-decoration:none;box-shadow:0 0 0 2px currentColor}
+.home05-tile:focus-visible{outline:3px solid #146caa}
+.home05-nav .home05-local{color:#314d60}
+@media(max-width:760px){
+  .home05-wrap{width:calc(100% - 36px)}
+  .home05-nav{gap:12px}
+  .home05-hero{padding:36px 0 12px}
+  .home05-ribbon{width:min(87%,450px)}
+  .home05-services{padding-top:22px}
+  .home05-grid{grid-template-columns:1fr}
+  .home05-tile{padding:24px}
+  .home05-services h2{font-size:1.48rem}
+  .home05-sectionhead{gap:0 10px}
+  .home05-flow{margin:12px 0 17px}
+  .home05-local{display:none!important}
+  .home05 h1{font-size:clamp(2.1rem,8.3vw,3.15rem)}
+}
+@media(max-width:360px){
+  .home05-wrap{width:calc(100% - 28px)}
+  .home05-tile{padding:19px}
+  .home05-hero{padding-top:28px}
+  .home05-grid{gap:10px}
+}
+.home05-jump{display:none}
+@media(max-width:760px){
+  .home05-jump{display:flex;justify-content:center;flex-wrap:wrap;gap:0 1.1rem}
+  .home05-jump a{font-size:.91rem;color:#144d77;font-weight:650;min-height:44px;display:flex;align-items:center}
+}
+@media(max-width:360px){
+  .home05-jump{gap:0 .7rem}
+}
+.home05-hero{min-height:clamp(590px,77svh,810px);display:grid;align-content:center;padding:clamp(92px,9vw,154px) 0 clamp(86px,8vw,138px)}
+.home05-kicker{margin-bottom:1rem}
+.home05-ribbon{margin-top:22px}
+.home05-services{padding-top:clamp(74px,7vw,116px);padding-bottom:clamp(78px,8vw,128px)}
+.home05-sectionhead{margin-bottom:26px}
+.home05-grid{gap:24px}
+.home05-tile{padding:clamp(30px,3.15vw,48px)}
+.home05-decision p{margin-bottom:8px}
+@media(max-width:760px){
+  .home05-hero{min-height:clamp(415px,67svh,600px);padding:64px 0 58px}
+  .home05-ribbon{margin-top:18px}
+  .home05-jump{margin-top:16px}
+  .home05-services{padding-top:56px;padding-bottom:64px}
+  .home05-sectionhead{margin-bottom:20px}
+  .home05-tile{padding:26px}
+  .home05-grid{gap:24px}
+}
+@media(max-width:360px){
+  .home05-hero{padding:50px 0 48px}
+  .home05-tile{padding:21px}
+}
+.home05-tile h3{max-width:22em;line-height:1.27;text-wrap:balance}
+.home05-tile .home05-intro{max-width:35em;line-height:1.65;text-wrap:pretty}
+.home05-tile .home05-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:25px 0 27px;line-height:1.4}
+.home05-tile .home05-flow li{position:relative;padding-top:16px;padding-right:.35em;font-weight:550;letter-spacing:-.035em}
+.home05-tile .home05-flow li:before{content:'';position:absolute;top:2px;left:0;width:6px;height:6px;border-radius:50%;background:#a5deef}
+.home05-tile:last-child .home05-flow li:before{background:#355b6a}
+.home05-tile .home05-flow li:not(:last-child):after{content:'';position:absolute;top:4.5px;left:9px;right:3px;height:1px;background:currentColor;opacity:.43;margin:0}
+.home05-tile .home05-flow li:last-child:before{background:transparent;border:1.5px solid currentColor;width:7px;height:7px;top:1px}
+.home05-tile .home05-decision{padding-top:18px}
+.home05-decision p{line-height:1.55}
+.home05-decision .home05-btn{margin:0}
+.home05-btn:focus-visible{outline-color:#448fe4}
+@media(max-width:1050px) and (min-width:761px){
+  .home05-tile .home05-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 0}
+  .home05-tile .home05-flow li:nth-child(2):after{display:none}
+}
+@media(max-width:760px){
+  .home05-tile .home05-intro{font-size:1rem}
+  .home05-tile .home05-flow{margin:20px 0 21px}
+  .home05-tile .home05-flow li{font-size:.82rem}
+}
+@media(max-width:365px){
+  .home05-tile .home05-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 0}
+  .home05-tile .home05-flow li:nth-child(2):after{display:none}
+}
+.home05 p{line-break:inherit;overflow-wrap:inherit}
+.home05-decision .home05-detail-link{margin-inline-start:.8rem;color:inherit;text-decoration:underline;text-underline-offset:.23em}
+
+/* Narrow two-column cards: the service label becomes the same detail link.
+   Keep the full closure notice and the original primary buttons at reading size. */
+.home05-name-detail { display: none; }
+@media (760px < width < 900px) {
+  #biz .home05-label { display: flex; }
+  #biz .home05-business-name, #biz .home05-decision .home05-detail-link { display: none; }
+  #biz .home05-name-detail {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-block: -11px;
+    padding-block: 11px;
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: .23em;
+  }
+  #biz .home05-flow { margin-bottom: 12px; }
+  #biz .home05-decision { padding-top: 9px; }
+}
